@@ -1,0 +1,28 @@
+
+<section>
+  <button (click)="toggleForm($event)">Add a New Food</button>
+  <form class="" action="" [hidden]="isActive">
+    <label for="food-name"></label>
+    <input type="text" name="food-name" placeholder="Name of Food" [(ngModel)]="newFood.name">
+    <label for="food-calories"></label>
+    <input type="text" name="food-calories" placeholder="Calories" [(ngModel)]="newFood.calories">
+    <label for="food-quantity"></label>
+    <input type="text" name="food-quantity" placeholder="Quantity" [(ngModel)]="newFood.quantity">
+    <label for="food-image"></label>
+    <input type="text" name="food-image" placeholder="Image" [(ngModel)]="newFood.image">
+    <button (click)="addFood(); toggleForm($event)">Submit New Food</button>
+  </form>
+  <div>
+    <input type="text" name="search" placeholder="Search Food"[(ngModel)]="pattern">
+  </div>
+  <ul>
+    <li *ngFor="let food of foods | filter:'name':pattern" [ngStyle]="{'background-image': 'url('+food.image+')'}">
+      <i class="fa fa-check-circle fa-3x" aria-hidden="true" (click)="addToMenu(); toggleSelect($event)"></i>
+      <div class="info-food">
+        <h2>{{food.name}} </h2>
+        <h4>{{food.calories}} Kcal</h4>
+        <h4>{{food.quantity}} uds</h4>
+      </div>
+    </li>
+  </ul>
+</section>
