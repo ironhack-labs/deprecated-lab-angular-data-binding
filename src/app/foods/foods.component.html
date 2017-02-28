@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid"></div>
+    <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Nutrition App</a>
+    </div>
+
+</nav>
+
+<!-- SEARCH FOODS -->
+<div class="row">
+  <label for="search"></label>
+  <input type="text" [(ngModel)]="pattern" placeholder="search">
+</div>
+
+
+<button (click)="form.hidden = !form.hidden">Add Food</button>
+<div #form hidden>
+<div>
+  <input type="text" [(ngModel)]="newFood.name" placeholder="name">
+</div>
+<div>
+  <input type="text" [(ngModel)]="newFood.calories" placeholder="calories">
+</div>
+<div>
+  <input type="text" [(ngModel)]="newFood.image" placeholder="image">
+</div>
+
+<button (click)="addFood()">Submit</button>
+
+</div>
+
+
+<div class="row">
+<ul>
+  <li *ngFor="let food of foods | filter:'name':pattern;">
+    <span>Name: {{food.name}}</span>
+    <span>Calories: {{food.calories}}</span>
+    <img class="img-circle" width="120px" height="90px" src="{{food.image}}">
+    <button (click)="eatToday(food)">Eat Today</button>
+      <!-- <button ng-click="#eat-today.append({{food}})">Eat Today</button> -->
+  </li>
+</ul>
+</div>
+
+<div class="row">
+  <h3>Today's Foods</h3>
+  <ul id="eat-today">
+    <li *ngFor="let foods of todaysFood">
+      <span>Name: {{foods.name}}</span>
+      <span>Calories: {{foods.calories}}</span>
+      <!-- <img class="img-circle" width="120px" height="90px" src="{{foods.image}}"> -->
+
+    </li>
+    <h3>Total Calories: {{totalCalories}}</h3>
+  </ul>
+</div>
