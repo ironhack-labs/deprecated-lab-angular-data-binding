@@ -1,35 +1,27 @@
 <div>
   <label for="contact-name"></label>
-  <input type="text" [(ngModel)]="newContact.name" placeholder="name">
+  <input type="text" [(ngModel)]="newContact.name">
 </div>
 <div>
   <label for="contact-email"></label>
-  <input type="text" [(ngModel)]="newContact.email" placeholder="email">
+  <input type="text" [(ngModel)]="newContact.email">
 </div>
 <div>
   <label for="contact-phone"></label>
-  <input type="text" [(ngModel)]="newContact.phoneNumber" placeholder="phone">
+  <input type="text" [(ngModel)]="newContact.phoneNumber">
 </div>
 <div>
   <label for="contact-image"></label>
-  <input type="text" [(ngModel)]="newContact.image" placeholder="url-image">
+  <input type="text" [(ngModel)]="newContact.image">
 </div>
-
-<button (click)="addContact()">Submit New Contact</button>
-
-
-<div>
-  <label for="search"></label>
-  <input type="text" [(ngModel)]="pattern" placeholder="name to search">
-</div>
-
-<button (click)="searchContact()">Search Contact</button>
+<!-- IT 2-<button (click)="addContact()">Submit New Contact</button>
 
 <ul>
-  <li *ngFor="let contact of contacts | filter:'name':pattern">
-    <span>{{contact.name}} </span>
-    <span>{{contact.email}} </span>
-    <span>{{contact.phoneNumber}} </span>
+  <li *ngFor="let contact of contacts">
+    <span>contact.name</span>
+    <span>contact.email</span>
+    <span>contact.phoneNumber</span>
     <img [src]="contact.image" />
   </li>
 </ul>
+ IT 1-->
