@@ -1,0 +1,45 @@
+<p>
+  app-food-list
+</p>
+
+<div class="todaysFood">
+
+    Todays Food:
+    <ul>
+    <li *ngFor="let food of foodsToEat">{{food}}</li>
+    </ul>
+    <h4>Total Calories: {{totalOfCalories}} </h4>
+</div>
+
+<div class=foodForm  *ngIf="isInputDisabled ===false ">
+  <label for="food-Name" >Food Name</label>
+  <input type="text"  [(ngModel)]="newFood.name"/>
+  <br>
+  <label for="Calories"> Calories</label>
+  <input type="text" [(ngModel)]="newFood.calories"/>
+  <br>
+  <label for="Quantity">Quantity</label>
+  <input type="text" [(ngModel)]="newFood.quantity"/>
+  <br>
+  <label for="Food Image">Food Image</label>
+  <input type="text" [(ngModel)]="newFood.image" />
+  <button (click)="addFood()">Add!!</button>
+</div>
+<button (click)="openForm()">Add new Food</button>
+
+<div class="container">
+  <div>
+  <label for="food-search"></label>
+  <input type="text" [(ngModel)]="foodSearch">
+</div>
+<ul>
+  <li *ngFor="let food of foodsList | find:'name':foodSearch;">
+    <span >{{food.name }}</span>
+    <span>{{food.calories }}</span>
+    <span>{{food.quantity }}</span>
+    <img src="{{food.image}}">
+    <button (click)="addFoodToList(food.name,food.calories)">I wanna eat it!!</button>
+  </li>
+</ul>
+</div>
+<!-- USAR DISPLAY NONE -->
