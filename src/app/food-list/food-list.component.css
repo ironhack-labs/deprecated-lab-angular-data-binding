@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+}
+
+h4 {
+    padding: 0;
+    margin: 0;
+}
+
+ul img {
+    width: 100px;
+}
+
+.food ul li {
+    list-style: decimal;
+}
+
+.search-box {
+    float: left;
+    font-family: sans-serif;
+    color: #FBBC05;
+    text-align: center;
+    background: #4486F7;
+    max-width: 800px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+.search-box li {
+    list-style: none;
+}
+
+.today-foods {
+    margin-right: 50px;
+    font-family: sans-serif;
+    color: #FBBC05;
+    text-align: center;
+    float: right;
+    max-width: 400px;
+    background: #34A855;
+}
+
+.food-form {
+    font-family: sans-serif;
+    color: #FBBC05;
+    text-align: center;
+    margin: 0 auto;
+    background: #34A855;
+    max-width: 400px;
+    border-radius: 4px;
+}
