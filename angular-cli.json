@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.28.3",
-    "name": "lab-angular-data-binding"
+    "name": "contact-app"
   },
   "apps": [
     {
@@ -21,6 +21,7 @@
         "styles.css"
       ],
       "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -57,11 +58,11 @@
     },
     "spec": {
       "class": false,
-      "component": true,
-      "directive": true,
+      "component": false,
+      "directive": false,
       "module": false,
-      "pipe": true,
-      "service": true
+      "pipe": false,
+      "service": false
     }
   }
 }
