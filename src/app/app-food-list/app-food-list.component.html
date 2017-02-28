@@ -1,0 +1,38 @@
+<div>
+<label for="search-box">Search by Name: </label>
+<input type="text" name="search-box" id="search-box"  [(ngModel)]="searchBox">
+</div>
+
+  <div class="food-container" *ngFor="let food of foods | foodFilter:'name':searchBox">
+  <h3>{{food.name}}</h3>
+  <p>Calories: {{food.calories}}</p>
+  <img class="food-pic" src="{{food.image}}" alt="food pic">
+  <p>Quantity: {{food.quantity}}</p>
+  <button (click)="addToTodaysFoods(food.name, food.calories)">Eat today</button>
+</div>
+
+<div class="todays-foods">
+  <br>
+  <h2>Today's Foods</h2>
+  <ul>
+    <li *ngFor="let food of todaysFoods">{{food}}</li>
+  </ul>
+  <h3>Total Calories: {{totalCalories}}</h3>
+</div>
+
+  <div class="add-container">
+    <br><br>
+    <button (click)="toggleAddForm($event)">Show Food Form</button>
+    <br>
+    <form id="add-form" action="" [hidden]="isAddFormHidden">
+      <label for="food-name-input">Name: </label>
+      <input type="text" name="food-name-input" [(ngModel)]="newFood.name"><br>
+      <label for="food-calories-input">Calories: </label>
+      <input type="text" name="food-calories-input" [(ngModel)]="newFood.calories"><br>
+      <label for="">Image URL: </label>
+      <input type="text" name="food-image-input" [(ngModel)]="newFood.image"><br>
+      <label for="">Quantity: </label>
+      <input type="text" name="food-quantity-input" [(ngModel)]="newFood.quantity"><br>
+      <button (click)="addFood(); toggleAddForm($event)" type="submit" form="add-form">Add Food</button>
+    </form>
+  </div>

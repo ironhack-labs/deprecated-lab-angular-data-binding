@@ -1,0 +1,20 @@
+.food-container {
+  float: left;
+  width: 200px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.add-container {
+  float: left;
+}
+
+.food-pic {
+  height: 50px;
+  width: auto;
+}
+
+.todays-foods {
+  float: left;
+  width: 200px;
+}
