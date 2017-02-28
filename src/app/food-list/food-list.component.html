@@ -1,0 +1,49 @@
+<ul>
+<h4> Food list </h4>
+<li *ngFor="let food of foods">
+  <span>{{food.name}}</span>
+  <span>{{food.calories}}</span>
+  <img src="{{food.image}}">
+  <input placeholder="quantity" type="number" [(ngModel)]="quantity">
+  <button  (click)="addForToday(food)">Add Food</button>
+</li>
+</ul>
+<div>
+    <label for="foods_name"> Search foods: </label>
+    <input id="foods_name" placeholder="food name"
+          type="text" [(ngModel)]="pattern">
+</div>
+
+    <h4> food</h4>
+        <ul>
+          <li *ngFor="let food of foods | filter:'name':pattern ;  let i = index">
+            {{ i+1 }}) {{ food.name }}
+          </li>
+        </ul>
+
+        <h4>Todays food</h4>
+            <ul>
+              <li *ngFor="let food of todayFoods | filter:'name':pattern ;  let i = index">
+              {{ i+1 }}) {{ food.name }},{{ food.calories }} 
+              </li>
+              <p>Total amout of calories: {{totalCalories}}</p>
+            </ul>
+
+
+<button (click)="form.hidden = !form.hidden">Add Food</button>
+
+<div #form hidden>
+<div>
+<label for="food-name"></label>
+<input placeholder="name" type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+<label for="food-calories"></label>
+<input placeholder="calories" type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+<label for="food-image"></label>
+<input placeholder="imageLink" type="text" [(ngModel)]="newFood.image">
+</div>
+<button (click)="addFood()">Submit New Food</button>
+</div>
