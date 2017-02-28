@@ -1,0 +1,17 @@
+
+<div>
+  <label for="food-name"></label>
+  <input placeholder= "name" type="text" [(ngModel)]="newFood.name" [hidden]="isInputDisabled">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input placeholder= "calories" type="text" [(ngModel)]="newFood.calories" [hidden]="isInputDisabled">
+</div>
+<div>
+  <label for="food-images"></label>
+  <input placeholder= "images" type="text" [(ngModel)]="newFood.images" [hidden]="isInputDisabled">
+</div>
+<div>
+<button [hidden]="isInputDisabled" (click)="addFood(newFood.name, newFood.calories, newFood.images)">Submit New Food</button>
+</div>
+<button (click)="toggleInput()"> Show Food Form </button>
