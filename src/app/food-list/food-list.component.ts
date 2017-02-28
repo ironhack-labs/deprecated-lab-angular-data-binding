@@ -22,9 +22,11 @@ export class FoodListComponent implements OnInit {
   addForToday(food){
     for(let i = 0; i < this.quantity; i++) {
     this.totalCalories = this.totalCalories + food.calories;
+    if(this.todayFoods.indexOf(food) === -1) {
+      this.todayFoods.push(food)
+    }
   }
-    this.todayFoods.push(food)
-    this.quantity = 1;
+      this.quantity = 1;
 
   }
 
