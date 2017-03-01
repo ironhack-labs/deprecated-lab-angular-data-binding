@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-left">
+    <div>
+      <label for="search_name"> Search thing: </label>
+      <input id="search_name" placeholder="SEARCH FOODS" type="text" [(ngModel)]="pattern">
+    </div>
+
+    <button (click)="form.hidden = !form.hidden">Add Food</button>
+
+    <div #form hidden>
+      <div>
+        <label for="food-name">Food</label>
+        <input type="text" [(ngModel)]="newFood.name">
+      </div>
+      <div>
+        <label for="food-calories">Calories</label>
+        <input type="text" [(ngModel)]="newFood.calories">
+      </div>
+      <div>
+        <label for="food-image">Image Link</label>
+        <input type="text" [(ngModel)]="newFood.image">
+      </div>
+      <button (click)="addFood()">Add Food</button>
+    </div>
+
+    <div class="flex" *ngFor="let food of foods | filter:'name':pattern ">
+      <span>{{food.name}}</span>
+      <span>{{food.calories}}</span>
+      <img [src]="food.image" alt="">
+      <button (click)="addToDay(food)">Add To Day</button>
+    </div>
+  </div>
+
+  <div class="col-right">
+    <h1>Today's Fooood</h1>
+    <div class="flex" *ngFor="let item of daysFood">
+      <span>{{item.name}}</span>
+      <span>{{item.calories}}</span>
+      <img [src]="item.image" alt="">
+    </div>
+    <h2>Total Calories: {{ totalCalories }}</h2>
+  </div>
+</div>
