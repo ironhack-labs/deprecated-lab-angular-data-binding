@@ -1,0 +1,49 @@
+
+<div>
+      <label for="Name"> Search name: </label>
+      <input placeholder="name" type="text" [(ngModel)]="pattern">
+<div [ngClass]="{'my-class': !isClassVisible }">
+
+  <div>
+
+    <label for="Food name"></label>
+      <input #foodName type="text" placeholder="name" [(ngModel)]="newFood.name">
+  </div>
+
+
+  <div>
+    <label for="Food calories"></label>
+      <input #foodCalories type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+  </div>
+
+  <div>
+    <label for="Food img"></label>
+      <input #foodImg type="text" placeholder="IMG url" [(ngModel)]="newFood.img">
+  </div>
+ </div>
+  <button (click)="addFood(foodName.value, foodCalories.value, foodImg.value); isClassVisible = !isClassVisible;">New food</button>
+
+
+
+
+<ul *ngFor="let food of foods |  filter:'name':pattern">
+  <div class="container">
+
+    <span><img src="{{food.image}}" alt=""></span><br>
+    <span>Name: {{food.name}}</span><br>
+    <span>Calories: {{food.calories}}</span><br>
+    <input #foodQuantity type="text" name="" value="" placeholder="quantity">
+    <button (click)="addToday(food.name, food.calories, foodQuantity.value ); countCalories()">Add {{food.name}}</button>
+
+  </div>
+
+
+</ul>
+<div class="todayList">
+        Total calories:
+        {{sum}}<br><br>
+        Today List:
+  <ul *ngFor="let item of todayFoodList">
+      <span>{{item[0]}}</span>
+</ul>
+</div>
