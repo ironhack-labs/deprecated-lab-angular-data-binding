@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AppFoodListComponent } from './app-food-list/app-food-list.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppFoodListComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

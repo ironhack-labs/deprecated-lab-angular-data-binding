@@ -1,0 +1,30 @@
+<h1> Food List </h1>
+
+<h2> Add food </h2>
+<div>
+  <label for="food-name">Name:</label>
+  <input type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories">Calories:</label>
+  <input type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-image">Image:</label>
+  <input type="text" [(ngModel)]="newFood.image">
+</div>
+
+
+<h2>Search for Food</h2><br>
+<input [(ngModel)]="value">
+
+<h2>The Food</h2>
+<div>
+  <ul>
+     <li *ngFor="let oneFood of foods | search: 'name': value">
+       <span>Name: {{ oneFood.name }}</span> <br>
+       <span>Calories: {{ oneFood.calories }}</span> <br>
+       <img [src]=" oneFood.image " alt=""><br>
+    </li>
+  </ul>
+</div>
