@@ -13,7 +13,25 @@ var FoodListComponent = (function () {
     function FoodListComponent() {
         this.myFoods = foods;
     }
+    FoodListComponent.prototype.toggleNewFoodForm = function () {
+        this.newFoodFormHidden = !this.newFoodFormHidden;
+    };
+    FoodListComponent.prototype.addFood = function () {
+        var newFood = {
+            name: this.newFoodName,
+            calories: this.newFoodCalories,
+            image: this.newFoodImage,
+            quantity: this.newFoodQuantity
+        };
+        this.myFoods.push(newFood);
+        console.log(newFood);
+        this.newFoodName = "";
+        this.newFoodCalories = "";
+        this.newFoodImage = "";
+        this.newFoodQuantity = "";
+    };
     FoodListComponent.prototype.ngOnInit = function () {
+        this.newFoodFormHidden = true;
     };
     return FoodListComponent;
 }());

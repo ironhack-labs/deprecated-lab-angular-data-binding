@@ -1,4 +1,28 @@
 <input [(ngModel)]="searchTerm" type="text">
+
+<br><br>
+
+<button (click)="toggleNewFoodForm()"> + New Food </button>
+
+<br><br>
+
+<form #newFoodForm="ngForm" [hidden]="newFoodFormHidden">
+  <input
+  [(ngModel)]="newFoodName"
+  type="text" name="name" placeholder="name">
+  <input
+  [(ngModel)]="newFoodCalories"
+  type="text" name="calories" placeholder="calories">
+  <input
+  [(ngModel)]="newFoodImage"
+  type="text" name="image" placeholder="image url">
+  <input
+  [(ngModel)]="newFoodQuantity"
+  type="text" name="quantity" placeholder="quantity (no words please)">
+
+  <button (click)="addFood()"> Submit </button>
+</form>
+
 <div *ngFor="let food of (myFoods | search: searchTerm)">
   <img [src]="food.image" alt="">
 </div>
