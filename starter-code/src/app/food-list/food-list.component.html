@@ -4,7 +4,7 @@
 
     <button (click)="showForm()" >Add Item</button>
     <div *ngIf="addForm">
-      <app-add-item (onSubmit)="addItem(submitted)"></app-add-item>
+      <app-add-item (onSubmit)="addItem($event)"></app-add-item>
     </div>
 </div>
 
