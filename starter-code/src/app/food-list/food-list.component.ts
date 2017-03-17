@@ -11,9 +11,7 @@ export class FoodListComponent implements OnInit {
   foodsList: Array<any> = [];
 
   ngOnInit() {
-    foods.forEach((food) => {
-      this.foodsList.push(food);
-    });
+    this.foodsList = foods;
     console.log(this.foodsList);
   }
 

@@ -1,8 +1,13 @@
 <h1> Your Foods </h1>
 
 <div>
+  <label for="search">Search</label>
+  <input id="search" [(ngModel)]="target">
+</div>
+
+<div>
   <ul>
-    <li *ngFor="let food of foodsList">
+    <li *ngFor="let food of foodsList | search :target">
       <span>{{food.name}}</span>
       <span>{{food.calories}}</span>
       <img [src]="food.image">
