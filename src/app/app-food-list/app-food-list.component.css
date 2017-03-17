@@ -2,3 +2,14 @@ img {
   height: 100px;
   width: auto;
 }
+
+ul {
+  list-style: none;
+  display: flex;
+
+  width: 80%;
+}
+
+img {
+  float: left;
+}
