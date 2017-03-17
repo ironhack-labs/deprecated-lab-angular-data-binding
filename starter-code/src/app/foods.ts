@@ -1,11 +1,5 @@
 const foods: Object[] = [
   {
-    name: "Pizza",
-    calories: 400,
-    image: "https://i.imgur.com/eTmWoAN.png",
-    quantity: 0
-  },
-  {
     name: "Salad",
     calories: 150,
     image: "https://i.imgur.com/DupGBz5.jpg",
@@ -94,7 +88,13 @@ const foods: Object[] = [
     calories: 125,
     image: "https://i.imgur.com/URhdrAm.png",
     quantity: 0
-  }
+  },
+  {
+    name: "Pizza",
+    calories: 400,
+    image: "https://i.imgur.com/eTmWoAN.png",
+    quantity: 0
+  },
 ]
 
 export default foods;
