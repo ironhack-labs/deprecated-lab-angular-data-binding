@@ -1,3 +1,47 @@
-<p>
-  food-list works!
-</p>
+<input [(ngModel)]='searchValue' placeholder="Search">
+<button (click)='createNewFood()'>Create New Food</button>
+<div class="newFoodForm" *ngIf='newFoodForm'>
+  <h2>Create New Food</h2>
+  <p>
+    <input required #name type="text" [(ngModel)]='newFood.name' placeholder="Name">
+  </p>
+  <p>
+    <input required #cal type="number" [(ngModel)]='newFood.calories' placeholder="Calories">
+  </p>
+  <p>
+    <input required #img type="text" [(ngModel)]='newFood.image' placeholder="Image URL">
+  </p>
+  <p>
+    <button (click)='createNewFood()' style='background-color: red'>Cancel</button>
+    <button (click)='submitNewFood()'>Submit</button>
+  </p>
+</div>
+
+<div class="todaysFood" *ngIf='todaysFoods.length'>
+  <h3> TODAY</h3>
+  <div class="t1">
+    <ol>
+      <li *ngFor='let food of todaysFoods; let i = index'>
+        {{food.name}}
+        <b *ngIf='food.quantity > 1'> x {{food.quantity}}</b>
+      </li>
+    </ol>
+  </div>
+  <div class="t2">
+    <p>Total calories: </p>
+    {{totalCalories}}
+  </div>
+</div>
+<div class="foodList">
+  <ul>
+    <li *ngFor='let food of foods | searchPipe:"name":searchValue;let i = index'>
+
+      <h3>{{food.name}}</h3>
+      calories: {{food.calories}}
+      <br>
+      <img src="{{food.image}}" alt="{{food.name}}">
+      <button (click)='addFoodForToday(food)'>Add</button>
+    </li>
+  </ul>
+
+</div>
