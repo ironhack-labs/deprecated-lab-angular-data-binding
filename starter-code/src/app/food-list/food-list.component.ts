@@ -15,9 +15,12 @@ export class FoodListComponent implements OnInit {
   }
   ngOnInit() {}
   addFood(items) {
-    console.log(this.foods);
-    console.log(items);
-    this.foods.unshift(items);
-
+    const newItem = {
+      name: items.name,
+      calories: items.calories,
+      image: items.image
+    };
+    this.foods.unshift(newItem);
   }
+  addToday() {}
 }

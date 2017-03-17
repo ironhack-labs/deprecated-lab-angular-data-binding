@@ -16,10 +16,14 @@ var FoodListComponent = (function () {
     }
     FoodListComponent.prototype.ngOnInit = function () { };
     FoodListComponent.prototype.addFood = function (items) {
-        console.log(this.foods);
-        console.log(items);
-        this.foods.unshift(items);
+        var newItem = {
+            name: items.name,
+            calories: items.calories,
+            image: items.image
+        };
+        this.foods.unshift(newItem);
     };
+    FoodListComponent.prototype.addToday = function () { };
     return FoodListComponent;
 }());
 FoodListComponent = __decorate([
