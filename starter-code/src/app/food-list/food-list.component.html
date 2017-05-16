@@ -1,3 +1,49 @@
 <p>
   food-list works!
 </p>
+
+<div>
+    <label for="things_name"> Search thing: </label>
+    <input id="things_name" placeholder="thing name"
+            type="text" [(ngModel)]="pattern">
+<div>
+
+  <button (click)="toggleStatus()">New Food</button>
+
+  <div *ngIf="status === true">
+    <div class="new-food">
+      <div>
+        <label for="food-name">Name</label>
+        <input type="text" [(ngModel)]="newFood.name">
+      </div>
+      <div>
+        <label for="food-calories">Calories</label>
+        <input type="number" [(ngModel)]="newFood.calories">
+      </div>
+      <div>
+        <label for="food-image">Image</label>
+        <input type="text" [(ngModel)]="newFood.image">
+      </div>
+      <button (click)="addFood(); toggleStatus">Submit New Food</button>
+    </div>
+  </div>
+
+<h3> Food list </h3>
+<ul class="food-list">
+  <li *ngFor="let food of foodsList | foodFilter:'name':pattern; let i = index">
+    <p>{{ i+1 }}) {{ food.name }}</p> <p>{{ food.calories }}</p> <img [src]="food.image"/>
+    <div>
+      <label for="food-quantity">Quantity</label>
+      <input type="number" #quantity>
+    </div>
+    <button (click)="addTodayFood(food,quantity.value)">Add Today Food</button>
+  </li>
+</ul>
+
+<h3> Today Food list </h3>
+<h4> Total Calories {{countCalory}}</h4>
+<ul class="today-food-list">
+  <li *ngFor="let todayFood of todayFoodList; let i = index">
+    <p>{{ i+1 }}) {{ todayFood.name }}</p> <p>{{ todayFood.calories }}</p> <p>{{ todayFood.quantity }}</p> <img [src]="todayFood.image"/>
+  </li>
+</ul>
