@@ -1,3 +1,38 @@
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+<div>
 <p>
   food-list works!
 </p>
+<button (click)="changeValue()"> Show form</button>
+
+<div *ngIf="form1 === 1">
+        <div>
+          <label for="contact-name"></label>
+          <input placeholder="name" type="text" [(ngModel)]="newFood.name">
+        </div>
+        <div>
+          <label for="contact-email"></label>
+          <input placeholder="email" type="text" [(ngModel)]="newFood.email">
+        </div>
+        <div>
+          <label for="contact-phone"></label>
+          <input placeholder="phone" type="text" [(ngModel)]="newFood.phoneNumber">
+        </div>
+        <div>
+          <label for="contact-image"></label>
+          <input placeholder="image" type="text" [(ngModel)]="newFood.image">
+        </div>
+
+      <button (click)="addFood(new)"> Add a product</button>
+  </div>
+
+<ul>
+    <li *ngFor="let food of foods | filter:'name':pattern"  >
+        <img [ngClass]="{ resize: true }" [src]="food.image" >
+        <span>  {{ food.name }} </span>
+        <span> {{ food.calories}} </span>
+    </li>
+</ul>
