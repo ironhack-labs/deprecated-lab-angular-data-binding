@@ -1,3 +1,49 @@
-<p>
-  food-list works!
-</p>
+<h1>
+  Food List!
+</h1>
+
+<button (click)="toggleForm()">Add new food</button>
+
+<form id="food-form" *ngIf='shown'>
+  <div>
+    <input type="text" [(ngModel)]="newFood.name" name='name' placeholder="name">
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="newFood.calories" name='calories' placeholder="calories">
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="newFood.image" name='image' placeholder="image URL">
+  </div>
+  <button  class="button button-block" (click)="addFood()">Add this food!</button>
+</form>
+
+<div>
+<label for="foods_name"> Search food: </label>
+<input id="foods_name" placeholder="food name"
+      type="text" [(ngModel)]="pattern">
+</div>
+
+<div class="container">
+<div class='col-md-4'  *ngFor="let food of foods | filter:'name':pattern; let i = index" [ngClass]="{article: true}">
+  <img width="300" height="200" src="{{ food.image }}">
+  <h4>{{ food.name }}</h4>
+  <ul>
+    <li>Calories: {{ food.calories }}</li>
+  </ul>
+  <button class="button button-block" (click)="addToday(food.name, food.calories)">Add {{food.name}} to Today's Food</button>
+  <select>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+    <option value=5>5</option>
+  </select>
+</div>
+</div>
+
+<h1>Today's foods</h1>
+<div *ngFor="let food of todayFood">
+  <p><b>{{ food[0] }}</b> - Calories: {{ food[1] }}</p>
+</div>
+
+<h4>Total calories: {{totalCaloriesSum}} </h4>
