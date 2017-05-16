@@ -1,3 +1,53 @@
+<div class="container">
+  <div class="left">
 <p>
-  food-list works!
+  <strong>This is the Food List:</strong>
 </p>
+<div class="search-form">
+<input class="search" type="text" name="" value="" placeholder="Search for Food" [(ngModel)]="pattern"><br>
+<button *ngIf="!show" (click)="toggleShowDiv()">Add Food To List</button>
+</div>
+<BR>
+<div class="form" *ngIf="show">
+  <div>
+    <label for="food-name"></label>
+    <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+  </div>
+  <div>
+    <label for="food-calories"></label>
+    <input type="number" [(ngModel)]="newFood.calories" placeholder="Calories">
+  </div>
+  <div>
+    <label for="food-image"></label>
+    <input type="text" [(ngModel)]="newFood.image" placeholder="Image URL">
+  </div>
+  <div>
+    <button (click)="addFood(newFood)" type="button" name="button">Submit</button>
+  </div>
+</div>
+
+<div class="food-box" *ngFor="let food of foods | filter:'name':pattern; let i = index">
+  <ul><strong>{{food.name}}</strong>
+    <li>{{food.calories}} calories.</li>
+    <li><img src={{food.image}} alt=""></li>
+    <li><button (click)="addToday(food)">Add to Todays List</button></li>
+  </ul>
+</div>
+</div>
+
+  <div class="right">
+    <p>
+      <strong>This is Todays Food List:</strong>
+    </p>
+    <p> Todays meals: {{todayCount}}<br> Todays calories: {{calories}} </p>
+    <br><br>
+    <div class="food-box" *ngFor="let todayFood of foodsToday; let i = index">
+      <ul><strong>{{todayFood.name}}</strong>
+        <li>{{todayFood.calories}} calories.</li>
+        <li><img src={{todayFood.image}} alt=""></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
