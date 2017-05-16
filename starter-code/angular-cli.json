@@ -1,6 +1,5 @@
 {
   "project": {
-    "version": "1.0.0-beta.28.3",
     "name": "lab-angular-data-binding"
   },
   "apps": [
@@ -21,8 +20,8 @@
         "styles.css"
       ],
       "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
@@ -50,18 +49,13 @@
   },
   "defaults": {
     "styleExt": "css",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
+    "class": {
+      "spec": false
     },
-    "spec": {
-      "class": false,
-      "component": false,
-      "directive": true,
-      "module": false,
-      "pipe": false,
-      "service": true
+    "component": {
+      "spec": false,
+      "inlineStyle": false,
+      "inlineTemplate": false
     }
   }
 }
