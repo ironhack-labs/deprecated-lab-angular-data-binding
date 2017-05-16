@@ -1,0 +1,41 @@
+img {
+  max-height:10vh;
+}
+
+.list {
+  background-color: #FFF;
+  /*border: 1px solid black;*/
+}
+
+.container-fluid{
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.object{
+  background-color: #FFF;
+  box-shadow: 5px 5px 10px black;
+  padding: 1%;
+}
+.today{
+  background-color: #2372d1;
+  color: white;
+  text-align: center;
+}
+
+.form{
+  text-align: center;
+}
+
+.list img{
+  text-align: right;
+}
+
+#add-button{
+  text-align: center;
+  height: 10vh;
+  background-color: #BCC5AF;
+  padding: 2%;
+  margin-top: -2%;
+}
