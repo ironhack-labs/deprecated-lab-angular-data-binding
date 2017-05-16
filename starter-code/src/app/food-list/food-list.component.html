@@ -1,3 +1,71 @@
-<p>
-  food-list works!
-</p>
+
+<div id="add-button">
+  <button  (click)="addFood()">Add a New Food</button>
+</div>
+
+<div class="container-fluid">
+  <div class="col-md-12 form" *ngIf="showform">
+    <div>
+      <label for="food-name">Food Name</label>
+      <input type="text" [(ngModel)]="newFood.name">  <!-- ngModel bind the value to the .ts file -->
+    </div>
+    <div>
+      <label for="food-calories">Calories</label>
+      <input type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="food-image">Food Image</label>
+      <input type="text" [(ngModel)]="newFood.image">
+    </div>
+    <button (click)="createFood()">Add New Food</button>
+
+    <div>
+      <label for="foods_name"> Search for food: </label>
+      <input id="foods_name" placeholder="food name"
+              type="text" [(ngModel)]="pattern">
+    </div>
+  </div>
+
+  <div class= "row">
+    <div class="col-md-6 list">
+      <div class="row object" *ngFor="let food of foods | filter: 'name': pattern">
+        <div class="col-md-3">
+          <img [src]="food.image"  />
+        </div>
+        <div class="col-md-9">
+          <ul >  <!-- foods array declared in component.ts-->
+            <li>  {{ food.name }} </li>
+            <li> Calories: {{food.calories}} </li>
+            <li>Quantity: {{food.quantity}}
+              <select [(ngModel)]="food.quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+             </select>
+            <button (click)="addQuantity()">Add</button> </li>
+            <button (click)="todaysFood(food)">Add to Today</button>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 today">
+      <div>
+          <h3> Today's Foods</h3>
+          <div class="row" *ngFor="let food of todayFood">
+            <div class="col-md-12">
+              {{food.name}}
+            </div>
+            <div class="col-md-12">
+              {{food.quantity}}
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+
+
+
+</div>
