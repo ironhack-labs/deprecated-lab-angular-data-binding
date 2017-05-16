@@ -1,0 +1,17 @@
+.food{
+  border: 3px solid grey;
+  margin: 10px;
+  width: 40%;
+  float: left;
+}
+li{
+  list-style:none;
+}
+.foodImg{
+  width: 150px;
+  height: 150px;
+}
+ .list{
+   float: left;
+   width: 50%
+ }
