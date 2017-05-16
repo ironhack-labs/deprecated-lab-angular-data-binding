@@ -1,0 +1,28 @@
+.food-container {
+  width:400px;
+  border: 1px solid black;
+}
+
+.food-image {
+  width:200px;
+}
+
+.right-container {
+  float:right;
+  width:190px;
+}
+
+.hide {
+  display: none;
+}
+
+.left-container {
+  width:500px;
+ 
+  float:left;
+}
+
+.right-main {
+  
+  
+}
