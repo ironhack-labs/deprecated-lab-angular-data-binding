@@ -1,0 +1,36 @@
+.new-contact{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-flow: column;;
+}
+
+.food-list{
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.food-list li{
+  margin-right: 1rem;
+  list-style: none;
+}
+
+.food-list li img{
+  max-width: 20vw;
+}
+
+.today-food-list{
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.today-food-list li{
+  margin-right: 1rem;
+  list-style: none;
+}
+
+.today-food-list li img{
+  max-width: 20vw;
+}
