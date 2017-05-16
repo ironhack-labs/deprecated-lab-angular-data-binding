@@ -1,3 +1,36 @@
-<p>
-  food-list works!
-</p>
+<div class="left-container">
+
+  Search: <input [(ngModel)]="pattern" ><p>
+    <button (click)="toggleShowAddFood()">Add food</button>
+  <div [class] = "formClass">
+  Name:<br>
+  <input [(ngModel)]="newFood.name"><br>
+  Calories:<br>
+  <input [(ngModel)]="newFood.calories"><br>
+  Image:<br>
+  <input [(ngModel)]="newFood.image"><p>
+  <button (click)="addFood(newFood)">Submit</button><p>
+  </div>
+
+  <div *ngFor = "let food of foods | filter: 'name' : pattern; let i=index" class="food-container">
+    <img [src] = "food.image" class="food-image">
+    <div class='right-container'>
+      {{ food.name }} <small>{{ food.calories }}</small><p>
+        <button (click)="addToday(i, quantities[i])">+</button>
+        <input [(ngModel)]="quantities[i]">
+    </div>
+  </div>
+
+</div>
+
+<div class="right-main">
+  Today's foods
+  <p>
+    Total calories {{totalCalories}}
+  <p>
+  <ul>
+    <li *ngFor="let food of todayFoods">
+      {{food.name}} {{food.calories}} Calories x{{food.quantity}}
+    </li>
+  </ul>
+</div>
