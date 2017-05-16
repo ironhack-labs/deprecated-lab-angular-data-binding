@@ -1,3 +1,75 @@
-<p>
-  food-list works!
-</p>
+
+   <div class="search">
+     <label for="food_name"> Search food: </label>
+     <input id="food_name" placeholder="food name"
+             type="text" [(ngModel)]="pattern">
+   </div>
+
+
+<div class="list">
+
+    <div *ngFor="let food of foods | filter:'name':pattern; let i = index">
+      <div class="profile">
+        <p>
+          {{food.name}}
+        </p>
+        <img src={{food.image}} />
+        <p>
+          {{food.calories}}
+        </p>
+        <p>
+          {{food.quantity}}
+        </p>
+        <input type="number" min="1" [(ngModel)]="quantity"/>
+        <button (click)="updateQuantity(i)">Update quantity</button>
+        <button (click)="addTodayFood(food)">Add to today list</button>
+      </div>
+
+  </div>
+</div>
+<div>
+  <div class="form" *ngIf="show">
+<div>
+  <label for="contact-name"></label>
+  <input type="text" [(ngModel)]="newFood.name" placeholder="name">
+</div>
+<div>
+  <label for="contact-image"></label>
+  <input type="text" [(ngModel)]="newFood.image" placeholder="image url">
+</div>
+<div>
+  <label for="contact-calories"></label>
+  <input type="number" [(ngModel)]="newFood.calories" placeholder="calories">
+</div>
+<!-- <div>
+  <label for="contact-image"></label>
+  <input type="number" [(ngModel)]="newFood.quantity" placeholder="quantity">
+</div> -->
+<button (click)="addFood()">Add new food</button>
+
+</div>
+  <div class="form">
+
+      <button *ngIf="!show" (click)="showForm()">add food</button>
+  </div>
+
+
+  </div>
+
+
+
+   <div class="item-list">
+        <p>
+          Today's List
+        </p>
+        <br />
+        <ul>
+          <li *ngFor="let today of todaysList | filter:'name':pattern; let i = index">
+                {{today.name}}  {{today.quantity}}
+          </li>
+        </ul>
+         <p>
+           total calories : {{totalCalories}}
+         </p>
+
+     </div>

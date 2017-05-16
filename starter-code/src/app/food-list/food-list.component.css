@@ -1,0 +1,41 @@
+.search {
+  margin: auto;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 500px;
+  margin: auto;
+}
+
+.list {
+  display: flex;
+  flex-flow:wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.item-list {
+  display: flex;
+  flex-flow:column;
+  justify-content: center;
+  align-items: center;
+}
+ .profile {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  width: 300px;
+
+}
+
+.list img {
+  height: 150px;
+  width: 250px;
+}
