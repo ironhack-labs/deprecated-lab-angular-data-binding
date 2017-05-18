@@ -1,0 +1,42 @@
+body {
+  font-family: Arial;
+}
+
+.search span, div {
+  text-align: center;
+  clear: both;
+}
+
+.food {
+  clear:both;
+}
+
+.image {
+
+  float: left;
+  width: 200px;
+}
+
+img {
+  width: 200px;
+}
+
+.text{
+  width:500px;
+  float: right;
+}
+
+.name {
+  font-weight: bold;
+}
+.calories {
+  color: grey;
+  font-size: small;
+}
+form {
+  text-align: right;
+}
+
+.add {
+  float: left;
+}
