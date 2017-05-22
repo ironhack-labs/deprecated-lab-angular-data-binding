@@ -1,0 +1,19 @@
+{
+  "name": "lab-angular-data-binding",
+  "version": "1.0.0",
+  "description": "![Ironhack logo](https://i.imgur.com/1QgrNNw.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doyen06/lab-angular-data-binding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Doyen06/lab-angular-data-binding/issues"
+  },
+  "homepage": "https://github.com/Doyen06/lab-angular-data-binding#readme"
+}
