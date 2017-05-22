@@ -94,6 +94,11 @@ const foods: Object[] = [
     calories: 125,
     image: "https://i.imgur.com/URhdrAm.png",
     quantity: 0
+  },{
+    name: "Mac & Cheese",
+    calories: 300,
+    image: "http://i.imgur.com/MQmu8Bc.jpg",
+    quantity: 0
   }
 ]
 
