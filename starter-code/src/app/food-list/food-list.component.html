@@ -1,3 +1,49 @@
-<p>
-  food-list works!
-</p>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<h2>The Food List</h2>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3">
+    <table>
+      <tr>
+        <td> <input id="things_name" placeholder="Search Foods" type="text" [(ngModel)]="pattern"></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let item of foods | search:'name':pattern">
+        <td>{{ item.name }}</td>
+        <td>{{ item.calories }}</td>
+        <td><button (click)="addToday()"><img src="{{ item.image }}" width=50></button></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <table>
+      <tr>
+        <td>Food</td>
+        <td><input type="text" [(ngModel)]="newFood.name"></td>
+      </tr>
+      <tr>
+        <td>Calories</td>
+        <td><input type="text" [(ngModel)]="newFood.calories"></td>
+      </tr>
+      <tr>
+        <td>Image URL</td>
+        <td><input type="text" [(ngModel)]="newFood.image"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button type="submit" (click)="addFood(newFood)">💾 Save Food</button></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-4">
+  </div>
+
+</div>
