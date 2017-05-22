@@ -1,0 +1,12 @@
+<form #myForm="ngForm" ngSubmit="submitForm(myForm)">
+  <p> Name
+        <input type="text" name="name" [(ngModel)]="newItem.name" required />
+      </p>
+      <p> Calories
+        <input type="test" name="calories" [(ngModel)]="newItem.calories" required />
+      </p>
+      <p> Image
+        <input type="text" name="image" [(ngModel)]="newItem.image" required />
+      </p>
+      <button type="submit" (click)="addItem(newItem)" > Save Item </button>
+</form>
