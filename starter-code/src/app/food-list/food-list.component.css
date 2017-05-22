@@ -1,0 +1,76 @@
+img{
+  width: 100%;
+}
+ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.foodList li{
+  background: #fff;
+  border-radius: 4px;
+
+  padding: 20px;
+  margin: 10px;
+  width: 15%;
+  box-shadow: 0px 3px  8px #999;
+  transition: .4s;
+}
+ul li:hover{
+  box-shadow: 0px 5px  13px #555;
+}
+
+input{
+  width: 40%;
+  padding: 15px;
+}
+button{
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #577ae2;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  transition: .5s;
+  margin: 5px;
+  outline: none;
+}
+button:hover{
+  transform: scaleX(1.1);
+}
+
+.newFoodForm{
+
+  box-sizing: border-box;
+  padding: 50px;
+  color: #fff;
+  position: fixed;
+  width: 70vw;
+  height: 60vh;
+  background: #333;
+  border-radius: 10px;
+  left: 15vw;
+  top: 10vh;
+}
+
+.todaysFood{
+  background: #fff;
+  width: 80vw;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 3px  8px #999;
+  display: flex;
+  justify-content: center;
+}
+.t1{
+  flex:2;
+}
+.t2{
+  flex:1;
+}
+
+ol li:nth-child(even){
+  background-color: #eee;
+}
