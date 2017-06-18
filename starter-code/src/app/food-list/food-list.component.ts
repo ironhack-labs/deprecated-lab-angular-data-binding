@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import foods from '../foods';
 
 @Component({
@@ -7,6 +7,8 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+
+  foods = foods;
 
   constructor() { }
 
