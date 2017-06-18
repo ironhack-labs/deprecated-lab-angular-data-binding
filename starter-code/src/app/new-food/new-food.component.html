@@ -1,0 +1,11 @@
+<button (click)="toggle()">Toggle</button>
+
+<div [ngClass]="displayText">
+  <label for="food_name"> Food Name </label>
+  <input placeholder="food name" type="text" #foodName>
+  <input placeholder="food image" type="text" #foodImage>
+  <input placeholder="food calories" type="text" #foodCalories>
+  <button (click)="addFood(foodName, foodImage, foodCalories);">
+      Add Food
+  </button>
+</div>

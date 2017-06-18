@@ -10,9 +10,9 @@ export class FoodListComponent implements OnInit {
 
   foods = foods;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

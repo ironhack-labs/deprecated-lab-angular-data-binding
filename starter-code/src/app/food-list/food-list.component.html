@@ -2,7 +2,7 @@
   <label for="foods_name"> Search thing: </label>
   <input id="foods_name" placeholder="food name"
           type="text" [(ngModel)]="pattern">
-          
+
 <div *ngFor="let food of foods | search:'name':pattern; let i = index">
     <img src="{{food.image}}" width="200px">
     <h2> {{ food.name }} </h2>
