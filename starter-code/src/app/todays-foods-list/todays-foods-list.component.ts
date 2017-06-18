@@ -9,21 +9,14 @@ import foods from '../foods'
 
 export class TodaysFoodsListComponent implements OnInit {
 
-  newTodaysFood: Object;
-  todaysFoods: Object[]
+  foods = foods;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  addTodaysFood(name, calories, quantity:HTMLInputElement) {
-    this.newTodaysFood = {
-      name: name,
-      calories: calories,
-      quantity: quantity.value
-    }
-    this.todaysFoods.push(this.newTodaysFood);
-  }
+
 
 }

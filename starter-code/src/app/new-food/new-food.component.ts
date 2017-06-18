@@ -27,12 +27,13 @@ export class NewFoodComponent implements OnInit {
     this.newFood = {
       name: name.value,
       image: image.value,
-      calories: calories.value
+      calories: calories.value,
+      quantity: 0
     }
     this.foods.push(this.newFood);
     name.value='';
     image.value='';
-    calories.value=''
+    calories.value= "1"
   }
 
   ngOnInit() {

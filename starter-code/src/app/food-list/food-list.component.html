@@ -1,3 +1,5 @@
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
 <div>
   <label for="foods_name"> Search thing: </label>
   <input id="foods_name" placeholder="food name"
@@ -6,14 +8,18 @@
 
 <app-new-food></app-new-food>
 
-<div *ngFor="let food of foods | search:'name':pattern; let i = index" style="clear:both; padding: 20px">
-    <img src="{{food.image}}" width="200px" style="float: left; padding: 10px">
+<div *ngFor="let food of foods | search:'name':pattern; let i = index" style="clear:both; padding: 20px; display: inline-block">
+    <img src="{{food.image}}" width="150px" style="float: left; padding: 10px">
     <h2> {{ food.name }} </h2>
     <p> Calories: {{ food.calories }}</p>
-    <input placeholder="food quantity" type="number" #foodQuantity>
-    <button (click)="addTodaysFood(food.name, food.calories, foodQuantity)"> + </button>
+    <input value="1" type="number" min="1" #foodQuantity>
+    <button (click)="addTodaysFood(food, foodQuantity)"> + </button>
 </div>
 
-<div style="clear: both">
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+  <h2>Calories {{ totalCalories }}</h2>
   <app-todays-foods-list></app-todays-foods-list>
+
 </div>

@@ -1,5 +1,7 @@
 <h1>Today's Foods</h1>
 
-<div *ngFor="let todaysFood of todaysFoods">
-  <p>{{ todaysFood.name }}</p>
+<div *ngFor="let food of foods">
+  <ul *ngIf="food.quantity > 0">
+    <li>{{ food.name }}<span *ngIf="food.quantity > 1"> X{{ food.quantity }}</span></li>
+  </ul>
 </div>
