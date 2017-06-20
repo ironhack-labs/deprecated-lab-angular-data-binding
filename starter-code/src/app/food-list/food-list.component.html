@@ -7,7 +7,7 @@
   <div class="card-deck">    
     <div class="row">
       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" *ngFor="let food of foods">
-        <div class="card" >
+        <div class="card card-inverse" style="background-color: #333; border: solid 10px white; ">
           <img class="card-img-top" src="{{ food.image }}" alt="Card image cap" height="180px">
           <div class="card-block">
             <h5 class="card-title">{{ food.name }}</h5>
