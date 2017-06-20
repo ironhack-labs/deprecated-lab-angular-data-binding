@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
 import todaysfoods from '../todaysfoods';
+import FoodItem from '../fooditem';
 
 @Component({
   selector: 'app-food-list',
@@ -19,8 +20,18 @@ export class FoodListComponent implements OnInit {
     this.todaysfoodsarray = todaysfoods;
   }
 
-  addtodayfood(food) {
-    this.todaysfoodsarray.push(food);
+  addtodayfood(food, quantity: number) {
+      this.todaysfoodsarray.forEach( (aFood) => {
+        if(food === aFood) {
+          console.log('hi');
+          food.quantity += quantity;
+          console.log(food.quantity);
+        }
+      });
+      food.quantity = quantity;
+
+      this.todaysfoodsarray.push(food);
+
   }
 
 }
