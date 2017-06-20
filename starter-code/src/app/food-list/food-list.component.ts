@@ -20,9 +20,6 @@ export class FoodListComponent implements OnInit {
 
   addTodaysFood(food, foodQuantity) {
     food.quantity += parseInt(foodQuantity.value);
-    console.log(food.quantity);
-    console.log(food.calories);
-    console.log(this.totalCalories);
     this.totalCalories = this.totalCalories + (food.calories * food.quantity)
     console.log(this.totalCalories);
     foodQuantity.value = "1";
