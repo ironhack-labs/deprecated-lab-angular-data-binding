@@ -1,0 +1,10 @@
+.searchFood {
+  padding: 20px;
+}
+li {
+  list-style-type: none;
+}
+li::before {
+  content: '🍕';
+  margin-right: 8px;
+}

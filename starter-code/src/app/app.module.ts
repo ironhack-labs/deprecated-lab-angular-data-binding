@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SearchInputComponent } from './search-input/search-input.component';
+import { AddnewfoodComponent } from './addnewfood/addnewfood.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
     FoodListComponent,
     FilterPipe,
     SearchInputComponent,
+    AddnewfoodComponent,
   ],
   imports: [
     BrowserModule,

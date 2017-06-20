@@ -1,12 +1,13 @@
-<div>
+<div class="row searchFood">
      <label for="food_name"> Search for Food: </label>
      <input id="food_name" placeholder=""
              type="text" [(ngModel)]="pattern">
-<div>
+
 
   <h4> Foods Found </h4>
      <ul>
-       <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
-         <a href="#{{food.name}}">{{ i+1 }}) {{ food.name }}</a>
+       <li class="col-xs-3" *ngFor="let food of foods | filter:'name':pattern; let i = index">
+         <a href="#{{food.name}}">{{ food.name }}</a>
        </li>
      </ul>
+<div>
