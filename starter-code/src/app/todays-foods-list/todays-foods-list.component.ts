@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import foods from '../foods'
 
 @Component({
@@ -16,7 +16,5 @@ export class TodaysFoodsListComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
 
 }

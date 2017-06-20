@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import foods from '../foods';
 
 
@@ -11,7 +11,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   foods = foods;
-  totalCalories: number;
+  totalCalories: number = 0;
 
   constructor() {}
 
@@ -20,7 +20,10 @@ export class FoodListComponent implements OnInit {
 
   addTodaysFood(food, foodQuantity) {
     food.quantity += parseInt(foodQuantity.value);
-    this.totalCalories =+ (food.calories * food.quantity)
+    console.log(food.quantity);
+    console.log(food.calories);
+    console.log(this.totalCalories);
+    this.totalCalories = this.totalCalories + (food.calories * food.quantity)
     console.log(this.totalCalories);
     foodQuantity.value = "1";
   }
