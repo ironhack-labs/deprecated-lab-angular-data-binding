@@ -8,8 +8,8 @@
       <h3>{{ food.name }}</h3>
       <p> {{ food.calories }} </p>
 
-      <button (click)="addtodayfood(food, quantity.value)" class="btn btn-success">Add</button>
-      <input #quantity placeholder="Number of {{food.name}}s">
+      <button (click)="addtodayfood(food, quantity)" class="btn btn-success">Add</button>
+      <input type="number" min="1" value="1" #quantity placeholder="Number of {{food.name}}s">
     </div>
 
   </li>
