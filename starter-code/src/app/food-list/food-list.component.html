@@ -1,22 +1,44 @@
-<p>
-  food-list works!
-</p>
-
 <div class="container">
-  <hr>
-  <div class="card-deck">    
-    <div class="row">
-      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" *ngFor="let food of foods">
-        <div class="card card-inverse" style="background-color: #333; border: solid 10px white; ">
-          <img class="card-img-top" src="{{ food.image }}" alt="Card image cap" height="180px">
-          <div class="card-block">
-            <h5 class="card-title">{{ food.name }}</h5>
-            <p class="card-text">{{ food.calories }} Calories</p>
+  <div class="row">  
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for food..." [(ngModel)]="pattern">
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button type="button" class="btn btn-primary">Add New Food</button>
+    </div>
+  </div>
+  
+  <br><!-- end search -->
+  
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="left-panel">
+        <div class="row">
+          <div class="media" *ngFor="let food of foods | search : 'name' : pattern">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="media-left media-top" >
+                <img src="{{ food.image }}" class="media-object" style="width:70px">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{ food.name }}</h4>
+                <p>{{ food.calories }} Calories</p>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter Quantity..." [(ngModel)]="quantity">
+              </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+              <button type="button" class="btn">+</button>
+            </div>      
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   </div>
-</div>
+</div><!-- end container -->
 
 
