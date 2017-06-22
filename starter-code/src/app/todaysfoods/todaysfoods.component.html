@@ -4,12 +4,12 @@
 </div>
 
 <div class="row">
-  <ul>
-    <li class="row" *ngFor="let tfood of foods;">
-      <div *ngIf="tfood.quantity > 0">
-        <div class="col-sm-3">
+  <ul *ngFor="let tfood of foods">
+    <li class="row" >
+      <div *ngIf="tfood.quantity >= 1">
+
           <img src="{{ tfood.image }}">
-        </div>
+
         <div class="col-sm-7 info" >
           <h3>Name: {{ tfood.name }}</h3>
           <p> Calories: {{ tfood.calories }} </p>

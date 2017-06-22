@@ -8,6 +8,7 @@ import foods from '../foods';
 })
 export class TodaysfoodsComponent implements OnInit {
   foods = foods;
+
   constructor() { }
 
   ngOnInit() {
