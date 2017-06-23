@@ -1,4 +1,6 @@
-const foods: Object[] = [
+import {foo} from "./food"
+
+const foods: foo[] = [
   {
     name: "Pizza",
     calories: 400,

@@ -1,0 +1,64 @@
+<div class="col-md-6" style="border:1px solid blue; text-align:center;">
+  <label for="">Search:</label><br>
+  <input value="" placeholder="Item" #inputSearch [(ngModel)]="inputSearc" (keyup)="onKey(inputSearc)"  ><br><br>
+
+  <div class="col-md-4 " style="margin-left:20px; border:1px solid blue;">
+    <button  style="background-color:inherit; border:1px solid grey; border-radius:10px; width:130px;" (click)="Manyfood= !Manyfood">Add new Food</button>
+
+<div id="show" *ngIf="Manyfood">
+
+
+
+<!-- ======ONE WAY TO DO IT WITHOUT FORM  -->
+<!-- <label for="">Name:</label>
+<input type="" #name >
+<label for="">Calories:</label>
+<input type="text" name="" value="" #cal>
+<label for="">Images</label >
+<input type="" name="" value="" #img>
+<button class=""type="" name="button" (click)="addProd(img ,cal , name)">Add Food</button> -->
+
+<!-- ======ONE WAY TO DO IT WITH ========NGFORMS =======  -->
+<form class="" #formcontrol = 'ngForm' (ngSubmit)= 'addProd(formcontrol.value)' >
+<label for="">Name:</label>
+<input type="" name='name' ngModel>
+<label for="">Calories:</label>
+<input type="text" name="" value="" name='cal' ngModel>
+<label for="">Images</label >
+<input type="" name="" value="" name='img' ngModel>
+<button class=""type="" name="button" >Add Food</button>
+</form>
+
+<!-- ======ONE WAY TO DO IT WITH ========FORMGROUPS NOT DONE=======  -->
+<!-- <form  [formGroup]="myForm" (ngSubmit)= 'addProd(myForm)' >
+<label for="">Name:</label>
+<input [formControl]='myForm.controls.["name"]'>
+<label for="">Calories:</label>
+<input [formControl]='myForm.controls.["calores"]'>
+<label for="">Images</label>
+<input [formControl] ='myForm.controls.["image"]'>
+<button type="" name="button" >Add Food</button>
+</form> -->
+
+
+</div>
+  </div>
+</div>
+
+<div class="col-md-6 col-md-offset-1" *ngFor="let food of ( inputSearch.value |search)" style="position:relative; text-align:center; border:1px solid blue; margin:10px;">
+<div class="row">
+
+
+    <div class=" col-md-4  " style="border:1px solid blue;  display:inline;">
+      <img src="{{food.image}}" alt="" style="height:100px; width:100px;">
+    </div>
+    <div class=" col-md-5 offset-md-6" style="border:1px solid blue; top:-60px;">
+      <h4>{{food.name}}</h4>
+      <button type="button" style="padding:0px;" (click)="todayNut(food,howMany)">+</button><input type="number" name="" #howMany value="1" style="width:50px;">
+    </div>
+</div>
+
+
+
+</div>
+<app-callist></app-callist>
