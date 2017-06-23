@@ -5,6 +5,7 @@ import {foo} from '../food';
 import {today} from '../foodlist';
 import {todaysfood} from '../todaysfood';
 import {calo} from '../foodlist';
+import {FormBuilder,FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -32,36 +33,65 @@ export class SearchlistComponent implements OnInit {
   };
 
 
-  public counter:number = 0;
-  addProd(cal, img, name): void {
-    let newfood = new foo(name.value,img.value,cal.value,0)
-foods.push(newfood);
+  public counter: number = 0;
+  // ===============THIS IS WITHOUT ANY FORM ==================
+  // addProd(cal, img, name): void {
+  //   let newfood = new foo(name.value, img.value, cal.value, 0)
+  //   foods.push(newfood);
+  //
+  // }
+
+  // ===============THIS IS USING FORMCONTROLS ==================
+  addProd(formval): void {
+    console.log("whatever")
+    console.log(formval)
+    let newfood = new foo(formval.name.value, formval.img.value, formval.cal.value, 0)
+    foods.push(newfood);
 
   }
-  todayNut(food,many):void{
+
+  // ===============THIS IS USING FORMGROUPS NOT DONE==================
+myForm:FormGroup;
+constructor(fb:FormBuilder) {
+  this.myForm = fb.group({
+    'name':[''],
+    'image':[''],
+    'calories':['']
+  })
+}
+//   addProd(formval): void {
+//     console.log("whatever")
+//     console.log(formval)
+//     let newfood = new foo(formval.name.value, formval.img.value, formval.cal.value, 0)
+//     foods.push(newfood);
+//
+//   }
+//                                 ^-- DIFFERENCE BETWEEN FORMBUILDER & FORMCONTROLS AND NGFORMS
+//                                 |
+// =============NOT DONE ASK JAVID LOOK NOTES====================
+  todayNut(food, many): void {
 
 
-  let cal=   food.calories * many.value
+    let cal = food.calories * many.value
 
 
-let newfood = new todaysfood(food,cal);
+    let newfood = new todaysfood(food, cal);
 
-this.counter = this.counter + cal;
+    this.counter = this.counter + cal;
 
-this.addProds(newfood,this.counter)
+    this.addProds(newfood, this.counter)
 
 
   }
-  addProds(prod,thi):void{
+  addProds(prod, thi): void {
     today.push(prod);
-    calo[0]=thi;
+    calo[0] = thi;
   }
 
 
   todays = today;
   Manyfood = this.Manyfoods;
-  constructor() {
-  }
+
 
   ngOnInit() {
 

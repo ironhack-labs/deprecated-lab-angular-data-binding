@@ -8,13 +8,39 @@
 <div id="show" *ngIf="Manyfood">
 
 
-<label for="">Name:</label>
+
+<!-- ======ONE WAY TO DO IT WITHOUT FORM  -->
+<!-- <label for="">Name:</label>
 <input type="" #name >
 <label for="">Calories:</label>
 <input type="text" name="" value="" #cal>
 <label for="">Images</label >
 <input type="" name="" value="" #img>
-<button class=""type="" name="button" (click)="addProd(img ,cal , name)">Add Food</button>
+<button class=""type="" name="button" (click)="addProd(img ,cal , name)">Add Food</button> -->
+
+<!-- ======ONE WAY TO DO IT WITH ========NGFORMS =======  -->
+<form class="" #formcontrol = 'ngForm' (ngSubmit)= 'addProd(formcontrol.value)' >
+<label for="">Name:</label>
+<input type="" name='name' ngModel>
+<label for="">Calories:</label>
+<input type="text" name="" value="" name='cal' ngModel>
+<label for="">Images</label >
+<input type="" name="" value="" name='img' ngModel>
+<button class=""type="" name="button" >Add Food</button>
+</form>
+
+<!-- ======ONE WAY TO DO IT WITH ========FORMGROUPS NOT DONE=======  -->
+<!-- <form  [formGroup]="myForm" (ngSubmit)= 'addProd(myForm)' >
+<label for="">Name:</label>
+<input [formControl]='myForm.controls.["name"]'>
+<label for="">Calories:</label>
+<input [formControl]='myForm.controls.["calores"]'>
+<label for="">Images</label>
+<input [formControl] ='myForm.controls.["image"]'>
+<button type="" name="button" >Add Food</button>
+</form> -->
+
+
 </div>
   </div>
 </div>
