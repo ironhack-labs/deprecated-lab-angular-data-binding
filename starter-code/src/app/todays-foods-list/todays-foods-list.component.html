@@ -2,6 +2,6 @@
 
 <div *ngFor="let food of foods">
   <ul *ngIf="food.quantity > 0">
-    <li><img src="{{food.image}}" width="100px">{{ food.name }}<span *ngIf="food.quantity > 1"> X{{ food.quantity }}</span></li>
+    <li><img src="{{food.image}}" width="100px">{{ food.name }}<span *ngIf="food.quantity > 1"> X {{ food.quantity }}</span></li>
   </ul>
 </div>

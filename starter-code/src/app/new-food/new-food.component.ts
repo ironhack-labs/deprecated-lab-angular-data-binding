@@ -22,18 +22,30 @@ export class NewFoodComponent implements OnInit {
     this.visible = !this.visible;
     this.displayText = this.visible ? 'show-class' : 'hide-class';
   }
+  //
+  // addFood(name: HTMLInputElement, image:HTMLInputElement, calories: HTMLInputElement) {
+  //   this.newFood = {
+  //     name: name.value,
+  //     image: image.value,
+  //     calories: calories.value,
+  //     quantity: 0
+  //   }
+  //   this.foods.push(this.newFood);
+  //   name.value='';
+  //   image.value='';
+  //   calories.value= "1"
+  // }
 
-  addFood(name: HTMLInputElement, image:HTMLInputElement, calories: HTMLInputElement) {
+  submitForm(myForm) {
     this.newFood = {
-      name: name.value,
-      image: image.value,
-      calories: calories.value,
+      name: myForm.value.foodName,
+      image: myForm.value.foodImage,
+      calories: myForm.value.foodCalories,
       quantity: 0
     }
     this.foods.push(this.newFood);
-    name.value='';
-    image.value='';
-    calories.value= "1"
+    myForm.reset();
+    this.toggle();
   }
 
   ngOnInit() {
