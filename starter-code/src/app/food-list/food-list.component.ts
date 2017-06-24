@@ -1,6 +1,6 @@
-import { ElementRef, Component,  OnInit,  ViewChild, AfterViewInit } from '@angular/core';
-import foodList                 from '../foods';
-import inputForm             from '../inputForm';
+import { Component,  OnInit, Input } from '@angular/core';
+import foodList from '../foods';
+import { Food } from '../newFood';
 
 @Component({
   selector: 'app-food-list',
@@ -8,21 +8,12 @@ import inputForm             from '../inputForm';
   styleUrls: ['./food-list.component.css']
 })
 
-
-
 export class FoodListComponent implements OnInit {
 
   foods: Object[];
   tFoods: Object[];
-  
-  newFoodInput : string = '';
-
-  newFood : Object = {
-    name: '',
-    calories: 0,
-    image: '',
-    quantity: 0
-  };
+  caloriesTodayList: number = 0;
+  show : boolean;
 
   todayFood : Object = {
     name: '',
@@ -36,18 +27,10 @@ export class FoodListComponent implements OnInit {
 
   /*********************************************************************************/
   /* appendInputForm()
-  /* appends the input form to add a new food
-  /* [innerHtml] is great option in most cases, but it fails 
-  /* with really large strings or when you need hard-coded styling in html.
-  /* Because of that you have to use a @ViewChild approach:
-  /* All you need to do, is to create a div in your html file and give it some id:
+  /* display the input form after clicking add food button
   /*********************************************************************************/
-  @ViewChild('inputForm') inputForm: ElementRef;
-
   appendInputForm() : void {
-    // console.log('*************** html FROM inputForm ********************');
-    // console.log(inputForm);
-    this.inputForm.nativeElement.innerHTML = inputForm;
+    this.show = !this.show;
   }
 
   /*********************************************************************************/
@@ -63,24 +46,31 @@ export class FoodListComponent implements OnInit {
     
     this.todayFoodList.push(this.todayFood);  
     this.todayFoodList.forEach( oneFood => {
-      console.log(oneFood['name']);
-    }) 
+      console.log(oneFood['calories']);
+    })
+
+    let totalCaloriesTodayList = this.todayFoodList.map((item) => {
+      return item['calories'];
+    })
+    //console.log(`Total Calories Today Food => ${ this.totalCalories }`);
   }
 
   /*********************************************************************************/
   /* addNewFood()
   /* add a new food to the array of foods
   /*********************************************************************************/
-  addNewFood() : void {
-    this.foods.unshift(this.newFood);
+  addNewFood( newFood : Food ) : void {
+    console.log( newFood );
+    this.foods.unshift( newFood );
   }
-
-  submitForm(myForm) {
-    console.log(myForm);
-  }
+  
 
   ngOnInit() {
     this.foods = foodList;
     this.tFoods = this.todayFoodList;
   }
+
+  
+  
+  
 }

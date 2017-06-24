@@ -62,17 +62,21 @@
               </tr>
             </table>
           </div>
-          <div class="panel-footer">TODAY TOTAL CALORIES: </div>
+          <div class="panel-footer">TODAY TOTAL CALORIES: {{ totalCalories }}</div>
         </div>
       </div>
       <!-- add new food form starts here ... -->
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" #inputForm>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <!--
-          input form is inserted here using @ViewChild
+          here we binding in both directions
+          1. from child to parent using EventEmitter => (newFood)="addNewFood( $event )"
+          2. expose a property to child component => [show]="show"
         -->
+        <app-input-form 
+            (newFood)="addNewFood( $event )"
+            [show]="show">
+        </app-input-form>
       </div> <!-- Add New Food Form ends -->
     </div><!-- right panel ends -->    
   </div><!-- row ends -->
 </div><!-- end container -->
-
-
