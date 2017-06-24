@@ -1,0 +1,24 @@
+<button (click)="toggle()">Add New Food</button>
+
+<!-- <div [ngClass]="displayText">
+  <label for="food_name"> New Food </label>
+  <input placeholder="food name" type="text" #foodName>
+  <input placeholder="food image" type="text" #foodImage>
+  <input placeholder="food calories" type="text" #foodCalories>
+  <button (click)="addFood(foodName, foodImage, foodCalories);">
+      Add Food
+  </button>
+</div> -->
+
+<form [ngClass]="displayText" (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+  <p> Food Name
+    <input type="text" name="foodName" [(ngModel)]="foodName" required />
+  </p>
+  <p> Food Image
+    <input type="text" name="foodImage" [(ngModel)]="foodImage" required />
+  </p>
+  <p> Food Calories
+    <input type="number" name="foodCalories" [(ngModel)]="foodCalories" required />
+  </p>
+  <button type="submit"> Add Food </button>
+</form>
