@@ -15,7 +15,6 @@ export class FoodListComponent implements OnInit {
 
   addtodayfood(food, quantity) {
     food.quantity += parseInt(quantity.value, 10);
-    console.log(food);
   }
 
   ngOnInit() {

@@ -24,12 +24,12 @@ export class AddnewfoodComponent implements OnInit {
   submitForm(addfood) {
     this.newFood = {
       name: addfood.newFoodname.value,
-      calories: addfood.newFoodname.value,
-      image: addfood.newFoodname.value
+      calories: addfood.newFoodcalories.value,
+      image: addfood.newFoodimage.value,
+      quantity: 0,
     }
     this.foods.unshift(this.newFood);
     this.show = true;
-    this.newFood = {};
   }
 
   showForm() {
