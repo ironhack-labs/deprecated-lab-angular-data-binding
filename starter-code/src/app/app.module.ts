@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodSearchPipe } from './food-search-pipe';
 import { MyFoodComponent } from './my-food/my-food.component';
+import { NewFoodFormComponent } from './my-food/my-food.component';
+
 // import { MyFoodsComponent } from './my-foods/my-list.component';
 
 
@@ -21,6 +23,7 @@ import { MyFoodComponent } from './my-food/my-food.component';
     FoodListComponent,
     FoodSearchPipe,
     MyFoodComponent,
+    NewFoodFormComponent
     // MyFoodsComponent
   ],
   imports: [
