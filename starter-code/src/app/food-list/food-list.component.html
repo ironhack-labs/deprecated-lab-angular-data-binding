@@ -2,7 +2,9 @@
      <label for="food_name"> Search for Food: </label>
      <input id="food_name" placeholder="" type="text" [(ngModel)]="pattern">
 <div>
-
+  <div class="row">
+    <h3>Calories: </h3><span> 10</span>
+  </div>
 
 <h1> List of Foods </h1>
 <ul>
@@ -14,8 +16,9 @@
       <h3>{{ food.name }}</h3>
         <p> {{ food.calories }} </p>
 
+
+        <input type="number" min="1" value="1" #quantity required placeholder="Number of {{food.name}}s">
         <button (click)="addtodayfood(food, quantity)" class="btn btn-success">Add</button>
-        <input type="number" min="1" value="1" #quantity placeholder="Number of {{food.name}}s">
       </div>
 
   </li>

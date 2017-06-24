@@ -3,9 +3,9 @@
   <p> Add foods here to your nutrition journal.</p>
 </div>
 
+
 <div class="row">
   <ul *ngFor="let tfood of foods">
-    <h3>Calories</h3>
     <li class="row" >
       <div *ngIf="tfood.quantity >= 1">
 
@@ -13,11 +13,10 @@
 
         <div class="col-sm-7 info" >
           <h3>Name: {{ tfood.name }}</h3>
-          <p> Calories: {{ tfood.calories }} </p>
-          <p> Quantity: {{tfood.quantity}}</p>
+          <p> Calories: {{ tfood.calories }} <span> x {{tfood.quantity}}</span></p>
+
         </div>
       </div>
-
     </li>
   </ul>
 </div>
