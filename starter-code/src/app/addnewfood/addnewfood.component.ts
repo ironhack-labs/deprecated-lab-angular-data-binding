@@ -30,6 +30,7 @@ export class AddnewfoodComponent implements OnInit {
     }
     this.foods.unshift(this.newFood);
     this.show = true;
+    addfood.reset();
   }
 
   showForm() {
