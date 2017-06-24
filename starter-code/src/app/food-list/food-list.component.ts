@@ -49,10 +49,20 @@ export class FoodListComponent implements OnInit {
       console.log(oneFood['calories']);
     })
 
+  /*********************************************************************************/
+  /* Getting the total calories of the today list of food
+  /* using map and reduce JavaScript functions in array of Object
+  /* map() - dealing only with the values of categories key in the object
+  /* reduce() - totaling what mao() returns
+  /*********************************************************************************/
     let totalCaloriesTodayList = this.todayFoodList.map((item) => {
       return item['calories'];
     })
-    //console.log(`Total Calories Today Food => ${ this.totalCalories }`);
+    this.caloriesTodayList = totalCaloriesTodayList.reduce((previous, current) => {
+      return previous + current;
+    })
+    console.log(`Total Calories Today Food => ${ totalCaloriesTodayList }`);
+    console.log(`Total Calories Today Food => ${ this.caloriesTodayList }`);
   }
 
   /*********************************************************************************/
