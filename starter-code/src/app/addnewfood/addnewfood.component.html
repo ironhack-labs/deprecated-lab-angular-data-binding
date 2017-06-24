@@ -2,17 +2,17 @@
 <button class="btn btn-primary" (click)="showForm()"> Input Food </button>
 
 <br>
-<form [hidden]=show #addfoodform action="">
+<form (ngSubmit)="submitForm(addfood)" [hidden]=show #addfood>
   <label id="food-name">Name: </label>
-  <input name="food-name"  type="text" [(ngModel)]="newFood.name">
+  <input name="newFoodname"  type="text" [(ngModel)]="newFoodname">
 <br>
   <label>Calories: </label>
-  <input name="food-calories" type="text" [(ngModel)]="newFood.calories">
+  <input name="newFoodcalories" type="number" [(ngModel)]="newFoodcalories">
   <br>
   <label>Picture: </label>
-  <input name="food-picture" type="text" [(ngModel)]="newFood.image">
+  <input name="newFoodimage" type="text" [(ngModel)]="newFoodimage">
 <br>
-  <button class="btn btn-primary" (click)="addFood()">Add Food</button>
+  <button class="btn btn-primary" type="submit">Add Food</button>
 </form>
 
 </div>
