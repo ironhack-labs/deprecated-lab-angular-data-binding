@@ -1,0 +1,21 @@
+<p>
+  new-food-form works!
+</p>
+
+<form  (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+<div>
+  <label for="new-food-name">Name</label>
+  <input type="text" [(ngModel)]="newFoodName">
+</div>
+<div>
+  <label for="new-food-calories"> Calories</label>
+  <input type="text" [(ngModel)]="newFoodCalories">
+</div>
+<div>
+  <label for="new-food-image">Image</label>
+  <input type="text" [(ngModel)]="newFoodImage">
+</div>
+
+<button type="submit">Add Food</button>
+
+</form>
