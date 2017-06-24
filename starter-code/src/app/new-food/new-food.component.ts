@@ -43,7 +43,7 @@ export class NewFoodComponent implements OnInit {
       calories: myForm.value.foodCalories,
       quantity: 0
     }
-    this.foods.push(this.newFood);
+    this.foods.unshift(this.newFood);
     myForm.reset();
     this.toggle();
   }
