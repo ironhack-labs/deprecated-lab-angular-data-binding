@@ -1,0 +1,22 @@
+<div style="margin: 30px;" class="row">
+  <h3>Today's Foods</h3>
+  <p> Add foods here to your nutrition journal.</p>
+</div>
+
+
+<div class="row">
+  <ul *ngFor="let tfood of foods">
+    <li class="row" >
+      <div *ngIf="tfood.quantity >= 1">
+
+          <img src="{{ tfood.image }}">
+
+        <div class="col-sm-7 info" >
+          <h3>Name: {{ tfood.name }}</h3>
+          <p> Calories: {{ tfood.calories }} <span> x {{tfood.quantity}}</span></p>
+
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

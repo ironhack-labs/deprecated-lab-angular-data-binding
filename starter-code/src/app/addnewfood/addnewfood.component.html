@@ -1,0 +1,18 @@
+<div class="row">
+<button class="btn btn-primary" (click)="showForm()"> Input Food </button>
+
+<br>
+<form (ngSubmit)="submitForm(addfood)" [hidden]=show #addfood>
+  <label id="food-name">Name: </label>
+  <input name="newFoodname"  type="text" [(ngModel)]="newFoodname">
+<br>
+  <label>Calories: </label>
+  <input name="newFoodcalories" type="number" [(ngModel)]="newFoodcalories">
+  <br>
+  <label>Picture: </label>
+  <input name="newFoodimage" type="text" [(ngModel)]="newFoodimage">
+<br>
+  <button class="btn btn-primary" type="submit">Add Food</button>
+</form>
+
+</div>
