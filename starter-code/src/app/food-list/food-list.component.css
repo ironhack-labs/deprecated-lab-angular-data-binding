@@ -1,0 +1,9 @@
+ul > li > img {
+  width: 250px;
+  height: 250px;
+}
+ul > li {
+  margin: 20px;
+  list-style-type: none;
+  display: inline-block;
+}
