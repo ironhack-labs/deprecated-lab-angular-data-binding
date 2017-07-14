@@ -1,3 +1,56 @@
-<p>
-  food-list works!
-</p>
+<section>
+
+
+<ul>
+  <h2> Today's Foods </h2>
+  <li  *ngFor = 'let oneFoodToday of todayFoodList'>
+    <h4> {{oneFoodToday.name}} </h4>
+    <img [src]='oneFoodToday.image'>
+  </li>
+    <p>  Total Calories: {{ totalCalories }}cal </p>
+</ul>
+
+
+
+<button (click)="buttonA()">Add a Food</button>
+<div [ngClass]="{show: isShown}">
+<div id='myForm'>
+  <label for="food-name"></label>
+  <input type="text" [(ngModel)]="newFood.name" placeholder="Shack Stack">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="number" [(ngModel)]="newFood.calories" placeholder="500">
+</div>
+<div>
+  <label for="food-quantity"></label>
+  <input type="text" [(ngModel)]="newFood.quantity" placeholder="4">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image" placeholder="https://s-media-cache-ak0.pinimg.com/originals/dc/67/a2/dc67a28d48ae8bd86202121ec764d8bc.jpg">
+  <br>
+  <button (click)="addFood()">Submit New Food</button>
+</div>
+</div>
+<br>
+
+<label for='food-search'> Search for your Food </label>
+<input id='food-search' type='search' [(ngModel)]='foodSearchText' placeholder='Pizza'>
+
+
+
+<h2> Food List </h2>
+<ul>
+  <li *ngFor="let oneFood of foodList">
+
+  <app-all-food-list (onFoodMove)="foodToday($event)" [foodInfo]="oneFood" ></app-all-food-list>
+
+  </li>
+</ul>
+
+
+
+
+
+</section>
