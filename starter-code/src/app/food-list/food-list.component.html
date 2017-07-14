@@ -1,3 +1,65 @@
-<p>
-  food-list works!
-</p>
+
+
+<div class="container">
+
+<!--Add a Food Section  -->
+<div class="row">
+    <div class="col-md-6">
+      <!-- Add a Food Form -->
+      <button (click)="formToggle()" class="btn btn-success">Add a Food</button>
+
+      <!--where show: is the the class name and isPresent is the variable name -->
+      <form [ngClass]="{show: isPresent}">
+        <h3>Add a Food:</h3>
+        <div class="form-group">
+          <label for="food-name-input"> Food Name:</label>
+          <input id="food-name-input" type="text" name="food-name" placeholder="Apples"
+                 [(ngModel)]="newFood.name" class="form-control">
+        </div><!--form group -->
+
+        <div class="form-group">
+          <label for="food-calories-input"> Calories:</label>
+          <input id="food-calories-input" type="text" name="food-calories" placeholder="100"
+                 [(ngModel)]="newFood.calories" class="form-control">
+        </div><!--form group -->
+
+        <div class="form-group">
+          <label for="food-image-input"> Food ImageUrl:</label>
+          <input id="food-image-input" type="url" name="food-image" placeholder="https://i.imgur.com/eTmWoAN.png"
+                 [(ngModel)]="newFood.imageUrl" class="form-control">
+        </div><!--form group -->
+        <button class="btn btn-success" (click)="addFood()"> Add Food</button>
+      </form>
+    </div> <!-- col-md-6 -->
+
+<!-- Food Search Bar -->
+   <div class="col-md-6">
+     <div class="form-group">
+       <label for="food-search-input"> Search for Food:</label>
+       <input id="food-search-input" type="search" name="food-search" placeholder="Apples"
+              [(ngModel)]="foodSearchText" class="form-control">
+      </div>  <!--form group -->
+    </div><!-- col-md-6 -->
+  </div> <!-- row -->
+
+<!-- Display List of Foods -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let food of (foods | searchPipe: foodSearchText)">
+      <img [src]="food.image" alt="food" class="img-circle">
+      <h4> {{ food.name }} </h4>
+      <p>Calories: {{ food.calories }}</p>
+      <button class="btn btn-primary" (click)="foodToday(food, amount)"> Add to Today's Food</button>
+    </div><!-- col-md-4 -->
+</div><!-- row -->
+
+<div class="row">
+  <h3>Today's Food:</h3>
+  <div class="col-md-4" *ngFor="let blah of foodDuJour">
+    <img [src]="blah.image" alt="food" class="img-circle">
+    <h4> {{ blah.name }} </h4>
+    <p>Calories: {{ blah.calories }}</p>
+
+  </div><!-- col-md-4 -->
+</div><!-- row -->
+
+</div><!-- container -->
