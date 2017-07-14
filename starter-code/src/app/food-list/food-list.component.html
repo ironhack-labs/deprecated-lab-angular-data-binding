@@ -1,3 +1,34 @@
-<p>
-  food-list works!
-</p>
+<h1> Food List </h1>
+<input type="text" [(ngModel)]="keyword" placeholder="Enter keyword">
+<button id="show-hide" (click)="toggleView()">Show/Hide Form</button>
+<br>
+<form id="new-product-form" *ngIf="showForm">
+  <input [(ngModel)]="newProduct.name" name="newProductName" type="text" placeholder="name">
+  <input [(ngModel)]="newProduct.calories" name="newProductCalories" type="text" placeholder="calories">
+  <input [(ngModel)]="newProduct.image" name="newProductImage" type="text" placeholder="image">
+  <button id="add" (click)="addProduct()"> Add Product </button>
+</form>
+
+<br>
+<hr>
+<br>
+ <ul>
+   <li *ngFor="let product of foods | searchPipe:keyword ; let i = index">
+     <img src="{{product.image}}">
+      <p><b> {{product.name}} </b></p>
+      <p><b> {{product.calories}} </b></p>
+      <p><input type="number" placeholder="Enter qty" value="1"  [(ngModel)]="quantity">
+        <br>
+      <button id="addToDaily" (click)="addToToday(product, quantity)"> Add to daily </button>
+   </li>
+ </ul>
+ <hr>
+ <h1> Today's foods | Total calories: {{totalCal}} </h1>
+ <ul>
+   <li *ngFor="let product of todayArray">
+     <img src="{{product.image}}">
+     <p><b> {{product.name}} x{{product.qty}} </b></p>
+     <p><b> {{product.calories}} </b></p>
+     <p>Qty {{product.qty}} </p>
+   </li>
+ </ul>
