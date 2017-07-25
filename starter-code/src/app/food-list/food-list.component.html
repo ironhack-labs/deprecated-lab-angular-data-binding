@@ -33,17 +33,17 @@
       <small>Calories: {{food.calories}}</small>
       <br>
       <label for="quantity">Quantity</label>
-      <input type="text" name="quantity" value="{{food.quantity}}">
-      <button class="qty" (click)="addToList(food)">+</button>
+      <input type="number" name="quantity" #qty value="{{food.quantity}}">
+      <button class="qty" (click)="addToList(food,qty.value)">+</button>
     </div>
   </div>
 
 </div>
 <div class="column pull-right">
-  <h2>Today's Food - {{totalCalories}} cal</h2>
+  <h2>Today's Food : {{totalCalories}} cal</h2>
   <ul>
     <li *ngFor="let todayFood of todayList">
-      <p>{{todayFood.name}} - <small>{{todayFood.calories}}</small></p>
+      <p>{{todayFood.name}} - <small>{{todayFood.calories}} x {{todayFood.quantity}}</small></p>
     </li>
   </ul>
 </div>

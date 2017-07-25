@@ -54,29 +54,35 @@ export class FoodListComponent implements OnInit {
   }
 
   // Iteration 4
-  addToList(food: Food){
-    console.log(food);
+  addToList(food: Food, qty:number){
+
+    food.quantity = qty;
+    this.totalCalories = 0;
 
     // check if food has already been added in Today List
     if(this.todayList.length){
 
       let inList = false;
+
       this.todayList.forEach( e => {
-        if(Object.is(e,food)){
+        if(e.name === food.name){
+          this.totalCalories += (food.calories*food.quantity);
           inList = true;
-          return inList;
+        }else{
+          this.totalCalories += (e.calories*e.quantity);
         }
       });
 
       // add in the list if the food hasn't been added
       if(!inList){
+        this.totalCalories += (food.calories*food.quantity);
         this.todayList.push(food);
-        this.totalCalories += food.calories;
       }
 
+    // At First when array is empty
     }else{
+      this.totalCalories += (food.calories*food.quantity);
       this.todayList.push(food);
-      this.totalCalories += food.calories;
     }
   }
 
