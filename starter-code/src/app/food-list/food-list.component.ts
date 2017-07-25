@@ -8,9 +8,14 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[] = foods;
+  todaysFoods : Object[] = [];
   newFood: Object = {};
+  totalCalories : number = 0;
   showPane: boolean = false;
-  constructor() { }
+  showTodaysFood: boolean = this.todaysFoods.length !== 0;
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
@@ -22,5 +27,17 @@ export class FoodListComponent implements OnInit {
   createNewFood(){
     foods.push(this.newFood);
     this.newFood = {};
+  }
+
+  addThisFood(food){
+    this.todaysFoods.push(food);
+    this.totalCalories += food.calories;
+  }
+
+  removeThisFood(food){
+    let index = this.todaysFoods.indexOf(food);
+
+    this.todaysFoods = [...this.todaysFoods.slice(0, index), ...this.todaysFoods.slice(index+1)];
+    this.totalCalories -= food.calories;
   }
 }
