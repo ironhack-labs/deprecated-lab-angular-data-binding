@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
+import { SearchPipe } from './food-list/pipes/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
