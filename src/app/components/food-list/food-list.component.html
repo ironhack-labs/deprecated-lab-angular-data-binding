@@ -1,0 +1,50 @@
+<div>
+  <label>Filter food:</label>
+  <input placeholder="Type to filter" type="text" [(ngModel)]="pattern">
+  <p>{{pattern}}</p>
+</div>
+<div><button (click)="toggleAddFood()">Toggle Add Food</button></div>
+<div *ngIf="isAddFoodShown">
+  <b>New food</b>
+  <div>
+    <label for="food-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food--calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food--quantity">Quantity</label>
+    <input type="text" [(ngModel)]="newFood.quantity">
+  </div>
+  <div>
+    <label for="food-image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <button (click)="addFood(); newFood={}">Enter new food</button>
+</div>
+<br><br>
+<div class="food-wrapper">
+  <div>
+    <div *ngFor="let food of foods | filter:'name':pattern ">
+      <b>Name:</b> {{food.name}}
+      <div><b>Calories:</b> {{ food.calories}}</div>
+      <div><b>Quantity:</b><input #quantity type="text" value="{{food.quantity !== 0 ? food.quantity : 1}}"/></div>
+      <div><img class="food-image" [src]="food.image" /></div>
+      <button (click)="addTodaysFood(food, quantity.value); newFood={}">Set today food</button>
+      <br><br>
+    </div>
+  </div>
+  <div class="food-today">
+    <b>Today's Food</b>
+    <br><br>
+    <div *ngFor="let food of todaysFoods">
+      <b>Name:</b> {{food.name}} <b>x {{ food.totalQuantity }}</b>
+      <div><b>Calories:</b> {{ food.calories}}</div>
+      <div><img class="food-image" [src]="food.image" /></div>
+      <br><br>
+    </div>
+    <div><b>Total calories:</b> {{ todaysTotalCalories }}</div>
+  </div>
+</div>
