@@ -13,6 +13,11 @@ export class FoodListComponent implements OnInit {
   newFood : Object = {};
   //agregar para mostrar o quitar
   show : boolean = true;
+  //siempre inicializar si es que se busca hacer una función
+  todayMeal:Object[] = [];
+  totalCalories : number;
+
+
   constructor() { }
 
   ngOnInit() {
@@ -25,5 +30,18 @@ export class FoodListComponent implements OnInit {
   }
   showForm(){
     this.show = !this.show;
+  }
+
+  addMeal(food){
+    this.todayMeal.push(food);
+    console.log(this.todayMeal);
+  }
+  sumCalories(todayMeal){
+    var total = 0;
+    for (let i = 0; i < todayMeal.length ; i++ ){
+      let x = todayMeal[i].calories;
+      total += x;
+    }
+    return total;
   }
 }

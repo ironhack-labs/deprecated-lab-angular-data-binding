@@ -3,7 +3,7 @@
 </p>
 
 <button (click)="showForm()">Show Form</button>
-<div class="addFoodDiv" [ngClass]="showForm" *ngIf="true">
+<div class="addFoodDiv" *ngIf="true">
   <h3>Add Food</h3>
     <input [hidden]="show" type="text" name="name" placeholder="name" [(ngModel)]="newFood.name">
     <input [hidden]="show" type="text" name="image" placeholder="Image Url" [(ngModel)]="newFood.image">
@@ -29,5 +29,21 @@ foods  es el objeto sobre el que vamos a recorrer
   <div class="calories">
     <label for="calories">Calories {{food.calories}}</label>
   </div>
+  <div class="button">
+    <button (click)="addMeal(food)">Ate Today</button>
+  </div>
   <br><br>
+</div>
+
+<h3 class="titleToday">Today I Ate</h3>
+<div class="ateToday" *ngFor = "let ateToday of todayMeal" >
+  <div class="nameAteToday">
+    <label for="name">{{ateToday.name}}</label>
+  </div>
+  <div class="ateTodayCalories">
+    <label for="calories">{{ateToday.calories}}</label>
+  </div>
+  <div class="totalCalories">
+    <label for="totalCalories">Total Calories {{total}}</label>
+  </div>
 </div>
