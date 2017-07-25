@@ -1,0 +1,9 @@
+.food-element {
+  border: 2px solid grey;
+  margin: 20px;
+  width: 600px;
+}
+
+.add-food-form {
+  display: block;
+}
