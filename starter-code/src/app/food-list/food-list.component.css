@@ -1,0 +1,10 @@
+.all-food {
+  width: 50%;
+  float: left;
+}
+
+.food-list {
+  border: 1px solid #000;
+  padding: 20px;
+  float: right;
+}
