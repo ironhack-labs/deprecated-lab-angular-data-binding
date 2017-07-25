@@ -10,7 +10,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   Todayfoods: Object[] = [];
   calories: Array<number> = [];
-  caloriesAverage: Array<number> = [];
+  caloriesAverage: any;
   foods: Object[] = foods;
   newFood: Object = {};
   totalCalories:number=0;
@@ -37,18 +37,7 @@ export class FoodListComponent implements OnInit {
     this.Todayfoods.push(food);
     console.log(this.Todayfoods);
     this.calories.push(food['calories']);
-    //No me va el reduce por el tipo de arrays... no se como declararlo
-    // this.caloriesAverage=this.calories.reduce(function(a, b) { return a + b; });
-    for (let i = 0; i < this.calories.length; i++) {
-        console.log(this.calories[i]);
-        this.totalCalories+=this.calories[i];
-        console.log(this.totalCalories);
-    }
+    this.caloriesAverage=this.calories.reduce(function(a, b) { return a + b; });
     console.log(this.caloriesAverage);
-
-
-
-
   }
-
 }
