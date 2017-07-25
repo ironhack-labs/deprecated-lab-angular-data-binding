@@ -1,6 +1,12 @@
-<ul *ngFor="let food of foods">
-  <li>Name: {{food.name}}</li>
-  <li>Calories: {{food.calories}}</li>
-  <img class="foodpic" [src]="food.image">
-  <li>{{food.quantity}}</li>
-<ul>
+<div>
+  <label for="foods_name"> Search food: </label>
+  <input id="foods_name" placeholder="foods name"
+          type="text" [(ngModel)]="pattern">
+<div>
+
+  <ul *ngFor="let food of foods | filter:'name':pattern">
+    <li>Name: {{food.name}}</li>
+    <li>Calories: {{food.calories}}</li>
+    <img class="foodpic" [src]="food.image">
+    <li>{{food.quantity}}</li>
+  <ul>
