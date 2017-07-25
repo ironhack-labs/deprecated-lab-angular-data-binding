@@ -8,11 +8,35 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[] = foods;
+  foodsDay: Object[] = [];
   newFood: Object = {};
-   pattern: string;
+  pattern: string;
+  show: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleShow(){
+    this.show = !this.show;
+  }
+  addFood(){
+    console.log("Add contact has been called right now");
+    // add contact to contacts list
+    let newFood = {
+      name : this.newFood['name'],
+      image : this.newFood['image'] || "https://i.imgur.com/eTmWoAN.png",
+      calories : this.newFood['calories'],
+      quantity : this.newFood['quantity']
+    }
+    foods.push(newFood);
+    // clear inputs
+    this.newFood = {};
+  }
+  addTodayFoods(food){
+      console.log(this.foodsDay);
+    this.foodsDay.push(food);
+
+  }
 }

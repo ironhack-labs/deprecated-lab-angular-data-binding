@@ -10,5 +10,40 @@
       <img width="150"src="{{food.image}}" alt="image description">
       <p>{{food.calories}}</p>
       <p>{{food.quantity}}</p>
+      <button (click)="addTodayFoods(food)">Add to menu</button>
     </div>
   </div>
+  </div>
+  <button (click)="toggleShow()">Submit New Contact</button>
+  <div *ngIf="show === true">
+    <h2>New food</h2>
+<div>
+  <label for="food-name"></label>
+  <input type="text" placeholder="name" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" placeholder="image" [(ngModel)]="newFood.image">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-quantity"></label>
+  <input type="text" placeholder="quantity" [(ngModel)]="newFood.quantity">
+</div>
+<br>
+<button (click)="addFood()">Submit New Food</button>
+</div>
+<h1>Today Foods</h1>
+
+<div id='food-container'>
+  <div class='card' *ngFor="let foodDay of foodsDay">
+    <h3> {{foodDay.name}}</h3>
+    <img width="150"src="{{foodDay.image}}" alt="image description">
+    <p>{{foodDay.calories}}</p>
+    <p>{{foodDay.quantity}}</p>
+
+  </div>
+</div>
