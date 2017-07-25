@@ -1,0 +1,51 @@
+.food-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.food-card {
+  text-align: center;
+  width: 200px;
+  height: 250px;
+  background-color: tomato;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+img {
+  width: 85%;
+}
+
+.newfood {
+  display: block;
+  margin-top: 20px;
+}
+
+.form-newfood {
+  padding: 10px;
+  width: 200px;
+}
+
+.form-newfood * {
+  display: block;
+}
+
+.form-newfood button {
+  margin-top: 10px;
+}
+
+.menu {
+  background-color: lightgreen;
+  width: 400px;
+}
+
+.menuitem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuitem p {
+  margin: 0;
+}
