@@ -21,20 +21,11 @@
   </div>
   <button (click)="addFood()">Submit New Contact</button>
 </div>
-<br><br><br>
-<h2>Total Quantity = {{ totalQuantity }}</h2>
+<br><br>
 <div>
   <label for="food_search"> Search Food: </label>
   <input class="add-food-form" id="food_search" placeholder="Search" type="text" [(ngModel)]="pattern">
   <div>
-    <h4> Comida para hoy </h4>
-    <ol>
-      <li class="food-element" *ngFor="let today of todayFoods">
-        <p>Name: {{ today.name }}</p>
-        <p>Calories: {{ today.calories }}</p>
-        <p>Quantity: {{ today.quantity }}</p>
-      </li>
-    </ol>
     <h4> Lista de comidas </h4>
     <ol>
       <li class="food-element " *ngFor="let food of foods | filter : 'name' : pattern; let i = index">
@@ -44,6 +35,17 @@
         <p>Quantity: {{ food.quantity }}</p>
         <button type="submit" (click)="addFoodToList(food)">Añadir a la comida de hoy</button>
       </li>
+    </ol>
+  </div>
+  <div>
+    <h4> Comida para hoy </h4>
+    <ol>
+      <li class="food-element" *ngFor="let today of todayFoods">
+        <p>Name: {{ today.name }}</p>
+        <p>Calories: {{ today.calories }}</p>
+        <p>Quantity: {{ today.quantity }}</p>
+      </li>
+      <p>Total Calories:{{totalCalories}} </p>
     </ol>
   </div>
 </div>
