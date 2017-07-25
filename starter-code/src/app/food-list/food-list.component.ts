@@ -27,14 +27,12 @@ export class FoodListComponent implements OnInit {
     this.createFood = !this.createFood
   }
 
+  addFood() {
+    this.foods.push(this.newFoods)
+    this.newFoods = {}
+  }
+
   addFoodToList(food) {
-    // for(let i = 0; i < this.todayFoods.length; i++) {
-    //   if (food.name == this.todayFoods[i].name) {
-    //     this.todayFoods[i].quantity++
-    //   } else {
-    //     this.todayFoods.push(food)
-    //   }
-    // }
     if(this.todayFoodsNames.indexOf(food.name) !== -1) {
       this.todayFoods[this.todayFoodsNames.indexOf(food.name)].quantity++;
     } else {
