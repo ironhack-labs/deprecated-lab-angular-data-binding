@@ -1,4 +1,4 @@
-const foods: Object[] = [
+const foods: Array<Object> = [
   {
     name: "Pizza",
     calories: 400,
