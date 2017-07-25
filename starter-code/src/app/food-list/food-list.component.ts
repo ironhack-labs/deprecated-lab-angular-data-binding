@@ -10,6 +10,8 @@ export class FoodListComponent implements OnInit {
   foodList: Array<Object>
   newFood: Object = {};
   isHidden: boolean = true;
+  foodToEat: Array<Object> = [];
+  calories: number = 0;
 
   constructor() { }
 
@@ -25,6 +27,15 @@ export class FoodListComponent implements OnInit {
 
   toggleAddFood() {
     this.isHidden = !this.isHidden;
+  }
+
+  addFoodToList(food) {
+    this.foodToEat.unshift(food);
+    this.totalCalories(food.calories)
+  }
+
+  totalCalories(calories) {
+    this.calories += calories;
   }
 
 }
