@@ -1,40 +1,49 @@
-<div id="search">
-  <h2>Search</h2>
-  <br>
-  <input type="text" name="search" placeholder="search food" value="" [(ngModel)]="pattern">
-</div>
-
-<div class="new-food">
-  <button (click)="toggleForm()">Add new Food</button>
-  <br>
-</div>
-
-<div *ngIf="showForm">
-  <div>
-    <input #name type="text" placeholder="Name" [(ngModel)]="newFood.name">
-  </div>
-  <div>
-    <input type="text" placeholder="Calories" [(ngModel)]="newFood.calories">
-  </div>
-  <div>
-    <input type="text" placeholder="Image URL" [(ngModel)]="newFood.image">
-  </div>
-  <button (click)="addFood(newFood)">Add Food</button>
-  <p class="error-mess" *ngIf="errorMessage">Debes rellenar todos los campos</p>
-</div>
-
-
-
-
-<div class="food-container" *ngFor="let food of foods | search : 'name' : pattern;">
-  <div class="image-container"><img src="{{food.image}}" alt=""></div>
-  <div class="info">
-    <h2>{{food.name}}</h2>
-
-    <small>Calories: {{food.calories}}</small>
+<div class="column">
+  <div id="search">
+    <h2>Search</h2>
     <br>
-    <label for="quantity">Quantity</label>
-    <input type="text" name="quantity" value="{{food.quantity}}">
-    <button class="qty">+</button>
+    <input type="text" name="search" placeholder="search food" value="" [(ngModel)]="pattern">
   </div>
+
+  <div class="new-food">
+    <button (click)="toggleForm()">Add new Food</button>
+  </div>
+  <hr>
+  <div *ngIf="showForm">
+    <div>
+      <input #name type="text" placeholder="Name" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <input type="number" placeholder="Calories" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <input type="text" placeholder="Image URL" [(ngModel)]="newFood.image">
+    </div>
+    <br>
+    <button (click)="addFood(newFood)">Add Food</button>
+    <p class="error-mess" *ngIf="errorMessage">Debes rellenar todos los campos</p>
+  </div>
+  <br>
+
+  <div class="food-container" *ngFor="let food of foods | search : 'name' : pattern;">
+    <div class="image-container"><img src="{{food.image}}" alt=""></div>
+    <div class="info">
+      <h2>{{food.name}}</h2>
+
+      <small>Calories: {{food.calories}}</small>
+      <br>
+      <label for="quantity">Quantity</label>
+      <input type="text" name="quantity" value="{{food.quantity}}">
+      <button class="qty" (click)="addToList(food)">+</button>
+    </div>
+  </div>
+
+</div>
+<div class="column pull-right">
+  <h2>Today's Food - {{totalCalories}} cal</h2>
+  <ul>
+    <li *ngFor="let todayFood of todayList">
+      <p>{{todayFood.name}} - <small>{{todayFood.calories}}</small></p>
+    </li>
+  </ul>
 </div>
