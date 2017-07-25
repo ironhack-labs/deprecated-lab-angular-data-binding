@@ -1,0 +1,17 @@
+ul {
+    list-style-type: none;
+}
+
+.container {
+    width: 100%;
+}
+
+.list {
+    width: 50%;
+    float:left;
+}
+
+.calories {
+    width:50%;
+    float:right;
+}
