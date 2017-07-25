@@ -1,0 +1,13 @@
+.food-image {
+    width:100px;
+}
+
+.food-wrapper {
+    display: flex;
+}
+
+.food-today {
+    padding-left:100px;
+}
+
+
