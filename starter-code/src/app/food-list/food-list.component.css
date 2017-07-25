@@ -1,0 +1,16 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.col{
+  width: 50%;
+  float: left;
+  padding: 20px;
+}
+
+.food{
+  margin:20px 0;
+  background: #eee;
+  list-style: none;
+  padding:20px
+}
