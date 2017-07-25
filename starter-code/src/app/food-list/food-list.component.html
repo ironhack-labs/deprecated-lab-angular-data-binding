@@ -5,31 +5,36 @@
   <button (click)="toggleContent()">Toggle Content</button>
 </div>
 
+<div class="list">
+    <ul *ngFor="let today of todayFoods">
+        Name: {{ today.name }} - Calories: {{ today.calories }}             
+    </ul>
+    <h2>Total Calories: </h2>
+</div>
+
 <div *ngIf="divHide === true">
   <div>
     <div>
       <label for="contact-name"></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="newFood.name">
     </div>
     <div>
-      <label for="contact-email"></label>
-      <input type="text">
-    </div>
-    <div>
-      <label for="contact-phone"></label>
-      <input type="text">
+      <label for="contact-calories"></label>
+      <input type="text" [(ngModel)]="newFood.calories">
     </div>
     <div>
       <label for="contact-image"></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="newFood.image">
     </div>
-    <button (click)="addContact()">Submit New Contact</button>
+    <button (click)="addFood()">Submit New Food</button>
   </div>
 </div>
 
-
-<div class="div" *ngFor="let food of foodList | filter:'name':pattern ;">
-    <img [src]="food.image" width="100px"/>
-    <h2>Name: {{ food.name }}</h2>
-    <h3>Calories: {{ food.calories }} </h3>
+<div class="right">
+  <div class="div" *ngFor="let food of foodList | filter:'name':pattern ;">
+      <img [src]="food.image" width="100px"/>
+      <h2>{{ food.name }}</h2>
+      <h3>Calories: {{ food.calories }} </h3>
+      <button (click)="addTodayFood(food)">Add to Today's Food</button>
+  </div>
 </div>

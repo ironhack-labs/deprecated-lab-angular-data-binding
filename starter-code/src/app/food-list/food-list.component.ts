@@ -9,7 +9,10 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   foodList: Array<Object> = [];
+  newFood: Object = {};
+  todayFoods: Array<String> = [];
   pattern: ''
+
   
   constructor() { 
     this.foodList = foods;
@@ -26,7 +29,16 @@ export class FoodListComponent implements OnInit {
       console.log(this.divHide);
       // alert("hello");
   }
+
+  addFood(){
+    this.foodList.push(this.newFood);
+    this.newFood = {};
+  }
   
+  addTodayFood(_food){
+    this.todayFoods.push(_food);
+    console.log(_food);
+  }
   
   
 
