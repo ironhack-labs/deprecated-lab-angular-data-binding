@@ -1,3 +1,17 @@
 .foodpic {
   width: 200px;
 }
+
+.elements-food {
+  border: 1px solid;
+  width: 400px;
+}
+
+.food-for-today-widged {
+  float: left;
+  padding-left: 100px;
+}
+
+.food-list-container {
+  float: left;
+}

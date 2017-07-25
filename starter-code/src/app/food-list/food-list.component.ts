@@ -8,11 +8,13 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  foods: Object[];
+  foods: Array<Object>;
+  todaysFood: any = [];
   newFood: Object = {
     quantity: 0
   }
   isInputDisabled: boolean = true;
+  showTotal:number;
 
   constructor() { }
 
@@ -29,6 +31,21 @@ export class FoodListComponent implements OnInit {
     this.newFood = ""
     this.showForm();
 
+  }
+
+  addTodaysFood(food) {
+    this.todaysFood.push(food)
+    console.log(this.todaysFood)
+    this.totalCalories(this.todaysFood);
+  }
+
+  totalCalories(todaysFood) {
+    let total = 0
+    for (let i = 0; i < todaysFood.length; i++) {
+      total += todaysFood[i].calories
+    }
+    this.showTotal = total
+    return total
   }
 
 }

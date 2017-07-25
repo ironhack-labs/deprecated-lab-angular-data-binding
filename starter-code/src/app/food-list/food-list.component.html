@@ -12,15 +12,25 @@
 
 <div class="serch-container">
   <label for="foods_name"> Search Food: </label>
-  <input id="fodds_name" placeholder="food name" type="text" [(ngModel)]="pattern">
+  <input id="foods_name" placeholder="food name" type="text" [(ngModel)]="pattern">
 </div>
 
 
 <div class="food-list-container">
-  <ul *ngFor="let food of foods | filter:'name':pattern;">
+  <ul *ngFor="let food of foods | filter:'name':pattern;" class="elements-food">
     <li>Name: {{food.name}} </li>
     <li>Calories: {{food.calories}}</li>
     <img class="foodpic" [src]="food.image">
     <li>Quantity: {{food.quantity}}</li>
+    <button (click)="addTodaysFood(food)" type="button" name="button-item">Add for today food</button>
   </ul>
+</div>
+
+<div class="food-for-today-widged"> <h1>Food for today list</h1>
+  <ul *ngFor="let foodToday of todaysFood">
+    <li>Name: {{foodToday.name}} </li>
+    <li>Calories: {{foodToday.calories}} </li>
+    <li>Quantity: {{todaysFood.length}} </li>
+  </ul>
+  <h2>Total Calories: {{showTotal}}</h2>
 </div>
