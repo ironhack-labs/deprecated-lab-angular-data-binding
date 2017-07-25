@@ -1,9 +1,30 @@
 <p>
   food-list!
 </p>
+<div [ngClass]="formClass" *ngIf="show">
+  <div>
+    <label for="food-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-image">image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+    <button (click)="addFood()">Submit New Food</button>
+</div>
+  <button (click)="addFoodForm()">Add New Food</button>
+<div>
+      <label for="food_name"> Search food: </label>
+      <input id="food_name" placeholder="food name"
+              type="text" [(ngModel)]="pattern">
+<div>
 
 <ul>
-  <div *ngFor="let food of foods">
+  <div *ngFor="let food of foods | filter : 'name' : pattern " class="float">
     <p>name: {{food.name}}</p>
     <p>calories: {{food.calories}}</p>
     <img src="{{food.image}}" alt="" width="100">
