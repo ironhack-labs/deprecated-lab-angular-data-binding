@@ -11,8 +11,10 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   hidden: boolean = false;
   todaysFood: any = []
+  todaysFoodName: Array<string> = [];
 
-  showList:number;
+  quantity: number = 1;
+  showList: number;
 
   constructor() {
      this.foods = foods;
@@ -34,8 +36,14 @@ export class FoodListComponent implements OnInit {
   }
 
   addList(food) {
-    this.todaysFood.push(food)
-    console.log(this.todaysFood)
+    if(this.todaysFoodName.indexOf(food.name) !== -1){
+      this.todaysFood[this.todaysFoodName.indexOf(food.name)].quantity++;
+    } else {
+      food.quantity = this.quantity;
+      this.todaysFood.push(food)
+      this.todaysFoodName.push(food.name)
+      console.log(this.todaysFood)
+    }
     this.totalCalories(this.todaysFood);
   }
 

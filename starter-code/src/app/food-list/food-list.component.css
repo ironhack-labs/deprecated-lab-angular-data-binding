@@ -1,10 +1,67 @@
+.container {
+  margin: 0 auto;
+  max-width: 1056px;
+}
+
+.food-head {
+  padding: 40px;
+}
+
 .all-food {
   width: 50%;
   float: left;
+}
+
+.all-food > ul > li {
+  list-style-type: none;
+}
+
+.one-food {
+  border: 2px solid #000;
+  background-color: #eee;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.one-food > .qt {
+  margin-bottom: 20px;
+}
+
+.one-food label {
+  margin-right: 10px;
 }
 
 .food-list {
   border: 1px solid #000;
   padding: 20px;
   float: right;
+}
+
+.add-food {
+  padding: 40px;
+  background-color: #eee;
+  width: 20%;
+}
+
+.add-food > div:nth-child(4) {
+  margin-bottom: 20px;
+}
+
+.add-food label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-food input {
+  display: block;
+  margin-bottom: 15px;
+}
+
+button {
+  background: #000;
+  border: none;
+  padding: 8px 10px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
