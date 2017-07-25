@@ -1,6 +1,4 @@
-<p>
-  food-list!
-</p>
+
 <div [ngClass]="formClass" *ngIf="show">
   <div>
     <label for="food-name">Name</label>
@@ -22,9 +20,23 @@
       <input id="food_name" placeholder="food name"
               type="text" [(ngModel)]="pattern">
 <div>
-
+  <h1>
+    food-list!
+  </h1>
 <ul>
   <div *ngFor="let food of foods | filter : 'name' : pattern " class="float">
+    <p>name: {{food.name}}</p>
+    <p>calories: {{food.calories}}</p>
+    <img src="{{food.image}}" alt="" width="100">
+    <button (click)="addTodayFood(food)">Add to Today's Food</button>
+  </div>
+</ul>
+<h1>
+  Today's food-list:
+  {{total}} Calories
+</h1>
+<ul>
+  <div *ngFor="let food of todayFoods" class="float">
     <p>name: {{food.name}}</p>
     <p>calories: {{food.calories}}</p>
     <img src="{{food.image}}" alt="" width="100">
