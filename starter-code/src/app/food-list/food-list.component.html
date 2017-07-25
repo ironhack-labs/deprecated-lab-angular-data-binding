@@ -1,13 +1,16 @@
 
-<div class="c-search">
-  <input placeholder="name" type="text" [(ngModel)]="name">
-  <input placeholder="calories" type="text" [(ngModel)]="calories"/>
-  <input placeholder="image" type="text" [(ngModel)]="image"/>
-  <input placeholder="quantity" type="text" [(ngModel)]="quantity"/>
-  <button (click)="addItem()">
-    add
+<div  *ngIf="true" class="c-search">
+  <button [hidden]= "show" (click)="addItem()" >
+    add Food
   </button>
+  <input [hidden]= "show" placeholder="name" type="text" [(ngModel)]="newFood.name">
+  <input [hidden]= "show" placeholder="calories" type="text" [(ngModel)]="newFood.calories"/>
+  <input [hidden]= "show" placeholder="image" type="text" [(ngModel)]="newFood.image"/>
+  <input [hidden]= "show" placeholder="quantity" type="text" [(ngModel)]="newFood.quantity"/>
 </div>
+<button (click)="addItemForm()" >
+  add Item
+</button>
 
 <div class="c-search">
   <label for="things_name"> Search thing: </label>
