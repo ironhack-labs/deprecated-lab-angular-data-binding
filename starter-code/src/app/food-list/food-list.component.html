@@ -6,23 +6,23 @@
 <button (click)="addForm()">Add a new food</button>
 
 <div class="form" *ngIf="isHidden">
-<div>
-  <label for="food-name">Name</label>
-  <input class="input-form" type="text" [(ngModel)]="newFood.name">
-</div>
-<div>
-  <label for="food-calories">Calories</label>
-  <input class="input-form" type="text" [(ngModel)]="newFood.calories">
-</div>
-<div>
-  <label for="food-image">Image</label>
-  <input class="input-form" type="text" [(ngModel)]="newFood.image">
-</div>
-<div>
-  <label for="food-quantity">Quantity</label>
-  <input class="input-form" type="text" [(ngModel)]="newFood.quantity">
-</div>
-<button (click)="addFood()">Submit New Food</button>
+  <div>
+    <label for="food-name">Name</label>
+    <input class="input-form" type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Calories</label>
+    <input class="input-form" type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-image">Image</label>
+    <input class="input-form" type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div>
+    <label for="food-quantity">Quantity</label>
+    <input class="input-form" type="text" [(ngModel)]="newFood.quantity">
+  </div>
+  <button (click)="addFood()">Submit New Food</button>
 </div>
 
 <h4> Food list </h4>
@@ -32,5 +32,16 @@
     <p> {{ food.calories }} calories </p>
     <img src="{{ food.image }}" height="150px">
     <p> {{ food.quantity }} items </p>
+    <button (click)="addToday(food)">Choose it</button>
   </li>
 </ul>
+
+<div class="today-food">
+  <h4> Today Food </h4>
+  <ul>
+    <li *ngFor="let food of today">
+      <p> {{ food.name }} <span> {{ food.calories }} calories </span></p>
+    </li>
+  </ul>
+  <h5> Total calories: {{ totalCalories }} </h5>
+</div>

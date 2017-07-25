@@ -11,15 +11,18 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
   isHidden: boolean = false;
+  today: any = [];
+  totalCalories: number;
+
   constructor() {
     this.foods = foods;
-    }
+  }
 
   ngOnInit() {
     this.foods = foods;
   }
 
-  addForm(){
+  addForm() {
     this.isHidden = !this.isHidden;
   }
 
@@ -28,4 +31,19 @@ export class FoodListComponent implements OnInit {
     this.newFood = {};
     this.isHidden = !this.isHidden;
   }
+
+  addToday(food) {
+    this.today.push(food)
+    console.log(this.today)
+    this.sumCalories(this.today);
+  }
+
+  sumCalories(today) {
+  let total = 0
+  for (let i = 0; i < today.length; i++) {
+    total += today[i].calories
+  }
+  this.totalCalories = total
+  return total
+}
 }
