@@ -8,9 +8,26 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  constructor() { }
+  foodList: Array<Object> = [];
+  pattern: ''
+  
+  constructor() { 
+    this.foodList = foods;
+  }
 
   ngOnInit() {
   }
+
+
+  divHide: boolean = false;
+
+  toggleContent() {
+      this.divHide = !this.divHide;
+      console.log(this.divHide);
+      // alert("hello");
+  }
+  
+  
+  
 
 }
