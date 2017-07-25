@@ -10,6 +10,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
+  isHidden: boolean = false;
   constructor() {
     this.foods = foods;
     }
@@ -18,13 +19,13 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
+  addForm(){
+    this.isHidden = !this.isHidden;
+  }
+
+  addFood() {
+    this.foods.push(this.newFood);
+    this.newFood = {};
+    this.isHidden = !this.isHidden;
+  }
 }
-
-
-  // addContact(){
-  //   console.log("Add contact has been called");
-  //   // add contact to contacts list
-  //   // clear input
-  //   this.contacts.push(this.newContact);
-  //   this.newContact = {};
-  // }

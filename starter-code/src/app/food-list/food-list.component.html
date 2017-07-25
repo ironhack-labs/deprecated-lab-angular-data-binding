@@ -1,14 +1,36 @@
 <div>
-  <label for="things_name"> Search thing: </label>
-  <input id="things_name" placeholder="food name" type="text" [(ngModel)]="pattern">
+  <label for="foods_name"> Search food: </label>
+  <input id="foods_name" placeholder="food name" type="text" [(ngModel)]="pattern">
 </div>
 
-    <h4> Food list </h4>
-    <ul>
-      <li *ngFor="let food of foods | filter : 'name' : pattern; let i = index">
-        <p> {{ food.name }} </p>
-        <p> {{ food.calories }} calories </p>
-        <img src="{{ food.image }}" height="150px">
-        <p> {{ food.quantity }} items </p>
-      </li>
-    </ul>
+<button (click)="addForm()">Add a new food</button>
+
+<div class="form" *ngIf="isHidden">
+<div>
+  <label for="food-name">Name</label>
+  <input class="input-form" type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories">Calories</label>
+  <input class="input-form" type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-image">Image</label>
+  <input class="input-form" type="text" [(ngModel)]="newFood.image">
+</div>
+<div>
+  <label for="food-quantity">Quantity</label>
+  <input class="input-form" type="text" [(ngModel)]="newFood.quantity">
+</div>
+<button (click)="addFood()">Submit New Food</button>
+</div>
+
+<h4> Food list </h4>
+<ul>
+  <li *ngFor="let food of foods | filter : 'name' : pattern; let i = index">
+    <p> {{ food.name }} </p>
+    <p> {{ food.calories }} calories </p>
+    <img src="{{ food.image }}" height="150px">
+    <p> {{ food.quantity }} items </p>
+  </li>
+</ul>
