@@ -1,3 +1,18 @@
-<p>
-  food-list works!
-</p>
+<div id="search">
+  <h2>Search</h2>
+  <br>
+  <input type="text" name="search" placeholder="search food" value="" [(ngModel)]="pattern">
+</div>
+
+<div class="food-container" *ngFor="let food of foods | search : 'name' : pattern;">
+  <div class="image-container"><img src="{{food.image}}" alt=""></div>
+  <div class="info">
+    <h2>{{food.name}}</h2>
+
+    <small>Calories: {{food.calories}}</small>
+    <br>
+    <label for="quantity">Quantity</label>
+    <input type="text" name="quantity" value="{{food.quantity}}">
+    <button class="qty">+</button>
+  </div>
+</div>
