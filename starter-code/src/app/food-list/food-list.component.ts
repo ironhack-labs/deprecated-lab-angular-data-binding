@@ -9,9 +9,10 @@ import foods from '../foods'
 export class FoodListComponent implements OnInit {
   foods: Object[]
   newFoods: Object = {}
-  todayFoods: Object[]
+  todayFoods: Object[] = []
   newFoodToday: Object = {}
   createFood: boolean = false
+  totalQuantity: Number = 1
 
   constructor() { }
 
@@ -23,15 +24,13 @@ export class FoodListComponent implements OnInit {
     this.createFood = !this.createFood
   }
 
-  addFood() {
-    this.foods.push(this.newFoods)
-    this.newFoods = {}
+  addFoodToList(food) {
+    this.todayFoods.push(food)
+    this.calculateQuantity(food.quantity)
   }
 
-  addFoodToList() {
-    this.todayFoods.push(this.newFoodToday)
-    console.log(this.newFoodToday)
-    this.newFoodToday = {}
+  calculateQuantity(foodQuantity) {
+
   }
 
 }
