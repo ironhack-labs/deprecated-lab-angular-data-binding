@@ -5,12 +5,11 @@
 </div>
 
 <div class="new-food">
-  <button>Add new Food</button>
+  <button (click)="toggleForm()">Add new Food</button>
   <br>
 </div>
 
-
-<div >
+<div *ngIf="showForm">
   <div>
     <input #name type="text" placeholder="Name" [(ngModel)]="newFood.name">
   </div>

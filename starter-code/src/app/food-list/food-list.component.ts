@@ -26,6 +26,7 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
   errorMessage = false;
+  showForm = false;
   //pattern: string;
 
   constructor() {}
@@ -34,12 +35,16 @@ export class FoodListComponent implements OnInit {
     this.foods = foodList;
   }
 
+  toggleForm(){
+    this.showForm = !this.showForm;
+  }
   addFood(food){
     if(food.name !== undefined && food.calories !== undefined && food.image !== undefined){
       food = new Food(food.name,food.calories,food.image);
       this.foods.push(food);  // add food to foods list
        // clear inputs
       this.newFood = {};
+      this.toggleForm();
     }else{
       this.errorMessage = true;
     }
