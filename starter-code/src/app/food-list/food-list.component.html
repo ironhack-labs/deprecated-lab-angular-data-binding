@@ -1,3 +1,15 @@
-<p>
-  food-list works!
-</p>
+<input type="text" placeholder="filter" [(ngModel)]="pattern"><br>
+<button (click)="showNewFoodPane()">New food</button>
+<div *ngIf="showPane">
+  <input type="text" placeholder="name" [(ngModel)]="newFood.name">
+  <input type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+  <input type="text" placeholder="image" [(ngModel)]="newFood.image">
+  <button (click)="createNewFood()">Create</button>
+</div>
+<div id="foodContainer">
+  <article class="foodItem" *ngFor='let food of foods | filter:"name":pattern'>
+    <h3>{{food.name}}</h3>
+    <img src="{{food.image}}" alt="Photo of {{food.name | lowercase}}">
+    <p>Calories {{food.calories}}</p>
+  </article>
+</div>
