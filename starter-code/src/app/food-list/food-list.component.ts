@@ -7,9 +7,13 @@ import foods from '../foods';
     styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+    todayFoods : any =[];
     foods: Object[];
-    newFood: Object = {};
+    newFood: Object = {
+    };
     show: Boolean = true;
+    showTotal : number;
+
     constructor() { }
     ngOnInit() {
       this.foods = foods;
@@ -17,10 +21,28 @@ export class FoodListComponent implements OnInit {
 
     addItem(){
         this.show = !this.show;
-        foods.push(this.newFood)
+        foods.unshift(this.newFood)
 
     }
     addItemForm(){
         this.show = !this.show;
     }
+    addList(foods){
+    this.todayFoods.push(foods);
+    console.log(this.todayFoods);
+    this.totalCalories(this.todayFoods);
+  }
+
+  totalCalories(todayFoods){
+    let total =0;
+    for(let i=0; i<todayFoods.length; i++){
+      let x = todayFoods[i].calories;
+      total += x;
+      console.log(total);
+
+    }
+    this.showTotal = total;
+    return total;
+  }
+
 }

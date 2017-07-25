@@ -21,11 +21,22 @@
 
 
   <div class="c-image" *ngFor="let foods of foods | filter:'name':pattern ">
+<div class="descripcion">
 
-    <h2>{{foods.name}}</h2>
-
+  <h2>Name: {{foods.name}}</h2>
+  <h2>Calories: {{ foods.calories }}</h2>
+  <h2>Quantity: {{foods.quantity}}</h2>
+</div>
 
       <img src="{{foods.image}}">
-
+<button (click)="addList(foods)">Add List</button>
 
     </div>
+
+<div class="food-list">
+  <ul *ngFor="let foods of todayFoods">
+    <li>Name: {{foods.name}}</li>
+    <li>Calories: {{foods.calories}}</li>
+  </ul>
+  <p>Total of Calories = {{showTotal}}</p>
+</div>

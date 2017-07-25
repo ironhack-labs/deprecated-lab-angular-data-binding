@@ -3,6 +3,7 @@
   height: 300px;
   border: 2px solid gray;
   margin-bottom: 10px;
+  float: left;
 
 }
  img{
@@ -12,6 +13,12 @@
 h2{
   text-align: center;
 }
+
 .c-search{
   margin-bottom: 20px;
+}
+.descripcion{
+  float: right;
+  text-align: center;
+  width: 50%;
 }
