@@ -6,10 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 
+// import custom search pipe
+import { SearchPipe } from './pipes/search.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

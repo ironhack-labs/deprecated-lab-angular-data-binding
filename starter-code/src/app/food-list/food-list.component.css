@@ -1,0 +1,39 @@
+.food-container {
+  border: 2px solid #e6e6e6;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.food-container div {
+  display: inline-block;
+}
+
+.image-container {
+  height: 200px;
+  width: 200px;
+}
+
+.image-container img {
+  width: 100%;
+  border-radius: 78px;
+}
+
+#search {
+  text-align: center;
+  margin: 20px;
+}
+
+#search input {
+  width: 31%;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.column{
+  display: inline-block;
+  width: 45%;
+  margin: 0 10px;
+}
+.pull-right{
+  float:right;
+}
