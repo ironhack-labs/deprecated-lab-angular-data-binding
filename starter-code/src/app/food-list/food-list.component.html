@@ -1,5 +1,16 @@
 <label for="">Search</label>
 <input type="text" [(ngModel)]="searchTerm" value="voo">
+<br>
+<button (click)="showAddFood()">add food</button>
+<div class="addFoodForm" *ngIf="showAddFoodForm">
+  <label for="">Name</label>
+  <input type="text" [(ngModel)]="foodToAdd.name">
+  <label for="">Calories</label>
+  <input type="number" [(ngModel)]="foodToAdd.calories">
+  <label for="">Image</label>
+  <input type="text" [(ngModel)]="foodToAdd.image">
+  <button (click)="submitFood()">Submit</button>
+</div>
 <ul>
   <li *ngFor="let food of foods | search:searchTerm">
     <p>{{food.name}}</p>

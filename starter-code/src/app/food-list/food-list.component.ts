@@ -10,11 +10,23 @@ export class FoodListComponent implements OnInit {
 
   foods: Object[] = [];
   searchTerm: string = '';
+  showAddFoodForm: boolean = false;
+  foodToAdd: Object = { };
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+  }
+
+  showAddFood() {
+    this.showAddFoodForm = !this.showAddFoodForm;
+  }
+
+  submitFood() {
+    this.showAddFoodForm = false;
+    this.foods.unshift(this.foodToAdd);
+    this.foodToAdd = {}
   }
 
 }
