@@ -1,22 +1,23 @@
+import { FoodsService, IFood } from './../shared/foods.service';
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
 
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css']
+  styleUrls: ['./food-list.component.css'],
 })
 export class FoodListComponent implements OnInit {
 
-  foods: Object[] = [];
   searchTerm: string = '';
   showAddFoodForm: boolean = false;
-  foodToAdd: Object = { };
+  foodToAdd: Object = { }; // TODO make IFood
 
-  constructor() { }
+  constructor(private foodsService:FoodsService) { }
 
-  ngOnInit() {
-    this.foods = foods;
+  ngOnInit() {}
+
+  get foods() {
+    return this.foodsService.foods;
   }
 
   showAddFood() {
@@ -25,8 +26,13 @@ export class FoodListComponent implements OnInit {
 
   submitFood() {
     this.showAddFoodForm = false;
-    this.foods.unshift(this.foodToAdd);
+    this.foodsService.foods.unshift(this.foodToAdd as IFood);
     this.foodToAdd = {}
+  }
+
+  makeTodaysFood(food:IFood, quantity:number) {
+    food.quantity = quantity;
+    food.forToday = true;
   }
 
 }

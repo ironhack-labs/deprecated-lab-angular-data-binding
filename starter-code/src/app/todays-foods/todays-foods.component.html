@@ -1,0 +1,7 @@
+<h1>Todays Foods</h1>
+<h2>Calorie count: {{ calorieCount }}</h2>
+<ul>
+  <li *ngFor="let food of foods">
+    {{food.name}} x {{food.quantity}}
+  </li>
+</ul>

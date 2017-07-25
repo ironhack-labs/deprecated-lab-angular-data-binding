@@ -15,7 +15,8 @@
   <li *ngFor="let food of foods | search:searchTerm">
     <p>{{food.name}}</p>
     <p>{{food.calories}}</p>
-    <div class="image-container">
+    <input #quantity type="number" value="1" min="1">
+    <div class="image-container" (click)="makeTodaysFood(food, quantity.value)">
       <img [src]="food.image" alt="">
     </div>
   </li>
