@@ -2,7 +2,23 @@
   food-list works!
 </p>
 
-<div class="allList" *ngFor = "let food of foodList">
+<div class="addFoodDiv">
+  <h3>Add Food</h3>
+    <input type="text" name="name" placeholder="name" [(ngModel)]="newFood.name">
+    <input type="text" name="image" placeholder="imageUrl" [(ngModel)]="newFood.image">
+    <input type="text" name="calories" placeholder="calories" [(ngModel)]="newFood.calories">
+    <button (click)="addFood()">Add New Food</button>
+  </div>
+<div class="searchDiv">
+  <h3>Search Food</h3>
+  <input id="searchInput" placeholder="search" type="text" [(ngModel)]="pattern">
+</div>
+<!--
+----food es como un argumento lo podemos llamar como sea
+----food se ocupara para referirnos al objeto
+----foods  es el objeto sobre el que vamos a recorrer
+-->
+<div class="allList" *ngFor = "let food of foods | filter: 'name' : pattern">
   <div class="name">
     <label for="name">{{food.name}}</label>
   </div>
