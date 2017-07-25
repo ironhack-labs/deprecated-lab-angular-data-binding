@@ -40,8 +40,8 @@ export class FoodListComponent implements OnInit {
 
   totalCalories(todayFoods){
     let total =0;
-    for(var i=0; i<todayFoods.length; i++){
-      var x = todayFoods[i].calories;
+    for(let i=0; i<todayFoods.length; i++){
+      let x = todayFoods[i].calories;
       total += x;
       console.log(total);
 
