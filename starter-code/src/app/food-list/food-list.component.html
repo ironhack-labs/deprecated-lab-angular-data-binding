@@ -1,3 +1,101 @@
 <p>
   food-list works!
 </p>
+
+<button (click)="hideForm()"> Add Food </button>
+
+<br>
+<br>
+
+<div [hidden]="isInputDisabled">
+
+  <label for="foodName"> Food Name </label>
+  <input placeholder="Food Name" type="text" [(ngModel)]="newFood.name">
+
+  <label for="foodCalories"> Food Calories </label>
+  <input placeholder="Calories" type="number" [(ngModel)]="newFood.calories">
+
+  <label for="foodQuantity"> Food Quantity </label>
+  <input placeholder="Quantity" type="number" [(ngModel)]="newFood.quantity">
+
+  <label for="foodPic"> Food Pic </label>
+  <input placeholder="Food Pic URL" type="text" [(ngModel)]="newFood.image">
+
+  <button (click)="addFood()"> Submit </button>
+
+</div>
+
+<br [hidden]="isInputDisabled">
+
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+</div>
+
+
+<button (click)="showListOrTodays()"> Toogle Today´s List </button>
+
+<div [hidden]="!toogleToday">
+<div> Total Calories: {{totalCalories}} </div>
+<ul class="foodBox" *ngFor="let food of todaysFood">
+  <li><h2>{{food.name}} </h2>  </li>
+  <li>Calories: {{food.calories}}</li>
+  <li>Quantity: {{food.quantity}}</li>
+  <img id="foodPic" src="{{food.image}}">
+</ul>
+</div>
+
+
+<div [hidden]="toogleToday">
+<ul class="foodBox" *ngFor="let food of foodList | filter:'name':pattern; let i = index">
+  <li><h2>{{ i+1 }})  {{food.name}}  <button (click)="addTodaysFood(food)"> Add to Today´s food </button> </h2>  </li>
+  <li>Calories: {{food.calories}}</li>
+
+  <img id="foodPic" src="{{food.image}}">
+</ul>
+
+
+<!--
+
+<button (click)="hideForm()"> Add Food </button>
+
+<div [disabled]="isInputDisabled">
+
+  <label for="foodName"> Food Name </label>
+  <input placeholder="Food Name" type="text" [(ngModel)]="newFood.name">
+
+  <label for="foodCalories"> Food Calories </label>
+  <input placeholder="Calories" type="number" [(ngModel)]="newFood.calories">
+
+  <label for="foodQuantity"> Food Quantity </label>
+  <input placeholder="Quantity" type="number" [(ngModel)]="newFood.quantity">
+
+  <label for="foodPic"> Food Pic </label>
+  <input placeholder="Food Pic URL" type="text" [(ngModel)]="newFood.image">
+
+  <button (click)="addFood()"> Submit </button>
+
+</div>
+
+
+<div>
+  <label for="contact-name">Name</label>
+  <input type="text" [(ngModel)]="newContact.name">
+</div>
+<div>
+  <label for="contact-email">Email</label>
+  <input type="text" [(ngModel)]="newContact.email">
+</div>
+<div>
+  <label for="contact-phone">Contact Phone</label>
+  <input type="text" [(ngModel)]="newContact.phoneNumber">
+</div>
+<div>
+  <label for="contact-image">Image Url</label>
+  <input type="text" [(ngModel)]="newContact.image">
+</div>
+
+<button (click)="addContact()"> Submit New Contact</button>
+
+-->
