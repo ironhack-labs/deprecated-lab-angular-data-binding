@@ -1,3 +1,49 @@
 <p>
   food-list works!
 </p>
+
+<button (click)="showForm()">Show Form</button>
+<div class="addFoodDiv" *ngIf="true">
+  <h3>Add Food</h3>
+    <input [hidden]="show" type="text" name="name" placeholder="name" [(ngModel)]="newFood.name">
+    <input [hidden]="show" type="text" name="image" placeholder="Image Url" [(ngModel)]="newFood.image">
+    <input [hidden]="show" type="text" name="calories" placeholder="calories" [(ngModel)]="newFood.calories">
+    <button [hidden]="show" (click)="addFood()">Add New Dish</button>
+  </div>
+<div class="searchDiv">
+  <h3>Search Food</h3>
+  <input id="searchInput" placeholder="search" type="text" [(ngModel)]="pattern">
+</div>
+<!--
+food es como un argumento lo podemos llamar como sea
+food se ocupara para referirnos al objeto
+foods  es el objeto sobre el que vamos a recorrer
+-->
+<div class="allList" *ngFor = "let food of foods | filter: 'name' : pattern">
+  <div class="name">
+    <label for="name">{{food.name}}</label>
+  </div>
+  <div class="image">
+    <img height='100' [src]="food.image" title="{{food.name}}"/>
+  </div>
+  <div class="calories">
+    <label for="calories">Calories {{food.calories}}</label>
+  </div>
+  <div class="button">
+    <button (click)="addMeal(food)">Ate Today</button>
+  </div>
+  <br><br>
+</div>
+
+<h3 class="titleToday">Today I Ate</h3>
+<div class="ateToday" *ngFor = "let ateToday of todayMeal" >
+  <div class="nameAteToday">
+    <label for="name">{{ateToday.name}}</label>
+  </div>
+  <div class="ateTodayCalories">
+    <label for="calories">{{ateToday.calories}}</label>
+  </div>
+  <div class="totalCalories">
+    <label for="totalCalories">Total Calories {{total}}</label>
+  </div>
+</div>

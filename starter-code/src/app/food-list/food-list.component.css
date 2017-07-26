@@ -1,0 +1,23 @@
+.allList{
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-right: 400px;
+  text-align: center;
+}
+.searchDiv{
+  padding: 0px;
+  margin: 0px;
+}
+#searchInput{
+  padding: 0px;
+  margin: 0px;
+}
+input{
+  border-radius: 2px;
+}
+.titleToday{
+
+}
+.ateToday{
+
+}
