@@ -12,6 +12,7 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   todayFoods: Array<String> = [];
   pattern: ''
+  totalCalories = 0;
 
   
   constructor() { 
@@ -25,9 +26,7 @@ export class FoodListComponent implements OnInit {
   divHide: boolean = false;
 
   toggleContent() {
-      this.divHide = !this.divHide;
-      console.log(this.divHide);
-      // alert("hello");
+      this.divHide = !this.divHide;      
   }
 
   addFood(){
@@ -38,6 +37,7 @@ export class FoodListComponent implements OnInit {
   addTodayFood(_food){
     this.todayFoods.push(_food);
     console.log(_food);
+    this.totalCalories += _food.calories;
   }
   
   

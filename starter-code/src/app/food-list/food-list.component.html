@@ -9,7 +9,7 @@
     <ul *ngFor="let today of todayFoods">
         Name: {{ today.name }} - Calories: {{ today.calories }}             
     </ul>
-    <h2>Total Calories: </h2>
+    <h2>Total Calories: {{ totalCalories }} </h2>
 </div>
 
 <div *ngIf="divHide === true">
