@@ -1,3 +1,76 @@
-<p>
-  food-list works!
-</p>
+<div class="container" style="width: 90%">
+
+  <h1 class="teal-text">IronMenu</h1>
+  <div class="row">
+    <button class="btn" (click)="showForm()" heigth="60">Añade una nueva comida</button>
+    <br><br>
+    <div class="newFoodForm col s5" *ngIf="createFood">
+      <div>
+        <label for="food-name">Food Name:</label>
+        <input class="add-food-form" type="text" [(ngModel)]="newFoods.name">
+      </div>
+      <div>
+        <label for="food-email">Calories:</label>
+        <input class="add-food-form" type="text" [(ngModel)]="newFoods.calories">
+      </div>
+      <div>
+        <label for="food-phone">Img Url:</label>
+        <input class="add-food-form" type="text" [(ngModel)]="newFoods.image">
+      </div>
+      <button class="btn" (click)="addFood()">Añadir</button>
+    </div>
+    <br><br>
+    <div class="col s8">
+      <div>
+        <label for="food_search"> Search Food: </label>
+        <input class="add-food-form" id="food_search" placeholder="Search" type="text" [(ngModel)]="pattern">
+        <div>
+          <h4> Lista de comidas </h4>
+          <div class="col s6 m6" *ngFor="let food of foods | filter : 'name' : pattern; let i = index">
+            <div class="card">
+              <div class="card-image">
+                <img [src]="food.image" alt="{{ food.name }}" style="width=200px;">
+              </div>
+              <div class="card-content">
+                <span class="card-title">{{ food.name }}</span>
+                <p>Calories: {{ food.calories }}</p>
+              </div>
+              <div class="card-action">
+                <a (click)="addFoodToList(food)" class="btn">Añadir a la comida de hoy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s4">
+      <h4 *ngIf="(totalCalories !==0)"> Comida para hoy </h4>
+      <div class="row">
+        <div class="col s6">
+          <span style="font-weight: 800; text-align:center" *ngIf="(totalCalories !==0)">FOOD</span>
+        </div>
+        <div class="col s3">
+          <span style="font-weight: 800; text-align:center" *ngIf="(totalCalories !==0)">CALORIES</span>
+        </div>
+        <div class="col s3">
+          <span style="font-weight: 800; text-align:center" *ngIf="(totalCalories !==0)">QUANTITY</span>
+        </div>
+        <div *ngFor="let today of todayFoods">
+        <div class="col s6">
+          <span>{{ today.name }}</span>
+      </div>
+      <div class="col s3" style="text-align: center">
+        <span>{{ today.calories }}</span>
+      </div>
+      <div class="col s3" style="text-align: center">
+        <span>{{today.quantity}}</span>
+      </div>
+    </div>
+    </div>
+    <hr *ngIf="(totalCalories !==0)">
+    <p style="font-size: 30px;" *ngIf="(totalCalories !==0)" class="teal-text">Total Calories: {{totalCalories}} </p>
+
+  </div>
+
+</div>
+</div>
