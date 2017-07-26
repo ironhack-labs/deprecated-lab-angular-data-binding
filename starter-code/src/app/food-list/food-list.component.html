@@ -1,3 +1,48 @@
-<p>
-  food-list works!
-</p>
+
+<div [ngClass]="formClass" *ngIf="show">
+  <div>
+    <label for="food-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-image">image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+    <button (click)="addFood()">Submit New Food</button>
+</div>
+  <button (click)="addFoodForm()">Add New Food</button>
+<div>
+      <label for="food_name"> Search food: </label>
+      <input id="food_name" placeholder="food name"
+              type="text" [(ngModel)]="pattern">
+<div>
+  <h1>
+    food-list!
+  </h1>
+<ul>
+  <div *ngFor="let food of foods | filter : 'name' : pattern " class="float">
+    <p>name: {{food.name}}</p>
+    <p>calories: {{food.calories}}</p>
+    <img src="{{food.image}}" alt="" width="100">
+    <div>
+      <label for="food-qty">Quantity</label>
+      <input type="number" [(ngModel)]="quantity">
+    </div>
+    <button (click)="addTodayFood(food)">Add to Today's Food</button>
+  </div>
+</ul>
+<h1>
+  Today's food-list:
+  {{total}} Calories
+</h1>
+<ul>
+  <div *ngFor="let food of todayFoods" class="float">
+    <p>name: {{food.name}} x {{food.quantity}}</p>
+    <p>calories: {{food.calories}}</p>
+    <img src="{{food.image}}" alt="" width="100">
+  </div>
+</ul>
