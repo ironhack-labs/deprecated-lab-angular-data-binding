@@ -1,3 +1,17 @@
-<p>
-  food-list works!
-</p>
+<input type="text" [(ngModel)]="search"><br>
+<button (click)=toggleFrom()>Add food</button><br>
+
+<form *ngIf="status">
+  <input type="text" name="name" id="name" [(ngModel)]="newName">
+  <input type="text" name="calories" id="calories" [(ngModel)]="newCalories">
+  <input type="text" name="image" id="image" [(ngModel)]="newImage">
+  <input type="submit" value="Save Food" (click)=addFood()>
+</form>
+<ul>
+  <li *ngFor="let fruit of foods | filter : 'name': search">
+    {{ fruit.name }}<br>
+    {{ fruit.calories }}<br>
+    {{ fruit.quantity }}<br>
+     <img width="30" src="{{ fruit.image }}"/><br>
+  </li>
+</ul>
