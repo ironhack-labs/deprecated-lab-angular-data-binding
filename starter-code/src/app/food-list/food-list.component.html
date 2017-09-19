@@ -1,3 +1,35 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="form-group">
+    <label for="search">Search </label>
+    <input type="text" class="form-control" placeholder="food search" [(ngModel)]="pattern">
+  </div>
+
+  <button class="btn btn-primary" (click)="formShow()">
+      View Form
+  </button>
+
+  <form (ngSubmit)="addFood(myForm.value)" *ngIf="formVisible" #myForm="ngForm">
+    <h3>Add new food</h3>
+    <div class="form-group">
+      <label for="addNew">Food name:</label>
+      <input placeholder="new food" type="text" [(ngModel)]="newFood" name="newFood">
+    </div>
+    <div class="form-group">
+      <label for="addNew">Food Calories:</label>
+      <input placeholder="new food" type="text" [(ngModel)]="newCalories" name="newCalories">
+    </div>
+    <div class="form-group">
+      <label for="addNew">Food Image(url):</label>
+      <input placeholder="new food" type="text" [(ngModel)]="newImage" name="newImage">
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Add
+    </button>
+  </form>
+
+    <div class="row">
+      <div  class="col" *ngFor="let food of foodList | foodsFilter:'name':pattern">
+        <app-food-item [food]="food"></app-food-item>
+      </div>
+    </div>
+  </div>
