@@ -7,7 +7,8 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foodList:Object[] = foods;
+  foodList:any[] = foods;
+  newFood:Object = {};
   formVisible: boolean = false;
 
   constructor() { }
@@ -19,8 +20,10 @@ export class FoodListComponent implements OnInit {
     this.formVisible = true;
   }
 
-  addFood(foodItem) {
-    this.foodList.push(foodItem);
+  addFood(foodName, foodCalories, foodImage) {
+    this.foodList.push(this.newFood);
+    this.newFood = {};
+    return false
   }
 
 
