@@ -8,7 +8,7 @@
       View Form
   </button>
 
-  <form (ngSubmit)="addFood(myForm.value)" *ngIf="formVisible" #myForm="ngForm">
+  <form *ngIf="formVisible" >
     <h3>Add new food</h3>
     <div class="form-group">
       <label for="addNew">Food name:</label>
