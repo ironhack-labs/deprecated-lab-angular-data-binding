@@ -24,6 +24,10 @@
   <li>Name: {{e.name}}</li>
   <li><img [src]="e.image" width ="200"></li>
   <li>Calories: {{e.calories}}</li>
+  <div>
+    <label for="food-quantity">Quantity</label>
+    <input type="number" [(ngModel)]="e.quantity">
+  </div>
   <button (click)="addTodayFoods(e)">Add</button>
 </ul>
 
