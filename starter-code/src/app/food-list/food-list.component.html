@@ -1,10 +1,34 @@
-<p>
-  food-list works!
-</p>
+<div>
+  <input [(ngModel)]="food">
+</div>
 
-<div *ngFor ="let foods of foodList" class="foods">
+<button (click) = "showForm()">Show Form</button>
+
+<div *ngIf = "toogleForm" class="">
+  <div>
+    <label for="food-name"></label>
+    <input type="text" placeholder="Name" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories"></label>
+    <input type="text" placeholder="Calories" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-quantity"></label>
+    <input type="text" placeholder="Quantity" [(ngModel)]="newFood.quantity">
+  </div>
+  <div>
+    <label for="food-image"></label>
+    <input type="text" placeholder="Image" [(ngModel)]="newFood.image">
+  </div>
+  <div class="">
+    <button (click)="addFood(newFood)">Submit New Food</button>
+  </div>
+</div>
+
+<div *ngFor ="let foods of foodList | filter:'name':food" class="foods">
   <h1>{{foods.name}}</h1>
   <p>{{foods.calories}}<p>
-  <p>{{foods.quantity}}</p>
-  <img [src] ="foods.image" height="200">
+    <p>{{foods.quantity}}</p>
+    <img [src] ="foods.image" height="200">
 </div>
