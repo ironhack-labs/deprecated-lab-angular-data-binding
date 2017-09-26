@@ -1,0 +1,13 @@
+img{
+  width: 50px;
+}
+
+li{
+  border: thin solid black;
+  width: 200px;
+  margin: 20px 20px;
+}
+
+ul{
+  list-style-type: none;
+}
