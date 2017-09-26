@@ -1,32 +1,36 @@
 <div class="searcher">
   <label for="foods_name"> Search food: </label>
-  <input [(ngModel)]="foods" placeholder="Food name" type="text">
+  <input [(ngModel)]="filter" placeholder="Food name" type="text">
 </div>
 
 <div>
-  <div class="container" *ngFor='let food of foods | filter : 'name' : pattern; let i = index'>
+  <div class="container" *ngFor='let food of foods'>
     <p><b>Name: </b>{{food.name}}</p>
     <p><b>Calories: </b>{{food.calories}}</p>
     <p><b>Quantity: </b>{{food.quantity}}</p>
     <p><img [src]="food.image" class="food-image"/></p>
+    <button class="btn">Add to my list</button>
   </div>
 </div>
 
-<div>
-  <label for="food-name"></label>
-  <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
-</div>
-<div>
-  <label for="food-calories"></label>
-  <input type="text" [(ngModel)]="newFood.calories" placeholder="Calories">
-</div>
-<div>
-  <label for="food-quantity"></label>
-  <input type="text" [(ngModel)]="newFood.quantity" placeholder="Quantity">
-</div>
-<div>
-  <label for="food-image"></label>
-  <input type="text" [(ngModel)]="newFood.image" placeholder="Image">
-</div>
+<div class="form">
+  <h3>Add new food!</h3>
+  <div>
+    <label for="food-name"></label>
+    <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+  </div>
+  <div>
+    <label for="food-calories"></label>
+    <input type="text" [(ngModel)]="newFood.calories" placeholder="Calories">
+  </div>
+  <div>
+    <label for="food-quantity"></label>
+    <input type="text" [(ngModel)]="newFood.quantity" placeholder="Quantity">
+  </div>
+  <div>
+    <label for="food-image"></label>
+    <input type="text" [(ngModel)]="newFood.image" placeholder="Image">
+  </div>
 
-<button class="btn" (click)="addFood()">Submit New Food</button>
+  <button class="btn" (click)="addFood()">Submit New Food</button>
+</div>
