@@ -1,3 +1,49 @@
-<p>
-  food-list works!
-</p>
+
+<div class="container">
+    <h1>Add Food</h1>
+    <button class="btn btn-primary" (click)="toggleDisplayAdd()">Add Food</button>
+  
+    <form [hidden]="!hideDisplay">
+      <label for="name">Food Name</label>
+      <input id="name" [(ngModel)]="newFood.name" name="1">
+  
+      <label for="calories">Calories</label>
+      <input type="number" id="calories" [(ngModel)]="newFood.calories" name="2">
+  
+      <label for="image">Image URL</label>
+      <input id="image" [(ngModel)]="newFood.image" name="3">
+  
+      <button class="btn btn-success" (click)="toggleDisplayAdd(); addFood()" >Submit</button>
+    </form>
+  </div>
+  <br>
+  <hr>
+
+<div class="container">
+    <label for="search">Search</label>
+    <input type="search" placeholder="search term" id="search"
+      [(ngModel)]="mySearchTerm">
+</div>
+  
+<div class="container">
+  <div *ngFor="let oneFood of (foodList | searchByTerm: mySearchTerm)">
+    <h1>{{ oneFood.name }}</h1>
+    <p>{{ oneFood.calories }}</p>
+    <img [src]="oneFood.image">
+    <button class="btn btn-warning" (click)="addToToday(oneFood)">Add To Today's Foods</button>
+    <label for="quantity">Quantity</label>
+    <input type="number" id="quantity" placeholder="1" [(ngModel)]="newFood.quantity" name="4">
+  </div>
+</div>
+<br>
+<hr>
+<div class="container">
+    <h1>Today's List</h1>
+    <h2>Total Calories: {{ todaysCalories }}</h2>
+    <div *ngFor="let oneFood of todaysList">
+      <h1>{{ oneFood.name }}</h1>
+      <p>Quantity: {{ oneFood.quantity }}</p>
+      <p>Calories: {{ oneFood.calories }}</p>
+      <img [src]="oneFood.image">
+    </div>
+</div>
