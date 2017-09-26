@@ -28,5 +28,10 @@ export class FoodListComponent implements OnInit {
     this.calorias += (food.calories*cantidad);
 
   }
+  isInputDisabled: boolean = false;
+    toggleInput() {
+       this.isInputDisabled = !this.isInputDisabled;
+       
+    }
 
 }
