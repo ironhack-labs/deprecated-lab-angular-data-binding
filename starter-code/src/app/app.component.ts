@@ -7,7 +7,7 @@ import { foods } from './foods';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Foods!';
 
   input: string = "";
 
