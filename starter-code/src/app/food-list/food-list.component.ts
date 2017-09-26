@@ -10,7 +10,10 @@ export class FoodListComponent implements OnInit {
 
   constructor() { }
 
+  foods: Object[]
+
   ngOnInit() {
+    this.foods = foods
   }
 
 }
