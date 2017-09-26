@@ -38,6 +38,8 @@
         <br><br>
         <strong>{{food.name}}: </strong>
         <pre>{{food.calories}} calories</pre>
+        <label for="howMany">Quantity:</label>
+        <input type="number" name="howMany" [(ngModel)]="food.quantity">
         <button (click)="todaysFood(food)" type="button" name="todaysFood">Add to today's foods</button>
       </li>
     </ul>
@@ -50,6 +52,7 @@
         <img [src]="food.image">
         <br><br>
         <strong>{{food.name}}: </strong>
+        <p>{{food.quantity}}</p>
         <pre>{{food.calories}} calories</pre>
       </li>
     </ul>
