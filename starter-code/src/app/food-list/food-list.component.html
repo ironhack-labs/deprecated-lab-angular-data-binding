@@ -9,21 +9,21 @@
   <form #foodForm style="display:none" action="food-list.component.html" method="post">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" />
+        <input type="text" [(ngModel)]="newFood.name" name="name">
     </div>
     <div>
         <label for="calories">Calories:</label>
-        <input type="text" id="calories" />
+        <input type="text" [(ngModel)]="newFood.calories" name="calories">
     </div>
     <div>
         <label for="image">Image:</label>
-        <input type="text" id="image" />
+        <input type="text" [(ngModel)]="newFood.image" name="image">
     </div>
     <div>
         <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" />
+        <input type="number" [(ngModel)]="newFood.quantity" name="quantity">
     </div>
-    <br><button type="button" name="addFood">Add Food</button>
+    <br><button (click)="addFood(foodForm)" type="button" name="addFood">Add Food</button>
   </form>
   <br>
 </div>
