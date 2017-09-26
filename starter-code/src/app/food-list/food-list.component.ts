@@ -8,8 +8,10 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: any[] = foods;
+  todayFoods: any[] = [];
   addFoodBool = false;
   newFood: any = {};
+  todayFoodTotalCals: number = 0;
   constructor() { }
 
   ngOnInit() {
@@ -33,6 +35,11 @@ export class FoodListComponent implements OnInit {
     this.foods.push(this.newFood);
     this.newFood = {};
     this.addFood();
+  }
+  addTodayFood(food){
+    this.todayFoods.push(food);
+    console.log(this.todayFoods);
+    this.todayFoodTotalCals += food.calories;
   }
 
 }

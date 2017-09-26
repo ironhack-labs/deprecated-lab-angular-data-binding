@@ -1,0 +1,12 @@
+li{
+  display: inline-block;
+  text-align: center;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+li img{
+  width: 300px;
+}

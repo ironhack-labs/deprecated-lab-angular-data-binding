@@ -1,3 +1,14 @@
+<h3>Today's Foods</h3>
+
+<ul>
+  <li *ngFor="let food of todayFoods">
+    <h4>{{food.name}}</h4>
+    <h5>Calories: {{food.calories}}</h5>
+    <img src="{{food.image}}" alt="">
+  </li>
+</ul>
+<div>Total Calorie Count: {{todayFoodTotalCals}}</div>
+<hr>
 <h3>List of Foods</h3>
 
 <button (click)="addFood()">Add new food</button>
@@ -19,5 +30,6 @@
     <h4>{{food.name}}</h4>
     <h5>Calories: {{food.calories}}</h5>
     <img src="{{food.image}}" alt="">
+    <button (click)="addTodayFood(food)">Add to Today's Foods</button>
   </li>
 </ul>
