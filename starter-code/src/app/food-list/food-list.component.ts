@@ -8,11 +8,14 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 foods= foods;
-
+newFood: Object= {};
 
 constructor() { }
 
   ngOnInit() {
   }
-
+  addFood(){
+    console.log("Add contact has been called");
+   this.foods.push(this.newFood)
+  }
 }

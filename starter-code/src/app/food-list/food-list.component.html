@@ -1,7 +1,29 @@
 
-<div *ngFor="let food of foods" >     
+<input [(ngModel)]="serchbox">
+<div *ngFor="let food of foods| filter:'name':serchbox" >     
 <h2>{{food.name}} </h2>
 <img [src]="food.image" alt="{{food.name}}" height="150">
 </div>
 
-<p>hola</p>
+
+
+
+<div>
+    <label for="food-name"></label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories"></label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-image"></label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div>
+    <label for="food-quantity"></label>
+    <input type="text" [(ngModel)]="newFood.quantity">
+  </div>
+  
+  <button (click)="addFood()">Submit New food</button>
+  
