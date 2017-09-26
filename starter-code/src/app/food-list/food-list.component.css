@@ -1,0 +1,31 @@
+.foticos{
+  text-align: center;
+  margin-bottom: 40px;
+  background: #b0c0b4;
+  width: 500px;
+  height: 220px;
+}
+
+.left {
+  float: left;
+}
+
+
+.form{
+  margin: 30px;
+}
+
+.fotiticos{
+  text-align: center;
+  margin: 20px;
+  background: #CCAEC6;
+  width: 200px;
+  height: 100px;
+  float: left;
+}
+
+.calo{
+  clear: both;
+  text-align: center;
+  margin: 40px;
+}

@@ -1,3 +1,45 @@
 <p>
   food-list works!
 </p>
+
+<div>
+  <h2>Comida para hoy</h2>
+  <div *ngFor="let todayMeal of menu"  class="fotiticos">
+    <p> <img src="{{todayMeal.image}}" height="80px"> </p>
+    <p>{{todayMeal.name}}</p>
+  </div>
+
+  <div class="calo">
+    <h2>Calorias pal body</h2>
+    <p>{{totalCalories}}</p>
+  </div>
+</div>
+
+
+<div>
+  <input [(ngModel)]="xxx">
+</div>
+
+<div class="">
+  <button (click)="toggleInput()"> anade mas alimentos riquitos riquitos! </button>
+    <div *ngIf="isInputDisabled" class="form">
+      <label for="image">Image</label>
+      <input type="text" [(ngModel)]="newMeal.image" placeholder="image link">
+
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="newMeal.name" placeholder="name">
+
+      <label for="calories">Calories</label>
+      <input type="text" [(ngModel)]="newMeal.calories" placeholder="calories">
+
+      <button (click)="addMeal(newMeal.image,newMeal.name,newMeal.calories)">Submit New Meal</button>
+    </div>
+</div>
+
+
+<div *ngFor="let meal of list | filter:'name':xxx"  class="foticos">
+  <p> <img src="{{meal.image}}" height="200px" class="left"> </p>
+  <p>{{meal.name}}</p>
+  <p>{{meal.calories}}</p>
+  <button (click)="addTodaysMeal(meal.image, meal.name, meal.calories)">ask it for lunch!</button>
+</div>
