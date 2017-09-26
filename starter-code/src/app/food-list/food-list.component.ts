@@ -9,7 +9,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 foods= foods;
 newFood: Object= {};
-calorias: Number= 0;
+calorias: number= 0;
 todays: Array<Object> = [];
 
 constructor() { }
@@ -24,12 +24,15 @@ constructor() { }
   showAdd() {
      this.isOn = !this.isOn;
   }
-  forToday(food){
-    console.log(food)
-    this.calorias+=food.calories;
+  forToday(food) {
+
+    console.log( typeof(food.quantity),typeof(food.calories))
+ this.calorias+= food.calories*food.quantity;
 this.todays.push(food);
 
-console.log(this.todays, "ses")
   }
+addQuantity(e,q){
+  e.quantity=q;
+}
 
 }

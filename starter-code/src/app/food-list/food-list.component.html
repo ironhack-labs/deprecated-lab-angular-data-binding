@@ -4,6 +4,7 @@
 <div *ngFor="let food of foods| filter:'name':serchbox" >     
 <h2>{{food.name}} </h2>
 <button (click)=(forToday(food))>Add to today's</button>
+<input type="number" [(ngModel)]="food.quantity" value="1" >
 <img [src]="food.image" alt="{{food.name}}" height="150">
 </div>
 
