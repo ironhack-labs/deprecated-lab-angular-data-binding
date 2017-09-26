@@ -9,6 +9,9 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods = foods;
   newFood: Object = {};
+  todayFoods: Array<Object> = [];
+  countCalories: number =0;
+
   constructor() { }
 
   ngOnInit() {
@@ -17,11 +20,14 @@ export class FoodListComponent implements OnInit {
   isInputDisabled: boolean = false;
   appearsForm(){
     this.isInputDisabled = !this.isInputDisabled;
-    console.log(this.isInputDisabled)
   }
   addFood(){
     this.foods.push(this.newFood)
     this.isInputDisabled = !this.isInputDisabled;
+  }
+  addTodayFoods(e){
+    this.todayFoods.push(e)
+    this.countCalories += e.calories;
   }
 
 

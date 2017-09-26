@@ -20,10 +20,17 @@
 
   </div>
 
-
-
 <ul *ngFor="let e of foods | filter:'name':search">
   <li>Name: {{e.name}}</li>
   <li><img [src]="e.image" width ="200"></li>
   <li>Calories: {{e.calories}}</li>
+  <button (click)="addTodayFoods(e)">Add</button>
 </ul>
+
+<div>
+  <h3>Today Foods</h3>
+  <ul *ngFor="let e of todayFoods">
+    <li>{{e.name}}</li>
+  </ul>
+  <p>{{countCalories}}</p>
+</div>
