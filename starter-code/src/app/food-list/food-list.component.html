@@ -1,3 +1,43 @@
-<p>
-  food-list works!
-</p>
+<div class="flex">
+  <div class="page-divider">
+    <h3>Create New Food Item</h3>
+    <div class="newFood">
+      <div>
+        <label for="food-name">Food's Name</label>
+        <input type="text" [(ngModel)]="newFood.name">
+      </div>
+      <div>
+        <label for="food-email">Calories Count</label>
+        <input type="text" [(ngModel)]="newFood.calories">
+      </div>
+      <div>
+        <label for="food-image">Image URL</label>
+        <input type="text" [(ngModel)]="newFood.image">
+      </div>
+
+      <button (click)="addFood()">Submit New Food</button>
+    </div>
+    <h3> Food Search </h3>
+    <input type="search" placeholder="pizza"  [(ngModel)]="mySearchTerm">
+
+    <div class="food-list" *ngFor="let oneFood of (foodList | foodSearch:mySearchTerm)">
+      <h2>{{oneFood.name}}</h2>
+      <p>{{oneFood.calories}}</p>
+      <img [src]="oneFood.image" alt="">
+      <input type="Number" [(ngModel)]="oneFood.quantity" placeholder="1">
+      <button (click)="addCalories(oneFood)">Add</button>
+    </div>
+  </div>
+
+  <div class="page-divider">
+    <h3>Today's Food List</h3>
+    <p>Total Calories: {{todayCalories}}</p>
+    <button *ngIf="todayCalories > 0" (click)="resetCalories()">Reset Calories</button>
+    <ul>
+      <li *ngFor="let oneFood of todayFoodList">
+        {{oneFood.name}} x {{oneFood.quantity}}
+      </li>
+    </ul>
+  </div>
+
+</div>
