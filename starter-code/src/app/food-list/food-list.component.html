@@ -1,3 +1,41 @@
-<p>
-  food-list works!
-</p>
+
+<div>
+  <input [(ngModel)]="food">
+</div>
+
+
+<button (click) = "showForm()">Show Form </button>
+<div *ngIf = "toogleForm" class="">
+<div>
+  <label for="food-name"></label>
+  <input type="text" placeholder = "name"  [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="text"  placeholder = "calories" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-quantity"></label>
+  <input type="text" placeholder = "quantity" [(ngModel)]="newFood.quantity">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text"placeholder = "image" [(ngModel)]="newFood.image">
+</div>
+<div>
+<button (click)="addFood(newFood)">Submit New Food</button>
+</div>
+</div>
+<div *ngFor ="let fooods of foodList | filter:'name':food" class="foods">
+  <h1>{{fooods.name}}</h1>
+  <p>{{fooods.calories}}<p>
+  <p>{{fooods.quantity}}</p>
+  <img [src] ="fooods.image" height="200">
+  <button (click) ="addToToday(fooods)">Add to todays food </button>
+</div>
+<div *ngFor ="let todayFood of todayList" class="foods">
+  <h1>{{todayFood.name}}</h1>
+  <p>{{todayFood.calories}}<p>
+  <p>{{todayFood.quantity}}</p>
+  <img [src] ="todayFood.image" height="200">
+</div>
