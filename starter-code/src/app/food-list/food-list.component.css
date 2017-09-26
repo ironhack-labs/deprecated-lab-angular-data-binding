@@ -3,10 +3,19 @@
   width: 100px;
 }
 
-.container{
-  width: 55%;
-  height: 250px;
+.left-container{
   display: inline-block;
+  width: 50%;
+}
+
+.right-container{
+  display: inline-block;
+  width: 40%;
+}
+
+.row-food{
+  width: 80%;
+  height: 250px;
   border: 2px solid black;
   margin: 20px;
   padding: 20px;

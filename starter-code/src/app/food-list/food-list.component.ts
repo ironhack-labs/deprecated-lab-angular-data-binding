@@ -10,6 +10,7 @@ export class FoodListComponent implements OnInit {
   foods: Object[]
   newFood: Object = {}
   isFoodFormHidden: boolean = true
+  todaysFoods: Object[] = []
 
   constructor() {
     this.foods = foods
@@ -26,6 +27,11 @@ export class FoodListComponent implements OnInit {
     this.foods.push(this.newFood)
     this.newFood = {}
     this.isFoodFormHidden = !this.isFoodFormHidden;
+  }
+
+  addToTodaysFoods(food){
+    console.log(food)
+    this.todaysFoods.push(food)
   }
 
 }
