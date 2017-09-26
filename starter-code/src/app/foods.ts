@@ -1,3 +1,10 @@
+interface foodObj{
+  name:string;
+  calories:number;
+  image:string;
+  quantity:number;
+}
+
 const foods: Object[] = [
   {
     name: "Pizza",

@@ -39,7 +39,7 @@
 </div>
 
 <div class="right-container">
-  <h2>Today's food</h2>
+  <h2>Today's food calories: <b>{{totalCalories}}</b></h2>
   <ul>
   <li *ngFor='let food of todaysFoods'>
     <b>{{food.name}}: </b>{{food.calories}} calories
