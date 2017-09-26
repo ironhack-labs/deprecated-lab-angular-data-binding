@@ -1,3 +1,44 @@
-<p>
-  food-list works!
-</p>
+
+<h1>Today's food</h1>
+<ng-container *ngIf="todaysFood.length > 0">
+  <ng-container *ngFor="let food of todaysFood">
+    <img class="img" [src]="food.image" alt="EPIC IMG!">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <ng-container *ngIf="food.quantity > 1">
+      <p>{{food.name}}: x{{food.quantity}}</p>
+    </ng-container>
+  </ng-container>
+  <p>Total calories: {{totalCalories}}</p>
+  <ng-container *ngIf="totalCalories > 2100">
+    <p>Maybe your monkey will die!</p>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="todaysFood.length === 0">
+     <p>WTF! U don't have food mang!</p>
+</ng-container>
+
+<h1>Food</h1>
+<input type="text" placeholder="Search" [(ngModel)]="pattern">
+<p></p>
+<button (click)="toggleForm()">Add new food</button>
+<form *ngIf="wannaAddFood">
+  <input #name type="text" name="name" placeholder="Name">
+  <input #calories type="text" name="calories" placeholder="Calories">
+  <input #image type="text" name="image" placeholder="URL image">
+  <button type="submit" (click)="addItem(name.value, image.value, calories.value, true)">Add</button>
+</form>
+
+<ul>
+  <ng-container *ngFor="let food of foods | filterpipe:'name':pattern">
+  <div>
+    <img class="img" [src]="food.image" alt="EPIC IMG!">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <form>
+      <input #quantity type="text" name="quantity" placeholder="Quantity">
+      <button type="submit" (click)="addItem(food.name, food.image, food.calories, false, quantity.value)">Add for feed your monkey</button>
+    </form>
+  </div>
+  </ng-container>
+</ul>
