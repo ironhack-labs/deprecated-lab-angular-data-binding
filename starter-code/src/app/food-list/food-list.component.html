@@ -1,11 +1,15 @@
+<div class="inputBox">
+  <label for="search">Search:</label>
+  <input type="text" name="search" value="" [(ngModel)]="search">
+</div>
+
 <div class="list">
   <ul>
-    <li *ngFor="let food of foodList">
+    <li *ngFor="let food of foodList | filter:'name':search">
       <img [src]="food.image">
       <br><br>
       <strong>{{food.name}}: </strong>
       <pre>{{food.calories}} calories</pre>
     </li>
   </ul>
-
 </div>
