@@ -3,11 +3,11 @@
 <button (click)="addFood()">Add new food</button>
 <div *ngIf="addFoodBool">
   <label for="name">Name</label>
-  <input id="name" type="text" [(ngModel)]="addFoodName">
+  <input id="name" type="text" [(ngModel)]="newFood.name">
   <label for="calories">Calories</label>
-  <input id="calories" type="text" [(ngModel)]="addFoodCals">
+  <input id="calories" type="text" [(ngModel)]="newFood.cals">
   <label for="image">Image Url</label>
-  <input id="image" type="url" [(ngModel)]="addFoodPic">
+  <input id="image" type="url" [(ngModel)]="newFood.pic">
   <button (click)="addFoodSubmit()">Add food</button>
 </div>
 

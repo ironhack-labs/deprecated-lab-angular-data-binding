@@ -9,7 +9,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: any[] = foods;
   addFoodBool = false;
-  newFood = {};
+  newFood: any = {};
   constructor() { }
 
   ngOnInit() {
@@ -21,10 +21,18 @@ export class FoodListComponent implements OnInit {
     this.addFoodBool = !this.addFoodBool
   }
   addFoodSubmit(){
-    newFood = {
-      name: addFoodName,
-
+    if(this.newFood = {}){
+      this.addFood();
+      return;
     }
+    this.newFood = {
+      name: this.newFood.name,
+      calories: this.newFood.cals,
+      image: this.newFood.pic
+    }
+    this.foods.push(this.newFood);
+    this.newFood = {};
+    this.addFood();
   }
 
 }

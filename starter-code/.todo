@@ -1,12 +1,3 @@
-Iteration 3 | Add New Foods
-
-Create a button to add new foods.
-
-When a user clicks the button, a form will appear with fields for a name, calories, and image.
-
-When the user clicks submit, the food will be added to the new food list.
-
-When the user clicks the submit button, or when they click add food again the form should disappear.
 
 Iteration 4 | Today's Foods List
 
