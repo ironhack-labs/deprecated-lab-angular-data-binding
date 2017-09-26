@@ -1,0 +1,12 @@
+.flex{
+  display: flex;
+}
+
+.food-list img{
+  height: 200px;
+  width: auto;
+}
+
+.page-divider{
+  width: 35%;
+}
