@@ -14,5 +14,10 @@ export class FoodListComponent implements OnInit {
   ngOnInit() {
     this.foods = foods;
   }
+  addFood() {
+    console.log("Add contact has been called");
+    this.foods.push(this.newFood);
+    this.newFood = {};
+  }
 
 }
