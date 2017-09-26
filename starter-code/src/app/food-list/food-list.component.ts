@@ -26,13 +26,10 @@ constructor() { }
   }
   forToday(food) {
 
-    console.log( typeof(food.quantity),typeof(food.calories))
- this.calorias+= food.calories*food.quantity;
+ this.calorias+= food.calories * food.quantity;
 this.todays.push(food);
 
   }
-addQuantity(e,q){
-  e.quantity=q;
-}
+
 
 }
