@@ -10,6 +10,8 @@ export class FoodListComponent implements OnInit {
 foodList: Array<Object>;
   newFood: Object = {};
   toogleForm: boolean = true;
+  todayList:Array<Object> =[];
+
 
 
 
@@ -28,6 +30,12 @@ foodList: Array<Object>;
     }
 showForm(){
 this.toogleForm = !this.toogleForm
+
+}
+
+addToToday(food){
+ this.todayList.push(food);
+
 
 }
 
