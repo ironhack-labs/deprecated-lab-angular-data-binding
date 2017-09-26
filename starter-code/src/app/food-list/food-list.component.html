@@ -8,25 +8,25 @@
     <button>Add new food</button>
   </article>
   <article>
-    <form class="new-item" action="" method="POST">
+    <form class="new-item" action="">
       <div>
-        <label for="">Name</label>
-        <input type="text">
+        <label for="food-name">Name</label>
+        <input [(ngModel)]="newFood.name" type="text" name="name">
       </div>
       <div>
-        <label for="">Calories</label>
-        <input type="text">
+        <label for="food-calories">Calories</label>
+        <input [(ngModel)]="newFood.calories" type="text" name="calories">
       </div>
       <div>
-        <label for="">Quantity</label>
-        <input type="text">
+        <label for="food-quantity">Quantity</label>
+        <input [(ngModel)]="newFood.quantity" type="text" name="quantity">
       </div>
       <div>
-        <label for="">Image</label>
-        <input type="text">
+        <label for="food-image">Image</label>
+        <input [(ngModel)]="newFood.image" type="text" name="image">
       </div>
       <div>
-        <input type="submit">
+        <button (click)="addItem()" type="submit">Add Food</button>
       </div>
     </form>
   </article>
@@ -35,6 +35,7 @@
 <ul class="list-item" *ngFor="let food of foodlist | filter: 'name': text">
   <li>{{food.name}}</li>
   <li>{{food.calories}}</li>
+  <li>{{food.quantity}}</li>
   <li>
     <img [src]="food.image">
   </li>

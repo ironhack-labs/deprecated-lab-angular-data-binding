@@ -3,13 +3,12 @@ ul > li {
 }
 
 img {
-  width: 35%;
+  width: 85%;
 }
 
 .list-item {
   border: 2px solid black;
-  width: 25%;
-  height: 150px;
+  width: 15%;
 }
 
 .btn-new-item {
