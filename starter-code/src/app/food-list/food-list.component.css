@@ -8,7 +8,7 @@ img {
 
 .list-item {
   border: 2px solid black;
-  width: 15%;
+  width: 45%;
 }
 
 .btn-new-item {
@@ -19,4 +19,22 @@ img {
 
 .new-item > div {
   margin-top: 10px;
+}
+
+.column {
+  display: inline-block;
+  width: 100%;
+}
+
+.items {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+
+}
+
+.today-items {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
 }

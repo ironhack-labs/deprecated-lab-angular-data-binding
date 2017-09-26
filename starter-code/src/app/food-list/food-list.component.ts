@@ -11,11 +11,12 @@ export class FoodListComponent implements OnInit {
   foodlist: Array<Object> = foods;
   newFood: Object = { };
   toggleForm: boolean = false;
+  todayList: Array<Object> = []
 
   constructor() { }
 
-  addItem(newFood) {
-    this.foodlist.unshift(newFood);
+  addItem(comidita) {
+    this.foodlist.unshift(comidita);
     this.newFood = { }
   }
 
@@ -23,7 +24,10 @@ export class FoodListComponent implements OnInit {
     this.toggleForm = !this.toggleForm;
   }
 
-  ngOnInit() {
+  addTodayList(food) {
+    this.todayList.push(food);
   }
+
+  ngOnInit() { }
 
 }

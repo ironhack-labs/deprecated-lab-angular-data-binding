@@ -2,7 +2,6 @@
   <label for="">Search</label>
   <input [(ngModel)]="text" type="text">
 </section>
-
 <section>
   <article class="btn-new-item">
     <button (click)="showForm()">Add new food</button>
@@ -32,11 +31,27 @@
   </article>
 </section>
 
-<ul class="list-item" *ngFor="let food of foodlist | filter: 'name': text">
-  <li>{{food.name}}</li>
-  <li>{{food.calories}}</li>
-  <li>{{food.quantity}}</li>
-  <li>
-    <img [src]="food.image">
-  </li>
-</ul>
+<section class="column">
+  <section class="items">
+    <ul class="list-item" *ngFor="let food of foodlist | filter: 'name': text">
+      <li>
+        <img [src]="food.image">
+      </li>
+      <li>{{food.name}}</li>
+      <li>{{food.calories}}</li>
+      <li>
+        <button (click)="addTodayList(food)">Add today's list</button>
+      </li>
+    </ul>
+  </section>
+  <section class="today-items">
+    <h3>Today's food</h3>
+    <ul *ngFor="let todayFood of todayList">
+      <li>
+        <img [src]="todayFood.image">
+      </li>
+      <li>{{todayFood.name}}</li>
+      <li>{{todayFood.calories}}</li>
+    </ul>
+  </section>
+</section>
