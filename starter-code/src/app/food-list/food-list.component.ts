@@ -10,7 +10,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newfood: Object = {};
-  todayFoods: Array<Object> = [];
+  todayFoods = [];
   //todayFood: Object ={};
   isFormVisible : boolean =false;
   totalCalories: number =0;
@@ -28,31 +28,29 @@ export class FoodListComponent implements OnInit {
       this.foods.push(this.newfood);
   }
 
-  addToTodayList(food, newquantity, todayfood, calories){
+  addToTodayList(food, newquantity, calories){
+    var controller = true;
     if (typeof this.todayFoods[0] == 'undefined') {
       food.quantity+=newquantity;
-      this.todayFoods.push(todayfood)
+      this.todayFoods.push(food)
       this.totalCalories+=calories;
     }else{
     for (var i = 0; i < this.todayFoods.length; i++) {
-      if (typeof this.todayFoods[0] == 'undefined') {
-        food.quantity+=newquantity;
-        this.todayFoods.push(todayfood)
-        this.totalCalories+=calories;}
-        else if(this.todayFoods[i] === food) {
+      if(this.todayFoods[i].name === food.name) {
+            this.todayFoods[i].quantity+=newquantity;
+            controller=false;
+          }
+        }
+        if(controller){
             food.quantity+=newquantity;
-        }else{
-            food.quantity+=newquantity;
-            this.todayFoods.push(todayfood)
+            this.todayFoods.push(food)
             this.totalCalories+=calories;
         }
-      }
+
 
 }
 
-  }
 
-  addQuantity(food, newquantity){
-    food.quantity+=newquantity;
-  }
+ }
+
 }
