@@ -1,3 +1,50 @@
+<div>
+  <input [(ngModel)]="xxx">
+</div>
+
 <p>
   food-list works!
 </p>
+<p>la calorias totales son :{{calories}}</p>
+<button  (click)="showForm()" class="btn btn-primary btn-lg">SHOW FORM</button>
+
+<div *ngFor="let food of listFood"  class="food">
+  <img src="{{food.image}}" width ="200px">
+  <li>{{food.name}}</li>
+  <li>{{food.calories}}</li>
+</div>
+<div class="form-group">
+<label for="quantity">quantity</label>
+<input type="number" class="form-control" id="formGroupExampleInput">
+</div>
+
+
+
+
+<div *ngIf = "isTurnedOn">
+  <div class="form-group">
+  <label for="food-name">Name</label>
+  <input type="text" class="form-control" id="formGroupExampleInput"  [(ngModel)]="newFood.name">
+  </div>
+  <div class="form-group">
+    <label for="food-calories">Calories</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.calories">
+  </div>
+  <div class="form-group">
+    <label for="food-image">Image</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.image">
+  </div>
+  <div class="form-group">
+    <label for="food-quantity">Quantity</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.quantity" >
+  </div>
+  <button (click)="addFood()"  class="btn btn-primary btn-lg">BOOOOM!</button>
+</div>
+<div *ngFor="let food of foods | filter:'name':xxx" class="food">
+  <img src="{{food.image}}" width ="200px">
+  <li>{{food.quantity}}</li>
+  <li>{{food.name}}</li>
+  <li>{{food.calories}}</li>
+  <button (click)="addFoodList(food)"  class="btn btn-primary btn-lg">ADD FOOD LIST</button>
+
+</div>
