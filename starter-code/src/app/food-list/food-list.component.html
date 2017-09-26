@@ -1,3 +1,48 @@
 <p>
   food-list works!
 </p>
+
+<div>
+  <input [(ngModel)]="xxx">
+</div>
+
+<button (click)="showForm()">Form</button>
+<div *ngIf="isFormVisible==false" class="hide">
+</div>
+  <div *ngIf="isFormVisible==true">
+  <form>
+    <label for="name"></label>
+    <input type="text" name="name" [(ngModel)]="newfood.name" >
+    <label for="calories"></label>
+    <input type="text" name="calories" [(ngModel)]="newfood.calories">
+    <label for="image"></label>
+    <input type="text" name="image" [(ngModel)]="newfood.image">
+    <button (click)="createElement()">submit</button>
+  </form>
+</div>
+
+<div *ngFor="let food of foods | filter:'name':xxx">
+  <ul class="list">
+    <li>{{food.name}}</li>
+    <li>{{food.calories}}</li>
+    <li><img src="{{food.image}}" class="image"></li>
+    <li>{{food.quantity}}</li>
+    <input type="number" name="quantity" [(ngModel)]="quantity">
+    <button (click)="addToTodayList(food, quantity, food, food.calories)">{{food.name}} Send</button>
+    
+  </ul>
+</div>
+
+
+<h2>Todays List</h2>
+
+<div *ngFor="let food of todayFoods">
+  <ul class="list">
+    <li>{{food.name}} x {{food.quantity}}</li>
+    <li>{{food.calories}}</li>
+    <li><img src="{{food.image}}" class="image"></li>
+    <!-- <li>{{food.quantity}}</li> -->
+  </ul>
+
+</div>
+<p>Total calories: {{totalCalories}}</p>

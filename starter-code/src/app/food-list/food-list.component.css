@@ -1,0 +1,14 @@
+
+
+.list{
+  width:50%;
+  margin: 0 25%;
+}
+
+.image{
+  width:25%;
+}
+
+.hide{
+  visibility:hidden;
+}
