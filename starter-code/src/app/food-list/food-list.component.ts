@@ -9,7 +9,8 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foodList: Array<Object>;
   newFood: Object = {};
-  toogleForm: boolean = true;
+  toggleForm: boolean = true;
+  todayList: Array<Object> =[];
 
 
   constructor() { }
@@ -23,6 +24,11 @@ export class FoodListComponent implements OnInit {
   }
 
   showForm(){
-    this.toogleForm = !this.toogleForm
+    this.toggleForm = !this.toggleForm
+  }
+
+  addToToday(e){
+    this.todayList.push(e);
+    console.log(e)
   }
 }

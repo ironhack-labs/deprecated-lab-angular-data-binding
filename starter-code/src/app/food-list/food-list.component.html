@@ -4,7 +4,7 @@
 
 <button (click) = "showForm()">Show Form</button>
 
-<div *ngIf = "toogleForm" class="">
+<div *ngIf = "toggleForm" class="">
   <div>
     <label for="food-name"></label>
     <input type="text" placeholder="Name" [(ngModel)]="newFood.name">
@@ -26,9 +26,17 @@
   </div>
 </div>
 
-<div *ngFor ="let foods of foodList | filter:'name':food" class="foods">
-  <h1>{{foods.name}}</h1>
-  <p>{{foods.calories}}<p>
-    <p>{{foods.quantity}}</p>
-    <img [src] ="foods.image" height="200">
+<div *ngFor ="let fooods of foodList | filter:'name':food" class="foods">
+  <h1>{{fooods.name}}</h1>
+  <p>{{fooods.calories}}<p>
+    <p>{{fooods.quantity}}</p>
+    <img [src] ="fooods.image" height="200">
+    <button (click) ="addToToday(fooods)">Add to today's foods</button>
+</div>
+
+<div *ngFor ="let todayFood of todayList" class="foods">
+  <h1>{{todayFood.name}}</h1>
+  <p>{{todayFood.calories}}<p>
+    <p>{{todayFood.quantity}}</p>
+    <img [src] ="todayFood.image" height="200">
 </div>
