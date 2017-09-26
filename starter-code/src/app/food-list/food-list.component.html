@@ -1,8 +1,14 @@
-<div class="food-container">
-	<div *ngFor="let food of foods" class="foods-cards">
-		<h4>{{food.name}}</h4>
-		<p>Calories: {{food.calories}}</p>
-		<img [src]="food.image" height="150">
-		<p>Quantity: {{food.quantity}}</p>
+<div class="container">
+	<label>Search: </label>
+	<input class="search" [(ngModel)]="searchInput">
+
+	<div class="food-container">
+
+		<div *ngFor="let food of foods | filter:'name':searchInput" class="foods-cards">
+			<h4>{{food.name}}</h4>
+			<p>Calories: {{food.calories}}</p>
+			<img [src]="food.image" height="150">
+			<p>Quantity: {{food.quantity}}</p>
+		</div>
 	</div>
 </div>
