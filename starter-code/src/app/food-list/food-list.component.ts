@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import { Component, OnInit } from '@angular/core'
+import foods from '../foods'
 
 @Component({
   selector: 'app-food-list',
@@ -7,8 +7,11 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  foods: Object[]
 
-  constructor() { }
+  constructor() {
+    this.foods = foods
+  }
 
   ngOnInit() {
   }
