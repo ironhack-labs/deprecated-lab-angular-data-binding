@@ -30,7 +30,7 @@
 			<h4>{{food.name | uppercase}}</h4>
 			<p>Calories: {{food.calories}}</p>
 			<img [src]="food.image" width="300" height="150">
-			<label for="calories">Calories</label>
+			<label>Quantity</label>
 			<p>Quantity: {{food.quantity}}</p>
 			<button (click)="addFoodToday(food)">Add to today's list</button>
 		</div>
