@@ -4,8 +4,8 @@
 
 <div>
   <div class="form-group">
-  <label for="contact-name">Name</label>
-  <input type="text" class="form-control" id="formGroupExampleInput"  [(ngModel)]="newFood.name">
+    <label for="contact-name">Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="newFood.name">
   </div>
   <div class="form-group">
     <label for="contact-email">Calories</label>
@@ -17,18 +17,34 @@
   </div>
   <div class="form-group">
     <label for="contact-image">Quantity</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.quantity" >
+    <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.quantity">
   </div>
-  <button (click)="addFood()"  class="btn btn-primary btn-lg">BOOOOM!</button>
+  <button (click)="addFood()" class="btn btn-primary btn-lg">BOOOOM!</button>
 </div>
 
 <div>
   <h2>list FOOD:</h2>
   <div *ngFor="let food of foods | filter: 'name': lookingFor">
-      <li>{{food.name}}</li>
-      <li>{{food.calories}}</li>
-      <img src="{{food.image}}" width="150px">
-      <li>{{food.quantity}}</li>
-      <hr>
-    </div>
+    <li>{{food.name}}</li>
+    <li>{{food.calories}}</li>
+    <img src="{{food.image}}" width="150px">
+    <li>{{food.quantity}}</li>
+    <input type="text" name="canti" [(ngModel)]="food.quantity">
+    <button (click)="listFood(food, food.quantity)">BOTON</button>
+
+    <hr>
   </div>
+</div>
+
+<div>
+  <h2>Today List of FOOD:</h2>
+  <h3>Calorias: {{calorias}} </h3>
+  <div *ngFor="let food of listOfFood">
+    <li>{{food.name}}</li>
+    <li>{{food.calories}}</li>
+    <img src="{{food.image}}" width="150px">
+    <li>{{food.quantity}}</li>
+    <hr>
+  </div>
+
+</div>
