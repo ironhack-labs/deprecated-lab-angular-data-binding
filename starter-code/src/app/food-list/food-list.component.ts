@@ -13,7 +13,6 @@ export class FoodListComponent implements OnInit {
   newFood: any = {};
   todayFoodTotalCals: number = 0;
   qtyToAdd: number = 1;
-  foodsWithQty: any ={};
   constructor() { }
 
   ngOnInit() {
@@ -39,11 +38,18 @@ export class FoodListComponent implements OnInit {
     this.addFood();
   }
   addTodayFood(food, qty){
-    food.quantity = qty;
-    this.todayFoods.push(food);
-    console.log(food);
+    food.quantity += qty;
+    if(this.todayFoods.find((element)=> {
+      return element.name === food.name;
+    })
+  ){
     this.qtyToAdd = 1;
-    this.todayFoodTotalCals += food.calories * food.quantity;
+    this.todayFoodTotalCals += food.calories * qty;
+    return;
+  } else{
+    this.todayFoods.push(food);
+    this.qtyToAdd = 1;
+    this.todayFoodTotalCals += food.calories * qty;
+    }
   }
-
 }
