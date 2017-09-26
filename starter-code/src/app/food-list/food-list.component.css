@@ -1,0 +1,19 @@
+.list {
+  text-align: center;
+}
+
+.list ul {
+ list-style-type: none;
+}
+
+.list li {
+  border: 1px dashed black;
+  margin: 5px;
+  width: 150px;
+  padding: 10px;
+}
+
+.list img {
+  width: 100px;
+  vertical-align: middle;
+}
