@@ -1,0 +1,37 @@
+.main-food{
+  margin: 0;
+  padding-bottom:20px;
+  width:600px;
+  display: inline-block;
+}
+
+ul {
+    list-style: none;
+}
+ul img{
+  width:300px;
+}
+
+li {
+  text-align: center;
+  border: 1px solid gray;
+  margin-bottom: 20px;
+}
+
+input {
+  text-align: center;
+}
+
+.today-food {
+  display: inline-block;
+  float: right;
+  top: 0px;
+  width: 600px;
+  margin-top: -150px;
+  margin-right: 20px;
+}
+
+.today-food h2, p{
+  text-align: center;
+
+}
