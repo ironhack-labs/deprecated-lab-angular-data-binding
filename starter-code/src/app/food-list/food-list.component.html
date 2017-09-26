@@ -1,3 +1,35 @@
-<p>
-  food-list works!
-</p>
+<div *ngFor="let food of listOfFoods" class="list">
+
+
+  <p>{{food.name}}</p>
+
+  <p>{{food.calories}}</p>
+  <img [src]="food.image">
+  <section *ngIf="food.quantity === 0">
+    <p>{{quantityOf}}</p>
+  </section>
+  <section *ngIf="food.quantity > 0">
+    <p>{{food.quantity}}</p>
+  </section>
+  <label for="quantity">Quantity</label>
+  <input  id="quantity" type="number" [(ngModel)]="quantityInput">
+  <button (click)="addToToday(food)"> Add to Today</button>
+</div>
+
+<h1> List of Today</h1>
+
+<div *ngFor="let food of todayFoods">
+  <div *ngIf="food.quantity >1">
+    <p>{{food.name}} X {{food.quantity}}</p>
+  </div>
+  <section *ngIf="food.quantity < 2">
+    <p>{{food.name}}</p>
+  </section>
+  <p>{{food.calories}}</p>
+  <img [src]="food.image">
+  <p>{{food.quantity}}</p>
+</div>
+
+<section>
+  <p>Total Calories: {{ count }}</p>
+</section>
