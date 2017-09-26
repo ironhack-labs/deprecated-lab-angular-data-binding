@@ -1,0 +1,13 @@
+ul > li {
+  list-style: none;
+}
+
+img {
+  width: 40%;
+}
+
+.list-item {
+  border: 2px solid black;
+  width: 30%;
+  height: 150px;
+}
