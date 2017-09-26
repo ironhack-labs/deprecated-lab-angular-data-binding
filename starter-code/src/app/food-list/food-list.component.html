@@ -1,3 +1,34 @@
-<p>
-  food-list works!
-</p>
+<button (click)="toggleForm()">Add new foods</button>
+<br>
+<br>
+<form *ngIf="addForm">
+  <label for="name">Name</label>
+  <input type="text" name="name" #name>
+  <label for="calories">Calories</label>
+  <input type="text" name="calories" #calories>
+  <label for="image">Image URL</label>
+  <input type="text" name="image" #image>
+  <button type="submit" (click)="addItem({name:name.value, image:image.value, calories:calories.value})">Submit</button>
+</form>
+<h3 *ngIf="todaysFoods.length > 0">Today's Foods</h3>
+<ul>
+  <ng-container *ngFor="let food of foods">
+    <li *ngIf="itemQuantity[food.name] > 0">
+      <h4> {{ food.name }}<span *ngIf="itemQuantity[food.name] > 1"> - x{{ itemQuantity[food.name] }}</span></h4>
+    </li>
+  </ng-container>
+</ul>
+<h4 *ngIf="todaysFoods.length > 0">Total Calories - {{ totalCalories }}</h4>
+
+<h4>Search List</h4>
+<input type="text" [(ngModel)]="pattern">
+<ul>
+  <li *ngFor="let food of foods | foodfilter:'name':pattern">
+    <h3>Name: {{ food.name }}</h3> 
+    <img [src]="food.image"> 
+    <h4>Calories: {{ food.calories }}</h4>
+    <button (click)="addToToday({ name: food.name, image: food.image, calories: food.calories}, quantity.value)">Add To Today's Foods</button>
+    <label for="quantity">Quantity</label>
+    <input type="text" name="quantity" value=1 #quantity >
+  </li>
+</ul>
