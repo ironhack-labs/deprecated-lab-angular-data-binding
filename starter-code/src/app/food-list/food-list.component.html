@@ -2,9 +2,10 @@
   <label for="">Search</label>
   <input [(ngModel)]="text" type="text">
 </section>
-<p>Search text: {{text}}</p>
 
-<ul class="list-item" *ngFor="let food of foodlist">
+
+
+<ul class="list-item" *ngFor="let food of foodlist | filter: 'name': text">
   <li>{{food.name}}</li>
   <li>{{food.calories}}</li>
   <li>
