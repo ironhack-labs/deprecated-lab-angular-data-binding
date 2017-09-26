@@ -1,0 +1,12 @@
+.food-card {
+  float:left;
+  background-color: white;
+  display: inline-block;
+  margin: 20px;
+  border: 2px solid white;
+  border-radius: 30px;
+  text-align: center;
+  width: 350px;
+  padding: 10px 10px 20px;
+  color: #804cce;
+}
