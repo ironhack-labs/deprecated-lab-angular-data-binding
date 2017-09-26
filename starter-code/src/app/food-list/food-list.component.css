@@ -1,0 +1,13 @@
+img{
+  width: 250px;
+  height: 210px;
+}
+.food{
+  display: inline-block;
+ }
+li{
+  list-style: none;
+}
+.searching{
+  text-align: center;
+}
