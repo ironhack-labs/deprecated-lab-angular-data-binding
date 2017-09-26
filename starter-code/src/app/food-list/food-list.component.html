@@ -2,16 +2,31 @@
   Search <input [(ngModel)]="search">
 </div>
 
-<div class="form">
+<div class="button-toggle">
+  <button (click)="toggleForm()">Form</button>
+</div>
+<div class="form" *ngIf="isInputDisabled">
   <span>Add new food</span> <br>
   <span>Name</span> <input [(ngModel)]="newFood.name">
   <span>Calories</span> <input [(ngModel)]="newFood.calories">
   <span>Image url</span> <input [(ngModel)]="newFood.image">
-  <button (click)="addFood()">New food</button>
+  <button (click)="addTodayFood()">New food</button>
+</div>
+
+<div>
+  <div class="calories">
+    <p><b>Calories {{calories}}</b></p>
+  </div>
+  <div *ngFor="let today of todayFood" class="today-food">
+    <img [src]="today.image" alt="">
+    <p><b>{{today.name}}</b></p>
+    <p><b>{{today.calories}}</b></p>
+  </div>
 </div>
 
 <div *ngFor="let food of foods | filter:'name':search" class="food">
   <img [src]="food.image" alt="">
   <p><b>{{food.name}}</b></p>
   <p><b>{{food.calories}}</b></p>
+  <button (click)="addTodayFood(food)">Add food</button>
 </div>

@@ -3,6 +3,7 @@ div.food {
   width: 33%;
   height: 300px;
   text-align: center;
+  margin-top: 50px;
 }
 
 div.search {
@@ -16,6 +17,19 @@ div.form {
   width: 50%;
 }
 
+div.button-toggle {
+  display: block;
+  margin-top: 30px;
+}
+
+div.today-food {
+  display: inline-block;
+  width: 20%;
+  height: 200px;
+  text-align: center;
+}
+
 img {
   height: 100%;
 }
+
