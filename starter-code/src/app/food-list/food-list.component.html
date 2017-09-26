@@ -3,7 +3,34 @@
   <input [(ngModel)]="text" type="text">
 </section>
 
-
+<section>
+  <article class="btn-new-item">
+    <button>Add new food</button>
+  </article>
+  <article>
+    <form class="new-item" action="" method="POST">
+      <div>
+        <label for="">Name</label>
+        <input type="text">
+      </div>
+      <div>
+        <label for="">Calories</label>
+        <input type="text">
+      </div>
+      <div>
+        <label for="">Quantity</label>
+        <input type="text">
+      </div>
+      <div>
+        <label for="">Image</label>
+        <input type="text">
+      </div>
+      <div>
+        <input type="submit">
+      </div>
+    </form>
+  </article>
+</section>
 
 <ul class="list-item" *ngFor="let food of foodlist | filter: 'name': text">
   <li>{{food.name}}</li>

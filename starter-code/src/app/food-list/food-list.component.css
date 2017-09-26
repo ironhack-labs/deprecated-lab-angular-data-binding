@@ -8,6 +8,16 @@ img {
 
 .list-item {
   border: 2px solid black;
-  width: 30%;
+  width: 25%;
   height: 150px;
+}
+
+.btn-new-item {
+  margin-top: 18px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.new-item > div {
+  margin-top: 10px;
 }
