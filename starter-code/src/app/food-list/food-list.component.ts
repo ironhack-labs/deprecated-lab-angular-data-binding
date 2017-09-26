@@ -16,11 +16,11 @@ export class FoodListComponent implements OnInit {
   constructor() { }
 
   addItem(newFood) {
-    this.foodlist.push(this.newFood);
+    this.foodlist.unshift(newFood);
+    this.newFood = { }
   }
 
   ngOnInit() {
-    this.foodlist = foods
   }
 
 }
