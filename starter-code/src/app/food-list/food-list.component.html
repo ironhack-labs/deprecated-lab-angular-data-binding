@@ -3,6 +3,31 @@
   <input type="text" name="search" value="" [(ngModel)]="search">
 </div>
 
+<div class="createFood">
+  <button (click)=createFood(foodForm) type="button" name="button">Add New Food</button>
+  <br><br>
+  <form #foodForm style="display:none" action="food-list.component.html" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <label for="calories">Calories:</label>
+        <input type="text" id="calories" />
+    </div>
+    <div>
+        <label for="image">Image:</label>
+        <input type="text" id="image" />
+    </div>
+    <div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" />
+    </div>
+    <br><button type="button" name="addFood">Add Food</button>
+  </form>
+  <br>
+</div>
+
 <div class="list">
   <ul>
     <li *ngFor="let food of foodList | filter:'name':search">

@@ -6,11 +6,18 @@ import foods from '../foods';
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
-export class FoodListComponent implements OnInit {
+export class FoodListComponent {
   foodList: Array<Object> = foods;
-  constructor() { }
-
-  ngOnInit() {
+  newFood: Object = {};
   }
+
+createFood(formStatus){
+  if (formStatus.style.display == "block"){
+    formStatus.style.display = "none"
+  }
+  else {formStatus.style.display = "block"}
+}
+
+  foodList.push()
 
 }

@@ -1,5 +1,21 @@
+.createFood button {
+  height: 30px;
+}
+
+.createFood form {
+  width: 15%;
+}
+
+.createFood input {
+  width: 100%;
+}
+
+.foodForm {
+}
+
 .inputBox {
   margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 .list {
