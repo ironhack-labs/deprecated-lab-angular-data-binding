@@ -10,6 +10,9 @@ export class FoodListComponent implements OnInit {
 	isClicked: boolean = false
 	foods: Array<Object> = foodList
 	newFood: Object = {}
+	totCalories: Number = 0
+	todayFood: Array<Object> = []
+
   constructor() { }
 
   ngOnInit() {
@@ -22,6 +25,13 @@ export class FoodListComponent implements OnInit {
 	addFood(){
 		this.foods.push(this.newFood)
 		this.newFood = '';
+	}
+
+	addFoodToday(food){
+		this.totCalories += food.calories
+		food.quantity += 1
+		this.todayFood.push(food)
+		console.log(this.todayFood, this.totCalories)
 	}
 
 }

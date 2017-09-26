@@ -14,15 +14,23 @@
 			<input type="text" name="image" [(ngModel)]="newFood.image">
 			<label for="quantity">Quantity</label>
 			<input type="text" name="quantity" [(ngModel)]="newFood.quantity"><br>
-			<button type="button" name="create" (click)="addFood()">Create</button>
+			<button (click)="addFood()">Create</button>
 		</div>
+	</div>
+	<div class="order" *ngIf="todayFood.length !== 0">
+		<div class="orderElement" *ngFor="let foodElem of todayFood">
+			<h4>{{foodElem.name | uppercase}}</h4>
+			<p>Quantity: {{foodElem.quantity}}</p>
+		</div>
+		<h4>Total Calories: {{totCalories}}</h4>
 	</div>
 	<div class="food-container">
 		<div *ngFor="let food of foods | filter:'name':searchInput" class="foods-cards">
 			<h4>{{food.name | uppercase}}</h4>
 			<p>Calories: {{food.calories}}</p>
-			<img [src]="food.image" height="150">
+			<img [src]="food.image" width="300" height="150">
 			<p>Quantity: {{food.quantity}}</p>
+			<button (click)="addFoodToday(food)">Add to today's list</button>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,9 @@
-.search{
-
+.orderElement{
+	width: 300px;
+	display: inline-block;
+	margin: 20px;
+	border: 2px solid blue;
+	padding: 15px;
 }
 
 .container{
