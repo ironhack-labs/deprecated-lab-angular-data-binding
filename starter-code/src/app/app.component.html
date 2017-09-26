@@ -9,12 +9,14 @@
 <input  id="search" type="text" [(ngModel)]="input">
 
 <ul>
+  <div class="search">
   <li *ngFor="let food of (listOfFoods | search:input) ">
     <p>{{food.name}}</p>
     <p>{{food.calories}}</p>
     <img src="{{food.image}}">
     <p>{{food.quantity}}</p>
   </li>
+  </div>
 </ul>
 
 <h1> Add a food </h1>

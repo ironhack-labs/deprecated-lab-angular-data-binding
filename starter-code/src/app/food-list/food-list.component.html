@@ -5,9 +5,14 @@
 
   <p>{{food.calories}}</p>
   <img [src]="food.image">
-  <p>{{food.quantity}}</p>
+  <section *ngIf="food.quantity === 0">
+    <p>{{quantityOf}}</p>
+  </section>
+  <section *ngIf="food.quantity > 0">
+    <p>{{food.quantity}}</p>
+  </section>
   <label for="quantity">Quantity</label>
-  <input  id="quantity" type="number" [(ngModel)]="quantity">
+  <input  id="quantity" type="number" [(ngModel)]="quantityInput">
   <button (click)="addToToday(food)"> Add to Today</button>
 </div>
 
@@ -17,14 +22,14 @@
   <div *ngIf="food.quantity >1">
     <p>{{food.name}} X {{food.quantity}}</p>
   </div>
-  <div *ngIf="food.quantity < 2">
+  <section *ngIf="food.quantity < 2">
     <p>{{food.name}}</p>
-  </div>
+  </section>
   <p>{{food.calories}}</p>
   <img [src]="food.image">
   <p>{{food.quantity}}</p>
 </div>
 
-<div>
+<section>
   <p>Total Calories: {{ count }}</p>
-</div>
+</section>

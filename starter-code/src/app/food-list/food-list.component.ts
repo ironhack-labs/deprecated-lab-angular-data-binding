@@ -11,19 +11,21 @@ export class FoodListComponent implements OnInit {
   listOfFoods: Object[] = foods;
   todayFoods: Object[] = [];
 
+  quantityOf: number = 1;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  quantityInput: number = 1;
+
   count: number = 0;
 
   addToToday(selected) {
-    selected.quantity = this.quantity;
+    selected.quantity = this.quantityInput;
     this.todayFoods.push(selected);
-    this.count += (selected.calories * this.quantity);
+    this.count += (selected.calories * this.quantityInput);
   }
-
-  quantity: number = 1;
 
 }
