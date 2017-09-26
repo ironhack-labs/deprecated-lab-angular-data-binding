@@ -7,7 +7,13 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods = foods;
+  foods: Array<Object> = foods;
+  newFood: Object = {};
+
+  addFood() {
+    this.foods.unshift(this.newFood);
+    this.newFood = {};
+  }
 
   constructor() { }
 

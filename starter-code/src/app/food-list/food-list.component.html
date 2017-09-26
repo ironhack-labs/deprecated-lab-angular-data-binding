@@ -1,6 +1,16 @@
-<input [(ngModel)]="search">
+<div class="search">
+  Search <input [(ngModel)]="search">
+</div>
 
-<div *ngFor="let food of foods | filter:'name':search">
+<div class="form">
+  <span>Add new food</span> <br>
+  <span>Name</span> <input [(ngModel)]="newFood.name">
+  <span>Calories</span> <input [(ngModel)]="newFood.calories">
+  <span>Image url</span> <input [(ngModel)]="newFood.image">
+  <button (click)="addFood()">New food</button>
+</div>
+
+<div *ngFor="let food of foods | filter:'name':search" class="food">
   <img [src]="food.image" alt="">
   <p><b>{{food.name}}</b></p>
   <p><b>{{food.calories}}</b></p>

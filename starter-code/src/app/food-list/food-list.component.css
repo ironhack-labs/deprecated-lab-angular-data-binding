@@ -1,8 +1,19 @@
-div {
+div.food {
   display: inline-block;
   width: 33%;
   height: 300px;
   text-align: center;
+}
+
+div.search {
+  display: block;
+}
+
+div.form {
+  margin-top: 20px;
+  border: 1px solid;
+  padding: 5px;
+  width: 50%;
 }
 
 img {
