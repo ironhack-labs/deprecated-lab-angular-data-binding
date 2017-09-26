@@ -9,6 +9,8 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
     foods: Object[];
     newFood: Object = {};
+    listOfFood:Array<any> = [];
+    totalCalorias = 0;
   constructor() { }
 
   ngOnInit() {
@@ -20,4 +22,15 @@ export class FoodListComponent implements OnInit {
      this.newFood = {};
 
    }
+
+   listFood(food, quantity){
+     if(quantity < 1){
+       quantity = 1
+     }
+      this.listOfFood.push(food)
+
+      this.totalCalorias += (food.calories*quantity)
+   }
+
+   
 }

@@ -1,11 +1,15 @@
-<div>
-  <input [(ngModel)]="search" placeholder="Que te apetece?">
-</div>
+
+<h2 class="text-center">List Of Food</h2>
 
 <div>
+
+</div>
+
+
+<div class="form-inline" >
   <div class="form-group">
-  <label for="contact-name">Name</label>
-  <input type="text" class="form-control" id="formGroupExampleInput"  [(ngModel)]="newFood.name">
+    <label for="contact-name">Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="newFood.name">
   </div>
   <div class="form-group">
     <label for="contact-email">Calories</label>
@@ -17,18 +21,35 @@
   </div>
   <div class="form-group">
     <label for="contact-image">Quantity</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.quantity" >
+    <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.quantity">
   </div>
-  <button (click)="addFood()"  class="btn btn-primary btn-lg">BOOOOM!</button>
+  <button (click)="addFood()" class="btn btn-info">Añadir</button>
+ <input class="buscar" [(ngModel)]="search" placeholder="Que te apetece?">
 </div>
 
 <div>
-<h2>list Food</h2>
-  <div *ngFor="let food of foods | filter: 'name': search">
+<div class="row col-md-6">
+  <h2>Today Food Calories</h2>
+  <span>Calories: {{totalCalorias}}</span>
+  <div *ngFor="let food of listOfFood" class="col-md-6" >
+    <li>{{food.name}}</li>
+    <li>{{food.calories}}</li>
+    <li>{{food.quantity}}</li>
+    <hr>
+  </div>
+</div>
+
+<div class= "row col-md-6">
+  <h2>list Food</h2>
+  <div *ngFor="let food of foods | filter: 'name': search" >
     <li>{{food.name}}</li>
     <li>{{food.calories}}</li>
     <img [src]="food.image" height="100">
     <li>{{food.quantity}}</li>
-      <hr>
+    <button (click)="listFood(food, food.quantity)" name="button">Calorias</button>
+    <input type="number"[(ngModel)]="food.quantity">
+
+    <hr>
+  </div>
   </div>
 </div>
