@@ -16,6 +16,11 @@ constructor() { }
   }
   addFood(){
     console.log("Add contact has been called");
-   this.foods.push(this.newFood)
+   this.foods.push(this.newFood);
   }
+  isOn: boolean = false;
+  showAdd() {
+     this.isOn = !this.isOn;
+  }
+
 }
