@@ -27,7 +27,7 @@ export class FoodListComponent implements OnInit {
       calories: calories,
       quantity: quantity || 1
     }
-
+    
     if(isAdd){
       this.foods.push(newFood);
       this.toggleForm();
