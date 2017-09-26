@@ -1,3 +1,14 @@
-<p>
-  food-list works!
-</p>
+<div>
+  <input [(ngModel)]="search">
+</div>
+
+<div>
+<h2>list Food</h2>
+  <div *ngFor="let food of foods | filter: 'name': search">
+    <li>{{food.name}}</li>
+    <li>{{food.calories}}</li>
+    <img [src]="food.image" height="100">
+    <li>{{food.quantity}}</li>
+      <hr>
+  </div>
+</div>
