@@ -1,3 +1,28 @@
-<p>
-  food-list works!
-</p>
+<button (click) = showForm(myForm)> Add New </button>
+<form class="hidden" #myForm>
+  <input type="text" name="name" value="" placeholder="Add food name" [(ngModel)]="newFood.name">
+  <input type="text" name="quantity" value="" placeholder="Add food calories" [(ngModel)]="newFood.calories">
+  <input type="text" name="image" value="" placeholder="Add food image" [(ngModel)]="newFood.image">
+
+  <button type="button" name="button" (click)= addFood()>Add</button>
+</form>
+<label>Search</label><input type="text" name="" [(ngModel)]="pattern" value="">
+<h1>Today's Food</h1>
+<h2>Total calories: {{totalCalories}}</h2>
+<div *ngFor ="let food of todaysFood | filter:'name':pattern; let i = index">
+  <h1>{{food.name}}</h1>
+  <h2>quantity : {{food.quantity}}</h2>
+  <p>{{food.calories}}</p>
+  <img [src]="food.image" height="200">
+
+</div>
+
+<h1>Menu</h1>
+<div *ngFor ="let food of myFoods | filter:'name':pattern">
+  <h1>{{food.name}}</h1>
+  <p>{{food.calories}}</p>
+  <img [src]="food.image" height="200">
+  <input type="text" name="quantity" value="1" placeholder="Set quantity" [(ngModel)]="food.quantity">
+  <button type="button" name="button" (click)="setQuantity(food.quantity, food, food.calories)">Set Quantity</button>
+  <button (click)="todayFood(food, food.calories)" >Add to my List </button>
+</div>
