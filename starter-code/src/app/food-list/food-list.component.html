@@ -25,10 +25,12 @@
 		<h4>Total Calories: {{totCalories}}</h4>
 	</div>
 	<div class="food-container">
+		<h5>Add your order by clicking the button</h5>
 		<div *ngFor="let food of foods | filter:'name':searchInput" class="foods-cards">
 			<h4>{{food.name | uppercase}}</h4>
 			<p>Calories: {{food.calories}}</p>
 			<img [src]="food.image" width="300" height="150">
+			<label for="calories">Calories</label>
 			<p>Quantity: {{food.quantity}}</p>
 			<button (click)="addFoodToday(food)">Add to today's list</button>
 		</div>
