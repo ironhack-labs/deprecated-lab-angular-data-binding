@@ -1,5 +1,7 @@
+<input id="food-search" placeholder="Search food" type="text" [(ngModel)]="pattern">
+
 <div>
-  <div *ngFor='let food of foods' class="container" >
+  <div *ngFor='let food of foods | filter: "name":pattern' class="container" >
     <p><b>Name: </b>{{food.name}}</p>
     <p><b>Calories: </b>{{food.calories}}</p>
     <p><b>Image: </b><img [src]="food.image" class="food-image"/></p>
