@@ -1,4 +1,3 @@
-
 <div>
   <label for="">Search</label>
   <input [(ngModel)]="foods">
@@ -25,9 +24,24 @@
 <button (click)="addFood()">Submit New Contact</button><br>
 </div>
 <br><br><br>
+
+<label for="">Quantity</label>
+<input type="number" [(ngModel)]="quantity">
+
+<h1>Food Today</h1>
+<div *ngFor="let food of foodToDay" class="foodToDay">
+  <p>name: <b>{{food.name}}</b></p>
+  <p>calories: {{food.calories}}</p>
+</div>
+  <p>
+    calories totales: {{caloriestotales}}
+  </p>
+
+<br><br><br>
+
 <div *ngFor="let food of food | filter:'name':foods" class="food">
   <img [src]="food.image" alt="">
   <p>name: <b>{{food.name}}</b></p>
   <p>calories: {{food.calories}}</p>
-  <p>quantity: {{food.quantity}}</p>
+  <button (click)="addFoodToDay(food)" >Add food today</button>
 </div>

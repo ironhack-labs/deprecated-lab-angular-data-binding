@@ -9,6 +9,9 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   food: Object[]
   newfood: Object = {};
+  foodToDay = []
+  quantity:number
+
   constructor() { }
 
   ngOnInit() {
@@ -19,5 +22,17 @@ isInputDisabled: boolean = true;
     this.food.unshift(this.newfood);
     this.newfood = {};
     this.isInputDisabled = !this.isInputDisabled;
+  }
+  caloriestotales: number = 0
+  addFoodToDay(food){
+    if(this.foodToDay.indexOf(food)>= 0) {
+      this.quantity =+ 1
+      this.caloriestotales += food.calories * this.quantity
+
+}else{
+  this.caloriestotales += food.calories * this.quantity
+  this.foodToDay.unshift(food);
+}
+
   }
 }
