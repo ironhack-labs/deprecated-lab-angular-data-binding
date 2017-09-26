@@ -19,12 +19,13 @@ export class FoodListComponent implements OnInit {
   }
 
   showFoodForm(){
-    this.isFoodFormHidden = !this.isFoodFormHidden;
+    this.isFoodFormHidden = !this.isFoodFormHidden
   }
 
   addFood(){
     this.foods.push(this.newFood)
     this.newFood = {}
+    this.isFoodFormHidden = !this.isFoodFormHidden;
   }
 
 }
