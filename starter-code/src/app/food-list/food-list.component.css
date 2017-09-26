@@ -10,16 +10,25 @@
   width: 100%;
 }
 
-.foodForm {
-}
-
 .inputBox {
   margin-left: 10px;
   margin-bottom: 20px;
 }
 
-.list {
+.columns {
+  width: 100%;
   text-align: center;
+  display: inline-block;
+}
+
+h2 {
+  text-align: left;
+}
+
+.list {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .list ul {
@@ -34,6 +43,29 @@
 }
 
 .list img {
+  width: 100px;
+  vertical-align: middle;
+}
+
+.todays {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
+}
+
+.todays ul {
+ list-style-type: none;
+}
+
+.todays li {
+  border: 1px dashed black;
+  margin: 5px;
+  width: 150px;
+  padding: 10px;
+}
+
+.todays img {
   width: 100px;
   vertical-align: middle;
 }
