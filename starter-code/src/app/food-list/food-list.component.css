@@ -1,0 +1,11 @@
+img {
+  max-width: 150px;
+  height: 100px;
+}
+
+li {
+  border: 1px solid black;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
