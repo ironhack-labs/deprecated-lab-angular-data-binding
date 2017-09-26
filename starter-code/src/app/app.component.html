@@ -2,3 +2,13 @@
   {{title}}
 </h1>
 <app-food-list></app-food-list>
+
+<ul><!-- Is better to put the *ngFor on the UL-->
+  <li *ngFor="let contact of contacts">
+    <h2>{{foods.name}}</h2>
+    <h2>{{foods.calories}}</h2>
+    <h2>{{foods.phoneNumber}}</h2>
+    <img src="{{foods.image}}" width="100px"/>
+    <h2>{{foods.quantity}}</h2>
+  </li>
+</ul>
