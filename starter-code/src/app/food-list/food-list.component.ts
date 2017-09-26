@@ -28,10 +28,14 @@ export class FoodListComponent implements OnInit {
 	}
 
 	addFoodToday(food){
-		this.totCalories += food.calories
-		food.quantity += 1
-		this.todayFood.push(food)
-		console.log(this.todayFood, this.totCalories)
+		if(this.todayFood.indexOf(food) >= 0){
+			this.totCalories += food.calories
+			food.quantity += 1
+		} else {
+			this.totCalories += food.calories
+			food.quantity += 1
+			this.todayFood.push(food)
+		}
 	}
 
 }
