@@ -3,6 +3,7 @@
 <input [(ngModel)]="serchbox">
 <div *ngFor="let food of foods| filter:'name':serchbox" >     
 <h2>{{food.name}} </h2>
+<button (click)=(forToday(food))>Add to today's</button>
 <img [src]="food.image" alt="{{food.name}}" height="150">
 </div>
 
@@ -27,4 +28,13 @@
   </div>
   
   <button (click)="addFood()">Submit New food</button>
+</div>
+
+
+<div *ngIf="todays.length>0 ">
+<h1>Today's Food</h1>
+<h3>Total calories: {{calorias}}</h3>
+<ul *ngFor="let fd of todays">
+  <li>{{fd.name}}</li>
+</ul>
 </div>
