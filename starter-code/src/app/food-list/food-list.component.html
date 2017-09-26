@@ -1,3 +1,55 @@
-<p>
-  food-list works!
-</p>
+<h1> Foods </h1>
+<div class="column">
+  <label> Search </label>
+  <input type="text" placeholder="Find by" [(ngModel)]="search">
+  <br>
+
+
+  <button (click)="toggleForm()">Add New Food</button>
+
+  <div id="showForm" style="display: none">
+    <label for="food-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name"><br>
+
+    <label for="food-calories">Calories</label>
+    <input type="number" [(ngModel)]="newFood.calories"><br>
+
+    <label for="food-image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image"><br>
+
+    <button (click)="addFood()" (click)="toggleForm()">Add Food</button>
+  </div>
+
+
+  <ul>
+    <li *ngFor="let food of foodList | filter:'name':search">
+      <img [src]="food.image">
+      <div>
+        <p><strong>{{ food.name }}</strong></p>
+        <small>( {{ food.calories }} )</small>
+      </div>
+      <br>
+      <br>
+      <select [(ngModel)]="food.quantity">
+        <option value=0>0</option>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+      </select>
+      <button (click)="addTodayFood(food, food.quantity)"> Add </button>
+    </li>
+  </ul>
+</div>
+<div class="column">
+  <h2> Today's food </h2>
+  <ul>
+    <li class="smallList" *ngFor="let food of todayFood, let i = index">
+      <p><strong> {{ food.quantity }} x </strong></p>
+      <p><strong>{{ food.name }}</strong></p>
+      <small>( {{ food.calories }} )</small>
+      {{i}}
+      <button (click)="deleteTodayFood(i)" class="delete"> Delete </button>
+    </li>
+  </ul>
+  <p> TOTAL CALORIES: {{ todayCalories }}</p>
+</div>
