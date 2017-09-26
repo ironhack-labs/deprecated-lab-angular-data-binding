@@ -1,3 +1,29 @@
-<p>
-  food-list works!
-</p>
+<div>
+  <label for="foods-name"></label>Food Name
+  <input type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="foods-calories"></label>Calories
+  <input type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="foods-imager"></label>Url
+  <input type="text" [(ngModel)]="newfoods.image">
+</div>
+<div>
+  <label for="foods-quantity"></label>Image
+  <input type="text" [(ngModel)]="newContact.quantity">
+</div>
+
+<button (click)="addContact()">Submit New Food</button>
+
+<ul><!-- Is better to put the *ngFor on the UL-->
+  <li *ngFor="let food of foods">
+    <h2>{{foods.name}}</h2>
+    <h2>{{foods.calories}}</h2>
+    <h2>{{foods.phoneNumber}}</h2>
+    <img src="{{foods.image}}" width="100px"/>
+    <h2>{{foods.quantity}}</h2>
+  </li>
+</ul>
+<input type="text" name="food-input" [(ngModel)]="newFoodsName">
