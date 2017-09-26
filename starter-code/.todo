@@ -1,0 +1,22 @@
+
+Iteration 4 | Today's Foods List
+
+Create a button on each item. When a user clicks the button it should be added to a list of foods which are "today's foods".
+
+Somewhere on the page, display a list of today's foods, with a total calorie count.
+
+Bonus | Quantities
+
+In addition to the "Add to today's list" button, create an input for quanitity. Whenever a user enters a quanitity into the input, you should add that many of the item to their list.
+
+The default quanitity should be 1.
+
+Super Bonus
+
+If the user has added more than 1 item of the same type to their list, don't add it twice. Instead, display the item's name, and the number of times it has been added.
+
+For instance:
+
+Banana x2
+Salmon x5
+Cake
