@@ -11,6 +11,8 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
   today: any = [];
+  totalCalories: number;
+  totalQuantity: number;
 
   constructor() {
     this.foods = foods;
@@ -27,5 +29,16 @@ export class FoodListComponent implements OnInit {
 
   addToday(food) {
   this.today.push(food);
+  this.sumCalories(this.today);
     }
+
+  sumCalories(today) {
+  let total = 0
+  for (let i = 0; i < today.length; i++) {
+    total += today[i].calories
+    }
+  this.totalCalories = total
+  return total
+    }
+
 }
