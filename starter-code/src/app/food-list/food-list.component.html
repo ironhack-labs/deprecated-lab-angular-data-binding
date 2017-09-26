@@ -31,6 +31,8 @@
     <p>{{ oneFood.calories }}</p>
     <img [src]="oneFood.image">
     <button class="btn btn-warning" (click)="addToToday(oneFood)">Add To Today's Foods</button>
+    <label for="quantity">Quantity</label>
+    <input type="number" id="quantity" placeholder="1" [(ngModel)]="newFood.quantity" name="4">
   </div>
 </div>
 <br>
@@ -40,7 +42,8 @@
     <h2>Total Calories: {{ todaysCalories }}</h2>
     <div *ngFor="let oneFood of todaysList">
       <h1>{{ oneFood.name }}</h1>
-      <p>{{ oneFood.calories }}</p>
+      <p>Quantity: {{ oneFood.quantity }}</p>
+      <p>Calories: {{ oneFood.calories }}</p>
       <img [src]="oneFood.image">
     </div>
 </div>

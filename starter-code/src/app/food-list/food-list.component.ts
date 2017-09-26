@@ -8,7 +8,9 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   hideDisplay = false;
-  newFood: any = {};
+  newFood: any = {
+    quantity: 1
+  };
   foodList: any[] = [];
   mySearchTerm: string;
   todaysList: any[] = [];
@@ -25,22 +27,19 @@ export class FoodListComponent implements OnInit {
   }
 
   addFood() {
-    console.log({
-      name: this.newFood.name,
-      calories: this.newFood.calories,
-      image: this.newFood.image
-    });
 
     foods.push({
       name: this.newFood.name,
       calories: this.newFood.calories,
       image: this.newFood.image
     });
+
   }
 
   addToToday(oneFood) {
+    oneFood.quantity = this.newFood.quantity;
     this.todaysList.push(oneFood);
-    this.todaysCalories += oneFood.calories;
+    this.todaysCalories += oneFood.calories * oneFood.quantity;
   }
 
 }
