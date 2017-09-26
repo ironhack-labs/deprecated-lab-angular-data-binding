@@ -1,11 +1,25 @@
 <div class="container">
-	<label>Search: </label>
-	<input class="search" [(ngModel)]="searchInput">
-
+	<div class="searcher">
+		<label>Search: </label>
+		<input class="search" [(ngModel)]="searchInput">
+	</div>
+	<div class="input-food">
+		<button (click)="isClickedForm()">New Food</button>
+		<div *ngIf="isClicked" class="formFood">
+			<label for="name">Name</label>
+			<input type="text" name="name" [(ngModel)]="newFood.name">
+			<label for="calories">Calories</label>
+			<input type="text" name="calories" [(ngModel)]="newFood.calories"><br>
+			<label for="image">Image</label>
+			<input type="text" name="image" [(ngModel)]="newFood.image">
+			<label for="quantity">Quantity</label>
+			<input type="text" name="quantity" [(ngModel)]="newFood.quantity"><br>
+			<button type="button" name="create" (click)="addFood()">Create</button>
+		</div>
+	</div>
 	<div class="food-container">
-
 		<div *ngFor="let food of foods | filter:'name':searchInput" class="foods-cards">
-			<h4>{{food.name}}</h4>
+			<h4>{{food.name | uppercase}}</h4>
 			<p>Calories: {{food.calories}}</p>
 			<img [src]="food.image" height="150">
 			<p>Quantity: {{food.quantity}}</p>

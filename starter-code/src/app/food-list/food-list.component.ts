@@ -7,10 +7,21 @@ import foodList from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+	isClicked: boolean = false
 	foods: Array<Object> = foodList
+	newFood: Object = {}
   constructor() { }
 
   ngOnInit() {
   }
+
+	isClickedForm() {
+		this.isClicked = !this.isClicked
+	}
+
+	addFood(){
+		this.foods.push(this.newFood)
+		this.newFood = '';
+	}
 
 }
