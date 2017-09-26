@@ -8,16 +8,19 @@ import foods from '../foods';
 })
 
 export class FoodListComponent implements OnInit {
-  foodlist: Array<Object> = foods
-  newFood: Object = {
-
-  }
+  foodlist: Array<Object> = foods;
+  newFood: Object = { };
+  toggleForm: boolean = false;
 
   constructor() { }
 
   addItem(newFood) {
     this.foodlist.unshift(newFood);
     this.newFood = { }
+  }
+
+  showForm() {
+    this.toggleForm = !this.toggleForm;
   }
 
   ngOnInit() {

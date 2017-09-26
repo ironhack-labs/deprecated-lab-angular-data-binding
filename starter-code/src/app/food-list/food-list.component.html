@@ -5,10 +5,10 @@
 
 <section>
   <article class="btn-new-item">
-    <button>Add new food</button>
+    <button (click)="showForm()">Add new food</button>
   </article>
   <article>
-    <form class="new-item" action="">
+    <form class="new-item" *ngIf="toggleForm" action="">
       <div>
         <label for="food-name">Name</label>
         <input [(ngModel)]="newFood.name" type="text" name="name">
