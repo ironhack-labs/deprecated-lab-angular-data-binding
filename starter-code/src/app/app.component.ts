@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Nutrition';
+  form: boolean = false;
+  list: boolean = true;
+
+  showForm(form: boolean){
+    this.form = !this.form;
+  }
+
+  showList(list: boolean){
+    this.list = !this.list;
+  }
 }

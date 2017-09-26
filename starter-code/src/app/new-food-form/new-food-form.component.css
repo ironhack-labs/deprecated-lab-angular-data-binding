@@ -1,0 +1,28 @@
+
+h3 {
+  text-align: center;
+}
+
+.new-food-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  margin-bottom: 30px;
+}
+.new-food-form button {
+  padding: 5px;
+  background-color: white;
+  border: 1px solid black;
+}
+.new-food-form input {
+  padding: 5px;
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+button:hover {
+  background-color: black !important;
+  color: white;
+}

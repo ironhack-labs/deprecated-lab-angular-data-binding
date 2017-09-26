@@ -1,11 +1,41 @@
+.food-wrapper {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+h3 {
+  text-align: center;
+}
+
 img {
   max-width: 150px;
   height: 100px;
+  margin: 10px;
+
+}
+
+ul {
+  padding: 0;
 }
 
 li {
+  margin: 5px;
+  max-width: 100%;
   border: 1px solid black;
   list-style: none;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+
+}
+
+p {
+  margin-right: 15px;
+  text-align: right;
+}
+
+button {
+  height: 20px;
+  align-self: center;
+  margin: 10px;
 }

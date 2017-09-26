@@ -1,14 +1,19 @@
+<div class="food-wrapper">
+  <input type="text" [(ngModel)]="searchTerm">
 
-<h2>The foodz</h2>
 
-<ul>
+  <h3>Food List</h3>
 
-  <li *ngFor="let food of foods">
-    <div class="foodinfo">
-      <p>Food: {{food.name}}</p>
-      <p>Calories: {{food.calories}}</p>
-      <p>Quantity: {{food.quantity}}</p>
-    </div>
-    <img src="{{food.image}}" />
-  </li>
-</ul>
+  <ul>
+    <li *ngFor="let food of foods | filterfoods:searchTerm">
+      <img src="{{food.image}}" />
+      <div class="foodinfo">
+        <p>Food: {{food.name}}</p>
+        <p>Calories: {{food.calories}}</p>
+        <p>Quantity: {{food.quantity}}</p>
+        <button >Add for Today</button>
+      </div>
+    </li>
+  </ul>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="form-wrapper">
+
+  <h3>Add new Food</h3>
+  <div class="new-food-form">
+    <input type="text" [(ngModel)]="newFood.name">
+    <input type="text" [(ngModel)]="newFood.calories">
+    <input type="text" [(ngModel)]="newFood.quantity">
+    <input type="text" [(ngModel)]="newFood.image">
+    <button type="submit" (click)="addFood()">Add Food</button>
+  </div>
+
+</div>
