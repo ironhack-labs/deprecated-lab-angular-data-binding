@@ -8,12 +8,23 @@ import foods from '../foods'
 })
 export class FoodListComponent implements OnInit {
   foods: Object[]
+  newFood: Object = {}
+  isFoodFormHidden: boolean = true
 
   constructor() {
     this.foods = foods
   }
 
   ngOnInit() {
+  }
+
+  showFoodForm(){
+    this.isFoodFormHidden = !this.isFoodFormHidden;
+  }
+
+  addFood(){
+    this.foods.push(this.newFood)
+    this.newFood = {}
   }
 
 }
