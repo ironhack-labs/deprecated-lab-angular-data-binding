@@ -1,6 +1,33 @@
-<div *ngFor="let food of food" class="food">
+
+<div>
+  <label for="">Search</label>
+  <input [(ngModel)]="foods">
+</div>
+<br><br>
+<div *ngIf="isInputDisabled">
+<div>
+  <label for="food-image">Img url</label>
+  <input type="text" [(ngModel)]="newfood.image">
+</div>
+<div>
+  <label for="food-name">Name</label>
+  <input type="text" [(ngModel)]="newfood.name">
+</div>
+<div>
+  <label for="food-calories">Calories</label>
+  <input type="text" [(ngModel)]="newfood.calories">
+</div>
+<div>
+  <label for="food-quantity">Quantity</label>
+  <input type="text" [(ngModel)]="newfood.quantity">
+</div>
+<br>
+<button (click)="addFood()">Submit New Contact</button><br>
+</div>
+<br><br><br>
+<div *ngFor="let food of food | filter:'name':foods" class="food">
   <img [src]="food.image" alt="">
   <p>name: <b>{{food.name}}</b></p>
-  <p>calorie: {{food.calories}}</p>
+  <p>calories: {{food.calories}}</p>
   <p>quantity: {{food.quantity}}</p>
 </div>

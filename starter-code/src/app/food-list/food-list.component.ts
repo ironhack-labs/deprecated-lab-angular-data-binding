@@ -8,10 +8,16 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   food: Object[]
+  newfood: Object = {};
   constructor() { }
 
   ngOnInit() {
     this.food = foods;
   }
-
+isInputDisabled: boolean = true;
+  addFood(){
+    this.food.unshift(this.newfood);
+    this.newfood = {};
+    this.isInputDisabled = !this.isInputDisabled;
+  }
 }
