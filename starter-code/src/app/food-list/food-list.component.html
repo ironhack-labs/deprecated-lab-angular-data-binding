@@ -2,11 +2,12 @@
 <h2 class="text-center">List Of Food</h2>
 
 <div>
-
+ <input class="buscar" [(ngModel)]="search" placeholder="Que te apetece?">
 </div>
 
+<button type="button" (click)= "toggleInput()" class="btn btn-info">Ver  Formulario</button>
 
-<div class="form-inline" >
+<div class="form-inline" *ngIf = 'isInputDisabled '>
   <div class="form-group">
     <label for="contact-name">Name</label>
     <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="newFood.name">
@@ -24,7 +25,7 @@
     <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="newFood.quantity">
   </div>
   <button (click)="addFood()" class="btn btn-info">Añadir</button>
- <input class="buscar" [(ngModel)]="search" placeholder="Que te apetece?">
+
 </div>
 
 <div>
