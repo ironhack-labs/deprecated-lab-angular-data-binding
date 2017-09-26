@@ -12,6 +12,8 @@ export class FoodListComponent implements OnInit {
   addFoodBool = false;
   newFood: any = {};
   todayFoodTotalCals: number = 0;
+  qtyToAdd: number = 1;
+  foodsWithQty: any ={};
   constructor() { }
 
   ngOnInit() {
@@ -36,10 +38,12 @@ export class FoodListComponent implements OnInit {
     this.newFood = {};
     this.addFood();
   }
-  addTodayFood(food){
+  addTodayFood(food, qty){
+    food.quantity = qty;
     this.todayFoods.push(food);
-    console.log(this.todayFoods);
-    this.todayFoodTotalCals += food.calories;
+    console.log(food);
+    this.qtyToAdd = 1;
+    this.todayFoodTotalCals += food.calories * food.quantity;
   }
 
 }

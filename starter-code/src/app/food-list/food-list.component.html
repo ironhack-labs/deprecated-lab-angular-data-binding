@@ -5,6 +5,7 @@
     <h4>{{food.name}}</h4>
     <h5>Calories: {{food.calories}}</h5>
     <img src="{{food.image}}" alt="">
+    <h5>{{food.quantity}}</h5>
   </li>
 </ul>
 <div>Total Calorie Count: {{todayFoodTotalCals}}</div>
@@ -31,7 +32,7 @@
     <h5>Calories: {{food.calories}}</h5>
     <img src="{{food.image}}" alt="">
     <label for="quantity">Quantity: </label>
-    <input type="number" id="quantity">
-    <button (click)="addTodayFood(food)">Add to Today's Foods</button>
+    <input type="number" id="quantity" [(ngModel)]="qtyToAdd">
+    <button (click)="addTodayFood(food, qtyToAdd)">Add to Today's Foods</button>
   </li>
 </ul>
