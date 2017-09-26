@@ -15,11 +15,13 @@
 
 <div>
   <div class="calories">
+    <p><b>Food count {{items}}</b></p>
     <p><b>Calories {{calories}}</b></p>
   </div>
   <div *ngFor="let today of todayFood" class="today-food">
     <img [src]="today.image" alt="">
     <p><b>{{today.name}}</b></p>
+    <p><b>x{{today.count}}</b></p>
     <p><b>{{today.calories}}</b></p>
   </div>
 </div>
@@ -28,5 +30,6 @@
   <img [src]="food.image" alt="">
   <p><b>{{food.name}}</b></p>
   <p><b>{{food.calories}}</b></p>
-  <button (click)="addTodayFood(food)">Add food</button>
+  <input [(ngModel)]="food.count">
+  <button (click)="addTodayFood(food, food.count)">Add food</button>
 </div>

@@ -10,7 +10,8 @@ export class FoodListComponent implements OnInit {
   foods: Array<Object> = foods;
   newFood: Object = {};
   todayFood: Array<Object> = [];
-  calories: Number = 0;
+  calories = 0;
+  items: Number = 0;
 
   isInputDisabled: Boolean = false;
   toggleForm() {
@@ -22,9 +23,12 @@ export class FoodListComponent implements OnInit {
     this.newFood = {};
   }
 
-  addTodayFood(food) {
+  addTodayFood(food, nFood = 1) {
+    food.count = Number(nFood);
     this.todayFood.push(food);
-    this.calories += food.calories;
+    const cal = food.calories * food.count;
+    this.calories += cal;
+    this.items += food.count;
   }
 
   constructor() { }
