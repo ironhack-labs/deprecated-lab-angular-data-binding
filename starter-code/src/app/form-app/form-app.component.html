@@ -1,0 +1,14 @@
+<div class='form'>
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="newFood.name" name="name">
+
+  <label for="calories">Calories</label>
+  <input type="text" [(ngModel)]="newFood.calories" name="calories">
+
+  <label for="contact-image">Image</label>
+  <input type="text" [(ngModel)]="newFood.image" name="image" placeholder="image link">
+
+    <button (click)="addFood()">Create</button>
+
+
+</div>

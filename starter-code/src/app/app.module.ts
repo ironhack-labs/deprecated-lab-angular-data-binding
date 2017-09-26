@@ -7,12 +7,14 @@ import { FilterPipe } from './filter.pipe';
 
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
+import { FormAppComponent } from './form-app/form-app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
-    FilterPipe
+    FilterPipe,
+    FormAppComponent
   ],
   imports: [
     BrowserModule,
