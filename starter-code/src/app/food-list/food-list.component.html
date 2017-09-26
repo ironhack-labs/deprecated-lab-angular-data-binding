@@ -1,15 +1,15 @@
 <div class="searcher">
   <label for="foods_name"> Search food: </label>
-  <input [(ngModel)]="filter" placeholder="Food name" type="text">
+  <input [(ngModel)]="food" placeholder="Food name" type="text">
 </div>
 
 <div>
-  <div class="container" *ngFor='let food of foods'>
+  <div class="container" *ngFor='let food of foods | filter : name : food'>
     <p><b>Name: </b>{{food.name}}</p>
     <p><b>Calories: </b>{{food.calories}}</p>
     <p><b>Quantity: </b>{{food.quantity}}</p>
     <p><img [src]="food.image" class="food-image"/></p>
-    <button class="btn">Add to my list</button>
+    <button class="btn" (click)="addToday(food)">Add to my list</button>
   </div>
 </div>
 
@@ -33,4 +33,15 @@
   </div>
 
   <button class="btn" (click)="addFood()">Submit New Food</button>
+</div>
+
+
+<div class="today-food">
+  <h4> Today's Food: </h4>
+  <ul class="container">
+    <li *ngFor="let food of today">
+      <p><b>Name:</b> {{ food.name }} </p>
+      <p><b>Calories:</b> {{ food.calories }}</p>
+    </li>
+  </ul>
 </div>

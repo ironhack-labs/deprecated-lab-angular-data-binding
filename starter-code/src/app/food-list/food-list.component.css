@@ -40,3 +40,13 @@ input {
   border-radius: 10px;
   border: 0;
 }
+
+.today-food {
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+}
+
+p {
+  font-size: 15px;
+}
