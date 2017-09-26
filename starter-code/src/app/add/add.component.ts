@@ -18,6 +18,8 @@ export class AddComponent implements OnInit {
 
   addFood() {
     this.listOfFoods.push(this.food);
+    console.log(this.listOfFoods);
+    console.log(foods);
   }
 
 }
