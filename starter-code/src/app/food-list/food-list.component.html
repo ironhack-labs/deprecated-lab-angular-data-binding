@@ -1,3 +1,43 @@
-<p>
-  food-list works!
-</p>
+<h2>Our Foods List</h2>
+
+<input type="search-input" name="search"
+    placeholder="pizza" [(ngModel)]="mySearchTerm">
+<br>
+<button (click)="showForm()"> Add a Food </button>
+<br>
+
+<div [hidden] ="x">
+<label for="food-name">Name</label>
+<input type="text" [(ngModel)]="newFood.name">
+<br>
+<label for="food-image">Image Url</label>
+<input type="text" [(ngModel)]="newFood.image" >
+<br>
+<label for="food-calories">Calories</label>
+<input type="number" name="newFood.calories" [(ngModel)]="newFood.calories">
+<br>
+<button (click)="addFood($event)"> Submit Food </button>
+</div>
+<div class="main-food">
+<ul>
+  <li *ngFor="let oneFood of (foodList | search: mySearchTerm)">
+  <h4>{{oneFood.name}}</h4>
+  <img [src]="oneFood.image">
+  <p>Calories: {{oneFood.calories}}</p>
+  <button (click)="addToList(oneFood)"> Add to Daily List </button>
+  </li>
+</ul>
+</div>
+
+
+<div class="today-food">
+<h2> Today's List </h2>
+<p> Calorie Count {{ currentCalories }}</p>
+<ul>
+  <li *ngFor="let oneFood of newList">
+  <h4>{{oneFood.name}}</h4>
+  <img [src]="oneFood.image">
+  <p>{{oneFood.calories}}</p>
+  </li>
+</ul>
+</div>
