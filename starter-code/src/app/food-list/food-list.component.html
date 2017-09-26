@@ -1,3 +1,62 @@
-<p>
-  food-list works!
-</p>
+<div class="inputBox">
+  <label for="search">Search:</label>
+  <input type="text" name="search" value="" [(ngModel)]="search">
+</div>
+
+<div class="createFood">
+  <button (click)=createFood(foodForm) type="button" name="button">Add New Food</button>
+  <br><br>
+  <form #foodForm style="display:none" action="food-list.component.html" method="post">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" [(ngModel)]="newFood.name" name="name">
+    </div>
+    <div>
+      <label for="calories">Calories:</label>
+      <input type="text" [(ngModel)]="newFood.calories" name="calories">
+    </div>
+    <div>
+      <label for="image">Image:</label>
+      <input type="text" [(ngModel)]="newFood.image" name="image">
+    </div>
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input type="number" [(ngModel)]="newFood.quantity" name="quantity">
+    </div>
+    <br><button (click)="addFood(foodForm)" type="button" name="addFood">Add Food</button>
+  </form>
+  <br>
+</div>
+
+<div class="columns">
+
+  <div class="list">
+    <h2>List of foods</h2>
+    <ul>
+      <li *ngFor="let food of foodList | filter:'name':search">
+        <img [src]="food.image">
+        <br><br>
+        <strong>{{food.name}}: </strong>
+        <pre>{{food.calories}} calories</pre>
+        <label for="howMany">Quantity:</label>
+        <input type="number" name="howMany" [(ngModel)]="food.quantity">
+        <button (click)="todaysFood(food)" type="button" name="todaysFood">Add to today's foods</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="todays">
+    <h2>Today's foods</h2>
+    <ul>
+      <li *ngFor="let food of todaysList">
+        <img [src]="food.image">
+        <br><br>
+        <strong>{{food.name}}: </strong>
+        <p>{{food.quantity}}</p>
+        <pre>{{food.calories}} calories</pre>
+      </li>
+    </ul>
+    <h3>Total calories: {{calories}}</h3>
+  </div>
+
+</div>

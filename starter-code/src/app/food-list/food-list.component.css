@@ -1,0 +1,71 @@
+.createFood button {
+  height: 30px;
+}
+
+.createFood form {
+  width: 15%;
+}
+
+.createFood input {
+  width: 100%;
+}
+
+.inputBox {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.columns {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+h2 {
+  text-align: left;
+}
+
+.list {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.list ul {
+ list-style-type: none;
+}
+
+.list li {
+  border: 1px dashed black;
+  margin: 5px;
+  width: 150px;
+  padding: 10px;
+}
+
+.list img {
+  width: 100px;
+  vertical-align: middle;
+}
+
+.todays {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
+}
+
+.todays ul {
+ list-style-type: none;
+}
+
+.todays li {
+  border: 1px dashed black;
+  margin: 5px;
+  width: 150px;
+  padding: 10px;
+}
+
+.todays img {
+  width: 100px;
+  vertical-align: middle;
+}
