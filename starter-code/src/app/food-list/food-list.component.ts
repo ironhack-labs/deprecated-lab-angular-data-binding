@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-food-list',
@@ -8,12 +7,19 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  @Input() foods: Object[]
+
+  @Output() onNewTodaysFood = new EventEmitter<Object>();
+
+  //TODO output
+  addToTodaysFood(food) {
+    console.log(food)
+    this.onNewTodaysFood.emit(food)
+  }
+
   constructor() { }
 
-  foods: Object[]
-
   ngOnInit() {
-    this.foods = foods
   }
 
 }

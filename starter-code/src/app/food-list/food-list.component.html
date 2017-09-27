@@ -1,11 +1,14 @@
-<p>
-  food-list works!
-</p>
+<div>
+<label>Search Foods</label>
+</div>
 
 <ul>
-  <div class="food-container" *ngFor="let food of foods">
-    <img src="{{food.image}}">
-    {{food.name}}
-    {{food.calories}}
-  </div>
+  <li *ngFor="let food of foods">
+    <div class="food-container">
+      <img src="{{food.image}}">
+      <p>{{food.name}}</p>
+      <p>{{food.calories}}</p>
+      <button (click)="addToTodaysFood(food)">Add To Todays Food</button>
+    </div>
+  </li>
 </ul>
