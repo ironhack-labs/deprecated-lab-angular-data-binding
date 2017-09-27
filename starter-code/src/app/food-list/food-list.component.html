@@ -1,3 +1,41 @@
 <p>
   food-list works!
 </p>
+
+<div>
+  <button (click)="toggleInput()">Add new food</button>
+</div>
+
+<div class="form-inline" [hidden]='isInputDisabled'>
+  <div class="form-group">
+    <label for="contact-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div class="form-group">
+    <label for="contact-email">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div class="form-group">
+    <label for="contact-phone">Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div class="form-group">
+    <label for="contact-image">Quantity</label>
+    <input type="text" [(ngModel)]="newFood.quantity">
+  </div>
+  <button (click)="addFood()">Add food!</button>
+</div>
+
+<div>
+  <input [(ngModel)]="xxx">
+</div>
+
+
+<div *ngFor="let food of foods | filter:'name':xxx">
+<ul>
+  <li>{{food.name}}</li>
+  <li>{{food.calories}}</li>
+</ul>
+  <img src="{{food.image}}" class="image">
+  <button (click)="addToday(food)">Add to today's list</button>
+</div>
