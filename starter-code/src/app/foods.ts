@@ -1,11 +1,11 @@
 interface foodObj{
-  name:string;
-  calories:number;
-  image:string;
-  quantity:number;
+  name:string
+  calories:number
+  image:string
+  quantity:number
 }
 
-const foods: Object[] = [
+const foods: foodObj[] = [
   {
     name: "Pizza",
     calories: 400,
@@ -104,4 +104,4 @@ const foods: Object[] = [
   }
 ]
 
-export default foods;
+export default foods
