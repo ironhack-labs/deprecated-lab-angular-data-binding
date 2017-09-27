@@ -1,5 +1,7 @@
+<label>Search by name</label>
+<input [(ngModel)]="pattern">
 <ul>
-  <li *ngFor="let foodItem of foodItems">
+  <li *ngFor="let foodItem of foodItems | filter:'name':pattern">
     <p>Name: {{foodItem.name}}</p>
     <p>Calories: {{foodItem.calories}}</p>
     <img src="{{foodItem.image}}">
