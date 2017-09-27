@@ -45,18 +45,23 @@ export class FoodListComponent implements OnInit {
   }
 
   addToTodaysFoods(food){
-    if(this.todaysFoods.length == 0) this.todaysFoods.push(food)
+    this.totalCalories = 0
+
+    if(this.todaysFoods.length == 0){
+      this.todaysFoods.push(food)
+      this.totalCalories+= (food.calories * food.quantity)
+    }
     else {
       for(let i=0; i<this.todaysFoods.length; i++){
-        if (this.todaysFoods[i].name == food.name) this.todaysFoods[i].quantity += food.quantity
-        else this.todaysFoods.push(food)
+        if (this.todaysFoods[i].name == food.name){
+          this.todaysFoods[i].quantity = food.quantity
+          this.totalCalories+= (this.todaysFoods[i].calories * this.todaysFoods[i].quantity)
+        }
+        else{
+          this.todaysFoods.push(food)
+          this.totalCalories+= (this.todaysFoods[i].calories * food.quantity)
+        }
       }
     }
-
-    this.totalCalories = 0
-    for(let i=0; i<this.todaysFoods.length; i++){
-      this.totalCalories+= (this.todaysFoods[i].calories * food.quantity)
-    }
   }
-
 }
