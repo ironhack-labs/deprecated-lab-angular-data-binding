@@ -1,3 +1,67 @@
-<p>
-  food-list works!
-</p>
+
+
+
+
+
+<h3> Search for your favorite food </h3>
+
+<input type="search" placeholder="pizza"
+[(ngModel)]="mySearchTerm">
+
+<div class="foodList">
+<ul>
+  <li *ngFor="let oneFood of (foods | searchByName:mySearchTerm)">
+    <h3> Name: {{oneFood.name}}</h3>
+
+    <p> Calorie count: {{oneFood.calories}}</p>
+    <img src="{{oneFood.image}}" />
+    <br>
+    <button (click)="addFavorite(oneFood)" > Favorite </button>
+  </li>
+</ul>
+
+</div>
+
+
+<div class="newFood">
+  <label for="food-name"> Food Name: </label>
+  <input id="food-name" type="text" [(ngModel)]="newFood.name">
+
+  <label for="calories"> Calories:</label>
+  <input id="calories" type="text" [(ngModel)]="newFood.calories">
+
+
+  <label for="food-image"></label>
+  <input id="food-image" type="text" [(ngModel)]="newFood.image">
+
+
+  <button (click)="addFood($event)"> Add New Food</button>
+
+</div>
+
+<div class="favorite">
+  <ul>
+    <li *ngFor="let favFood of favorite">
+      <h3> Name: {{favFood.name}}</h3>
+
+      <p> Calorie count: {{favFood.calories}}</p>
+      <img src="{{favFood.image}}" />
+
+    </li>
+  </ul>
+
+</div>
+
+<!--
+<div class="foodList">
+  <h2> List Of Foods</h2>
+
+  <ul>
+    <li *ngFor="let oneFood of foods">
+      <h3> Name: {{oneFood.name}}</h3>
+
+      <p> Calorie count: {{oneFood.calories}}</p>
+      <img src="{{oneFood.image}}" />
+    </li>
+  </ul>
+</div> -->

@@ -1,0 +1,13 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+
+li {
+  background-color: lightgrey;
+  width: 20%;
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  margin: 1%;
+}
