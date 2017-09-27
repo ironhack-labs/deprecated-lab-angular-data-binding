@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-new-food-form',
@@ -7,18 +7,17 @@ import foods from '../foods';
   styleUrls: ['./new-food-form.component.css']
 })
 export class NewFoodFormComponent implements OnInit {
-  foods: Object[];
+  @Output() onNewFood = new EventEmitter<Object>();
   newFood: Object = {}
 
   constructor() { }
 
   ngOnInit() {
-    this.foods = foods;
+
   }
 
-  addFood(){
-    this.foods.push(this.newFood)
-    this.newFood = {}
+  handleSubmitClick(){
+    this.onNewFood.emit(this.newFood);
   }
 
 }

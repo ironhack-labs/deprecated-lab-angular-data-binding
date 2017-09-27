@@ -1,6 +1,7 @@
 .food-wrapper {
   max-width: 40%;
   margin: 0 auto;
+
 }
 
 h3 {
@@ -38,4 +39,11 @@ button {
   height: 20px;
   align-self: center;
   margin: 10px;
+}
+
+.search-input {
+  display: block;
+  padding: 5px;
+  margin: 0 auto;
+  border: 1px solid black;
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import foods from '../foods';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-food-list',
@@ -7,13 +6,17 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods: Object[];
+  @Input() foods: Object[];
+  @Output() onNewFood = new EventEmitter<Object>();
+
   constructor() { }
 
   ngOnInit() {
-    this.foods = foods;
+
   }
-
-
+  //TODO output
+  handleAddClick(food: Object) {
+    this.onNewFood.emit(food);
+  }
 
 }

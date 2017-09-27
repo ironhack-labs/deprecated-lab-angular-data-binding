@@ -5,6 +5,9 @@
 <button (click)="showForm()">New Food</button>
 <button (click)="showList()">The Food List</button>
 
-<app-new-food-form *ngIf="form"></app-new-food-form>
+<app-new-food-form *ngIf="formVisible" (onNewFood)="handleNewFood($event)"></app-new-food-form>
+<app-todays-food [todaysFoods]="todaysFoods"></app-todays-food>
 
-<app-food-list *ngIf="list"></app-food-list>
+<input type="text" [(ngModel)]="searchTerm" (ngModelChange)="updateFilteredFoodList()" placeholder="search food">
+
+<app-food-list [foods]="filteredFoods" (onNewFood)="handleNewTodayFood($event)"></app-food-list>

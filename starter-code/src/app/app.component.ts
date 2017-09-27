@@ -1,20 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import foods from './foods';
+
+class Food{name:string}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Nutrition';
-  form: boolean = false;
-  list: boolean = true;
+  formVisible: boolean = false;
+  listVisible: boolean = true;
+  searchTerm: string;
+  foods: Object[];
+  todaysFoods: Object[] = [];
+  filteredFoods: Object[] = [];
 
-  showForm(form: boolean){
-    this.form = !this.form;
+  ngOnInit() {
+    this.foods = foods;
+    this.updateFilteredFoodList();
   }
 
-  showList(list: boolean){
-    this.list = !this.list;
+  showForm(formVisible: boolean){
+    this.formVisible = !this.formVisible;
+  }
+
+  showList(listVisible: boolean){
+    this.listVisible = !this.listVisible;
+  }
+
+  handleNewTodayFood(food) {
+    this.todaysFoods.push(food);
+  }
+
+  handleNewFood(food) {
+    this.foods.push(food);
+    this.formVisible = false;
+    this.updateFilteredFoodList();
+  }
+
+  updateFilteredFoodList() {
+    this.filteredFoods = this.foods.filter((food:Food)=>{
+      return !this.searchTerm || food.name === this.searchTerm
+    });
   }
 }
