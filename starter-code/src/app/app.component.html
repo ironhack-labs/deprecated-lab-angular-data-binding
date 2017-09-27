@@ -1,4 +1,18 @@
 <h1>
   {{title}}
 </h1>
-<app-food-list></app-food-list>
+
+<div class="buttons">
+  <button (click)="showForm()">Show Form</button>
+  <button (click)="showFoodsList()">Show Food List</button>
+</div>
+
+<app-food-form *ngIf="show" (onNewFood)="handleNewFood($event)"></app-food-form>
+<app-todays-food [todaysFoods]="todaysFoods"></app-todays-food>
+
+<div class="food-search">
+  <label for="food-search">Search Foods: </label><br />
+  <input type="text" [(ngModel)]="searchTerms" (ngModelChange)="updateFilteredFoodList()"><br />
+</div>
+
+<app-food-list *ngIf="showFoods" [foods]="foods" (onNewFood)="onNewFood($event)"></app-food-list>

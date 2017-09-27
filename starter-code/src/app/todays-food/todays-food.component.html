@@ -1,10 +1,10 @@
-<div class="all-foods">
-  <h1>List of All Foods</h1>
-  <div *ngFor="let food of foods" class="food-item">
+<h1>Today's Foods</h1>
+
+<div class="today-foods">
+  <div *ngFor="let food of todaysFoods">
     <img src="{{food.image}}" alt="">
     <p><strong>Name: </strong> {{food.name}}</p>
     <p><strong>Calories: </strong>{{food.calories}}</p>
     <p><strong>Quantity: </strong>{{food.quantity}}</p>
-    <button (click)="handleAddClick(food)">Add to Today</button>
   </div>
 </div>

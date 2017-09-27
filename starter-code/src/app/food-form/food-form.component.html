@@ -1,0 +1,21 @@
+<div class="food-form" *ngIf="showAdd">
+  <h1>Add a New Food</h1>
+  <div>
+    <label for="food-name">Name: </label><br />
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Calories: </label><br />
+    <input type="number" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-quantity">Quantity: </label><br />
+    <input type="number" [(ngModel)]="newFood.quantity">
+  </div>
+  <div>
+    <label for="food-image">Image: </label><br />
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+
+  <button (click)="handleSubmitClick(); hideFood()">Add New Food</button>
+</div>
