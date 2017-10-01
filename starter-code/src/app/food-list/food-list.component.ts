@@ -12,12 +12,24 @@ export class FoodListComponent implements OnInit {
   calories: number;
   image: string;
   quantity: number;
+  newFood: Object = {};
 
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+  }
+
+  isFormEnabled: boolean = false;
+    toggleForm() {
+     this.isFormEnabled = !this.isFormEnabled;
+  }
+
+  createFood(){
+     this.foods.push(this.newFood);
+     this.newFood = {};
+     this.toggleForm() 
   }
 
 }
