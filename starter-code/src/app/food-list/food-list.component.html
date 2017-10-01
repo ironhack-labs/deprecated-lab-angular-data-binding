@@ -1,6 +1,16 @@
-  <div *ngFor='let food of foods' class='food-card'>
-    <h4>{{food.name | uppercase}}</h4>
-    <p>{{food.calories}}</p>
-    <p>{{food.quantity}}</p>
-    <img [src]="food.image" height="150" />
+<div class='container'>
+  <div class='search-bar'>
+    <label>Search: </label>
+    <input id="search" placeholder="Search food..." type="text" [(ngModel)]="inputSearch">
+  <div>
+    
+  <div class='food-list'>
+    <div *ngFor="let food of foods | filter:'name':inputSearch" class="food-card">
+      <h4>{{food.name | uppercase}}</h4>
+      <p>{{food.calories}}</p>
+      <p>{{food.quantity}}</p>
+      <img [src]="food.image" height="150" />
+    </div>
   </div>
+
+</div>
