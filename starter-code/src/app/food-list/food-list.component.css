@@ -1,41 +1,47 @@
-.container{
-text-align: center;
+.container {
+  padding: 0;
 }
 
-.food-list{
-  height: 1200px;
-  padding: 50px auto;
-  margin-top: 50px
-}
 .food-card {
   background-color: white;
-  margin: 18px;
-  border: 2px solid white;
+  margin-top: 20px;
   border-radius: 30px;
-  /*text-align: center;*/
-  padding: 10px 10px 20px;
+  padding: 20px;
   color: #804cce;
 }
 
-search-food {
-  height: 50px;
-  margin: 40px auto;
-}
-
-input{
-    width: 400px;
-    height: 30px
-}
-
-button{
+.btn-save {
   margin-left: 20px
 }
 
-h3{
-  color:#5CB85C;
-  font-weight: bold;
+.form-create {
+  color: green;
 }
 
-img {
-  margin:8px;
+h2 {
+  color: white;
+  font-weight: bold;
+  background: #804cce;
+  padding: 10px;
+}
+
+.label-search {
+  display: block;
+}
+
+span, h4 {
+  display: inline;
+}
+
+.btn-add-today {
+  margin-top: 40px
+}
+
+.container-list-today {
+  border: 2px solid #804cce;
+  font-size: 20px;
+}
+
+ul {
+  list-style-position: inside;
 }

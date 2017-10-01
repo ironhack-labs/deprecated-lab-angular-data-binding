@@ -13,7 +13,8 @@ export class FoodListComponent implements OnInit {
   image: string;
   quantity: number;
   newFood: Object = {};
-
+  todayFoods:Array<any> = [];
+  sumCalories = 0;
 
   constructor() { }
 
@@ -29,7 +30,12 @@ export class FoodListComponent implements OnInit {
   createFood(){
      this.foods.push(this.newFood);
      this.newFood = {};
-     this.toggleForm() 
+     this.toggleForm()
+  }
+
+  addTodayList(food, calories){
+    this.todayFoods.push(food);
+    this.sumCalories += (food.calories)
   }
 
 }

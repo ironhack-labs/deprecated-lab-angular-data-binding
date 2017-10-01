@@ -1,19 +1,10 @@
 <div class='container'>
   <hr />
-  <div class='search-bar form-inline'>
-    <div class="form-group">
-    <label>Search: </label>
-    <input id="search" placeholder="Search food..." type="text" [(ngModel)]="inputSearch">
-    </div>
-    <button *ngIf = '!isFormEnabled' type="button" (click)= "toggleForm()" class="btn btn-success btn-add">ADD FOOD</button>
-  <div>
-<hr />
-
-  <div class="form-inline" *ngIf = 'isFormEnabled'>
+  <div class="form-inline form-create" *ngIf='isFormEnabled'>
     <h3>Create New Food </h3>
     <div class="form-group">
       <label for="food-name">Name</label>
-      <input type="text" class="form-control"  [(ngModel)]="newFood.name" >
+      <input type="text" class="form-control" [(ngModel)]="newFood.name" minlength="3">
     </div>
     <div class="form-group">
       <label for="food-calories">Calories</label>
@@ -21,17 +12,39 @@
     </div>
     <div class="form-group">
       <label for="food-image">Image</label>
-      <input type="text" class="form-control"  [(ngModel)]="newFood.image">
+      <input type="text" class="form-control" [(ngModel)]="newFood.image">
     </div>
-    <button type="submit" (click)="createFood()" class="btn btn-success">SAVE FOOD</button>
+    <button type="submit" (click)="createFood()" class="btn btn-success btn-save">SAVE FOOD</button>
+  </div>
+  <button *ngIf='!isFormEnabled' (click)="toggleForm()" class="btn btn-success btn-add">ADD NEW FOOD</button>
+  <hr />
+
+  <div class='col-sm-6 container-foods'>
+    <div class='search-bar col-sm-12'>
+      <div class="form-group">
+        <input id="search" class='form-control' placeholder="Search food..." type="text" [(ngModel)]="inputSearch">
+      </div>
+    </div>
+
+    <div *ngFor="let food of foods | filter:'name':inputSearch" class="food-card col-sm-12">
+      <img [src]="food.image" height="100" width="150" class='col-sm-5'/>
+      <div class= 'info col-sm-7'>
+        <h4>{{food.name | uppercase}} - {{food.calories}} Cal </h4>
+      </div>
+      <div class='col-sm-6 add-today'>
+        <button type="submit" (click)="addTodayList(food, food.calories)" class="btn btn-success btn-add-today">
+          ADD TO TODAY LIST
+         </button>
+      </div>
+    </div>
   </div>
 
-  <div class='food-list center-block'>
-    <div *ngFor="let food of foods | filter:'name':inputSearch" class="food-card col-sm-2">
-      <h4>{{food.name | uppercase}}</h4>
-      <img [src]="food.image" height="100" width="150" />
-      <p>Calories: {{food.calories}}</p>
-      <p>Quantity: {{food.quantity}}</p>
+  <div class='col-sm-6'>
+    <h2>TODAY'S FOOD LIST - {{sumCalories}} cal</h2>
+    <div class='container-list-today'>
+      <ul *ngFor="let food of todayFoods" >
+        <li> {{food.name }} - {{food.calories }}</li>
+      </ul>
     </div>
   </div>
 
