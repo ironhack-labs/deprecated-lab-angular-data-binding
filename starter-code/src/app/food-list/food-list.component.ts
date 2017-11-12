@@ -7,7 +7,9 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods: Object[];
+  today = new Date();
+  foods: Array<Object> = [];
+  pattern: string;
 
   constructor() { }
 
@@ -15,4 +17,7 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
+  addItem(name) {
+    this.foods.push({name: name});
+  }
 }

@@ -5,8 +5,24 @@
   contact-directory works!
 </p>
 <div class="container-fluid">
+  <div>
+      <label for="thing_name"> Thing Name </label>
+      <input placeholder="new thing" type="text" #thingName>
+      <button (click)="addItem(thingName.value); thingName.value=''">
+          add
+      </button>
+    </div>
+
+    <div>
+      <label for="things_name"> Search thing: </label>
+      <input id="things_name" placeholder="thing name"
+              type="text" [(ngModel)]="pattern">
+    <div>
+
+    <h4> Stuff list </h4>
+  
   <div class="row">
-    <div id="contact" class="col-xs-3" *ngFor="let food of foods">
+    <div id="contact" class="col-xs-3" *ngFor="let food of foods | filter:'name':pattern">
       <div class="row">
         <div class="container-fluid">
       <div class="col-sm-12" id="eachFood">
@@ -19,7 +35,6 @@
               <div class="col-sm-6">
               <p id="Quantity"class="float-right"> <b>Quantity:  </b>{{food.quantity}}</p>
               </div>
-
 
             </div>
     </div>
