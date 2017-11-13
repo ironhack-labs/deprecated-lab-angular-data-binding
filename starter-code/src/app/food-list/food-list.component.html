@@ -11,9 +11,9 @@
        <li class="inv" *ngFor ="let food of foods | foodSearch:'name':pattern ">
       <img width="300px" [src]="food.image" />
       <p>
-      Name:    {{food.name}}
-      Calories:    {{food.calories}}
-      Quantity:    {{food.quantity}}
+      Name:         {{food.name}}<br>
+      Calories:    {{food.calories}} <br>
+      Quantity:    {{food.quantity}}<br>
       </p>
       </li>
  </ul>
