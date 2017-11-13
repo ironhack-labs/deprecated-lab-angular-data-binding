@@ -1,8 +1,6 @@
 body{
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-family: 'Exo 2', sans-serif;
-  /*background-color: #cee0e0;*/
-  background-color: black;
 
 }
 
@@ -32,7 +30,7 @@ img {
 #foodCalories{
   color: #992358;
   font-size: 30px;
-  padding-left: 10px;
+  /*padding-left: px;*/
   font-family: 'Exo 2', sans-serif;
 
 }

@@ -1,0 +1,19 @@
+<p>
+  new-food works!
+</p>
+<div class="row">
+<div class="container">
+<button type="button" class="btn btn-primary" name="button"> Add a Food Item</button>
+<div >
+    <label for="thing_name"> Thing Name </label>
+    <input placeholder="Food Name" type="text" #foodName>
+    <label for="thing_calories"> Thing Calories </label>
+    <input placeholder="Calorie Amount" type="number" #foodCalorie>
+    <label for="thing_image"> Thing Name </label>
+    <input placeholder="Pic of Food URL" type="text" #foodImg>
+    <button (click)="addItem(foodName.value, foodCalorie.value, foodImg.value); foodName.value=''; foodCalorie.value='';foodImg.value='';">
+        add
+    </button>
+  </div>
+</div>
+</div>
