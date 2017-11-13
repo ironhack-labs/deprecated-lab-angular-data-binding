@@ -1,18 +1,15 @@
-<p>
-  new-food works!
-</p>
 <div class="row">
-<div class="container">
-<button class="btn btn-primary"(click)="toggle= !toggle">Add new Food</button>
+<div class="container" id="addFoodContainer">
+<button class="btn btn-primary" id="addF"(click)="toggle= !toggle">Add new Food</button>
 
 <div id="show" *ngIf="toggle">
-    <label for="thing_name"> Thing Name </label>
+    <label for="thing_name"> Food Name </label>
     <input placeholder="Food Name" type="text" #foodName>
-    <label for="thing_calories"> Thing Calories </label>
+    <label for="thing_calories"> Food Calories </label>
     <input placeholder="Calorie Amount" type="number" #foodCalorie>
-    <label for="thing_image"> Thing Name </label>
+    <label for="thing_image"> Food URL </label>
     <input placeholder="Pic of Food URL" type="text" #foodImg>
-    <button (click)="toggle = !toggle; addItem(foodName.value, foodCalorie.value, foodImg.value); foodName.value=''; foodCalorie.value='';foodImg.value='';">
+    <button class="btn btn-success" (click)="toggle = !toggle; addItem(foodName.value, foodCalorie.value, foodImg.value); foodName.value=''; foodCalorie.value='';foodImg.value='';">
         add
     </button>
   </div>

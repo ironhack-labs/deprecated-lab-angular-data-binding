@@ -23,8 +23,8 @@ export class FoodListComponent implements OnInit {
     this.foods.push({name: name});
   }
 
-  addToList(item){
-    this.todayList.push(item);
+  addToList(food){
+    this.todayList.push({food: food});
     console.log(this.todayList);
   }
 
