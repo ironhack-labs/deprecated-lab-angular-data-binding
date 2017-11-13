@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodSearchPipe } from './pipe-search';
+import { NewFoodComponent } from './new-food/new-food.component';
 
 
 
@@ -16,7 +17,8 @@ import { FoodSearchPipe } from './pipe-search';
   declarations: [
     AppComponent,
     FoodListComponent,
-    FoodSearchPipe
+    FoodSearchPipe,
+    NewFoodComponent
   ],
   imports: [
     BrowserModule,
