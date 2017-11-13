@@ -20,12 +20,6 @@ export class FoodListComponent implements OnInit {
   }
 
   addItem(name) {
-    this.foods.push({name: name});
+    this.foods.unshift({name: name});
   }
-
-  addToList(food){
-    this.todayList.push({food: food});
-    console.log(this.todayList);
-  }
-
 }

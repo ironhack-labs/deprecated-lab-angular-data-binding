@@ -9,7 +9,7 @@ import foods from '../foods';
 export class NewFoodComponent implements OnInit {
 foods = foods;
 newFood: Object = {};
-
+todaysFood = [];
   constructor() {
 
   }
@@ -24,9 +24,13 @@ addItem(name, calories:number, image:string){
   calories: calories,
   image: image
 }
-foods.push(newFood);
+foods.unshift(newFood);
 }
 
+// addTodayFood(name, calories, image) {
+//   this.todaysFood.push(this.newFood)
+//   console.log(this.todaysFood);
+// }
 
 
 
