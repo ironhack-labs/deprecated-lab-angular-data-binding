@@ -10,6 +10,8 @@ export class FoodListComponent implements OnInit {
   today = new Date();
   foods: Array<Object> = [];
   pattern: string;
+  todayList: Array<Object> = [];
+
 
   constructor() { }
 
@@ -20,4 +22,10 @@ export class FoodListComponent implements OnInit {
   addItem(name) {
     this.foods.push({name: name});
   }
+
+  addToList(item){
+    this.todayList.push(item);
+    console.log(this.todayList);
+  }
+
 }
