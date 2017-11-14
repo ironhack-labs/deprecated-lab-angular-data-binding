@@ -25,7 +25,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
