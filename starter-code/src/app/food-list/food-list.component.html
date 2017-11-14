@@ -2,26 +2,23 @@
 <div>
   <label for="food-search">Search</label>
   <input id="food-search" type="text" [(ngModel)]="pattern" />
-
 </div>
 
-<div class="container">
+<div class="container"style="background: silver">
   <div class="row">
-
-
-    <div class="col-sm-5">
-<div id="list">
- <ul id="foodList">
-       <li class="inv" *ngFor ="let food of foods | foodSearch:'name':pattern ">
-      <img width="300px" [src]="food.image" />
-      <p>
-      Name:         {{food.name}}<br>
-      Calories:    {{food.calories}} <br>
-      Quantity:    {{food.quantity}}<br>
-      </p>
-    </li>
- </ul>
-   </div>
+      <div id="list">
+        <ul id="foodList">
+         <li class="inv" *ngFor ="let food of foods | foodSearch:'name':pattern ">
+           <div class="col-sm-4">
+          <img width="300px" [src]="food.image" />
+              <p>
+              Name:         {{food.name}}<br>
+              Calories:    {{food.calories}} <br>
+              Quantity:    {{food.quantity}}<br>
+             </p>
+           </div>
+        </li>
+     </ul>
  </div>
 </div>
 </div>
