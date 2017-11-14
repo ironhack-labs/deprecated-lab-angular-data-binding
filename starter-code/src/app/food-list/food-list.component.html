@@ -5,7 +5,11 @@
 
 </div>
 
+<div class="container">
+  <div class="row">
 
+
+    <div class="col-sm-5">
 <div id="list">
  <ul id="foodList">
        <li class="inv" *ngFor ="let food of foods | foodSearch:'name':pattern ">
@@ -15,6 +19,9 @@
       Calories:    {{food.calories}} <br>
       Quantity:    {{food.quantity}}<br>
       </p>
-      </li>
+    </li>
  </ul>
+   </div>
+ </div>
+</div>
 </div>
