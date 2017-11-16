@@ -7,10 +7,20 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class NewFoodComponent implements OnInit {
-
+    foods: Object[];
+newFood: Object = {};
   constructor() { }
 
   ngOnInit() {
   }
+  addfood(){
+    this.newFood = {
+    
+    };
+      console.log("Add foods has been called");
 
+      this.foods.push(this.newFood);
+
+      this.newFood = {};
+    }
 }

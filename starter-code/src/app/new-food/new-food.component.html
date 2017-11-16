@@ -1,19 +1,21 @@
+<form (ngSubmit)=addfood(event) >
 
 <div>
-  <label for="contact-name"></label>
-  <input type="text" [(ngModel)]="newContact.name">
+  <label for="food-name"></label>
+  <input type="text" [(ngModel)]="newFood.name">
 </div>
 <div>
-  <label for="contact-calories"></label>
-  <input type="text" [(ngModel)]="newContact.email">
+  <label for="food-calories"></label>
+  <input type="text" [(ngModel)]="newFood.calories">
 </div>
 <div>
-  <label for="contact-image"></label>
-  <input type="text" [(ngModel)]="newContact.image">
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image">
 </div>
 <div>
-  <label for="contact-quantiy"></label>
-  <input type="text" [(ngModel)]="newContact.phoneNumber">
+  <label for="food-quantiy"></label>
+  <input type="text" [(ngModel)]="newFood.quantity">
 </div>
+  <button (click)="addfood()">Submit New Food</button>
 
-<button (click)="addContact()">Submit New Contact</button>
+</form>
