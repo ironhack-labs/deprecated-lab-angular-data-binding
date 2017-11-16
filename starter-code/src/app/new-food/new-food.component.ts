@@ -13,10 +13,13 @@ newFood: Object = {};
 
   ngOnInit() {
   }
-  addfood(){
+  sumitForm(addfood){
     this.newFood = {
-    
-    };
+      name: newFood.name,
+      calories :newFood.calories,
+      image:  newFood:image
+      quantity: newFood.quantity
+    }
       console.log("Add foods has been called");
 
       this.foods.push(this.newFood);
