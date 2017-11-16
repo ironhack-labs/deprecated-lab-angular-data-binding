@@ -9,6 +9,7 @@ import { FoodListComponent } from './food-list/food-list.component';
 import { FoodSearchPipe } from './pipe-search';
 import { NewFoodComponent } from './new-food/new-food.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'new',  component: NewFoodComponent },
@@ -23,10 +24,10 @@ const routes: Routes = [
     NewFoodComponent
   ],
   imports: [
-    BrowserModule,
     FormsModule,
+    BrowserModule,
     HttpModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

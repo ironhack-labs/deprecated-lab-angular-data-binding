@@ -1,1 +1,19 @@
 
+<div>
+  <label for="contact-name"></label>
+  <input type="text" [(ngModel)]="newContact.name">
+</div>
+<div>
+  <label for="contact-calories"></label>
+  <input type="text" [(ngModel)]="newContact.email">
+</div>
+<div>
+  <label for="contact-image"></label>
+  <input type="text" [(ngModel)]="newContact.image">
+</div>
+<div>
+  <label for="contact-quantiy"></label>
+  <input type="text" [(ngModel)]="newContact.phoneNumber">
+</div>
+
+<button (click)="addContact()">Submit New Contact</button>
