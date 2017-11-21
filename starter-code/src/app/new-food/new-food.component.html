@@ -1,30 +1,29 @@
 <div id="container">
   <div id="row">
-    <button (click) = "toggle = !toggle">add itme</button>
+    <button (click) = "toggle = !toggle">click to create new food</button>
       </div>
 
-    <div id="show" *ngIf="toggle" class="row form-horizontal" style="margin: auto; max-width: 800px;">
+    <div id="show" *ngIf="toggle" class="row " >
  <div class="form-group">
-   <label for="food-name" class ="control-label col-sm-3">Food name: </label>
+   <label for="food-name" class ="col-sm-3">Food name: </label>
    <div class="col-sm-6">
      <input type="text" [(ngModel)]="newFood.name" class="form-control">
    </div>
  </div>
  <div class="form-group">
-   <label for="food-calories" class ="control-label col-sm-3">Calories: </label>
+   <label for="food-calories" class ="col-sm-3">Calories: </label>
    <div class="col-sm-6">
-     <input type="text" [(ngModel)]="newFood.calories" class="form-control">
+     <input type="text" [(ngModel)]="newFood.calories" >
    </div>
  </div>
  <div class="form-group">
-   <label for="food-image" class ="control-label col-sm-3">Upload image (paste URL):</label>
+   <label for="food-image" class ="col-sm-3"> image :</label>
    <div class="col-sm-6">
-     <input type="text" [(ngModel)]="newFood.image" class="form-control">
+     <input type="text" [(ngModel)]="newFood.image" >
    </div>
  </div>
 
- <p style="text-align:right; padding-top:30px; margin-right: 210px;">
-   <button (click)="newFood(newFood.name, newFood.image, newFood.calories )" class="btn btn-primary">Add New Food</button>
+ <p >
+   <button (click)="newFoods(newFood.name, newFood.image, newFood.calories )" >Add New Food</button>
  </p>
-
 </div>
