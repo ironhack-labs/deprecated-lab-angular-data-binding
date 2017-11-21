@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation ,Input} from '@angular/core';
+import foods from '../foods';
 
 @Component({
   selector: 'app-new-food',
@@ -8,24 +9,26 @@ import { Component, OnInit, ViewEncapsulation ,Input} from '@angular/core';
 })
 export class NewFoodComponent implements OnInit {
 
-  foods:Object[];
+  foods = foods ;
   newFood:Object={};
 
   constructor() { }
 
   ngOnInit() {
-    this.foods=this.foods;
+
   }
-  submitted = false;
+  submitted = true;
 
 
 
-  newFoods(){
-    console.log('botton new food tocado');
-    this.foods.push(this.newFood);
-    this.newFood={};
-    this.submitted = true;
-
+  newFoods(name, image, calories){
+    console.log('button newFoods wroks');
+    var newFood={
+    name:name,
+    calories:calories,
+    image:image,
+ }
+ foods.unshift(newFood);
   }
 
 
