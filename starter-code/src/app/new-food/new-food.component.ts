@@ -17,7 +17,7 @@ export class NewFoodComponent implements OnInit {
   ngOnInit() {
 
   }
-  submitted = true;
+
 
 
 
