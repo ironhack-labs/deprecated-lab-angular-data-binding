@@ -1,17 +1,22 @@
+<div class="container"style="background: gold">
 
 <div>
   <label for="food-search">Search</label>
   <input id="food-search" type="text" [(ngModel)]="pattern" />
 </div>
 
-<div class="container"style="background: gold">
+
   <div class="row">
       <div id="list">
         <ul id="foodList">
          <li class="inv" *ngFor ="let food of foods | foodSearch:'name':pattern ">
-           <div class="col-sm-4">
-          <img width="300px" [src]="food.image" />
-          <div [ngClass]="{submitted:true}" [hidden]="submitted">
+
+
+    <img src="{{ food.image }}" alt="" width="300px;">
+     <span> {{ food.calories }}</span>
+      <span>{{ food.name }} </span>
+
+          <!-- <div [ngClass]="{submitted:true}" [hidden]="submitted">
 
                 <label for="food-name">food-name</label>
                 <input type="text" [(ngModel)]="newFood.name">
@@ -28,7 +33,7 @@
 
               <button (click)="newFoods()">add new Food</button>
           </div>
-           </div>
+           -->
         </li>
      </ul>
  </div>
