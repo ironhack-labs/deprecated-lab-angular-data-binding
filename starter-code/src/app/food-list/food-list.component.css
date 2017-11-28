@@ -1,0 +1,43 @@
+.left {
+  width: 100%;
+  float: left;
+}
+
+.calorie-count {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+input {
+  padding: 10px;
+}
+
+input:focus, button:focus {
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.element {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin: 10px auto;
+  background-color: #f6f6f6;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.food {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
