@@ -10,6 +10,8 @@ export class FoodListComponent implements OnInit {
   foodList: Array<Object>;
   visible : boolean =false;
   newFood: Object={};
+  todayFood= [];
+  totalCalories: number =0;
 
   showAddForm(){
     this.visible=!this.visible;
@@ -18,14 +20,29 @@ export class FoodListComponent implements OnInit {
 
   AddNewFood(){
     console.log("Add new Food");
+    console.log(this.newFood);
     this.foodList.push(this.newFood);
     this.showAddForm();
   }
 
+AddTodayFood(food, quant){
+  this.totalCalories=0;
+
+  console.log("todayFood clicked");
+  food.quantity=quant.value;
+
+  if(this.todayFood.indexOf(food) === -1){
+    this.todayFood.push(food);
+  }
+
+  this.todayFood.forEach(e =>{
+    this.totalCalories+=e.quantity*e.calories;
+
+  })
+    //this.totalCalories+=food.calories*quant.value;
+}
 
   ngOnInit() {
     this.foodList=foods;
   }
-
-
 }

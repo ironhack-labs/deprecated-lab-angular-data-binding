@@ -3,6 +3,7 @@
   <input id="things_name" placeholder="thing name"
             type="text" [(ngModel)]="pattern">
 </div>
+
 <div class="form">
   <button (click)="showAddForm()">Add new Food</button>
   <div *ngIf='visible'>
@@ -21,10 +22,17 @@
 
 
 <div class="container">
+  <div class="today-food">
+    <h3>Today's Foods  {{totalCalories}} cal</h3>
+    <ul>
+      <li *ngFor="let e of todayFood">{{e.name}} cal {{e.calories}} x {{e.quantity}}</li>
+    </ul>
+  </div>
   <div class="foodList" *ngFor="let food of foodList | filter:'name':pattern; let i = index">
   <p> {{food.name}}</p>
   <p>{{food.calories}}</p>
   <img [src]="food.image" alt="{{food.name}}">
-  <input type="Number" value="{{food.quantity}}">
+  <input type="Number" value="{{food.quantity}}"  min="1" #quant>
+      <button (click)="AddTodayFood(food , quant)">today's Food</button>
   </div>
 </div>
