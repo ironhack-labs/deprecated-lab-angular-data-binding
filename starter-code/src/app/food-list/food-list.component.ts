@@ -10,6 +10,9 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFoods: Object = {};
   edited = false;
+  newTodaysFood: Array<object> = [];
+  count = 0;
+  show = false;
 
   constructor() { }
 
@@ -20,6 +23,7 @@ export class FoodListComponent implements OnInit {
   showForm() {
     this.edited = !this.edited;
   }
+
   addFoods(){
     console.log("Add contact has been called");
     this.foods.push(this.newFoods);
@@ -28,22 +32,9 @@ export class FoodListComponent implements OnInit {
 
   };
 
+  todayFood(foodSelected) {
+    this.newTodaysFood.push(foodSelected);
+    this.count += foodSelected.calories;
+    this.show = true;
+  }
 }
-
-
-// export class ContactListComponent implements OnInit {
-//   contacts: Object[];
-//   newContact: Object = {};
-//
-//   constructor() { }
-//
-//   ngOnInit() {
-//     this.contacts = contactList;
-//   }
-//
-//   addContact(){
-//     console.log("Add contact has been called");
-//       this.contacts.push(this.newContact);
-//       this.newContact = {}
-//   }
-// }
