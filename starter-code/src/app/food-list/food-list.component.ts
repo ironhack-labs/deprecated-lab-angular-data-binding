@@ -9,6 +9,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFoods: Object = {};
+  edited = false;
 
   constructor() { }
 
@@ -16,10 +17,15 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
+  showForm() {
+    this.edited = !this.edited;
+  }
   addFoods(){
     console.log("Add contact has been called");
     this.foods.push(this.newFoods);
     this.newFoods = {}
+    this.edited = false;
+
   };
 
 }

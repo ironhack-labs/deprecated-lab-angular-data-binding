@@ -7,28 +7,27 @@
 </ul>
 
 <div>
-  <label for="things_name"> Search thing: </label>
-  <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
   <div>
-
-    <form action="">
-      <div class="center">
-        <label for="contact-name">Name</label>
-        <input type="text" [(ngModel)]="newFoods.name">
-      </div>
-      <div class="center">
-        <label for="contact-email">Calories</label>
-        <input type="text" [(ngModel)]="newFoods.calories">
-      </div>
-      <div class="center">
-        <label for="contact-phone">Image</label>
-        <input type="text" [(ngModel)]="newFoods.image">
-      </div>
-      <div class="center">
-        <label for="contact-image">Quantity</label>
-        <input type="text" [(ngModel)]="newFoods.quantity">
-      </div>
-    </form>
+    <label for="things_name"> Search thing: </label>
+    <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+  </div>
+  <button (click)="showForm()">Add food</button>
+  <div *ngIf="edited">
     <div class="center">
-      <button (click)="addFoods(newFoods)" oninvalid="">Submit New Contact</button>
+      <label for="contact-name">Name</label>
+      <input type="text" [(ngModel)]="newFoods.name">
     </div>
+    <div class="center">
+      <label for="contact-email">Calories</label>
+      <input type="text" [(ngModel)]="newFoods.calories">
+    </div>
+    <div class="center">
+      <label for="contact-phone">Image</label>
+      <input type="text" [(ngModel)]="newFoods.image">
+    </div>
+    <div class="center">
+      <label for="contact-image">Quantity</label>
+      <input type="text" [(ngModel)]="newFoods.quantity">
+    </div>
+    <button (click)="addFoods(newFoods)" type="button" name="button">Save</button>
+  </div>
