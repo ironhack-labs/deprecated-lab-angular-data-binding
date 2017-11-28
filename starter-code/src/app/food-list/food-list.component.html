@@ -1,3 +1,46 @@
-<p>
-  food-list works!
-</p>
+
+<div class="controlPanel" *ngIf="!showForm">
+  <div class="search">
+    <label for="things_name"> Search for a dish: </label>
+    <input placeholder="dish name" type="text" [(ngModel)]="pattern">
+  </div>
+  <button (click)="addForm()" class="addButton" type="button" name="button">Add a dish</button>
+</div>
+<div *ngIf="showForm" class="controlPanel">
+  <div class="dishCreator">
+    <h3>Add Dish:</h3>
+    Dish:
+    <input [(ngModel)]="newDish.name"><br>
+    Calories:
+    <input [(ngModel)]="newDish.calories"><br>
+    Image:
+    <input [(ngModel)]="newDish.image"><br>
+    <input (click)="addDish()" class="addButton" type="submit" value="Submit">
+  </div>
+  <button (click)="addForm()" class="addButton" type="button" name="button">Cancel</button>
+</div>
+<section class="dishBook">
+  <div class="dish" *ngFor="let dish of foods | filter:'name':pattern; let i = index">
+    <ul>
+      <li>Dish: {{dish.name}}</li>
+      <li>Calories: {{dish.calories}}</li>
+      <li><img [src]="dish.image" alt=""></li>
+      <li class="quantity">
+        <p>Quantity: {{dish.quantity}}</p>
+        <button (click)="addToMenu(i)" type="button" name="button">+</button>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="dishBook todayFood">
+  <h2>Today's Menu:</h2>
+  <div class="dish" *ngFor="let dish of todayMenu">
+    <ul>
+      <li>Dish: {{dish.name}}</li>
+      <li>Calories: {{dish.calories}}</li>
+      <li><img [src]="dish.image" alt=""></li>
+      <li>Quantity: {{dish.quantity}}</li>
+    </ul>
+  </div>
+  <h2>Total: {{totalCalories}}</h2>
+</section>
