@@ -10,6 +10,7 @@ import foodsList from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
+  todaysFood: Object[] = [];
   form_hidden: boolean = true;
 
   constructor() { }
@@ -26,5 +27,10 @@ export class FoodListComponent implements OnInit {
     this.foods.push(this.newFood);
     this.newFood = {};
     this.form_hidden = true;
+  }
+
+  addTodaysFood(food) {
+    console.log(food);
+    this.todaysFood.push(food);
   }
 }
