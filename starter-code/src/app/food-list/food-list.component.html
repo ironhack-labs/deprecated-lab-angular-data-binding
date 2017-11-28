@@ -3,11 +3,44 @@
   <input id="filter" placeholder="food" type="text" [(ngModel)]="search">
 <div>
 <div class="foods">
-  <ul *ngFor="let food of foods | filter:'name':search ">
-    <!-- {{ i+1 }}) {{ food.name }} -->
-    <li >Name : {{food.name}} </li>
+  <h2>Total: {{countcalories}}</h2>
+  <ul *ngFor="let selet of seletFood ">
+    <li>Name : {{selet.name}} </li>
+  </ul>
+</div>
+<div class="foods">
+  <ul>
+    <div>
+      <label for="food-name">Name:</label>
+      <input type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <label for="food.calories">Calories:</label>
+      <input type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="food.image">Image:</label>
+      <input type="text" [(ngModel)]="newFood.image">
+    </div>
+    <div>
+      <label for="food.quantity">Quantity:</label>
+      <input type="text" [(ngModel)]="newFood.quantity">
+    </div>
+
+    <button (click)="addFood()">Add new food</button>
+  </ul>
+</div>
+
+<div class="foods">
+  <ul *ngFor="let food of foods | filter:'name':search ; let i = index ">
+
+    <li>Name : {{food.name}} </li>
     <li>Calories: {{food.calories}}</li>
     <li><img src="{{food.image}}" alt=""></li>
-    <li>Quantity: {{food.quantity}}</li>
+
+    <label for="food.quantity">Quantity:</label>
+    <input type="text" [(ngModel)]="food.quantity" value="1">
+
+    <li><button *ngIf="true" (click)="nextFood(foods[i])">Next food</button></li>
   </ul>
 </div>
