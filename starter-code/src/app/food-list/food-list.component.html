@@ -3,15 +3,15 @@
 
   <button (click)="openForm()">Add New Food</button><br>
 
-  <form id="addFood" hidden>
-    <input type="text" placeholder="Name"><br>
-    <input type="text" placeholder="Calories"><br>
-    <input type="text" placeholder="Image url"><br>
-    <button (click)="addFood()">Add Food</button><br>
-  </form>
+  <div id="addFood" *ngIf="this.show">
+    <input type="text" placeholder="Name" [(ngModel)]="newFood.name" required><br>
+    <input type="number" placeholder="Calories" [(ngModel)]="newFood.calories" required><br>
+    <input type="text" placeholder="Image url" [(ngModel)]="newFood.image" required><br>
+    <button (click)="addFood(newFood.name, newFood.calories, newFood.image)">Add Food</button><br>
+  </div>
 
   <div class="list">
-    <!-- filter: 'key' value de mi element que uso de filtro' -->
+    <!-- filter: 'key' de mi element que uso de filtro', gracias @andrei -->
     <span class="element" *ngFor="let element of foods | filter : 'name' : search ; let i = index">
       <p class="name">{{ element.name }}</p>
       <p class="calories">{{ element.calories }} cal</p>

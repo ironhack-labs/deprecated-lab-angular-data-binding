@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
-import { FilterPipe } from '../pipes/filter.pipe';
 
 @Component({
   selector: 'app-food-list',
@@ -10,7 +9,8 @@ import { FilterPipe } from '../pipes/filter.pipe';
 
 export class FoodListComponent implements OnInit {
 
-  foods: Object[];
+  foods:Object[];
+  newFood:Object = {};
   show:boolean = false;
 
   constructor() {}
@@ -19,20 +19,18 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
-  openForm() {
-    if(this.show === true) {
-      this.show = false;
-    } else {
-      this.show = true;
-    }
+  openForm():void {
+    this.show = !this.show;
   }
 
-  addFood() {
-    // console.log(this.name);
-    // this.foods.push();
-    // this.name = "";
+  addFood(one, two, three):void {
+    this.foods.push({
+      name: one,
+      calories: two,
+      image: three
+    });
+    this.newFood = {};
+    this.show = !this.show;
   }
-
-
 
 }
