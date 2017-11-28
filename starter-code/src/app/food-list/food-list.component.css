@@ -1,0 +1,40 @@
+body{
+  margin:0;
+  padding: 0;
+}
+#contact-container{
+  width: 80%;
+  margin: 0 auto;
+}
+#containerUp{
+  background-color:rgba(192,192,192,0.3);
+  border: 1px solid black;
+  text-align: center;
+  margin: 20px auto;
+  width: 35%;
+}
+#showPane{
+  background-color:rgba(192,192,192,0.3);
+  border: 1px solid black;
+  text-align: center;
+  margin: 20px auto;
+  width: 35%;
+}
+#foodContainer{
+  background-color:rgba(192,192,192,0.3);
+  border: 1px solid black;
+  text-align: center;
+  margin: 20px auto;
+  width: 35%;
+}
+img {
+  width: 20%;
+}
+h1{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.form{
+  float:
+}
