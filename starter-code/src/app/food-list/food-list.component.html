@@ -1,3 +1,6 @@
+<div class="search">
+  Search: <input [(ngModel)]="search">
+</div>
 <div class="nav">
   <div class="nameAdd">
     <input type="text" placeholder="Name" [(ngModel)]="newItem.nameAdd">
@@ -14,7 +17,7 @@
   <button class="buttonAdd" (click)="addItem()">Submit New Item</button>
 </div>
 
-<div class="food" *ngFor="let item of items">
+<div class="food" *ngFor="let item of items | filter: 'name' : search ; let i = index">
   <div class="image"><img [src]= "item.image" width="100px"></div>
   <div class="name">{{ item.name }}</div>
   <div class="quantity"><input value="{{ item.quantity }}">
