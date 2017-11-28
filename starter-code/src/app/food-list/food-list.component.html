@@ -3,7 +3,9 @@
     <img src="{{e.image}}" alt="">
     <p>{{ e.name }}</p>
     <p>{{ e.calories }}</p>
-    <button (click)="todayFood(foods[i])" type="button" name="button">Add Today's Food</button>
+    <input type="text" #quantity>
+    <button (click)="todayFood(foods[i], quantity)" type="button" name="button">Add Today's Food</button>
+
   </li>
 </ul>
 
@@ -36,9 +38,9 @@
   <div>
     <ul>
       <li *ngFor="let e of newTodaysFood, let i = index">
-        <p>{{ e.name }}</p>
+        <p>{{ e.calories }}</p>
+        <p>{{ e.name }} cal {{ e.calories }} x {{e.quantity}}</p>
       </li>
     </ul>
-
-    <p *ngIf="show">Total Calories: {{ count }}</p>
+    <p>Total Calories: {{ caloriesItems }}</p>
   </div>

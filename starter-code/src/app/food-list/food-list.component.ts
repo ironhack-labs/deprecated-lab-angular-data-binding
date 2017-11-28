@@ -10,8 +10,9 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFoods: Object = {};
   edited = false;
-  newTodaysFood: Array<object> = [];
+  newTodaysFood = [];
   count = 0;
+  caloriesItems = 0;
   show = false;
 
   constructor() { }
@@ -32,9 +33,21 @@ export class FoodListComponent implements OnInit {
 
   };
 
-  todayFood(foodSelected) {
-    this.newTodaysFood.push(foodSelected);
-    this.count += foodSelected.calories;
+  todayFood(foodSelected, quantity) {
+    this.caloriesItems = 0;
+
+    foodSelected.quantity = quantity.value;
+
+    if(this.newTodaysFood.indexOf(foodSelected) === -1) {
+      this.newTodaysFood.push(foodSelected);
+    }
+
+    this.newTodaysFood.forEach(e =>{
+      this.caloriesItems += e.quantity * e.calories;
+    });
+
+// 
     this.show = true;
+    // this.caloriesItems += foodSelected.calories * quantity.value;
   }
 }
