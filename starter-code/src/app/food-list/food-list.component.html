@@ -27,8 +27,8 @@
   <h2> today's foods </h2>
   <div class="totalCalories">{{ totalCalories }} Calories</div>
 <ul>
-  <li *ngFor="let article of myList">
-    {{ article }}
+  <li *ngFor="let article of myList; let i = index">
+    <span (click)="removeFromList(i)">{{ article }}</span>
   </li>
 </ul>
 </div>

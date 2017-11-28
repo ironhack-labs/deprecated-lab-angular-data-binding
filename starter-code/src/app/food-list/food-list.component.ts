@@ -32,6 +32,10 @@ export class FoodListComponent implements OnInit {
     let item = this.items[i];
     this.items[i]['quantity'] += Number(quantity);
     this.totalCalories =0;
+    this.paint();
+  }
+
+  paint(){
     this.myList = [];
     for (let x= 0; x < this.items.length; x++){
       this.totalCalories += this.items[x]['calories'] * this.items[x]['quantity'];
