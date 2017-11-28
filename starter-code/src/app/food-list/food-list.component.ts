@@ -12,6 +12,9 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   active: boolean = false;
 
+  todayFoods: Object [] = [];
+  totalCal: number = 0;
+
   constructor() { }
 
   ngOnInit() {
@@ -23,10 +26,13 @@ export class FoodListComponent implements OnInit {
   }
 
   addFoods (newFood){
-    console.log(newFood);
-
     this.foodsList.push(this.newFood);
     this.newFood = {};
     this.active = !this.active
+  }
+
+  addToday(food) {
+    this.todayFoods.push(food);
+    this.totalCal = this.totalCal+food.calories;
   }
 }
