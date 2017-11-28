@@ -2,8 +2,14 @@
   food-list works!
 </p>
 
-<ul  *ngFor="let food of foods">
+<input type="text" [(ngModel)]="terms">
+
+<ul  *ngFor="let food of (foods | filterItems:terms)">
   <li>
-    {{food.name}}
+    {{food.name}} // 
+    Calories: <span> {{food.calories}}</span>
+  </li>
+  <li>
+    <img [src]="food.image" alt="">
   </li>
 </ul>
