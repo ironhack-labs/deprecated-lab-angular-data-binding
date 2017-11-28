@@ -22,14 +22,16 @@
   <span>Name: {{food.name}} | </span>
   <span>Cal: {{food.calories}} | </span>
   <span><img [src]="food.image"> | </span>
-  <span>Qty: {{food.quantity}} | </span>
-  <button (click)="addToToday(food.name, food.calories)">Add to today!</button>
+  <br>
+  <label for="qty">Qty to add</label>
+  <input type="text" #qtyNumber>
+  <button (click)="addToToday(food.name, food.calories, qtyNumber.value); qtyNumber.value='1'">Add to today!</button>
 </div>
 
 <div>
   <h3>Today food!</h3>
   <ul *ngFor="let item of today">
-    <li>{{item}} </li>
+    <li>{{item}}</li>
   </ul>
   <span>Total: {{calSum}} cal</span>
 </div>

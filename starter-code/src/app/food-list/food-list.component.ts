@@ -13,6 +13,7 @@ export class FoodListComponent implements OnInit {
   food:object = {};
   today:Array<string> = [];
   calSum:number = 0;
+  qtyNumber:number = 1;
   isHidden:boolean = true;
 
   constructor() { }
@@ -31,9 +32,12 @@ export class FoodListComponent implements OnInit {
     this.isHidden = true;
   }
 
-  addToToday(name, cal){
-    this.today.push(name);
-    this.calSum += cal;
+  addToToday(name, cal, qty){
+    for(let i = 0; i < qty; i++){
+      this.today.push(name);
+      this.calSum += cal;
+    }
+    console.log(this.qtyNumber);
   }
 
 }
