@@ -1,0 +1,28 @@
+.person {
+  border: 2px solid White;
+  display: inline-block;
+  width: 32%;
+  height: auto;
+  margin: 5px;
+  text-align: center;
+}
+
+img {
+  width: 50%;
+  height: auto;
+}
+
+.container {
+  margin: 0 auto;
+  width: 15%;
+  height: auto;
+  padding: 40px;
+  background-color: #95c11f;
+  margin-bottom: 30px;
+}
+
+.container2 {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: #95c11f;
+}

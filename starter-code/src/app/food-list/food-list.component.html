@@ -1,3 +1,47 @@
-<p>
-  food-list works!
-</p>
+<div class="container" *ngIf="edited">
+<div>
+  <label for="contact-name">Name:</label><br>
+  <input type="text" [(ngModel)]="newFoods.name">
+</div>
+<div>
+  <label for="contact-email">Calories:</label><br>
+  <input type="text" [(ngModel)]="newFoods.calories">
+</div>
+<div>
+  <label for="contact-image">Image:</label><br>
+  <input type="text" [(ngModel)]="newFoods.image">
+</div>
+<br>
+<div>
+  <label for="contact-phone">Quantity:</label><br>
+  <input type="text" [(ngModel)]="newFoods.quantity">
+</div>
+<br>
+<button (click)="addNewFoods()">Add Foods</button>
+</div>
+<button class="hidden" (click)="addFoods()">Show form</button>
+<br><br>
+
+    <div>
+      <label for="things_name"> Search thing: </label>
+      <input id="things_name" placeholder="thing name"
+              type="text" [(ngModel)]="pattern">
+    </div><br>
+
+
+      <h2>Total calories: {{totalCals}}</h2>
+    <div *ngFor = "let e of todaysFood">
+      <h4>{{e.name}}</h4>
+    </div>
+
+
+<div class="container2">
+<div class="person" *ngFor = "let e of foods | filter:'name':pattern; let i = index">
+  <h2>{{e.name}}</h2>
+  <p>{{e.calories}}</p>
+  <img src="{{e.image}}" alt="">
+  <p>{{e.quantity}}</p>
+  <button (click)="addItem(e)">Add to list</button>
+  <br><br>
+</div>
+</div>
