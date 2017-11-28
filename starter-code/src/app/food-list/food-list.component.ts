@@ -6,11 +6,14 @@ import foods from '../foods';
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
-export class FoodListComponent implements OnInit {
+export class FoodListComponent {
+  foods = foods;
+  todayFood: Array<Object> = [];
+  totalCalories = 0;
 
-  constructor() { }
-
-  ngOnInit() {
+  addTodayList(food, quantity) {
+    food['quantity'] = quantity;
+    this.todayFood.push(food);
+    this.totalCalories += food.calories * quantity;
   }
-
 }

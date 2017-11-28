@@ -1,0 +1,19 @@
+<div class="new-food-container">
+  <button [ngClass]="{ hidden: isHidden }" (click)="showFormNewFood()">Add New Food</button>
+  <div class="container" [ngClass]="{ hidden: !isHidden }">
+    <div>
+      <label for="food-name">Name</label><br>
+      <input type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <label for="food-calories">Calories</label><br>
+      <input type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="food-image">Image</label><br>
+      <input type="text" [(ngModel)]="newFood.image">
+    </div>
+
+    <button (click)="addNewFood(newFood)">Submit New Food</button>
+  </div>
+</div>
