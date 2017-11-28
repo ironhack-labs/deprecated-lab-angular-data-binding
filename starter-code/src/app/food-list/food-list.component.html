@@ -1,7 +1,9 @@
 <h1>Food List</h1>
 
+<input type="text" [(ngModel)]="searchFood" placeholder="food">
+
 <ul>
-  <li *ngFor="let food of foodsList">
+  <li *ngFor="let food of (foodsList | searchFilter: searchFood)">
     <p>Kind of food: {{food.name}}</p>
     <p>Number of calories: {{food.calories}}</p>
     <img src="{{food.image}}">
