@@ -1,0 +1,27 @@
+.food{
+  width: 20%;
+  height: auto;
+  display: inline-block;
+}
+
+.food img{
+  width: 90%;
+  height: auto;
+}
+
+.left{
+  width: 30%;
+  height: 100%;
+
+}
+
+.right{
+  width: 70%;
+  height: 100%;
+
+
+}
+.container{
+  display: flex;
+  flex-direction: row;
+}

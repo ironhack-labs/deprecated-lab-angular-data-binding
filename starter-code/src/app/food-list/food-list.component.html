@@ -1,3 +1,52 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+
+<div class="left">
+
+<div class="" *ngIf="edited">
+  <div>
+    <label for="food-name">Name:</label><br>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-image">Image:</label><br>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div>
+    <label for="food-calories">Calories:</label><br>
+    <input type="number" [(ngModel)]="newFood.calories">
+  </div>
+  <br>
+  <button (click)="addFood();show()">Submit New Food</button>
+</div>
+
+  <button (click)="show()">New Food</button>
+<br>
+<br>
+  <div>
+    <label for="foods_name"> Search food: </label>
+    <input id="foods_name" placeholder="food name"
+            type="text" [(ngModel)]="pattern">
+  </div>
+
+  <div class="list">
+    <h3>Shopping list</h3>
+    <h3>Total calories: <span></span></h3>
+    <div *ngFor = "let list of list">
+    <h4>{{list.name}}</h4>
+    <p>Calories: {{list.calories}}</p>
+  </div>
+
+</div>
+</div>
+
+<div class="right">
+  <div class="food" *ngFor = "let food of foods | filter:'name':pattern; let i = index">
+  <h2>{{food.name}}</h2>
+  <p>Calories: {{food.calories}}</p>
+  <img src="{{food.image}}" alt="">
+  <button  (click)="shopping(food)"type="button">Add to list</button>
+</div>
+</div>
+
+
+</div>
