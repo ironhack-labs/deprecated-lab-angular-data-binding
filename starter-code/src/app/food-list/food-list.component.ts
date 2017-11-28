@@ -10,7 +10,7 @@ export class FoodListComponent implements OnInit {
   foods: Object[]
   newFood: Object = {name:'', image:'', calories:null, quantity:null}
   totalCalories:number = 0
-  elementQuantity:number = 0
+  quantity:number = 0
 
   constructor() {
     this.foods = foods;
