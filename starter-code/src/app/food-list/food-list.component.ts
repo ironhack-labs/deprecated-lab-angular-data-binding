@@ -8,7 +8,7 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foodArray : Array<Object>;
-  newFood : Object = {};
+  newFood : Object = {quantity: 0};
   hidden : Boolean = false;
   todayFood: Array<Object> = new Array;
   totalCal: number = 0;
@@ -20,7 +20,7 @@ export class FoodListComponent implements OnInit {
   }
   addFood() {
     this.foodArray.push(this.newFood);
-    this.newFood = {};
+    this.newFood = {quantity: 0};
     this.toggleForm();
   }
   addToday(food, quantity){

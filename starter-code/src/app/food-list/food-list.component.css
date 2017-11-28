@@ -1,0 +1,30 @@
+
+h1 {
+  text-align: center;
+}
+button {
+  margin: 10px;
+  background-color: #26A65B;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+
+.add-food {
+  text-align: center;
+}
+
+.food-list {
+  text-align:center;
+}
+
+.foodlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.food {
+  width: 30%;
+}
