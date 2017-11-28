@@ -1,0 +1,15 @@
+.container {
+display:flex;
+flex-direction: column;
+width: 50%;
+}
+
+.foodList{
+padding: 20px;
+border: 1px solid #000;
+margin: 10px;
+}
+
+.foodList img {
+  width: 200px;
+}
