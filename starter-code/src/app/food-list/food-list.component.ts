@@ -7,19 +7,25 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods: Object[];
+  foodsList: Object[] = [];
   newFood: Object = {};
   search: String = '';
+  active: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-    this.foods = foods;
+    this.foodsList = foods;
   }
 
-  addFood(){
-    console.log("Add food has been called");
-    this.foods.push(this.newFood)
-    this.newFood = ''
+  show() {
+    this.active = !this.active;
+  }
+  addFood(data){
+    console.log(this.newFood);
+    this.foodsList.push(this.newFood)
+    this.newFood = {};
+    console.log(this.foodsList);
+    this.active = !this.active
   }
 }

@@ -5,7 +5,7 @@
 <input [(ngModel)]="search" placeholder="Search" />
 
 <div class="foods">
-  <ul *ngFor="let food of (foods | searchfilter : 'name' : search)">
+  <ul *ngFor="let food of (foodsList | searchfilter : 'name' : search)">
     <li>{{food.name}}</li>
     <li>{{food.calories}}</li>
     <li><img src="{{food.image}}"></li>
@@ -13,7 +13,10 @@
   </ul>
 </div>
 
-<div>
+<button (click)="show()">Add some food!</button>
+
+
+<div *ngIf="active">
   <div>
     <label for="food-name">Name</label>
     <input type="text" [(ngModel)]="newFood.name">
@@ -31,6 +34,4 @@
     <input type="number" [(ngModel)]="newFood.quantity">
   </div>
 
-
-  <button (click)="addFood()">Submit New Food</button>
-</div>
+  <button (click)="addFood(newFood)">Create</button>
