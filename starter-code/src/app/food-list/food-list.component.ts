@@ -8,11 +8,36 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foodsList: Object[];
-  searchFood: string = '';
+  searchFood = '';
+  newFood: Object = {
+    name: null,
+    calories: null,
+    image: null,
+    quantity: null
+  };
+  visibleForm: boolean = false;
   constructor() { }
 
   ngOnInit() {
    this.foodsList = foods;
   }
 
+  addFood(food) {
+    if (this.visibleForm) {
+      console.log("hola")
+      this.foodsList.push(food);
+      this.newFood = {
+        name: null,
+        calories: null,
+        image: null,
+        quantity: null
+      };
+      this.visibleForm = false;
+    } else {
+      this.visibleForm = true;
+    }
+  }
+
 }
+
+

@@ -1,15 +1,41 @@
-<h1>Food List</h1>
+<h1>Foodies</h1>
+<div class="main-container">
+  <div class="left-side">
 
-<input type="text" [(ngModel)]="searchFood" placeholder="food">
+    <h2>Add new food</h2>
+    <div *ngIf="visibleForm">
+      <div>
+        <label for="name"></label>
+        <input type="text" [(ngModel)]="newFood.name" placeholder="Add a food">
+      </div>
+      <div>
+        <label for="calories"></label>
+        <input type="text" [(ngModel)]="newFood.calories" placeholder="How many calories?">
+      </div>
+      <div>
+        <label for="image"></label>
+        <input type="text" [(ngModel)]="newFood.image" placeholder="image url">
+      </div>
+      <div>
+        <label for="quantity"></label>
+        <input type="text" [(ngModel)]="newFood.quantity" placeholder="quantity?">
+      </div>
+    </div>
+    <button (click)="addFood(newFood)">SUBMIT</button>
 
-<ul>
-  <li *ngFor="let food of (foodsList | searchFilter: searchFood)">
-    <p>Kind of food: {{food.name}}</p>
-    <p>Number of calories: {{food.calories}}</p>
-    <img src="{{food.image}}">
-  </li>
-</ul>
+  </div>
 
-<p>
-  food-list works!
-</p>
+
+  <div class="right-side">
+    <label for="search-food">Search</label>
+    <input name="search-food" type="text" [(ngModel)]="searchFood" placeholder="food">
+
+    <ul>
+      <li *ngFor="let food of foodsList | searchFilter: searchFood">
+        <p>{{food.name}}</p>
+        <p>Number of calories: {{food.calories}}</p>
+        <img src="{{food.image}}">
+      </li>
+    </ul>
+  </div>
+</div>
