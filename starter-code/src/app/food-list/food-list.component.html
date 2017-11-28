@@ -23,7 +23,8 @@
       <h2>{{food.name}}</h2>
       <p>{{food.calories}} Calories</p>
       <img [src]='food.image' alt="food Image" width='200'>
-      <button (click)="addToday(food)">Make today's food</button>
+      <input type="number" placeholder="0" min="0" #quantity value='1'>
+      <button (click)="addToday(food, quantity.value)">Make today's food</button>
     </div>
   </div>
 </div>
@@ -32,10 +33,11 @@
   <h2>Today's Food</h2>
   <h3>Total Calories: {{totalCal}}</h3>
   <div class="foodlist">
-    <div class="food" *ngFor="let food of todayFood">
-      <h2>{{food.name}}</h2>
-      <p>{{food.calories}} Calories</p>
-      <img [src]='food.image' alt="food Image" width='200'>
+    <div class="food" *ngFor="let tFood of todayFood">
+      <h2>{{tFood.name}}</h2>
+      <p>{{tFood.calories}} Calories Each</p>
+      <p>Quantity: {{tFood.quantity}}</p>
+      <img [src]='tFood.image' alt="food Image" width='200'>
     </div>
   </div>
 </div>
