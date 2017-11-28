@@ -8,17 +8,32 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  newFood: Object = {};
   pattern: string;
-
+  formActive: boolean;
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+    this.formActive = false;
   }
+  activeFor(){
 
-  search(ev) {
-        console.log(`Key inserted: ${ev.key}`);
-
+    if (this.formActive) {
+      this.formActive = false;
+    }else{
+      this.formActive = true;
+    }
   }
+  addFood(){
+    console.log("Add contact has been called");
+    console.log(this.newFood)
+    this.foods.unshift(this.newFood);
+    this.newFood = {};
+  }
+  // search(ev) {
+  //       console.log(`Key inserted: ${ev.key}`);
+  //
+  // }
 
 }

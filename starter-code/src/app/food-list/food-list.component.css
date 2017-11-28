@@ -2,13 +2,34 @@ img{
   width: 200px;
   height: auto;
 }
+label{
+  font-weight: bold;
+}
 .container_food{
   display: flex;
   flex-wrap: wrap;
   justify-content:center;
+  flex-direction: column;
 }
 
 .item{
-  width: 200px;
-  background-color: #eeeeee;
+  width: 500px;
+  margin:10px 0px;
+  border: 1px solid #999999;
+  display: flex;
+  flex-wrap: wrap;
+  align-items:stretch;
 }
+.item .text{
+  padding: 10px 20px;
+}
+.search{
+padding: 20px 5px;
+
+}
+
+.add_food_btn{
+padding: 20px 5px;
+
+}
+.add_food_form{}
