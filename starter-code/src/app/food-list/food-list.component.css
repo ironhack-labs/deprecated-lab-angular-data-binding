@@ -3,7 +3,7 @@
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
-    width: 40%;
+    width: 100%;
 }
 
 .image{
@@ -20,4 +20,26 @@
 }
 .quantity{
   display: inline;
+}
+.nameAdd{
+  display: inline;
+}
+.search{
+  display: block;
+}
+
+.imageFood{
+  display: inline;
+}
+
+.allFood {
+  width: 40%;
+  display: inline-block;
+}
+
+.listOfFood {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10%;
 }
