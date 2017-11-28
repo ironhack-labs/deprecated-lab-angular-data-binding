@@ -1,9 +1,9 @@
-<p>
-  food-list works!
-</p>
+
+Search here: <input [(ngModel)] = "search">
+
 
 <ul>
-  <li *ngFor="let food of foodlist">
+  <li *ngFor="let food of foodlist | searhPipe : 'name' : search" >
   {{food.name}} - {{food.calories}}
   <img src="{{food.image}}" alt="picture"></li>
 </ul>
