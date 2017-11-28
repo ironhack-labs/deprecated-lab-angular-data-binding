@@ -10,3 +10,15 @@
   border-radius: 7px;
   background-color: lightgrey;
 }
+
+.list button{
+  height: 25px;
+  border-radius: 7px;
+  background-color: lightgrey;
+  }
+
+.todayslist {
+  display: inline-block;
+  margin: 40px 30px;
+  text-align: center;
+}
