@@ -11,6 +11,7 @@ export class FoodListComponent implements OnInit {
   newFood : Object = {};
   hidden : Boolean = false;
   todayFood: Array<Object> = new Array;
+  totalCal: Number = 0;
 
   constructor() { }
 
@@ -24,6 +25,7 @@ export class FoodListComponent implements OnInit {
   }
   addToday(food){
     this.todayFood.push(food);
+    this.totalCal += food.calories;
   }
 
   ngOnInit() {
