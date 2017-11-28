@@ -2,6 +2,17 @@
   food-list works!
 </p>
 
+
+<ul>
+  <h2>Here are the daily dishes:</h2>
+  <div *ngIf="dailyList.length === 0"> //no food today </div>
+  <li *ngFor="let dailyFood of dailyList">
+
+      {{dailyFood.name}} // 
+      Calories: <span> {{dailyFood.calories}}</span>
+  </li>
+</ul>
+
 <button (click)="showForm()" class="show-form">
   show form to add food
 </button>
@@ -27,7 +38,8 @@
   <li *ngFor="let food of (foods | filterItems:terms), let i = index">
     {{food.name}} // 
     Calories: <span> {{food.calories}}</span>
-    <button (click)="addToDailyList(i)" class="add-to-daily-list" >
+    <input type="number" name="dailyQty" placeholder="quantity of food">    
+    <button type="submit" (click)="addToDailyList(i)" class="add-to-daily-list" >
         add to daily list
       </button>
     <img [src]="food.image" >
@@ -36,11 +48,3 @@
 </ul>
 
 
-<h2>Here are the daily dishes:</h2>
-<ul>
-  <li *ngFor="let dailyFood of dailyList">
-      {{dailyFood.name}} // 
-      Calories: <span> {{dailyFood.calories}}</span>
-      <img [src]="dailyFood.image" >
-  </li>
-</ul>

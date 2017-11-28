@@ -40,7 +40,7 @@ export class FoodListComponent implements OnInit {
     }
   }
 
-  addToDailyList(index) {
+  addToDailyList(index): void {
     this.dailyList.push(this.foods[index]);
   }
 }
