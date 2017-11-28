@@ -2,7 +2,22 @@
   food-list works!
 </p>
 
-<input type="text" [(ngModel)]="terms">
+<button (click)="showForm()" class="show-form">
+  Show Form
+</button>
+
+<form action="" [ngClass]="{ addform: displayForm }">
+  <input type="text" name="foodname" [(ngModel)]="newFood.name" class="foodname" placeholder="name of food">
+  <input type="number" name="foodcalories" [(ngModel)]="newFood.calories" class="foodcalories" placeholder="calories of food">
+  <input type="number" name="foodquantity" [(ngModel)]="newFood.quantity" class="foodquantity" placeholder="quantity of food">
+  <input type="text" name="foodimage" [(ngModel)]="newFood.image" class="foodimage" placeholder="image-url">
+  <input type="submit" (click)="addFood()" class="submit" value="Add food">
+</form>
+
+<hr>
+
+<input type="text" [(ngModel)]="terms" placeholder="search...">
+
 
 <ul  *ngFor="let food of (foods | filterItems:terms)">
   <li>

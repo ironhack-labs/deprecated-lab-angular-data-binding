@@ -9,3 +9,7 @@ li {
 span {
   color:red;
 }
+
+.addform {
+  display:none;
+}
