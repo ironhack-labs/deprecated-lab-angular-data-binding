@@ -10,11 +10,23 @@ import { FilterPipe } from '../pipes/filter.pipe';
 export class FoodListComponent implements OnInit {
 
   foodList:Array<object> = [];
+  food:object = {};
+  isHidden:boolean = true;
 
   constructor() { }
 
   ngOnInit() {
     this.foodList = foods;
+  }
+
+  show() {
+    this.isHidden ? this.isHidden = false : this.isHidden = true;
+  }
+
+  addFood(){
+    this.foodList.push(this.food);
+    this.food = {};
+    this.isHidden = true;
   }
 
 }

@@ -3,6 +3,21 @@
   <input type="text" [(ngModel)]='foodSearched'>
 </div>
 
+<button (click)="show()">Add new food!</button>
+
+<div *ngIf="isHidden ? hidden : show">
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="food.name">
+  <label for="cal">Calories</label>
+  <input type="text" [(ngModel)]="food.calories">
+  <label for="img">Photo</label>
+  <input type="text" [(ngModel)]="food.image">
+  <label for="qty">Quantity</label>
+  <input type="text" [(ngModel)]="food.quantity">
+  <button (click)="addFood()">Submit!</button>
+</div>
+
+
 <div *ngFor="let food of foodList | filter:'name':foodSearched">
   <span>Name: {{food.name}} | </span>
   <span>Cal: {{food.calories}} | </span>
