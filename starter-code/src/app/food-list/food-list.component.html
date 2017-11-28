@@ -1,3 +1,48 @@
-<p>
-  food-list works!
-</p>
+<div>
+   <label for="things_name"> Search Food: </label>
+   <input id="things_name" placeholder="thing name"
+           type="text" [(ngModel)]="pattern">
+           or
+ </div>
+ <button (click)="toggleInput()"> Add Food </button>
+ <div [hidden]=isInputClicked>
+   <div  class="center">
+     <label for="food-name">Food</label>
+     <input type="text" [(ngModel)]="newFood.name">
+   </div>
+   <div class="center">
+     <label for="food-calories">calories</label>
+     <input type="text" [(ngModel)]="newFood.calories">
+   </div>
+   <div class="center">
+     <label for="food-image">image</label>
+     <input type="text" [(ngModel)]="newFood.image">
+   </div>
+   <div class="center">
+     <label for="food-quantity">quanitity</label>
+     <input type="text" [(ngModel)]="newFood.quantity">
+   </div>
+   <div class="center">
+     <button (click)="addFood()">Submit New Food</button>
+   </div>
+ </div>
+
+  <ul>
+    <li *ngFor ="let food of foods | filter:'name':pattern; let i = index">
+      <h2>{{food.name}}</h2>
+      <p>{{food.calories}}</p>
+        <img src="{{food.image}}" alt="">
+          <p>{{food.quantity}}</p>
+          <button (click)= "addTodaysFood(food)">Add Today's Food</button>
+    </li>
+  </ul>
+  <div>
+   <h1>Today's Food</h1>
+<ul>
+  <li *ngFor ="let hoyfood of todaysFood" >
+    <h2>{{hoyfood.name}}</h2>
+    <p>{{hoyfood.calories}}</p>
+      <img src="{{hoyfood.image}}" alt="">
+  </li>
+</ul>
+ </div>
