@@ -1,3 +1,48 @@
-<p>
-  food-list works!
-</p>
+<div>
+    <label for="things_name"> Search food: </label>
+    <input type="text" [(ngModel)]="pattern">
+</div>
+
+<br>
+<button (click)="createForm()">
+    Add New Food
+</button>
+<br>
+
+<div [ngClass]="{ transparent: isTransparent }">
+    <br>  
+    <div>
+        <label for="newFood.name">Name</label>
+        <input type="text" [(ngModel)]="newFood.name">
+      </div>
+      <div>
+        <label for="newFood.calories">Calories</label>
+        <input type="text" [(ngModel)]="newFood.calories">
+      </div>
+      <!-- <div>
+        <label for="newFood.quantity">Quantity</label>
+        <input type="text" [(ngModel)]="newFood.quantity">
+      </div> -->
+      <button (click)="addFood(newFood)">Submit</button>
+</div>
+
+<div class="float-left">
+  <ul *ngFor="let food of foods | filterPipe:'name':pattern">
+    <img [src]="food.image" alt="food-image">
+    <li>{{food.name}}</li>
+    <li>{{food.calories}} calories</li>
+    <div>
+        <label for="quantity"> Amount: </label>
+        <input type="number" [(ngModel)]="food.quantity">
+        <button (click)="pushToSelected(food)">+</button>
+    </div>
+  </ul>
+</div>
+
+<div class="float-left">
+    <h3>Selected Food</h3>
+    <ul *ngFor="let food of selectedFood">
+        <li>{{food.name}} x {{food.quantity}}</li>
+    </ul>
+</div>
+
