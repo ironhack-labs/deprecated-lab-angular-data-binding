@@ -1,6 +1,8 @@
-<div>
-   <label for="things_name"> Search Food: </label>
-   <input id="things_name" placeholder="thing name"
+<body>
+<h1>Food Market</h1>
+<div class= "search">
+   <label for="food_name"> Search Food: </label>
+   <input id="food_name" placeholder="type a food"
            type="text" [(ngModel)]="pattern">
            or
  </div>
@@ -30,11 +32,10 @@
   <ul>
     <li *ngFor ="let food of foods | filter:'name':pattern; let i = index">
       <h2>{{food.name}}</h2>
-      <p>{{food.calories}}</p>
+      <p> Cal:{{food.calories}}</p>
         <img src="{{food.image}}" alt="">
         <br>
-          <!-- <p>{{food.quantity}}</p> -->
-          <label for="{{food.quantity}}">how many:</label>
+          <label for="{{food.quantity}}">Quantity:</label>
         <input type="number" [(ngModel)]='quant'>
           <button (click)= "addTodaysFood(food, quant)">Add Today's Food</button>
     </li>
@@ -42,7 +43,7 @@
   <div>
    <h1>Today's Food</h1>
 <ul>
-  <li *ngFor ="let hoyfood of todaysFood" >
+  <li class ="li-style" *ngFor ="let hoyfood of todaysFood" >
     <h2>{{hoyfood.name}}</h2>
     <p>{{hoyfood.calories}}</p>
     <p>{{hoyfood.quantity}}</p>
@@ -50,3 +51,4 @@
   </li>
 </ul>
  </div>
+</body>
