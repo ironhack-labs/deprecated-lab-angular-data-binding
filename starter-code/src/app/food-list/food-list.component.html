@@ -23,6 +23,15 @@
     </div>
     <button (click)="addFood(newFood)">SUBMIT</button>
 
+    <h2>Today's foods: {{specialFoodsCalories}}</h2>
+    <ul>
+        <li *ngFor="let food of specialFoods">
+          <p>{{food.name}}</p>
+          <p>Number of calories: {{food.calories}}</p>
+          <img src="{{food.image}}">
+        </li>
+      </ul>
+
   </div>
 
 
@@ -35,6 +44,7 @@
         <p>{{food.name}}</p>
         <p>Number of calories: {{food.calories}}</p>
         <img src="{{food.image}}">
+        <button type="button" (click)="addToSpecial(food)">ADD</button>
       </li>
     </ul>
   </div>

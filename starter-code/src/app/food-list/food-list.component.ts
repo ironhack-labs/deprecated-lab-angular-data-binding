@@ -16,6 +16,8 @@ export class FoodListComponent implements OnInit {
     quantity: null
   };
   visibleForm: boolean = false;
+  specialFoods: any = [];
+  specialFoodsCalories: number = 0;
   constructor() { }
 
   ngOnInit() {
@@ -24,7 +26,6 @@ export class FoodListComponent implements OnInit {
 
   addFood(food) {
     if (this.visibleForm) {
-      console.log("hola")
       this.foodsList.push(food);
       this.newFood = {
         name: null,
@@ -36,6 +37,11 @@ export class FoodListComponent implements OnInit {
     } else {
       this.visibleForm = true;
     }
+  }
+
+  addToSpecial(food) {
+    this.specialFoods.push(food);
+    this.specialFoodsCalories += food.calories;
   }
 
 }
