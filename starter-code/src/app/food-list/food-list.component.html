@@ -1,3 +1,42 @@
-<p>
-  food-list works!
-</p>
+<!-- Food searcher -->
+<div>
+  <label for="user_food">Look for a food</label>
+  <input type="text" [(ngModel)]="user_food">
+  <button (click)="handleSearchFood()">Search</button>
+</div>
+
+<!-- Add new food -->
+<div>
+  <button (click)="handleShowFormAddFood()" [ngClass]="{ hidden: !form_hidden }">Add new food</button>
+  <div [ngClass]="{ hidden: form_hidden }" action="">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name" />
+    <label for="calories">Calories</label>
+    <input type="number" [(ngModel)]="newFood.calories" />
+    <label for="img">Image</label>
+    <input type="file" accept="image/*" [(ngModel)]="newFood.image" />
+    <button type="submit" (click)="handleAddFood()">Add</button>
+  </div>
+</div>
+
+<!-- Print all foods -->
+<ul>
+  <li *ngFor="let food of foods">
+    {{ food.name }},
+    {{ food.calories }} calories
+    <input type="number" placeholder="Quantity" [(ngModel)]="food.quantity">
+    <button (click)="addTodaysFood(food)">Today's Food</button>
+    <img [src]="food.image" class="food-img" alt="">
+  </li>
+</ul>
+
+<!-- Display Today's food -->
+<h2>Today's food</h2>
+<strong>Total calories: {{ total_calories }}</strong>
+<ul>
+  <li *ngFor="let food of todaysFood">
+    {{ food.name }} 
+    <span *ngIf="food.quantity > 1">x {{ food.quantity }}</span>
+    <img [src]="food.image" class="food-img" alt="">
+  </li>
+</ul>
