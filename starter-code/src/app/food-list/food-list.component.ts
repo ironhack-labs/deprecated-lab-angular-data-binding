@@ -10,6 +10,8 @@ export class FoodListComponent implements OnInit {
     foodlist: Object[];
     newFood: Object = {};
     pushed: boolean = false;
+    todayList: Object[] = [];
+    sumCalories:number = 0;
 
   constructor() { }
 
@@ -24,5 +26,11 @@ export class FoodListComponent implements OnInit {
 
   changedButton(){
     this.pushed =! this.pushed;
+  }
+
+  addTodayList(food){
+    this.todayList.push(food);
+    this.sumCalories = this.sumCalories+food.calories;
+    console.log(this.todayList)
   }
 }

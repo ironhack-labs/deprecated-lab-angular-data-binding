@@ -1,14 +1,16 @@
 
-Search here: <input [(ngModel)] = "search">
+<p style="margin-left:30px">Search here: <input style="width: 20%" [(ngModel)] = "search"></p>
 
-
+<div class="listado">
 <ul>
-  <li *ngFor="let food of foodlist | searhPipe : 'name' : search" >
+  <li style= "width: 20%; display: inline-block;"*ngFor="let food of foodlist | searhPipe : 'name' : search" >
   {{food.name}} - {{food.calories}}
-  <img src="{{food.image}}" alt="picture"></li>
-</ul>
+  <img src="{{food.image}}" alt="picture">
+  <button style="width: unset; padding: 10px; margin: 10px 20px;" (click)="addTodayList(food)">Today's food</button></li>
 
-<button class="fields"(click) = "changedButton()">Add new food</button>
+</ul>
+</div>
+<button class="fields" style="background-color: #b6d0f9; margin: 20px 350px" (click) = "changedButton()">Add new food</button>
 <div class="form" *ngIf="pushed">
 <div class= "fields">
   <label for="name">Name: </label>
@@ -24,3 +26,11 @@ Search here: <input [(ngModel)] = "search">
 </div>
   <button class="fields" (click) = "addFood(newFood); changedButton()">Add</button>
 </div>
+
+<ul>
+  <h2>Today's list</h2>
+  <li style= "width: 20%; display: inline-block;" *ngFor="let foodofday of todayList">
+  {{ foodofday.name }} - {{ foodofday.calories }}
+  <img src="{{ foodofday.image }}" alt="picture"></li>
+  <h3>Total calories: {{sumCalories}}</h3>
+</ul>
