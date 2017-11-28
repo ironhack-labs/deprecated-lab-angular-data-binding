@@ -1,4 +1,11 @@
-<div *ngFor = "let food of foods" class="list">
+<div>
+  <div>
+    <label for="things_name"> Search thing: </label>
+    <input id="things_name" placeholder="thing name"
+            type="text" [(ngModel)]="pattern">
+  </div>
+</div>
+<div *ngFor = "let food of foods | filter:'name':pattern; let i = index" class="list">
   <div>
   <li><b>{{food.name}}</b></li>
   </div>
