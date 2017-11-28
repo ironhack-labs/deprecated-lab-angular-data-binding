@@ -9,6 +9,7 @@ import foodsList from '../foods';
 
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  newFood: Object = {};
   form_hidden: boolean = true;
 
   constructor() { }
@@ -18,11 +19,12 @@ export class FoodListComponent implements OnInit {
   }
 
   handleShowFormAddFood() {
-    this.form_hidden = true;
+    this.form_hidden = false;
   }
 
   handleAddFood() {
-
-    this.form_hidden = false;
+    this.foods.push(this.newFood);
+    this.newFood = {};
+    this.form_hidden = true;
   }
 }
