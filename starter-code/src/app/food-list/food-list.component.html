@@ -3,9 +3,34 @@
 </p>
 
   <div class="form">
-    <label for="things_name"> Search: </label>
-    <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+    <label> Search: </label>
+    <input placeholder="thing name" type="text" [(ngModel)]="pattern">
   </div>
+
+  <div>
+     <button name="show-form-btn" (click)="showFoodForm()">Add new foods</button>
+   </div>
+
+   <div class="new-food-form"  [hidden]="formNewFood">
+     <div>
+       <label for="name">Food Name: </label>
+       <input id="name" type="text" [(ngModel)]="newFood.name">
+     </div>
+     <div>
+       <label for="calories">Calories: </label>
+       <input type="number" min="0" [(ngModel)]="newFood.calories">
+     </div>
+     <div>
+       <label for="contact-image">URL Image: </label>
+       <input type="text" [(ngModel)]="newFood.image">
+     </div>
+     <div>
+       <label for="quantity">Quantity: </label>
+       <input type="number" min="0" [(ngModel)]="newFood.quantity">
+     </div>
+     <button class="btn" (click)="addFood()">Submit New Food</button>
+   </div>
+
 
   <div class="content" *ngFor='let food of foods'  ng-repeat="food in foods | filter:searchText">
     <div>
