@@ -1,6 +1,18 @@
+<form *ngIf="show" class="add-food" action="">
+  <label for="name">Add food: </label>
+  <input type="text" name="name" [(ngModel)]="newFood.name" placeholder="food name">
+  <label for="calories">Add calories: </label>
+  <input type="number" name="calories" [(ngModel)]="newFood.calories" placeholder="food calories">
+  <label for="image">Add image: </label>
+  <input type="text" name="image" [(ngModel)]="newFood.image" placeholder="add image url">
+  <button (click)="addFood(newFood)" name="add-food">Submit</button>
+</form>
+
+<button class="add-food" (click)="toggleShow()">Show add food</button>
+
 <div class="search">
-  <label for="things_name"> Search thing: </label>
-  <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+  <label for="foods_name"> Search food: </label>
+  <input placeholder="food name" type="text" [(ngModel)]="pattern">
 <div>
 
     <ul class="foods">

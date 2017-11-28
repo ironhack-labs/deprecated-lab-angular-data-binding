@@ -8,10 +8,21 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  newFood: Object = {quantity:0};
+  show: Boolean = false;
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
   }
 
+  addFood(newFood){
+    // add contact to contacts list
+    // clear inputs
+    this.foods.unshift(newFood);
+  }
+
+  toggleShow() {
+    this.show = !this.show;
+  }
 }
