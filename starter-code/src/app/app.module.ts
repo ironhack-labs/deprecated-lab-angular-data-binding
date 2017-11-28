@@ -11,8 +11,7 @@ import { FilterPipe } from './pipes/filter.pipe';
   declarations: [
     AppComponent,
     FoodListComponent,
-    FilterPipe
-  ],
+    FilterPipe  ],
   imports: [
     BrowserModule,
     FormsModule,
