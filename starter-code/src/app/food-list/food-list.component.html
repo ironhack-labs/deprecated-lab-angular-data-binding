@@ -20,5 +20,16 @@
         <h3>{{food.name}}</h3>
         <p>{{food.calories}} Kcal</p>
         <img src="{{food.image}}" alt="Imagen de {{food.name}}">
+        <button (click)="addTodayFood(food)">Add to today's foods</button>
       </li>
     </ul>
+
+    <h2>List of today's Food</h2>
+    <ul class="today-foods">
+      <li *ngFor="let todaysfood of todaysFoods">
+        <h3>{{todaysfood.name}}</h3>
+        <p>{{todaysfood.calories}} Kcal</p>
+        <!-- <img src="{{todaysfood.image}}" alt="Imagen de {{todaysfood.name}}"> -->
+      </li>
+    </ul>
+    <p *ngIf="totalCalories">Total Calories = {{totalCalories}} Kcal</p>

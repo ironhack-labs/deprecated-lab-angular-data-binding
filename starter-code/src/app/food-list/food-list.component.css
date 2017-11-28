@@ -1,4 +1,4 @@
-.foods img {
+img {
   width: 250px;
 }
 .foods {
@@ -7,6 +7,17 @@
 }
 
 .foods li {
+  padding: 2em;
+  list-style: none;
+}
+
+.today-foods {
+  background-color: papayaWhip;
+  border-radius: 20px;
+  display: flex;
+}
+.today-foods li {
+  color: peru;
   padding: 2em;
   list-style: none;
 }
