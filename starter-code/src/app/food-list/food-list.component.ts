@@ -9,12 +9,21 @@ import foodList from '../foods';
 export class FoodListComponent implements OnInit {
 
   foods: Object[];
-
+  newFood: Object = {};
+  active : boolean = false;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foodList;
   }
+  form(){
+this.active = !this.active;
 
+  }
+
+  addFood(newFood){
+    this.foods.push(this.newFood);
+
+  }
 }
