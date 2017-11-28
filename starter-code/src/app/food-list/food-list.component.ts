@@ -27,7 +27,8 @@ export class FoodListComponent implements OnInit {
     this.newFood = {}
     this.isInputClicked = true;
   }
-  addTodaysFood(food){
+  addTodaysFood(food,quant){
+    food.quantity = quant;
     this.todaysFood.push(food);
   }
 }

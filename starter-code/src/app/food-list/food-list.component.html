@@ -32,8 +32,11 @@
       <h2>{{food.name}}</h2>
       <p>{{food.calories}}</p>
         <img src="{{food.image}}" alt="">
-          <p>{{food.quantity}}</p>
-          <button (click)= "addTodaysFood(food)">Add Today's Food</button>
+        <br>
+          <!-- <p>{{food.quantity}}</p> -->
+          <label for="{{food.quantity}}">how many:</label>
+        <input type="number" [(ngModel)]='quant'>
+          <button (click)= "addTodaysFood(food, quant)">Add Today's Food</button>
     </li>
   </ul>
   <div>
@@ -42,6 +45,7 @@
   <li *ngFor ="let hoyfood of todaysFood" >
     <h2>{{hoyfood.name}}</h2>
     <p>{{hoyfood.calories}}</p>
+    <p>{{hoyfood.quantity}}</p>
       <img src="{{hoyfood.image}}" alt="">
   </li>
 </ul>
