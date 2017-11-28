@@ -8,13 +8,16 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  todayMenu: Object[];
   showForm: Boolean = false;
   newDish: Object = {};
+  totalCalories: number;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+    this.todayMenu = [];
   }
 
   addForm() {
@@ -28,4 +31,18 @@ export class FoodListComponent implements OnInit {
     // clear inputs
     this.newDish = {};
   };
+
+  addToMenu(i) {
+      console.log("Add to menu has been called");
+      this.todayMenu.push(this.foods[i]);
+      this.foods[i]['quantity']++;
+      console.log(this.todayMenu);
+      this.todayMenu.forEach((e) => {
+        console.log(e['calories']);
+        this.totalCalories =+ e['calories'];
+      });
+      console.log(this.todayMenu);
+      console.log(this.totalCalories);
+    };
+    
 };

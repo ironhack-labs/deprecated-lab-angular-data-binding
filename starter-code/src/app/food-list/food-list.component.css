@@ -31,6 +31,18 @@ ul {
   justify-content: center;
 }
 
+.quantity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.quantity button {
+  border-radius: 15px;
+  margin-left: 10px;
+  height: 20px;
+}
+
 .controlPanel {
   align-items: baseline;
   display: flex;
@@ -71,4 +83,13 @@ input {
   color: white;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.todayFood {
+  background-color: #f5fe00;
+}
+
+.todayFood h2 {
+  width: 100%;
+  margin-left: 15px;
 }

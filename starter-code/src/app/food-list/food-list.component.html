@@ -25,7 +25,22 @@
       <li>Dish: {{dish.name}}</li>
       <li>Calories: {{dish.calories}}</li>
       <li><img [src]="dish.image" alt=""></li>
+      <li class="quantity">
+        <p>Quantity: {{dish.quantity}}</p>
+        <button (click)="addToMenu(i)" type="button" name="button">+</button>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="dishBook todayFood">
+  <h2>Today's Menu:</h2>
+  <div class="dish" *ngFor="let dish of todayMenu">
+    <ul>
+      <li>Dish: {{dish.name}}</li>
+      <li>Calories: {{dish.calories}}</li>
+      <li><img [src]="dish.image" alt=""></li>
       <li>Quantity: {{dish.quantity}}</li>
     </ul>
   </div>
+  <h2>Total: {{totalCalories}}</h2>
 </section>
