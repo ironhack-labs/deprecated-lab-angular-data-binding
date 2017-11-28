@@ -11,27 +11,27 @@ export class FoodListComponent implements OnInit {
 
   foods: Object[];
   newFood: Object = {}
-  seletFood: Array<object> = [];
-  countcalories: number = 0;
+  seletFood: Array<any> = [];
+  total: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.foods = foods
-    for(let i = 0; i < this.foods.length; i++){
-      // this.foods[i].quantity = 1
-    }
   }
 
   addFood() {
     this.foods.push(this.newFood)
   }
 
-  nextFood(food) {
-    this.seletFood.push(food)
-    this.countcalories += food.calories
-  }
-  onSubmit(f) {
-    console.log(f)
+  nextFood(food, quantity) {
+    let indexFood = this.seletFood.indexOf(food);
+    food.twice = 1
+    if (indexFood == -1){
+      this.seletFood.push(food)
+    } else {
+      this.seletFood[indexFood].twice += 1;
+    }
+    this.total += food.calories * quantity
   }
 }

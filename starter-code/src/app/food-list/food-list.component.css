@@ -1,11 +1,22 @@
 ul li{
   list-style: none;
 }
+
 img {
   width: 200px;
 }
 
-ul {
+.total li {
+  display: inline-block;
+}
+
+.foods {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.food {
   box-shadow: 1px 1px 3px 1px lightgray;
   border-radius: 1px;
   display: flex;
@@ -14,10 +25,4 @@ ul {
   flex-basis: 30%;
   padding: 10px;
   flex-direction: column;
-}
-
-.foods {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }

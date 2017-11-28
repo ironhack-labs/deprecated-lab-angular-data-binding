@@ -9,9 +9,9 @@ export class FilterPipe implements PipeTransform {
     if (!items) {
       return [];
     }
-    // if (!value) {
-    //   return items;
-    // }
+    if (!value) {
+      return items;
+    }
 
     const search = new RegExp(value, 'i');
     return items.filter(it => it[field].match(search));
