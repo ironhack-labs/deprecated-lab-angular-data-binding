@@ -1,16 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import foodsList from '../foods';
 
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
+
 export class FoodListComponent implements OnInit {
+  foods: Object[];
+  form_hidden: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
+    this.foods = foodsList;
   }
 
+  handleShowFormAddFood() {
+    this.form_hidden = true;
+  }
+
+  handleAddFood() {
+
+    this.form_hidden = false;
+  }
 }
