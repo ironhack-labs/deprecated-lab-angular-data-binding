@@ -2,13 +2,16 @@
   food-list works!
 </p>
 <div class="search">
-  <input type="text" name="" value="">
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+            type="text" [(ngModel)]="pattern">
 </div>
+
 <div class="container">
-  <div class="foodList" *ngFor="let e of foodList">
-  <p> {{e.name}}</p>
-  <p>{{e.calories}}</p>
-  <img [src]="e.image" alt="{{e.name}}">
-  <input type="Number" value="{{e.quantity}}">
+  <div class="foodList" *ngFor="let food of foodList | filter:'name':pattern; let i = index">
+  <p> {{food.name}}</p>
+  <p>{{food.calories}}</p>
+  <img [src]="food.image" alt="{{food.name}}">
+  <input type="Number" value="{{food.quantity}}">
   </div>
 </div>
