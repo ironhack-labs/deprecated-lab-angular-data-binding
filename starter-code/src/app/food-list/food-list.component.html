@@ -1,3 +1,25 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+
+  <div>
+    <label for="food-name">Name</label>
+    <br>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Email</label>
+    <br>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-image">Image</label>
+    <br>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div>
+    <label for="quantity">Quantity</label>
+    <br>
+    <input type="text" [(ngModel)]="newFood.quantity">
+  </div>
+
+  <button (click)="addFood(newFood)">Submit New Contact</button>
+</div>
