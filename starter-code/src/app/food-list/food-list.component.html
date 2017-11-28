@@ -1,10 +1,20 @@
+<div *ngIf="show">
+     <label for="name"> Name </label>
+     <input type="text" [(ngModel)]="newFood.name" [ngModelOptions]="{standalone: true}">
+     <label for="calories"> Calories </label>
+     <input type="text" [(ngModel)]="newFood.calories" [ngModelOptions]="{standalone: true}">
+     <label for="image"> URL Image </label>
+     <input type="text" [(ngModel)]="newFood.image" [ngModelOptions]="{standalone: true}">
+     <button (click)="addItem(newFood)">Submit </button>
+   </div>
+  <button (click)="formShow()"> Add New </button>
 <div>
   <label for="search-food"> Search: </label>
   <input name="search-food" placeholder="Search Food" type="text" [(ngModel)]="pattern">
-<div>
+</div>
 
     <ul class="list">
-      <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
+      <li *ngFor="let food of foods | filter:'name':pattern">
         <img src="{{food.image}}" alt="{{food.name}}">
         <h3>{{food.name}}</h3>
         <p>{{food.calories}}</p>
