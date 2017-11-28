@@ -1,0 +1,12 @@
+.foods img {
+  width: 250px;
+}
+.foods {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.foods li {
+  padding: 2em;
+  list-style: none;
+}
