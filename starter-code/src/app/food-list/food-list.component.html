@@ -25,13 +25,13 @@
   <br>
   <label for="qty">Qty to add</label>
   <input type="text" #qtyNumber>
-  <button (click)="addToToday(food.name, food.calories, qtyNumber.value); qtyNumber.value='1'">Add to today!</button>
+  <button (click)="addToToday(food, food.calories, qtyNumber.value); qtyNumber.value='1'">Add to today!</button>
 </div>
 
 <div>
   <h3>Today food!</h3>
   <ul *ngFor="let item of today">
-    <li>{{item}}</li>
+    <li>{{item.name}} x{{item.quantity}}</li>
   </ul>
   <span>Total: {{calSum}} cal</span>
 </div>

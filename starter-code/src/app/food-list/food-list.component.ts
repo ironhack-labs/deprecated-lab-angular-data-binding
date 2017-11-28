@@ -11,9 +11,11 @@ export class FoodListComponent implements OnInit {
 
   foodList:Array<object> = [];
   food:object = {};
-  today:Array<string> = [];
+  today:Array<any> = [];
   calSum:number = 0;
-  qtyNumber:number = 1;
+  exist:boolean = false;
+  qtyNumber:number = 0;
+  index:number = 0;
   isHidden:boolean = true;
 
   constructor() { }
@@ -32,12 +34,23 @@ export class FoodListComponent implements OnInit {
     this.isHidden = true;
   }
 
-  addToToday(name, cal, qty){
+  addToToday(food, cal, qty){
     for(let i = 0; i < qty; i++){
-      this.today.push(name);
+      this.today.forEach((f, i) => {
+        if(food.name === f.name && !this.exist){
+          food.quantity += parseInt(qty);
+          this.exist = true;
+          console.log(food.quantity);
+        }
+      });
       this.calSum += cal;
     }
-    console.log(this.qtyNumber);
+
+    if(!this.exist){
+      this.today.push(food);
+    }
+
+    this.exist = false;
   }
 
 }
