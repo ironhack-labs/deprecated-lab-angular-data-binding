@@ -4,16 +4,13 @@
 </div>
 <div class="nav" *ngIf="show">
   <div class="nameAdd">
-    <input type="text" placeholder="Name" [(ngModel)]="newItem.nameAdd">
+    <input type="text" placeholder="Name" [(ngModel)]="newItem.name">
   </div>
   <div class="calories">
-    <input type="text" placeholder="Email"[(ngModel)]="newItem.calories">
-  </div>
-  <div class="quantity">
-    <input type="text" placeholder="quantity" [(ngModel)]="newItem.quantity">
+    <input type="text" placeholder="calories"[(ngModel)]="newItem.calories">
   </div>
   <div class="imageFood">
-    <input type="text" placeholder="URL Image"[(ngModel)]="newItem.imageFood">
+    <input type="text" placeholder="URL Image"[(ngModel)]="newItem.image">
   </div>
   <button class="buttonAdd" (click)="addNewItem()">Submit New Item</button>
 </div>

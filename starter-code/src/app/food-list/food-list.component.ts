@@ -24,9 +24,10 @@ export class FoodListComponent implements OnInit {
   }
 
   addNewItem(){
+    this.newItem['quantity'] = 0;
     this.items.push(this.newItem);
   }
-l
+
   addToList(i,quantity){
     let item = this.items[i];
     this.items[i]['quantity'] += Number(quantity);
