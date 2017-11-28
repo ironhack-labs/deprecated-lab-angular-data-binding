@@ -10,6 +10,7 @@ export class FoodListComponent implements OnInit {
   foodArray : Array<Object>;
   newFood : Object = {};
   hidden : Boolean = false;
+  todayFood: Array<Object> = new Array;
 
   constructor() { }
 
@@ -21,7 +22,9 @@ export class FoodListComponent implements OnInit {
     this.newFood = {};
     this.toggleForm();
   }
-
+  addToday(food){
+    this.todayFood.push(food);
+  }
 
   ngOnInit() {
     this.foodArray = foods;

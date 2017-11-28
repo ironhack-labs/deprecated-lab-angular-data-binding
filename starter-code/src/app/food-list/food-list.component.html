@@ -1,8 +1,6 @@
-<p>
-  food-list works!
-</p>
+<h1>Food Listing!</h1>
 
-<div class="add">
+<div class="add-food">
   <button (click)="toggleForm()">Add Food</button>
   <div *ngIf="hidden" class="foodform">
     <label>Name</label><br>
@@ -17,13 +15,26 @@
   </div>
 </div>
 
-<div>
+<div class="food-list">
+  <h2>All Food</h2>
   Search food: <input [(ngModel)]='search'>
+  <div class="foodlist">
+    <div class="food" *ngFor="let food of foodArray | foodpipe : 'name' : search">
+      <h2>{{food.name}}</h2>
+      <p>{{food.calories}} Calories</p>
+      <img [src]='food.image' alt="food Image" width='200'>
+      <button (click)="addToday(food)">Make today's food</button>
+    </div>
+  </div>
 </div>
-<div class="foodlist">
-  <div class="food" *ngFor="let food of foodArray | foodpipe : 'name' : search">
-    <h2>{{food.name}}</h2>
-    <p>{{food.calories}} Calories</p>
-    <img [src]='food.image' alt="food Image" width='200'>
+
+<div class="today-food">
+  <h2>Today's Food</h2>
+  <div class="foodlist">
+    <div class="food" *ngFor="let food of todayFood">
+      <h2>{{food.name}}</h2>
+      <p>{{food.calories}} Calories</p>
+      <img [src]='food.image' alt="food Image" width='200'>
+    </div>
   </div>
 </div>
