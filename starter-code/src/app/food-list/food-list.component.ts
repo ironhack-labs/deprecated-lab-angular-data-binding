@@ -8,6 +8,8 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
     foodlist: Object[];
+    newFood: Object = {};
+    pushed: boolean = false;
 
   constructor() { }
 
@@ -15,4 +17,12 @@ export class FoodListComponent implements OnInit {
     this.foodlist = foods;
   }
 
+  addFood(){
+    this.foodlist.push(this.newFood)
+    this.newFood = {};
+  }
+
+  changedButton(){
+    this.pushed =! this.pushed;
+  }
 }

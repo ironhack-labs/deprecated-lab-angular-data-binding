@@ -2,3 +2,31 @@ img{
   width: 5%;
   margin-left: 10px;
 }
+
+ul{
+  font-size: 12px;
+}
+
+.form{
+  width: 60%;
+  background-color: #bef2f7;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 10px;
+
+}
+
+.fields{
+  margin-top:10px;
+}
+
+input{
+  width: 100%;
+}
+
+button{
+  border:1px solid silver;
+  border-radius:10px;
+  background-color: orange;
+  width: 100px;
+}

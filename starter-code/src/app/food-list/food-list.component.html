@@ -7,3 +7,20 @@ Search here: <input [(ngModel)] = "search">
   {{food.name}} - {{food.calories}}
   <img src="{{food.image}}" alt="picture"></li>
 </ul>
+
+<button class="fields"(click) = "changedButton()">Add new food</button>
+<div class="form" *ngIf="pushed">
+<div class= "fields">
+  <label for="name">Name: </label>
+  <input type="text" [(ngModel)]="newFood.name"><br>
+</div>
+<div class= "fields">
+  <label for="calories">Calories: </label>
+  <input type="text" [(ngModel)]="newFood.calories"><br>
+</div>
+<div class= "fields">
+  <label for="image">Image: </label>
+  <input type="text" [(ngModel)]="newFood.image"><br>
+</div>
+  <button class="fields" (click) = "addFood(newFood); changedButton()">Add</button>
+</div>
