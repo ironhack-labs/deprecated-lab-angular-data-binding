@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 @Component({
   selector: 'app-food-list',

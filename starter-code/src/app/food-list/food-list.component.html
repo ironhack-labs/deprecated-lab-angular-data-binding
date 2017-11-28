@@ -1,4 +1,9 @@
-<div *ngFor="let food of foodList">
+<div>
+  <label for="search">Search food</label>
+  <input type="text" [(ngModel)]='foodSearched'>
+</div>
+
+<div *ngFor="let food of foodList | filter:'name':foodSearched">
   <span>Name: {{food.name}} | </span>
   <span>Cal: {{food.calories}} | </span>
   <span><img [src]="food.image"> | </span>
