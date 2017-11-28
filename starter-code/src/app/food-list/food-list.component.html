@@ -1,3 +1,34 @@
-<p>
-  food-list works!
-</p>
+<div class="search">
+  Search: <input [(ngModel)]="search">
+  <button class="showAdd" (click)="showList()">Show</button>
+</div>
+<div class="nav" *ngIf="show">
+  <div class="nameAdd">
+    <input type="text" placeholder="Name" [(ngModel)]="newItem.name">
+  </div>
+  <div class="calories">
+    <input type="text" placeholder="calories"[(ngModel)]="newItem.calories">
+  </div>
+  <div class="imageFood">
+    <input type="text" placeholder="URL Image"[(ngModel)]="newItem.image">
+  </div>
+  <button class="buttonAdd" (click)="addNewItem()">Submit New Item</button>
+</div>
+
+<div class="allFood">
+  <div class="food" *ngFor="let item of items | filter: 'name' : search ; let i = index">
+    <div class="image"><img [src]= "item.image" width="100px"></div>
+    <div class="name">{{ item.name }}</div>
+    <div class="quantity"><input value="1" #quantity>
+    <button class="submit" (click)="addToList(i,quantity.value)">+</button></div>
+  </div>
+</div>
+<div class="listOfFood">
+  <h2> today's foods </h2>
+  <div class="totalCalories">{{ totalCalories }} Calories</div>
+<ul>
+  <li *ngFor="let article of myList; let i = index">
+    <span (click)="removeFromList(i)">{{ article }}</span>
+  </li>
+</ul>
+</div>

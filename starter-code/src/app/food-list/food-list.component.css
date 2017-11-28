@@ -1,0 +1,45 @@
+.food {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.image{
+  width: 200px;
+  display: inline-block;
+}
+
+.name{
+  display: inline;
+  vertical-align: top;
+}
+.calories{
+  display: inline;
+}
+.quantity{
+  display: inline;
+}
+.nameAdd{
+  display: inline;
+}
+.search{
+  display: block;
+}
+
+.imageFood{
+  display: inline;
+}
+
+.allFood {
+  width: 40%;
+  display: inline-block;
+}
+
+.listOfFood {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10%;
+}
