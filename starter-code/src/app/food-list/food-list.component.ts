@@ -11,6 +11,8 @@ export class FoodListComponent implements OnInit {
 
   foodList:Array<object> = [];
   food:object = {};
+  today:Array<string> = [];
+  calSum:number = 0;
   isHidden:boolean = true;
 
   constructor() { }
@@ -27,6 +29,11 @@ export class FoodListComponent implements OnInit {
     this.foodList.push(this.food);
     this.food = {};
     this.isHidden = true;
+  }
+
+  addToToday(name, cal){
+    this.today.push(name);
+    this.calSum += cal;
   }
 
 }
