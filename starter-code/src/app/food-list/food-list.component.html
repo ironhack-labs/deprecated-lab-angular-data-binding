@@ -1,3 +1,32 @@
-<p>
-  food-list works!
-</p>
+<div class="left">
+  Search <input [(ngModel)]="search" type="text" placeholder="Filter.."/><br>
+
+  <button (click)="openForm()">Add New Food</button><br>
+
+  <div id="addFood" *ngIf="this.show">
+    <input type="text" placeholder="Name" [(ngModel)]="newFood.name" required><br>
+    <input type="number" placeholder="Calories" [(ngModel)]="newFood.calories" required><br>
+    <input type="text" placeholder="Image url" [(ngModel)]="newFood.image" required><br>
+    <button (click)="addFood(newFood.name, newFood.calories, newFood.image)">Add Food</button><br>
+  </div>
+
+  <div class="list">
+    <!-- filter: 'key' de mi element que uso de filtro', gracias @andrei -->
+    <span class="element" *ngFor="let element of foods | filter : 'name' : search ; let i = index">
+      <p class="name">{{ element.name }}</p>
+      <p class="calories">{{ element.calories }} cal</p>
+      <img class="food" src="{{ element.image }}" alt="{{ element.name }}"/><br>
+      <!-- iteration 4 -->
+      <button (click)="foodPick(element.name, element.calories)">Pick For Today</button>
+    </span>
+  </div>
+
+</div>
+
+<div class="calorie-count">
+  <p>Food List:</p>
+  <ul>
+    <li *ngFor="let name of totalFoods">{{ name }}</li>
+  </ul>
+  <p>Today's Calories: <b>{{ totalCalories }}</b></p>
+</div>
