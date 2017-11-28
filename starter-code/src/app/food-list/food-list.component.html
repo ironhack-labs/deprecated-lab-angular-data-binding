@@ -3,10 +3,11 @@
 </p>
 
 <button (click)="showForm()" class="show-form">
-  Show Form
+  show form to add food
 </button>
 
 <form action="" [ngClass]="{ addform: displayForm }">
+  <hr>
   <input type="text" name="foodname" [(ngModel)]="newFood.name" class="foodname" placeholder="name of food">
   <input type="number" name="foodcalories" [(ngModel)]="newFood.calories" class="foodcalories" placeholder="calories of food">
   <input type="number" name="foodquantity" [(ngModel)]="newFood.quantity" class="foodquantity" placeholder="quantity of food">
@@ -17,14 +18,29 @@
 <hr>
 
 <input type="text" [(ngModel)]="terms" placeholder="search...">
+<button class="hidelist" (click)="hideList()">
+  show / hide list
+</button>
 
 
-<ul  *ngFor="let food of (foods | filterItems:terms)">
-  <li>
+<ul [ngClass]="{ foodlist: displayList }">
+  <li *ngFor="let food of (foods | filterItems:terms), let i = index">
     {{food.name}} // 
     Calories: <span> {{food.calories}}</span>
+    <button (click)="addToDailyList(i)" class="add-to-daily-list" >
+        add to daily list
+      </button>
+    <img [src]="food.image" >
   </li>
-  <li>
-    <img [src]="food.image" alt="">
+  <hr>
+</ul>
+
+
+<h2>Here are the daily dishes:</h2>
+<ul>
+  <li *ngFor="let dailyFood of dailyList">
+      {{dailyFood.name}} // 
+      Calories: <span> {{dailyFood.calories}}</span>
+      <img [src]="dailyFood.image" >
   </li>
 </ul>

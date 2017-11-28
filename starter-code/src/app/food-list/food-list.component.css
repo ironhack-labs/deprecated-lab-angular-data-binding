@@ -4,6 +4,7 @@ img {
 
 li {
   list-style:none;
+  border: solid black 1px;
 }
 
 span {
@@ -11,5 +12,9 @@ span {
 }
 
 .addform {
+  display:none;
+}
+
+.foodlist {
   display:none;
 }

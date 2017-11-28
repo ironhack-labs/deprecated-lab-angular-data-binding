@@ -10,7 +10,9 @@ export class FoodListComponent implements OnInit {
   foods = foods;
   newFood: Object = {}; // empty object
   terms = null;
-  displayForm = false;
+  displayForm = true;
+  displayList = false;
+  dailyList: Object[] = [];
   constructor() { }
 
   ngOnInit() {
@@ -28,5 +30,17 @@ export class FoodListComponent implements OnInit {
     console.log('Does it do sth')
     this.foods.push(this.newFood);
     this.newFood = {};
+  }
+
+  hideList() {
+    if (this.displayList) {
+      return this.displayList = false;
+    }else {
+      return this.displayList = true;
+    }
+  }
+
+  addToDailyList(index) {
+    this.dailyList.push(this.foods[index]);
   }
 }
