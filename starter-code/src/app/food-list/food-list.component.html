@@ -1,12 +1,22 @@
 <div class="container" >
 <div class="search">
+<div class="">
     <label for="search">Search</label>
     <input type="text" [(ngModel)]="pattern">
+</div>
+<div class="foodListCal">
+<h3>Today's Foods {{SumTotal}} cal</h3>
+<ul *ngFor = "let foodCal of addListCal">
+  <li>{{foodCal.name}} {{foodCal.calories}}</li>
+
+</ul>
+</div>
 
 </div>
 <div class="add_food_btn">
       <button (click)="activeFor()" type="button" name="button">add new food</button>
 </div>
+
 <div class="add_food_form"  *ngIf=formActive>
 
   <div class="name">
@@ -25,14 +35,17 @@
     <label for="quantity">quantity</label>
     <input type="text" [(ngModel)]="newFood.quantity">
   </div>
-  <button (click)="addFood()">Submit New food</button>
+  <button (click)="addFood()">add food</button>
 </div>
 
 <div class="container_food">
 
 <div class="item" *ngFor = "let food of foods | filter:'name':pattern ; let i = index">
   <div><img src="{{food.image}}"></div>
-  <div class="text"><h3>{{food.name}}</h3></div>
+  <div class="text"><h3>{{food.name}}</h3>
+    <button type="button" name="button" (click)="addFoodList(foods[i])">></button>
+      <input type="text" name="" value="">
+</div>
 
 </div>
 
