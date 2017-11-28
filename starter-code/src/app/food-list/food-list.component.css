@@ -1,7 +1,7 @@
 .list{
   display: inline-block;
   margin: 20px;
-  border: solid 1px blue;
+  border: solid 1px yellow;
   padding: 10px;
   border-radius: 10px;
 }
@@ -13,4 +13,24 @@
 
 .list p{
   display: inline-block;
+}
+
+.buttonyform {
+  text-align: center;
+
+}
+
+.buttonFood{
+  padding: 7px;
+  background-color: yellow;
+  text-align: center;
+}
+.buttonFood1{
+  text-align: center;
+}
+
+.totalCalories{
+  text-align: center;
+  margin: 0 auto;
+  list-style: none;
 }
