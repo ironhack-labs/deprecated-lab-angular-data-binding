@@ -1,8 +1,9 @@
 <p>
   food-list works!
 </p>
+Search food: <input [(ngModel)]='search'>
 <div class="foodlist">
-  <div class="food" *ngFor="let food of foodArray">
+  <div class="food" *ngFor="let food of foodArray | foodpipe : 'name' : search">
     <h2>{{food.name}}</h2>
     <p>{{food.calories}} Calories</p>
     <img [src]='food.image' alt="food Image" width='200'>
