@@ -35,7 +35,8 @@ export class FoodListComponent implements OnInit {
     this.totalCalories += food.calories;
   }
 
-  removeThisFood(food){
-
+  removeThisFood(food, i) {
+    this.totalCalories -= food.calories;
+    this.todaysFoods.splice(i, 1);
+      }
   }
-}
