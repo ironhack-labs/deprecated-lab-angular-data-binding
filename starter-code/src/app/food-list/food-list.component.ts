@@ -12,6 +12,7 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   todaysFood: Object[] = [];
   form_hidden: boolean = true;
+  total_calories = 0;
 
   constructor() { }
 
@@ -30,7 +31,10 @@ export class FoodListComponent implements OnInit {
   }
 
   addTodaysFood(food) {
-    console.log(food);
+    if (food.quantity < 1) {
+      food.quantity = 1;
+    }
+    this.total_calories += food.calories;
     this.todaysFood.push(food);
   }
 }
