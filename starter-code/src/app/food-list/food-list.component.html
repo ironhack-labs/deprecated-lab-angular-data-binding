@@ -38,18 +38,21 @@
 <div *ngFor="let food of foods | filter:'name':pattern; let i = index" class="list">
   <p><b>{{food.name}}</b></p>
   <p>Calories: {{food.calories}}</p>
-  <p>Quantity: {{food.quantity}}</p>
+  <!-- <p>Quantity: {{food.quantity}}</p> -->
+  <p>Quantity: <input class="quantity" name="quantity" value="0" type="number" min="0"></p>
   <img src="{{food.image}}" alt="" style="" width="100px" height="100px"><br>
   <button (click)="addList(food)">Today's food</button>
 
 </div>
-
+<br>
 <div class = 'todayslist'>
 
   <h2>Today's List:</h2><br>
 <div class = 'intodaylist'>
   <ul *ngFor="let newfood of newList">
-  <p>{{newfood.name}}</p> <p>{{newfood.calories}}</p> <p>{{newfood.quantity}}</p>
+  <p>{{newfood.name}}</p> <p>{{newfood.calories}}</p>
+  <!-- <p>{{newfood.quantity}}</p> -->
+  <p>Total Quantity: {{totQuantity}}</p>
   <img src="{{newfood.image}}" alt="" style="" width="100px" height="100px"><br>
 </ul>
 </div>

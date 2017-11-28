@@ -12,6 +12,8 @@ export class FoodListComponent implements OnInit {
   newList: Object[] = [];
   active: boolean = false;
   totalCalories:number = 0;
+  totQuantity:number=0;
+
   constructor() { }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ change(){
   addList(food){
     console.log("Add food to list has been called");
     this.newList.push(food);
+    this.totQuantity+=food.quantity;
     this.totalCalories+= food.calories;
   }
 
