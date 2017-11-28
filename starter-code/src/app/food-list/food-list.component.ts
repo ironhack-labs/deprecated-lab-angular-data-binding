@@ -8,6 +8,8 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  showForm: Boolean = false;
+  newDish: Object = {};
 
   constructor() { }
 
@@ -15,4 +17,15 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
-}
+  addForm() {
+    this.showForm = !this.showForm;
+  }
+
+  addDish(){
+    console.log("Add Dish has been called");
+    // add contact to contacts list
+    this.foods.push(this.newDish);
+    // clear inputs
+    this.newDish = {};
+  };
+};

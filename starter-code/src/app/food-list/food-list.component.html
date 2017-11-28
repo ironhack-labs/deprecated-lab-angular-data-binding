@@ -1,10 +1,26 @@
 
-<section>
-  <div>
-    <label for="things_name"> Search thing: </label>
-    <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+<div class="controlPanel" *ngIf="!showForm">
+  <div class="search">
+    <label for="things_name"> Search for a dish: </label>
+    <input placeholder="dish name" type="text" [(ngModel)]="pattern">
   </div>
-  <div *ngFor="let dish of foods | filter:'name':pattern; let i = index">
+  <button (click)="addForm()" class="addButton" type="button" name="button">Add a dish</button>
+</div>
+<div *ngIf="showForm" class="controlPanel">
+  <div class="dishCreator">
+    <h3>Add Dish:</h3>
+    Dish:
+    <input [(ngModel)]="newDish.name"><br>
+    Calories:
+    <input [(ngModel)]="newDish.calories"><br>
+    Image:
+    <input [(ngModel)]="newDish.image"><br>
+    <input (click)="addDish()" class="addButton" type="submit" value="Submit">
+  </div>
+  <button (click)="addForm()" class="addButton" type="button" name="button">Cancel</button>
+</div>
+<section class="dishBook">
+  <div class="dish" *ngFor="let dish of foods | filter:'name':pattern; let i = index">
     <ul>
       <li>Dish: {{dish.name}}</li>
       <li>Calories: {{dish.calories}}</li>
