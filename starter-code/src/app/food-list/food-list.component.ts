@@ -9,6 +9,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
+  search: String = '';
 
   constructor() { }
 
@@ -16,4 +17,9 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
+  addFood(){
+    console.log("Add food has been called");
+    this.foods.push(this.newFood)
+    this.newFood = ''
+  }
 }

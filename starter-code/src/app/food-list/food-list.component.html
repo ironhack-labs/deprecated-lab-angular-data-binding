@@ -2,11 +2,35 @@
   IronNutrition
 </h1>
 
+<input [(ngModel)]="search" placeholder="Search" />
+
 <div class="foods">
-<ul *ngFor="let food of foods">
-  <li>{{food.name}}</li>
-  <li>{{food.calories}}</li>
-  <li><img src="{{food.image}}"></li>
-  <li>{{food.calories}}</li>
-</ul>
+  <ul *ngFor="let food of (foods | searchfilter : 'name' : search)">
+    <li>{{food.name}}</li>
+    <li>{{food.calories}}</li>
+    <li><img src="{{food.image}}"></li>
+    <li>{{food.quantity}}</li>
+  </ul>
+</div>
+
+<div>
+  <div>
+    <label for="food-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div>
+    <label for="food-quantity">Quantity</label>
+    <input type="number" [(ngModel)]="newFood.quantity">
+  </div>
+
+
+  <button (click)="addFood()">Submit New Food</button>
 </div>
