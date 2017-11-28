@@ -1,8 +1,18 @@
 <div class="" >
-<ul *ngFor = "let food of foods">
+<div class="">
+
+    <label for="search">Search</label>
+    <input type="text" [(ngModel)]="pattern">
+
+</div>
+<div class="container_food">
+
+<ul class="item" *ngFor = "let food of foods | filter:'name':pattern ; let i = index">
   <li>{{food.name}}</li>
   <li>{{food.calories}}</li>
   <li><img src="{{food.image}}"></li>
   <li>{{food.quantity}}</li>
 </ul>
+
+</div>
 </div>

@@ -8,11 +8,17 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  pattern: string;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+  }
+
+  search(ev) {
+        console.log(`Key inserted: ${ev.key}`);
+
   }
 
 }
