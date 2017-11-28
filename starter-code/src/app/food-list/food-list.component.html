@@ -1,15 +1,30 @@
-<div>
-  <label for="search">Search:</label>
-  <input id="search" placeholder="Search" type="text" [(ngModel)]="pattern">
+<div class="col">
+  <div>
+    <label for="search">Search:</label>
+    <input id="search" placeholder="Search" type="text" [(ngModel)]="pattern">
+  </div>
+  <app-new-food></app-new-food>
+  <ul>
+    <li *ngFor="let food of foods | search :'name' :pattern;">
+      <img src="{{ food.image }}">
+      <div>
+        <p>{{ food.name }}</p>
+        <p>{{ food.calories }}</p>
+        <p>{{ food.quantity }}</p>
+        <button (click)=addTodayList(food)>Add Today's List</button>
+      </div>
+    </li>
+  </ul>
 </div>
-<app-new-food></app-new-food>
-<ul>
-  <li *ngFor="let food of foods | search :'name' :pattern;">
-    <img src="{{ food.image }}">
-    <div>
+<div class="col">
+  <h1>
+    Today's Food List - Calories: {{ totalCalories}}
+  </h1>
+  <ul>
+    <li *ngFor="let food of todayFood">
       <p>{{ food.name }}</p>
       <p>{{ food.calories }}</p>
       <p>{{ food.quantity }}</p>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>

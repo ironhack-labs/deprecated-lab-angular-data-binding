@@ -9,7 +9,6 @@ li {
   border: 1px solid black;
   margin: 1%;
   padding: 0;
-  width: 25%;
   text-align: right;
 }
 
@@ -23,4 +22,11 @@ img {
 
 div {
   display: inline-block;
+}
+
+.col {
+  display: inline-block;
+  width: 40%;
+  margin: 0 auto;
+  padding-top: 0;
 }
