@@ -15,12 +15,18 @@
     <span class="element" *ngFor="let element of foods | filter : 'name' : search ; let i = index">
       <p class="name">{{ element.name }}</p>
       <p class="calories">{{ element.calories }} cal</p>
-      <img class="food" src="{{ element.image }}" alt="{{ element.name }}"/>
+      <img class="food" src="{{ element.image }}" alt="{{ element.name }}"/><br>
+      <!-- iteration 4 -->
+      <button (click)="foodPick(element.name, element.calories)">Pick For Today</button>
     </span>
   </div>
 
 </div>
 
 <div class="calorie-count">
-  Today's Foods: 0 cal
+  <p>Food List:</p>
+  <ul>
+    <li *ngFor="let name of totalFoods">{{ name }}</li>
+  </ul>
+  <p>Today's Calories: <b>{{ totalCalories }}</b></p>
 </div>

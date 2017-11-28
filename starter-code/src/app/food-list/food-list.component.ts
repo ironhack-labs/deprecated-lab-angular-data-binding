@@ -10,8 +10,11 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   foods:Object[];
-  newFood:Object = {};
   show:boolean = false;
+  newFood:Object = {};
+
+  totalFoods:Array<any> = [];
+  totalCalories:number = 0;
 
   constructor() {}
 
@@ -31,6 +34,14 @@ export class FoodListComponent implements OnInit {
     });
     this.newFood = {};
     this.show = !this.show;
+  }
+
+  foodPick(name, calories):void {
+    this.totalFoods.push(name);
+    this.totalCalories += calories;
+    console.log(name);
+    console.log(this.totalCalories);
+    console.log(this.totalFoods);
   }
 
 }
