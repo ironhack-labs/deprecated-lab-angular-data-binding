@@ -1,0 +1,43 @@
+img{
+  width: 200px;
+  height: auto;
+}
+label{
+  font-weight: bold;
+}
+.container_food{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  flex-direction: column;
+}
+
+.container_food .item{
+  width: 500px;
+  margin:10px 0px;
+  border: 1px solid #999999;
+  display: flex;
+  flex-wrap: wrap;
+  align-items:stretch;
+}
+.item .text{
+  padding: 10px 20px;
+}
+.search{
+  padding: 20px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.add_food_btn{
+padding: 20px 5px;
+
+}
+.add_food_form{}
+
+.foodListCal{
+  border: 1px solid #dddddd;
+  padding:30px;;
+}

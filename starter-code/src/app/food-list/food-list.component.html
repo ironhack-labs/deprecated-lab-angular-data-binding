@@ -1,3 +1,53 @@
-<p>
-  food-list works!
-</p>
+<div class="container" >
+<div class="search">
+<div class="">
+    <label for="search">Search</label>
+    <input type="text" [(ngModel)]="pattern">
+</div>
+<div class="foodListCal">
+<h3>Today's Foods {{SumTotal}} cal</h3>
+<ul *ngFor = "let foodCal of addListCal">
+  <li>{{foodCal.name}} {{foodCal.calories}}</li>
+
+</ul>
+</div>
+
+</div>
+<div class="add_food_btn">
+      <button (click)="activeFor()" type="button" name="button">add new food</button>
+</div>
+
+<div class="add_food_form"  *ngIf=formActive>
+
+  <div class="name">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div class="calories">
+    <label for="calories">calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div class="image">
+    <label for="image">image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div class="quantity">
+    <label for="quantity">quantity</label>
+    <input type="text" [(ngModel)]="newFood.quantity">
+  </div>
+  <button (click)="addFood()">add food</button>
+</div>
+
+<div class="container_food">
+
+<div class="item" *ngFor = "let food of foods | filter:'name':pattern ; let i = index">
+  <div><img src="{{food.image}}"></div>
+  <div class="text"><h3>{{food.name}}</h3>
+    <button type="button" name="button" (click)="addFoodList(foods[i])">></button>
+      <input type="text" name="" value="">
+</div>
+
+</div>
+
+</div>
+</div>
