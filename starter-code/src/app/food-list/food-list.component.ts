@@ -16,5 +16,8 @@ export class FoodListComponent implements OnInit {
   ngOnInit() {
     this.foods = foods;
   }
+  addItem(name, calories, img) {
+    this.foods.push({ name: name, calories: calories, image: img });
+  }
 
 }
