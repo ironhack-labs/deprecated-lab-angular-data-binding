@@ -1,0 +1,16 @@
+.list{
+  display: inline-block;
+  margin: 20px;
+  border: solid 1px blue;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.list li{
+  text-align: center;
+  margin: 10px auto;
+}
+
+.list p{
+  display: inline-block;
+}
