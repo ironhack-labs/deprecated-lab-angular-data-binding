@@ -12,8 +12,8 @@ export class FoodListComponent implements OnInit {
   todaysFood: Array<object> = [];
   show: Boolean = false;
   calorieCounter:number = 0;
-  counter: number = 0;
   showCouter: Boolean = false;
+  quantity: number = 1;
 
   constructor() {}
 
@@ -28,13 +28,25 @@ export class FoodListComponent implements OnInit {
     this.show = true;
   }
 
-  addFavFood(foodFav){
+  addFavFood(foodFav, quantity:number){
     console.log(`${foodFav.name} añadido a lista`);
     console.log(this.foods);
-    this.todaysFood.push(foodFav);
-    this.calorieCounter += foodFav.calories;
-  //  this.foods.quantity += this.counter;
-    this.showCouter = true;
+
+    if (quantity > 0){
+    //  this.quantity = quantity;
+      let prueba = parseInt(foodFav.quantity);
+      foodFav.quantity =  prueba + quantity;
+      console.log(foodFav.quantity);
+      this.calorieCounter += foodFav.calories*quantity;
+      this.showCouter = true;
+
+      if (this.todaysFood.indexOf(foodFav) == -1) {
+        this.todaysFood.push(foodFav);
+      }
+      else {
+
+      }
+    }
   }
 
   ngOnInit() {
