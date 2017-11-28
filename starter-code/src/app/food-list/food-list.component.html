@@ -1,10 +1,15 @@
+
 <section>
-  <div *ngFor="let dish of foods">
+  <div>
+    <label for="things_name"> Search thing: </label>
+    <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+  </div>
+  <div *ngFor="let dish of foods | filter:'name':pattern; let i = index">
     <ul>
-      <li>{{dish.name}}</li>
-      <li>{{dish.calories}}</li>
+      <li>Dish: {{dish.name}}</li>
+      <li>Calories: {{dish.calories}}</li>
       <li><img [src]="dish.image" alt=""></li>
-      <li>{{dish.quantity}}</li>
+      <li>Quantity: {{dish.quantity}}</li>
     </ul>
   </div>
 </section>
