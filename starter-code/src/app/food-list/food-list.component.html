@@ -10,8 +10,10 @@
       <div>
         <p>{{ food.name }}</p>
         <p>{{ food.calories }}</p>
-        <p>{{ food.quantity }}</p>
-        <button (click)=addTodayList(food)>Add Today's List</button>
+        <button (click)="addTodayList(food, quantity.value); quantity.value='1'">
+          Add Today's List
+        </button>
+        <input placeholder="1" type="number" #quantity>
       </div>
     </li>
   </ul>

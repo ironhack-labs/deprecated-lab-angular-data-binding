@@ -11,8 +11,9 @@ export class FoodListComponent {
   todayFood: Array<Object> = [];
   totalCalories = 0;
 
-  addTodayList(food) {
+  addTodayList(food, quantity) {
+    food['quantity'] = quantity;
     this.todayFood.push(food);
-    this.totalCalories += food.calories;
+    this.totalCalories += food.calories * quantity;
   }
 }
