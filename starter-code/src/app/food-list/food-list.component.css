@@ -1,0 +1,41 @@
+img{
+  width: 80%;
+  height:auto;
+  margin-left: 10px;
+}
+
+.listado{
+  width:80%;
+}
+
+
+ul{
+  font-size: 12px;
+}
+
+.form{
+  width: 60%;
+  background-color: #bef2f7;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 15px;
+
+}
+
+.fields{
+  margin-top:10px;
+}
+
+input{
+  width: 100%;
+}
+
+button{
+  border:1px solid silver;
+  border-radius:10px;
+  background-color: orange;
+  width: 300px;
+  padding: 20px;
+  margin: 30px auto;
+  cursor: pointer;
+}
