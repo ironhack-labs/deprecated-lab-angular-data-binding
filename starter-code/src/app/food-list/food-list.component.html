@@ -1,7 +1,25 @@
 <p>
   food-list works!
 </p>
-Search food: <input [(ngModel)]='search'>
+
+<div class="add">
+  <button (click)="toggleForm()">Add Food</button>
+  <div *ngIf="hidden" class="foodform">
+    <label>Name</label><br>
+    <input type="text" [(ngModel)]='newFood.name'>
+    <br>
+    <label>Calories</label><br>
+    <input type="number" [(ngModel)]='newFood.calories'>
+    <br>
+    <label>image</label><br>
+    <input type="text" [(ngModel)]='newFood.image'>
+    <button (click)="addFood()">Submit</button>
+  </div>
+</div>
+
+<div>
+  Search food: <input [(ngModel)]='search'>
+</div>
 <div class="foodlist">
   <div class="food" *ngFor="let food of foodArray | foodpipe : 'name' : search">
     <h2>{{food.name}}</h2>
