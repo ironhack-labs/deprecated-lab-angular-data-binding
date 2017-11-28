@@ -19,3 +19,7 @@ li {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+.is-hidden{
+  display: none;
+}

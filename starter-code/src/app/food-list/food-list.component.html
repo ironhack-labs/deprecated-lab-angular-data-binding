@@ -1,7 +1,34 @@
 <ul class="food-list">
-  <li *ngFor="let e of foods">
+  <li *ngFor="let e of foods | filter:'name':pattern; let i = index">
     <img src="{{e.image}}" alt="">
     <p>{{ e.name }}</p>
     <p>{{ e.calories }}</p>
   </li>
 </ul>
+
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+  <div>
+
+    <form action="">
+      <div class="center">
+        <label for="contact-name">Name</label>
+        <input type="text" [(ngModel)]="newFoods.name">
+      </div>
+      <div class="center">
+        <label for="contact-email">Calories</label>
+        <input type="text" [(ngModel)]="newFoods.calories">
+      </div>
+      <div class="center">
+        <label for="contact-phone">Image</label>
+        <input type="text" [(ngModel)]="newFoods.image">
+      </div>
+      <div class="center">
+        <label for="contact-image">Quantity</label>
+        <input type="text" [(ngModel)]="newFoods.quantity">
+      </div>
+    </form>
+    <div class="center">
+      <button (click)="addFoods(newFoods)" oninvalid="">Submit New Contact</button>
+    </div>
