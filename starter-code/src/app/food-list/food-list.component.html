@@ -1,3 +1,17 @@
 <p>
   food-list works!
 </p>
+
+<input type="text" [(ngModel)]="foodName" [placeholder]="namePlaceHolder">
+<ul>
+  <li *ngFor="let food of foods">
+
+    {{food.name}}
+    <br>
+    <p>Calories: {{food.calories}}</p>
+    <br>
+    <img src="{{food.image}}">
+    <br>
+    <p>Quantity: {{food.quantity}} </p>
+  </li>
+</ul>
