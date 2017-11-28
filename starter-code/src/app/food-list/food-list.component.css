@@ -4,3 +4,9 @@
   text-align: center;
 
 }
+
+.form-button button{
+  height: 25px;
+  border-radius: 7px;
+  background-color: lightgrey;
+}
