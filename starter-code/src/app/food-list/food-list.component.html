@@ -1,3 +1,37 @@
-<p>
-  food-list works!
-</p>
+<div>
+  <label for="search">Search food</label>
+  <input type="text" [(ngModel)]='foodSearched'>
+</div>
+
+<button (click)="show()">Add new food!</button>
+
+<div *ngIf="isHidden ? hidden : show">
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="food.name">
+  <label for="cal">Calories</label>
+  <input type="text" [(ngModel)]="food.calories">
+  <label for="img">Photo</label>
+  <input type="text" [(ngModel)]="food.image">
+  <label for="qty">Quantity</label>
+  <input type="text" [(ngModel)]="food.quantity">
+  <button (click)="addFood()">Submit!</button>
+</div>
+
+
+<div *ngFor="let food of foodList | filter:'name':foodSearched">
+  <span>Name: {{food.name}} | </span>
+  <span>Cal: {{food.calories}} | </span>
+  <span><img [src]="food.image"> | </span>
+  <br>
+  <label for="qty">Qty to add</label>
+  <input type="text" #qtyNumber>
+  <button (click)="addToToday(food, food.calories, qtyNumber.value); qtyNumber.value='1'">Add to today!</button>
+</div>
+
+<div>
+  <h3>Today food!</h3>
+  <ul *ngFor="let item of today">
+    <li>{{item.name}} x{{item.quantity}}</li>
+  </ul>
+  <span>Total: {{calSum}} cal</span>
+</div>
