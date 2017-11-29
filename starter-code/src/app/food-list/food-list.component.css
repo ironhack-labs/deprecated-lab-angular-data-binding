@@ -1,0 +1,14 @@
+ul {
+  list-style-type: none;
+  padding: 10px;
+  width: 300px;
+}
+
+li {
+  background-color: pink;
+  border: 1px solid;
+}
+
+img {
+  width: 200px;
+}
