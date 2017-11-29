@@ -1,3 +1,25 @@
 <p>
-  food-list works!
+  IronNutrition
 </p>
+
+Search:
+<input [(ngModel)]="terms">
+
+<div>
+  <ul>
+    <li *ngFor="let food of (foods | foodFilter : terms )">
+      <ul>
+        <div class=foodcontainer>
+          <div>
+            <li>Food : {{food.name}}</li>
+            <li>Calories : {{food.calories}}</li>
+            <li>Quantity : {{food.quantity}}</li>
+          </div>
+          <div>
+            <img [src]="food.image">
+          </div>
+        </div>
+      </ul>
+    </li>
+  </ul>
+</div>
