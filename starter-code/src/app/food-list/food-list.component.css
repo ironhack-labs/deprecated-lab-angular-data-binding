@@ -1,0 +1,40 @@
+/*first itineration*/
+
+img{
+  width:30%;
+  margin: 50px 0;
+}
+.content{
+  border: 1px solid grey;
+  width: 40%;
+  margin-bottom: 30px;
+}
+.content>div{
+  margin-right: 20%;
+  text-align: right;
+}
+.content>div input{
+  margin-left: auto;
+}
+.content>div h3, .content>div p{
+  font-size: 1em;
+  display: inline-block;
+}
+.content>div .quantity{
+  display: block;
+}
+
+
+
+/*second itineration*/
+.form{
+  width: 10%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.form label{
+  font-size: 2em;
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+}
