@@ -1,3 +1,35 @@
-<p>
-  food-list works!
-</p>
+<form *ngIf="show" class="add-food" action="">
+  <label for="name">Add food: </label>
+  <input type="text" name="name" [(ngModel)]="newFood.name" placeholder="food name">
+  <label for="calories">Add calories: </label>
+  <input type="number" name="calories" [(ngModel)]="newFood.calories" placeholder="food calories">
+  <label for="image">Add image: </label>
+  <input type="text" name="image" [(ngModel)]="newFood.image" placeholder="add image url">
+  <button (click)="addFood(newFood)" name="add-food">Submit</button>
+</form>
+
+<button class="add-food" (click)="toggleShow()">Show add food</button>
+
+<div class="search">
+  <label for="foods_name"> Search food: </label>
+  <input placeholder="food name" type="text" [(ngModel)]="pattern">
+<div>
+
+    <ul class="foods">
+      <li *ngFor="let food of foods | filter:'name':pattern">
+        <h3>{{food.name}}</h3>
+        <p>{{food.calories}} Kcal</p>
+        <img src="{{food.image}}" alt="Imagen de {{food.name}}">
+        <button (click)="addTodayFood(food)">Add to today's foods</button>
+      </li>
+    </ul>
+
+    <h2>List of today's Food</h2>
+    <ul class="today-foods">
+      <li *ngFor="let todaysfood of todaysFoods">
+        <h3>{{todaysfood.name}}</h3>
+        <p>{{todaysfood.calories}} Kcal</p>
+        <!-- <img src="{{todaysfood.image}}" alt="Imagen de {{todaysfood.name}}"> -->
+      </li>
+    </ul>
+    <p *ngIf="totalCalories">Total Calories = {{totalCalories}} Kcal</p>

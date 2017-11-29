@@ -1,0 +1,28 @@
+img {
+  width: 250px;
+}
+.foods {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.foods li {
+  padding: 2em;
+  list-style: none;
+}
+
+.today-foods {
+  background-color: papayaWhip;
+  border-radius: 20px;
+  display: flex;
+}
+.today-foods li {
+  color: peru;
+  padding: 2em;
+  list-style: none;
+}
+
+.search, .add-food {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
