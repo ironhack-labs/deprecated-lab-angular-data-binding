@@ -1,11 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
 
+
+// Good practice to specify the imported data - normally in a models-file:
+// class Food {
+//   name: null;
+//   calories: null;
+//   image: null;
+//   quantity: null;
+//   constructor(data: ...)
+// }
+
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
+
 export class FoodListComponent implements OnInit {
   foods = foods;
   newFood: Object = {}; // empty object
