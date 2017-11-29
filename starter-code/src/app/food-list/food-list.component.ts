@@ -7,10 +7,28 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  foods: Object[];
+  newFood: Object = {};
+  isInputClicked: boolean = true;
+  todaysFood: Object[]=[];
+
+  toggleInput() {
+    this.isInputClicked = !this.isInputClicked;
+  }
 
   constructor() { }
 
   ngOnInit() {
+    this.foods = foods;
   }
-
+  addFood() {
+    console.log(this.newFood);
+    this.foods.push(this.newFood);
+    this.newFood = {}
+    this.isInputClicked = true;
+  }
+  addTodaysFood(food,quant){
+    food.quantity = quant;
+    this.todaysFood.push(food);
+  }
 }
