@@ -1,0 +1,13 @@
+img {
+  height: 40px;
+  width: 40px;
+}
+.foodcontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  width: 200px;
+}
