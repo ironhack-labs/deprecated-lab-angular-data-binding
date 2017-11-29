@@ -39,7 +39,7 @@
     {{food.name}} // 
     Calories: <span> {{food.calories}}</span>
     <input type="number" name="dailyQty" placeholder="quantity of food">    
-    <button type="submit" (click)="addToDailyList(i)" class="add-to-daily-list" >
+    <button type="submit" (click)="addToDailyList(food)" class="add-to-daily-list" >
         add to daily list
       </button>
     <img [src]="food.image" >
