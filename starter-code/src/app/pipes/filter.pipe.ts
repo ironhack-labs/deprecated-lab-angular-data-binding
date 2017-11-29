@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform {
   transform(value: any, args?: any): any {
 
     const filter = args.toLowerCase();
-    if (filter === '') {
+    if (filter === ) {
       return value;
     }
 

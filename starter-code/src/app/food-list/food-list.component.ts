@@ -10,8 +10,16 @@ export class FoodListComponent implements OnInit {
 
   foods: Object[];
   searchThing = "";
+  newFood: Object = {};
 
   constructor() { }
+
+  handleAddFood() {
+
+    this.foods.push({
+      name:
+    })
+  }
 
   ngOnInit() {
     this.foods = foods;

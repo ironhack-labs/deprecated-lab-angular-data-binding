@@ -10,4 +10,12 @@
     <img [src]=food.image alt="">
 
   </div>
+
+  <form action="" [ngClass]="{ addform: displayForm }">
+    <input type="text" name="foodname" [(ngModel)]="newFood.name" class="foodname" placeholder="name of food">
+    <input type="number" name="foodcalories" [(ngModel)]="newFood.calories" class="foodcalories" placeholder="calories of food">
+    <input type="number" name="foodquantity" [(ngModel)]="newFood.quantity" class="foodquantity" placeholder="quantity of food">
+    <input type="text" name="foodimage" [(ngModel)]="newFood.image" class="foodimage" placeholder="image-url">
+    <input type="submit" (click)="handleAddFood()" class="submit" value="Add food">
+  </form>
 </div>
