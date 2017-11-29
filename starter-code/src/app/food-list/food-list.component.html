@@ -1,3 +1,26 @@
 <p>
   food-list works!
 </p>
+<div>
+  <label for="name"></label>
+  <input type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="calories"></label>
+  <input type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image">
+</div>
+<div>
+  <label for="quantity"></label>
+  <input type="text" [(ngModel)]="newFood.quantity">
+</div>
+<button (click)="addFood()">Add New Food</button><br>
+<div class="foodListClass" *ngFor='let e of foods'>
+  <p>{{e.name}}</p>
+  <p>{{e.calories}}</p>
+  <img [src]="e.image" alt=""><br>
+  <p>{{e.quantity}}</p>
+</div>
