@@ -11,7 +11,7 @@
     <input placeholder="calories" type="text" name="calories" [(ngModel)]="newFood.calories">
     <input placeholder="image URL" type="text" name="image" [(ngModel)]="newFood.image">
     <input placeholder="quantity" type="text" name="quantity" [(ngModel)]="newFood.quantity">
-    <button (click)="addFood()">Add food</button>
+    <button type="button" (click)="addFood()">Add food</button>
 </div>
 
 <div class="menu">
@@ -29,7 +29,7 @@
     <li>{{ food.name }} has {{ food.calories }} calories</li>
     <li><img src="{{food.image}}" alt=""></li>
     <li>How many do you want? {{ food.quantity }}</li>
-    <button (click)="addToMenu(food)">Add to daily menu</button>
+    <button type="button" (click)="addToMenu(food)">Add to daily menu</button>
   </ul>
 </div>
 

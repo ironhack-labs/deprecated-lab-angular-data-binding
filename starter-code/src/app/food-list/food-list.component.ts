@@ -21,7 +21,6 @@ export class FoodListComponent implements OnInit {
   }
 
   showForm():boolean {
-    console.log('hello');
     if (this.displayForm) {
       return this.displayForm = false;
     }
@@ -31,7 +30,6 @@ export class FoodListComponent implements OnInit {
   }
 
   addFood():void{
-    console.log('button clicked');
     this.foods.push(this.newFood);
     this.newFood = {};
     this.displayForm = false;
@@ -39,7 +37,6 @@ export class FoodListComponent implements OnInit {
 
   addToMenu(food):void{
     this.dailyMenu.push(food);
-    // console.log(food);
     this.totalCalories += food.calories;
   }
 
