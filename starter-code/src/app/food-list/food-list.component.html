@@ -2,11 +2,18 @@
   food-list works!
 </p>
 
-<input type="text" [(ngModel)]="foodName" [placeholder]="namePlaceHolder">
+<input type="text" [(ngModel)]="foodName" [placeholder]="okkk">
+
+<button [ngClass]="{'is-processing': isProcessing}" (click)="handleAddClick()">
+  Find
+</button>
+
+
 <ul>
   <li *ngFor="let food of foods">
 
-    {{food.name}}
+    <h3>{{food.name}}</h3>
+
     <br>
     <p>Calories: {{food.calories}}</p>
     <br>
