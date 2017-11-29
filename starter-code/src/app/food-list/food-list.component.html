@@ -1,3 +1,50 @@
 <p>
   food-list works!
 </p>
+
+
+<ul>
+  <h2>Here are the daily dishes:</h2>
+  <div *ngIf="dailyList.length === 0"> //no food today </div>
+  <li *ngFor="let dailyFood of dailyList">
+      {{dailyFood.name}} // 
+      Calories: <span> {{dailyFood.calories}}</span>
+  </li>
+  <p *ngIf="dailyList.length !== 0">Your total calories for today: <span>{{dailyCalories}}</span></p>
+</ul>
+
+<button (click)="showForm()" class="show-form">
+  show form to add food
+</button>
+
+<form action="" [ngClass]="{ addform: displayForm }">
+  <hr>
+  <input type="text" name="foodname" [(ngModel)]="newFood.name" class="foodname" placeholder="name of food">
+  <input type="number" name="foodcalories" [(ngModel)]="newFood.calories" class="foodcalories" placeholder="calories of food">
+  <input type="number" name="foodquantity" [(ngModel)]="newFood.quantity" class="foodquantity" placeholder="quantity of food">
+  <input type="text" name="foodimage" [(ngModel)]="newFood.image" class="foodimage" placeholder="image-url">
+  <input type="submit" (click)="addFood()" class="submit" value="Add food">
+</form>
+
+<hr>
+
+<input type="text" [(ngModel)]="terms" placeholder="search...">
+<button class="hidelist" (click)="hideList()">
+  show / hide list
+</button>
+
+
+<ul [ngClass]="{ foodlist: displayList }">
+  <li *ngFor="let food of (foods | filterItems:terms), let i = index">
+    {{food.name}} // 
+    Calories: <span> {{food.calories}}</span>
+    <input type="number" name="dailyQty" placeholder="quantity of food">    
+    <button type="submit" (click)="addToDailyList(food)" class="add-to-daily-list" >
+        add to daily list
+      </button>
+    <img [src]="food.image" >
+  </li>
+  <hr>
+</ul>
+
+
