@@ -1,0 +1,11 @@
+.foodListClass{
+  display: inline-table;
+  width: 30%;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.foodListClass img{
+  width: 25%;
+}
