@@ -1,3 +1,29 @@
-<p>
-  food-list works!
-</p>
+<p>ADD PRODUCT FORM</p>
+
+  Product name:<br>
+  <input type="text" [(ngModel)]="newFood.name" name="productName" placeholder="Product name">
+  <br>
+  Calories:<br>
+  <input type="text" [(ngModel)]="newFood.calories" name="calories" placeholder="Calories">
+  <br><br>
+  <button type="submit" (click)="addNewProduct()">Add Product</button>
+
+
+<hr>
+
+<p>SEARCH</p>
+Product name:<br>
+  <input type="text" [(ngModel)]="pattern" class="search" placeholder="Seach by name">
+  <!-- <button type="submit">Search</button> -->
+
+<hr>
+
+<ul>
+  <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
+    {{food.name}}<br/>
+    {{food.calories}} calories<br/>
+    <br/>
+    <img [src]=food.image>
+  </li>
+</ul>
+
