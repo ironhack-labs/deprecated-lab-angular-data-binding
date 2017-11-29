@@ -11,10 +11,15 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   calories:number = 0;
   quantity:number = 0;
-  formNewFood: boolean = true
+  formNewFood: boolean = true;
+  newTodaysFood = [];
+  caloriesItems = 0;
+  count = 0;
 
   constructor() {
     this.foods = foods;
+  }
+  ngOnInit() {
   }
   showFoodForm(){
     this.formNewFood = !this.formNewFood
@@ -27,7 +32,18 @@ export class FoodListComponent implements OnInit {
     this.newFood = {name:'', image:'', calories:null, quantity:null}
 
 }
-  ngOnInit() {
-  }
+todayFood(foodSelected, quantity) {
+   this.caloriesItems = 0;
 
+   foodSelected.quantity = quantity.value;
+
+   if(this.newTodaysFood.indexOf(foodSelected) === -1) {
+     this.newTodaysFood.push(foodSelected);
+   }
+
+   this.newTodaysFood.forEach(e =>{
+     this.caloriesItems += e.quantity * e.calories;
+   });
+
+}
 }

@@ -7,13 +7,14 @@ img{
 .content{
   border: 1px solid grey;
   width: 40%;
-  height: 200px;
   margin-bottom: 30px;
 }
 .content>div{
-  float: right;
   margin-right: 20%;
-  clear: both;
+  text-align: right;
+}
+.content>div input{
+  margin-left: auto;
 }
 .content>div h3, .content>div p{
   font-size: 1em;

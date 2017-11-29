@@ -39,4 +39,18 @@
         <input class="quantity" type="number" [(ngModel)]="food.quantity">
     </div>
     <img [src]="food.image" alt="food image">
-  </div>
+    <div>
+      <input type="text" #quantity>
+      <button (click)="todayFood(foods[i], quantity)" type="button" name="button">Add Today's Food</button>
+    </div>
+</div>
+
+  <div>
+      <ul>
+        <li *ngFor="let e of newTodaysFood, let i = index">
+          <p>{{ e.calories }}</p>
+          <p>{{ e.name }} cal {{ e.calories }} x {{e.quantity}}</p>
+        </li>
+      </ul>
+      <p>Total Calories: {{ caloriesItems }}</p>
+    </div>
