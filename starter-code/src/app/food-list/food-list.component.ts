@@ -8,9 +8,16 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  foods: object[];
+  pattern: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.foods = foods;
+  }
+  addItem(name, calories, img) {
+    this.foods.push({ name: name, calories: calories, image: img });
   }
 
 }
