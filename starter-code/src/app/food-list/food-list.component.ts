@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import foodcoma from '../foods';
 
 @Component({
   selector: 'app-food-list',
@@ -7,10 +7,27 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-
-  constructor() { }
+  foods: Object[];
+  newFoodplate: Object = {};
+  appear = true;
+  search: string;
+  selected: Array<object> = [];
+  totalCal: number = 0;
 
   ngOnInit() {
+    this.foods = foodcoma;
+  }
+  addFoodplate(){
+    this.foods.push(this.newFoodplate);
+    this.newFoodplate = {};
+    }
+  show(){
+    this.appear = !this.appear;
+  }
+  add(i){
+    this.selected.push(i);
+    console.log(this.selected);
+    this.totalCal+=i['calories'];
   }
 
 }

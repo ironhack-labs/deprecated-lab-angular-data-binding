@@ -1,3 +1,38 @@
-<p>
-  food-list works!
-</p>
+
+Search here: <input [(ngModel)]="search"><br>
+
+<button (click)="show()" >Add a new food plate</button>
+
+<h1>Today's food {{totalCal}} Cal</h1>
+<ul>
+  <li *ngFor="let names of selected">
+    <p>{{names.name}}</p>
+</ul>
+
+<div [hidden]=appear class="form">
+<div>
+  <label for="contact-name">Name:</label><br>
+  <input type="text" [(ngModel)]="newFoodplate.name">
+</div>
+<div>
+  <label for="contact-email">Calories:</label><br>
+  <input type="text" [(ngModel)]="newFoodplate.calories">
+</div>
+
+<div>
+  <label for="contact-image">Image:</label><br>
+  <input type="text" [(ngModel)]="newFoodplate.image">
+</div>
+
+<button (click)="[addFoodplate(), show()]">Submit New Contact</button>
+</div>
+
+
+<ul>
+  <li *ngFor="let foodplate of foods | filter: 'name': search; let i = index" class="li1">
+    <p>{{foodplate.name}}</p>
+    <p>{{foodplate.calories}}</p>
+    <img src="{{foodplate.image}}" width="200">
+    <button (click)="add(foods[i])" >+</button>
+  </li>
+</ul>
