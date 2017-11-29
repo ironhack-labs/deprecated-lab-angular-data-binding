@@ -1,3 +1,26 @@
 <p>
-  food-list works!
-</p>
+    food-list works!
+  </p>
+  <form>
+      
+      <button (click)="buttonClickMethod()"> Click me! </button>
+  
+  
+  </form>
+  <div>
+      <label for="things_name"> Search thing: </label>
+      <input id="things_name" placeholder="thing name"
+              type="text" [(ngModel)]="pattern">
+    <div>
+  
+    <ul style="list-style: none;">
+       <li *ngFor=" let food of foods || filter:'name':pattern; let i = index"> 
+         <img [src]="food.image"/>
+         <p>{{food.name||}}</p>
+         <p>{{food.calories}}</p>
+         <!-- <p>{{food.quantity}}</p> -->
+  
+       </li>
+  
+    </ul>
+  
