@@ -9,15 +9,17 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods = foods;
   newFood: Object = {}; // empty object
-  terms = null;
-  displayForm = true;
-  displayList = false;
+  terms: String = null;
+  displayForm: Boolean = true;
+  displayList: Boolean = false;
   dailyList: Object[] = [];
   dailyCalories: Number = 0;
   constructor() { }
 
   ngOnInit() { // before everything is loaded, we do this
   }
+
+  // Good practice: Always call functions used in the frontend handleShowForm etc.
 
   showForm() {
     if (this.displayForm) {
@@ -30,11 +32,7 @@ export class FoodListComponent implements OnInit {
   addFood() {
     this.foods.push(this.newFood);
     this.newFood = {};
-    if (this.displayForm) {
-      return this.displayForm = false;
-    }else {
-      return this.displayForm = true;
-    }
+    this.showForm();
   }
 
   hideList() {
