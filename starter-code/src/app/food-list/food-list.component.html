@@ -1,3 +1,46 @@
-<p>
-  food-list works!
-</p>
+<ul class="food-list">
+  <li *ngFor="let e of foods | filter:'name':pattern; let i = index">
+    <img src="{{e.image}}" alt="">
+    <p>{{ e.name }}</p>
+    <p>{{ e.calories }}</p>
+    <input type="text" #quantity>
+    <button (click)="todayFood(foods[i], quantity)" type="button" name="button">Add Today's Food</button>
+
+  </li>
+</ul>
+
+<div>
+  <div>
+    <label for="things_name"> Search thing: </label>
+    <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+  </div>
+  <button (click)="showForm()">Add food</button>
+  <div *ngIf="edited">
+    <div class="center">
+      <label for="contact-name">Name</label>
+      <input type="text" [(ngModel)]="newFoods.name">
+    </div>
+    <div class="center">
+      <label for="contact-email">Calories</label>
+      <input type="text" [(ngModel)]="newFoods.calories">
+    </div>
+    <div class="center">
+      <label for="contact-phone">Image</label>
+      <input type="text" [(ngModel)]="newFoods.image">
+    </div>
+    <div class="center">
+      <label for="contact-image">Quantity</label>
+      <input type="text" [(ngModel)]="newFoods.quantity">
+    </div>
+    <button (click)="addFoods(newFoods)" type="button" name="button">Save</button>
+  </div>
+
+  <div>
+    <ul>
+      <li *ngFor="let e of newTodaysFood, let i = index">
+        <p>{{ e.calories }}</p>
+        <p>{{ e.name }} cal {{ e.calories }} x {{e.quantity}}</p>
+      </li>
+    </ul>
+    <p>Total Calories: {{ caloriesItems }}</p>
+  </div>
