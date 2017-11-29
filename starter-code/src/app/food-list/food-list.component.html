@@ -1,13 +1,13 @@
 <p>ADD PRODUCT FORM</p>
-<form>
+
   Product name:<br>
-  <input type="text" [(ngModel)]="pName" name="productName" placeholder="Product name">
+  <input type="text" [(ngModel)]="newFood.name" name="productName" placeholder="Product name">
   <br>
   Calories:<br>
-  <input type="text" [(ngModel)]="pCalories" name="calories" placeholder="Calories">
+  <input type="text" [(ngModel)]="newFood.calories" name="calories" placeholder="Calories">
   <br><br>
-  <input type="submit" value="Add Product">
-</form> 
+  <button type="submit" (click)="addNewProduct()">Add Product</button>
+
 
 <hr>
 
