@@ -13,6 +13,7 @@ export class FoodListComponent implements OnInit {
  dailyMenu: object[] = [];
  displayForm = false;
  totalCalories = 0;
+ newArray: object[] = [];
 
   constructor() { }
 
@@ -36,10 +37,10 @@ export class FoodListComponent implements OnInit {
     this.displayForm = false;
   }
 
-  addToMenu(i):void{
-    this.dailyMenu.push(this.foods[i]);
-    console.log(this.foods[i])
-    this.totalCalories += this.foods[i].calories;
+  addToMenu(food):void{
+    this.dailyMenu.push(food);
+    // console.log(food);
+    this.totalCalories += food.calories;
   }
 
 }

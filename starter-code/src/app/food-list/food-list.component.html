@@ -29,7 +29,7 @@
     <li>{{ food.name }} has {{ food.calories }} calories</li>
     <li><img src="{{food.image}}" alt=""></li>
     <li>How many do you want? {{ food.quantity }}</li>
-    <button (click)="addToMenu(i)">Add to daily menu</button>
+    <button (click)="addToMenu(food)">Add to daily menu</button>
   </ul>
 </div>
 
