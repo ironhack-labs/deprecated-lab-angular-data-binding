@@ -8,6 +8,8 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  listOfFoods: any [] = foods;
+
   constructor() { }
 
   ngOnInit() {
