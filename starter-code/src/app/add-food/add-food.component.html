@@ -1,0 +1,13 @@
+<label for="food-name">Name</label>
+<br>
+<input id="food-name" type="text" [(ngModel)]="newFood.name">
+<br>
+<label for="food-name">Calories</label>
+<br>
+<input id="food-calories" type="text" [(ngModel)]="newFood.calories">
+<br>
+<label for="food-image">Image URL</label>
+<br>
+<input id="food-image" type="text" [(ngModel)]="newFood.image">
+<br>
+<button (click)="addFood()">Add Food</button>
