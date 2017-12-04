@@ -1,0 +1,31 @@
+<h2> add-new-food works! </h2>
+
+<div *ngIf="userNumber % 10 === 0; else notMultiple">
+
+<div>
+  <label for="food-name"></label>
+  <input type="text" placeholder="e.g.'food name'" [(ngModel)]="newFood.name">
+</div>
+
+<div>
+  <label for="food-calories"></label>
+  <input type="text" placeholder="e.g.'food calories #'" [(ngModel)]="newFood.calories">
+</div>
+
+<div>
+  <label for="food-image"></label>
+  <input type="text" placeholder="e.g.'food image URL'" [(ngModel)]="newFood.image">
+</div>
+
+<button (click)="addFood()">Submit New Food Item</button>
+
+
+</div> <!-- end test -->
+
+<button (click)="toggleForm()">Toggle ADD New Food Item</button>
+
+
+
+
+
+
