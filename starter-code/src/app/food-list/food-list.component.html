@@ -7,7 +7,7 @@
 
 
 <ul>																																			<!-- Pipe name => -->
-	<li *ngFor="let oneFood of (listOfFoods | searchByName:foodSearch)"> | <!-- searchByName:foodSearch -->
+	<li *ngFor="let oneFood of (listOfFoods | searchByName:foodSearch)">  <!-- searchByName:foodSearch -->
 		<h3> Name: {{oneFood.name}} </h3>
 		<h3> Calories: {{oneFood.calories}} </h3>
 		<img [src]="oneFood.image" />
