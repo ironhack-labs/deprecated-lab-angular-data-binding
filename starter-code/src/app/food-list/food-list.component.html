@@ -1,7 +1,11 @@
 <h2> Food List </h2>
 
+<label for="search-input"> Search For a Food </label>
+<input id="search-input" type="search" placeholder="e.g. 'pizza'"
+    [(ngModel)]="foodSearch" />
+
 <ul>
-  <li *ngFor="let oneFood of listOfFoods">
+  <li *ngFor="let oneFood of (listOfFoods | searchFoods:foodSearch)">
     <img [src]="oneFood.image" />
     <h3> {{ oneFood.name }} </h3>
     <p> Calories: {{ oneFood.calories }} </p>
