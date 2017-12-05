@@ -1,0 +1,18 @@
+<button (click)="toggleInput()"> Add new Food </button>
+
+<br />
+<div [ngClass]="{'hidden': inputConfig.hidden}">
+  <label for="new-name-input">Food name</label>
+  <input id="new-name-input" type="text" placeholder="e.g. Arepa"
+    [(ngModel)]="newName"/>
+  <br />
+
+  <label for="new-calories-input">Calories</label>
+  <input id="new-calories-input" type="number" placeholder="e.g. 250"
+    [(ngModel)]="newCalories"/>
+  <br />
+
+  <label for="new-image-input">Image Url</label>
+  <input id="new-image-input" type="text" placeholder="e.g. http://example.com"
+    [(ngModel)]="newImage"/>
+</div>
