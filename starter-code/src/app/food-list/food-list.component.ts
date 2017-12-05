@@ -15,4 +15,11 @@ export class FoodListComponent implements OnInit {
   ngOnInit() {
   }
 
+  addMyList() {
+      var index = this.listOfFoods.map(
+          function(oneFood) {return oneFood.name; })
+          .indexOf('oneFood.name');
+      console.log(index);
+  }
+
 }
