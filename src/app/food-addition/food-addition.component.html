@@ -1,0 +1,21 @@
+
+ <div class="inactive" [ngClass]="{'form-active': formConfig.hasForm}">
+   <label for="food-name-input"> Name of Food: </label>
+   <input id="food-name-input" placeholder="e.g. pizza" [(ngModel)]="newFood.name" />
+   <br />
+
+   <label for="calorie-input"> Calories: </label>
+   <input id="calorie-input" placeholder="e.g. 100 calories" [(ngModel)]="newFood.calories" />
+   <br />
+
+   <label for="image-input"> Image URL: </label>
+   <input id="image-input" placeholder="e.g. https://giphy.com/orange" [(ngModel)]="newFood.image" />
+   <br />
+
+   <label for="quantity-input"> Quantity: </label>
+   <input id="quantity-input" placeholder="e.g. 4" [(ngModel)]="newFood.quantity" />
+   <br />
+
+   <button (click)="addFoodItem(); toggleForm()"> Save & add new food item </button>
+ </div>
+View
