@@ -5,7 +5,7 @@
   <input type="text" name="" placeholder="Enter the food name" [(ngModel)]="foodName">
   <input type="text" name="" placeholder="Enter the number of calories" [(ngModel)]="foodCal">
   <input type="text" name="" placeholder="Enter the image url" [(ngModel)]="foodImg">
-  <button (click)="newFood()">Submit</button>
+  <button (click)="newFood(foodName, foodCal, foodImg)">Submit</button>
 </div>
 <div *ngIf="listOfTodaysFoods.totalCalories !== 0">
   <h2>Today's foods</h2>

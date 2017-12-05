@@ -10,9 +10,6 @@ export class FoodListComponent implements OnInit {
 
   listOfFoods: any[] = foods;
   isHidden: boolean = true;
-  foodName: string;
-  foodCal: number;
-  foodImg: string;
   foodQuantity: number = 1;
   listOfTodaysFoods:any = {
     totalCalories: 0,
@@ -27,13 +24,13 @@ export class FoodListComponent implements OnInit {
   toggleFoodForm(){
     this.isHidden = !this.isHidden;
   }
-  newFood(){
+  newFood(foodName, foodCal, foodImg){
     const newFood = new Object({
-      name: this.foodName,
-      calories: this.foodCal,
-      image: this.foodImg
+      name: foodName,
+      calories: foodCal,
+      image: foodImg
     });
-    this.listOfTodaysFoods.push(newFood);
+    this.listOfFoods.push(newFood);
     this.toggleFoodForm();
   }
   addToSpecial(food, foodQuantity){
