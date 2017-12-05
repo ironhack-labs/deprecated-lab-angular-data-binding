@@ -1,0 +1,15 @@
+<h2>Food List Display </h2>
+
+
+<label for="search-food-input"> Search For an IronFood </label>
+ <input id="search-food-finput" type="search" placeholder="e.g. 'pizza'"
+     [(ngModel)]="foodSearch" />
+
+
+
+<div class="food-list" *ngFor="let foodItem of (listOfFoods | myPipes:foodSearch)">
+    <h2> {{foodItem.name}} </h2>
+    <p> {{foodItem.calories}} </p>
+    <p> {{foodItem.quantity}} </p>
+    <img src="{{foodItem.image}}" />
+ </div>
