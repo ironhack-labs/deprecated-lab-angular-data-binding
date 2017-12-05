@@ -13,6 +13,7 @@ export class FoodListComponent implements OnInit {
   foodName: string;
   foodCal: number;
   foodImg: string;
+  foodQuantity: number = 1;
   listOfTodaysFoods:any = {
     totalCalories: 0,
     specialFoods: []
@@ -35,8 +36,14 @@ export class FoodListComponent implements OnInit {
     this.listOfTodaysFoods.push(newFood);
     this.toggleFoodForm();
   }
-  addToSpecial(food){
-    this.listOfTodaysFoods.totalCalories += food.calories;
-    this.listOfTodaysFoods.specialFoods.push(food);
+  addToSpecial(food, foodQuantity){
+    const checkForFood = this.listOfTodaysFoods.specialFoods.filter(oneFood => oneFood.name === food.name);
+    if(checkForFood.length > 0){
+      food.quantity += foodQuantity;
+    }else{
+      food.quantity = foodQuantity;
+      this.listOfTodaysFoods.specialFoods.push(food);
+    }
+    this.listOfTodaysFoods.totalCalories += food.calories * foodQuantity;
   }
 }
