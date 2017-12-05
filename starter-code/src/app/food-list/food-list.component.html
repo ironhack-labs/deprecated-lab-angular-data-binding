@@ -1,13 +1,3 @@
-<!--  In the app-food-list component, display a list of the foods.
-This should include the food's image, its name, and its calorie count.
-
-Notice, we've already imported an array of objects containing food into the component.
-
-Make sure the image's src property is properly bound so that any time the value is
-changed in the Typescript class, the change is reflected in the DOM.
-
--->
-
 <h2>Foods</h2>
 
 <div class="food-list-container">
@@ -26,3 +16,18 @@ changed in the Typescript class, the change is reflected in the DOM.
   <input type="text" id="search-input" name="searchCriteria"
    [(ngModel)]="searchTerm" >
 </div>
+
+<hr>
+
+<button (click)="showForm()">Add new food</button>
+<form [ngClass]="{ 'show-form': formConfig.isShowing }">
+<label for="name-input">Name:</label>
+<input type="text" id="name-input" name="newName"
+ [(ngModel)]="newFoodForm">
+<label for="calories-input">Calories:</label>
+<input type="text" id="calories-input" name="newCalories"
+ [(ngModel)]="newFoodForm">
+<label for="image-input">Name:</label>
+<input type="text" id="image-input" name="newImage"
+ [(ngModel)]="newFoodForm">
+</form>

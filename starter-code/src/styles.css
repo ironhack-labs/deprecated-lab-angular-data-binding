@@ -21,3 +21,7 @@ li {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.show-form {
+  visibility: hidden;
+}
