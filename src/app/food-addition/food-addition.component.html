@@ -1,5 +1,5 @@
-
- <div class="inactive" [ngClass]="{'form-active': formConfig.hasForm}">
+<p>component works</p>
+ <div class="active" [ngClass]="{'form-active': formConfig.hasForm}">
    <label for="food-name-input"> Name of Food: </label>
    <input id="food-name-input" placeholder="e.g. pizza" [(ngModel)]="newFood.name" />
    <br />
@@ -16,6 +16,5 @@
    <input id="quantity-input" placeholder="e.g. 4" [(ngModel)]="newFood.quantity" />
    <br />
 
-   <button (click)="addFoodItem(); toggleForm()"> Save & add new food item </button>
+   <button (click)="addFooditem(); toggleForm()"> Save & add new food item </button>
  </div>
-View

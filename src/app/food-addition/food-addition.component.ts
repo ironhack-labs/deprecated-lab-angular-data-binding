@@ -6,17 +6,17 @@ import foods  from '../foods';
   styleUrls: ['./food-addition.component.css']
 })
 export class FoodAdditionComponent implements OnInit {
-    myFoods: any[];
-     newFood: Object = {};
-  constructor() { }
+      myFoods: any[];
+      newFood: Object = {};
+      constructor() { }
 
   ngOnInit() {
     this.myFoods = foods;
-
+    console.log("Hasa initialized foods");
   }
 
   formConfig: any = {
-        hasForm: false,
+        hasForm: true,
     }
 
     addFooditem() {
