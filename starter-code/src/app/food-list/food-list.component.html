@@ -1,3 +1,34 @@
-<p>
-  food-list works!
-</p>
+<h2>Foods</h2>
+
+<div class="food-list-container">
+  <ul>
+    <li *ngFor="let food of (foodList | fodify:searchTerm)">
+      <img [src]="food.image" />
+      <p>{{ food.name }}</p>
+      <p>{{ food.calories }}</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <label for="search-input">What are you looking for?</label>
+  <br />
+  <input type="text" id="search-input" name="searchCriteria"
+   [(ngModel)]="searchTerm" >
+</div>
+
+<hr>
+
+<button (click)="showForm()">Add new food</button>
+<form [ngClass]="{ 'show-form': formConfig.isShowing }">
+<label for="name-input">Name:</label>
+<input type="text" id="name-input" name="newName"
+ [(ngModel)]="newFoodForm.name">
+<label for="calories-input">Calories:</label>
+<input type="text" id="calories-input" name="newCalories"
+ [(ngModel)]="newFoodForm.calories">
+<label for="image-input">Image:</label>
+<input type="text" id="image-input" name="newImage"
+ [(ngModel)]="newFoodForm.image">
+ <button (click)="addNew()">Submit</button>
+</form>
