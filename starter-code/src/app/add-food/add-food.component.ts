@@ -9,6 +9,10 @@ import foods from '../foods';
 export class AddFoodComponent implements OnInit { foodList: Object[];
   newFood: Object = {};
 
+  formConfig: any = {
+    isVisible: true
+  };
+
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +21,23 @@ export class AddFoodComponent implements OnInit { foodList: Object[];
 
   addFood() {
     this.foodList.push(this.newFood);
+  }
+
+  toggleForm() {
+    if (this.formConfig.isVisible) {
+      this.formConfig.isVisible = false;
+    }
+    else {
+      this.formConfig.isVisible = true;
+    }
+
+  // toggleButton() {
+  //   if (this.formConfig.isVisible) {
+  //     this.formConfig.isVisible = false;
+  //   }
+  //   else {
+  //     this.formConfig.isVisible = true;
+  //   }
   }
 
 }

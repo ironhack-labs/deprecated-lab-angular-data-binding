@@ -1,13 +1,36 @@
-<label for="food-name">Name</label>
-<br>
-<input id="food-name" type="text" [(ngModel)]="newFood.name">
-<br>
-<label for="food-name">Calories</label>
-<br>
-<input id="food-calories" type="text" [(ngModel)]="newFood.calories">
-<br>
-<label for="food-image">Image URL</label>
-<br>
-<input id="food-image" type="text" [(ngModel)]="newFood.image">
-<br>
-<button (click)="addFood()">Add Food</button>
+<div>
+
+  <button
+    class="add-button"
+
+    (click)="toggleForm()">
+    Add Food
+  </button>
+
+  <div [ngClass] = "{
+    'form': formConfig.isVisible
+    }">
+    <label for="food-name">Name</label>
+    <br>
+    <input id="food-name" type="text" [(ngModel)]="newFood.name" name="error-free">
+    <br>
+    <label for="food-name">Calories</label>
+    <br>
+    <input id="food-calories" type="text" [(ngModel)]="newFood.calories" name="error-free">
+    <br>
+    <label for="food-image">Image URL</label>
+    <br>
+    <input id="food-image" type="text" [(ngModel)]="newFood.image" name="error-free" />
+    <br>
+    <button class="add-button" (click)="toggleForm(); addFood()">
+      Add Food
+    </button>
+  </div>
+
+</div>
+
+
+
+<script>
+
+</script>
