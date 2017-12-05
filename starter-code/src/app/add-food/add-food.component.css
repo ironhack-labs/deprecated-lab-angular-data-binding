@@ -1,0 +1,7 @@
+div.inactive {
+    display: none
+}
+
+div.inactive.form-active {
+    display: flex;
+}

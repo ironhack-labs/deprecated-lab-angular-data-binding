@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import foods  from '../foods';
 
 @Component({
   selector: 'app-food-list',
@@ -8,9 +8,18 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  listOfFoods: any[] = foods;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addMyList() {
+      var index = this.listOfFoods.map(
+          function(oneFood) {return oneFood.name; })
+          .indexOf('oneFood.name');
+      console.log(index);
   }
 
 }
