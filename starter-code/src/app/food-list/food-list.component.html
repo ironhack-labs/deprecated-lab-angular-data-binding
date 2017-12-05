@@ -8,7 +8,7 @@
 <ul>
   <li *ngFor="let oneFood of listOfFoods | foodFilter: foodSearch">
     <h3>{{oneFood.name}}</h3>
-    <p>{{oneFood.calories}}</p>
+    <p>Calories : <b>{{oneFood.calories}}</b></p>
     <img [src]="oneFood.image" />
   </li>
 </ul>
