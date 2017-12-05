@@ -1,0 +1,13 @@
+
+  <h3>Add an Item!</h3>
+
+  <label for="name-input">Name: </label>
+  <input id="name-input" type="text" placeholder="e.g. French Fries" [(ngModel)]="newFood.name">
+
+  <label for="calorie-input">Calories: </label>
+  <input id="calorie-input" type="number" placeholder="e.g. 300" [(ngModel)]="newFood.calories">
+
+  <label for="image-input">Image URL: </label>
+  <input id="image-input" type="text" e.g.="http://www.example.com/fries.gif" [(ngModel)]="newFood.image">
+
+  <button (click)="addFood()">Submit</button>
