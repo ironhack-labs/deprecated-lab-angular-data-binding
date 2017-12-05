@@ -1,3 +1,28 @@
-<p>
-  food-list works!
-</p>
+<!--  In the app-food-list component, display a list of the foods.
+This should include the food's image, its name, and its calorie count.
+
+Notice, we've already imported an array of objects containing food into the component.
+
+Make sure the image's src property is properly bound so that any time the value is
+changed in the Typescript class, the change is reflected in the DOM.
+
+-->
+
+<h2>Foods</h2>
+
+<div class="food-list-container">
+  <ul>
+    <li *ngFor="let food of (foodList | fodify:searchTerm)">
+      <img [src]="food.image" />
+      <p>{{ food.name }}</p>
+      <p>{{ food.calories }}</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <label for="search-input">What are you looking for?</label>
+  <br />
+  <input type="text" id="search-input" name="searchCriteria"
+   [(ngModel)]="searchTerm" >
+</div>
