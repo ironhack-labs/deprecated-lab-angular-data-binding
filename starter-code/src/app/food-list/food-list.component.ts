@@ -14,7 +14,7 @@ export class FoodListComponent implements OnInit {
   foodCal: number;
   foodImg: string;
   listOfTodaysFoods:any = {
-    totalCalories: Number,
+    totalCalories: 0,
     specialFoods: []
   }
   constructor() { }
@@ -32,7 +32,7 @@ export class FoodListComponent implements OnInit {
       calories: this.foodCal,
       image: this.foodImg
     });
-    this.listOfFoods.push(newFood);
+    this.listOfTodaysFoods.push(newFood);
     this.toggleFoodForm();
   }
   addToSpecial(food){

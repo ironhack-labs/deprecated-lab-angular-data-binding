@@ -7,13 +7,14 @@
   <input type="text" name="" placeholder="Enter the image url" [(ngModel)]="foodImg">
   <button (click)="newFood()">Submit</button>
 </div>
-<div >
+<div *ngIf="listOfTodaysFoods.totalCalories !== 0">
   <h2>Today's foods</h2>
-  <h4 *ngIf="listOfTodaysFoods.totalCalories">Calories: {{listOfTodaysFoods.totalCalories}}</h4>
-  <h3 *ngFor="let food of (listOfTodaysFoods.specialFoods | search:foodSearch)">
+  <h4>Calories: {{listOfTodaysFoods.totalCalories}}</h4>
+  <h3 *ngFor="let food of (listOfTodaysFoods.specialFoods)">
     {{food.name}}
   </h3>
 </div>
+<hr>
 <div *ngFor="let food of (listOfFoods | search:foodSearch)">
   <h3>{{food.name}}</h3>
   <button (click)="addToSpecial(food)">Add to Today's Foods</button>
