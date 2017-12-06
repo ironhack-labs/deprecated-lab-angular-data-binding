@@ -1,16 +1,22 @@
-<input type="search" placeholder="Search" [(ngModel)]="pattern">
+<div class="row">
+  <div class="col-sm" id="searchDiv">
+    <label>Search food list</label>
+    <input type="search" placeholder="Search" [(ngModel)]="pattern" class="form-control">
+  </div>
+</div>
 
 <div class="row">
   <div class="card-columns">
-    <div class="card" style="width: 20rem;" *ngFor="let food of foods | filter:'name':pattern">
-      <img class="card-img-top" src="{{food.image}}" alt="Picture of food">
+    <div class="card text-center" style="width: 20rem;" *ngFor="let food of foods | filter:'name':pattern">
+      <img class="card-img-top" src="{{food.image}}">
       <div class="card-body">
         <h4 class="card-title">{{food.name}}</h4>
-        <p class="card-text">
-          Calories: {{food.calories}}<br>
-        </p>
-        <a href="#" class="btn btn-primary">Add</a>
-        <b style="float: right;">Quantity: {{food.quantity}}</b>
+        <p class="card-text">Calories: {{food.calories}}</p>
+        <a href="#" class="btn btn-primary">Add to cart</a>
+        <div style="margin-top: 15px;">
+          <small class="text-muted">Quantity: {{food.quantity}}</small>
+        </div>
+        <!-- <b style="float: right;">Quantity: {{food.quantity}}</b> -->
       </div>
     </div>
   </div>
