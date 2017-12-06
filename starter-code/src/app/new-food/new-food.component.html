@@ -1,3 +1,31 @@
-<p>
-  new-food works!
-</p>
+<div class="row">
+  <div id="fixedDiv">
+    <button type="button" class="btn btn-secondary btn-lg" (click)="toggle= !toggle">Add a new food!</button>
+  </div>
+
+  <div class="card" *ngIf="toggle" id="fixedForm">
+
+    <h2 class="card-title">Add New Food</h2>
+
+    <form class="" action="index.html" method="post">
+      <div class="form-group">
+        <label>Food Name</label>
+        <input class="form-control" placeholder="New food name" type="text" #foodName>
+      </div>
+
+      <div class="form-group">
+        <label>Food Calories</label>
+        <input class="form-control" placeholder="Enter calorie amount" type="text" #foodCalorie>
+      </div>
+
+      <div class="form-group">
+        <label>Food Image</label>
+        <input class="form-control" placeholder="Enter new food URL" type="text" #foodImg>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="float: right;" (click)="toggle = !toggle; addFood(foodName.value, foodCalorie.value, foodImg.value); foodName.value=''; foodCalorie.value='';foodImg.value='';">
+        Create food card</button>
+      <button type="submit" style="float: right; margin-right: 10px;" class="btn btn-link" (click)="toggle= !toggle">Cancel</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+#fixedDiv {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 75px;
+}
+
+#fixedForm {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 400px;
+  padding: 20px 30px;
+}
+
+button:first-child, #fixedForm {
+    box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, .5);
+  }
