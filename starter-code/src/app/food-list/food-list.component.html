@@ -1,6 +1,8 @@
+<input type="search" placeholder="Search" [(ngModel)]="pattern">
+
 <div class="row">
   <div class="card-columns">
-    <div class="card" style="width: 20rem;" *ngFor="let food of foods | filter:'food':pattern; let i = index">
+    <div class="card" style="width: 20rem;" *ngFor="let food of foods | filter:'name':pattern">
       <img class="card-img-top" src="{{food.image}}" alt="Picture of food">
       <div class="card-body">
         <h4 class="card-title">{{food.name}}</h4>

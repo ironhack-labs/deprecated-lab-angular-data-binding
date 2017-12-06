@@ -1,10 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false     // <!-- We mark the pipe as "impure"
 })
-export class FilterPipe implements PipeTransform {
 
+export class FilterPipe implements PipeTransform {
   transform(items: any[], field: string, value: string): any[] {
     if (!items) {
       return [];
@@ -17,5 +18,4 @@ export class FilterPipe implements PipeTransform {
     const myPattern = new RegExp(value, 'i');
     return items.filter(it => it[field].match(myPattern));
   }
-
 }
