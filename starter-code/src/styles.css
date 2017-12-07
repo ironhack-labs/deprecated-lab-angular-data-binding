@@ -12,7 +12,7 @@ background-color: green !important;
 border-radius: 5px;
 }
 
-a.btn.btn-primary{
+a.btn.btn-primary, button.btn.btn-primary{
   background-color: #73ad21 !important;
   border-color: green;
 }
