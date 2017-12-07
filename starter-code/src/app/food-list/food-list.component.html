@@ -1,21 +1,32 @@
 <img id="logo" src="./assets/imgs/logo.png" alt="logo">
 
 <div class="row">
+  <div class="col-lg-8">
   <div class="card-columns">
-
-    <div class="card text-center" style="width: 20rem;" *ngFor="let food of foods | filter:'name':pattern">
+    <div class="card text-center" *ngFor="let food of foods | filter:'name':pattern ; let i = index">
       <img class="card-img-top" src="{{food.image}}">
 
       <div class="card-body">
         <h4 class="card-title">{{food.name}}</h4>
         <p class="card-text">Calories: {{food.calories}}</p>
-        <a href="#" class="btn btn-primary">Add to cart</a>
+        <a href="#" class="btn btn-primary" (click)="addToList(food, quantity)">Add to list</a>
         <div style="margin-top: 15px;">
           <small class="text-muted">Quantity: {{food.quantity}}</small>
         </div>
       </div>
-
     </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card" id="myList">
+    <h2 class="card-title">Today's Calorie Log</h2>
+        <p class="card-header text-white bg-primary"><b>Total Calories:</b> <span style="float: right;">{{ newListCalories }}</span></p>
+        <ul class="list-group list-group-flush" *ngFor="let myFood of myList">
+          <li class="list-group-item"><b>{{ myFood.name }}</b> <p style="float: right;"> {{ myFood.calories }}</p>
+          <span *ngIf="myFood.quantity > 1">x {{ myFood.quantity }}</span></li>
+        </ul>
+  </div>
   </div>
 </div>
 
