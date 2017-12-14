@@ -1,0 +1,20 @@
+#searchDiv {
+  position: fixed;
+      top: 25px;
+      left: 45px;
+      width: 400px;
+      padding: 20px 25px;
+      box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, .5);
+    }
+
+#logo {
+  max-height: 75px;
+  position: relative;
+  left: 450px;
+  bottom: 50px;
+}
+
+#myList {
+  width: 375px;
+  padding: 20px 25px;
+}

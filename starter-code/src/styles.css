@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  padding-top: 100px;
+}
+
+footer {
+  padding: 100px 0 10px 10px;
+}
+
+.bg-primary{
+background-color: green !important;
+border-radius: 5px;
+}
+
+a.btn.btn-primary, button.btn.btn-primary{
+  background-color: #73ad21 !important;
+  border-color: green;
+}
+
+button.btn.btn-link{
+color: green !important;
+}
