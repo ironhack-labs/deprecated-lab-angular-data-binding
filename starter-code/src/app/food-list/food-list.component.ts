@@ -7,24 +7,27 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foodList:any[] = foods;
-  newFood:Object = {};
-  formVisible: boolean = false;
-
+  foodList: Array<any>;
+  newFood: Object = {};
+  formHidden: boolean = false;
+ 
   constructor() { }
 
   ngOnInit() {
+    this.foodList = foods;
   }
 
-  formShow() {
-    this.formVisible = true;
+  formVisible() {
+    this.formHidden = true;
   }
 
-  addFood(foodName, foodCalories, foodImage) {
-    this.foodList.push(this.newFood);
-    this.newFood = {};
-    return false
+  formHide() {
+    this.formHidden = false;
   }
 
+  addFood() {
+    this.foodList.unshift(this.newFood);
+    this.newFood = {}
+  }
 
 }

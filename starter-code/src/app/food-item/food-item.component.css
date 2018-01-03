@@ -1,8 +1,9 @@
-/* .image-container {
-  position: relative;
-  max-height: 200px;
+.card-box {
+  max-width: 100%;
+  margin: auto;
 }
 
-.image-container img {
+.img-crop {
   overflow: hidden;
-} */
+  height: 170px;
+}

@@ -1,11 +1,11 @@
-<div class="card" style="width: 20rem;">
-  <div class="image-container">
-      <img class="card-img-top" src="{{food.image}}" alt="Card image cap">
-  </div>
+<div class="row card-box"> 
+  <div class="card">
+    <img class="card-img-top img-crop" src="{{ foodItem.image }}" alt="Card image cap">
     <div class="card-body">
-      <h4 class="card-title">{{food.name}}</h4>
-      <p class="card-text">{{food.calories}}</p>
-      <p class="card-text">{{food.quantity}}</p>
+      <h5 class="card-title">{{ foodItem.name }}</h5>
+      <p class="list-group-item"> Calories: {{ foodItem.calories }}</p>
+      <p class="list-group-item"> Quantity: {{ foodItem.quantity }} </p>
     </div>
-
+    <div class="card-footer text-muted text-center">Iron Food</div>
+  </div>
 </div>

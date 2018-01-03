@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./food-item.component.css']
 })
 export class FoodItemComponent implements OnInit {
-  @Input() food: any;
+  @Input() foodItem: Object[];
 
   constructor() { }
 
