@@ -1,3 +1,45 @@
 <p>
   food-list works!
 </p>
+
+<h3>Foods</h3>
+<input [(ngModel)]="pattern" type="text" placeholder="buscale">
+
+<button (click)="toggleForm()" *ngIf="!addNew">Agregar Comida</button>
+<div *ngIf="addNew">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <p for="">
+      Name
+      <input ngModel name="name" type="text">
+    </p>
+
+    <p for="">
+      Number of calories
+      <input ngModel name="calories"  type="text">
+    </p>
+    <p for="">
+      Image
+      <input ngModel name="image"  type="text">
+    </p>
+    <input type="submit">
+  </form>
+</div>
+
+<ul style="float:right">
+    <h2>Today's calories: {{totalCalories}}</h2>
+    <li *ngFor="let t of todays">
+        <p>comida: {{t.name | capitalize}} - </p>
+        <img width="100px" src="{{t.image}}" alt="">
+        <p>Catnidad: {{t.quantity}}</p>
+    </li>
+  </ul>
+
+<ul>
+    <li *ngFor="let f of foods | bliss: 'name':pattern;">
+      <p>comida: {{f.name | capitalize}} - </p>
+      <img width="100px" src="{{f.image}}" alt="">
+      <input #quantitytoadd  type="number" min="1" value="1">
+      <button (click)="addToday(f, quantitytoadd.value)">Add to Menu</button>
+    </li>
+  </ul>
+
