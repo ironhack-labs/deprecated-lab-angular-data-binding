@@ -30,7 +30,7 @@
   </div>
 
   <ul class="food-list">
-    <li class="single-food">
+    <li class="single-food" *ngIf="isEditing">
       <img [src]="newFoodImage">
       <h3 class="food-name">
         {{ newFoodName }}
@@ -43,6 +43,19 @@
         {{ food.name }}
         <small class="food-calories">{{ food.calories }}</small>
       </h3>
+      <button (click)="addToMyList(food, quantity)">+</button>
+      <input type="text" #quantity value="1">
+    </li>
+  </ul>
+</div>
+
+<div class="my-food-list">
+  <h2>Today's Foods <small>{{ totalCalories }} cal</small></h2>
+  <ul>
+    <li *ngFor="let food of myList">
+      <span>{{ food.name }}</span>
+      <span>{{ food.calories }}</span>
+      <span *ngIf="food.quantity > 1">x{{ food.quantity }}</span> 
     </li>
   </ul>
 </div>

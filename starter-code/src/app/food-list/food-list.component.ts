@@ -45,7 +45,7 @@ export class FoodListComponent implements OnInit {
   }
 
   // This function handles the actual STORING of the new food.
-  
+
   newFood() {
     const newFood = {
       name: this.newFoodName,
@@ -61,5 +61,22 @@ export class FoodListComponent implements OnInit {
     this.newFoodName = "";
     this.newFoodCalories = null;
     this.newFoodImage = "";
+  }
+
+  // This function adds the food clicked to a special list of foods which
+  // are "today's foods"
+  
+  addToMyList(food, quantityInput){
+    const existingFood = this.myList.find(item => item.name === food.name)
+    const quantity = Number(quantityInput.value)
+
+    if (existingFood){
+      existingFood.quantity += quantity;
+    } else {
+      food.quantity = quantity;
+      this.myList.push(food);
+    }
+    this.totalCalories += (food.calories * quantity);
+    this.quantity = 1;
   }
 }
