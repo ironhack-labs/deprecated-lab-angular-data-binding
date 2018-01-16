@@ -8,6 +8,27 @@
     <input id="food-search" type="text" [(ngModel)]="pattern">
   </div>
 
+  <div class="new-food">
+    <button (click)="addFood()" class="new-food-buttom">Add New Food</button>
+    <br>
+    <div *ngIf="isEditing">
+      <div>
+        <label for="new-food-name">Name</label>
+        <input type="text" [(ngModel)]="newFoodName">
+      </div>
+      <div>
+        <label for="new-food-calories">Calories</label>
+        <input type="text" [(ngModel)]="newFoodCalories">
+      </div>
+      <div>
+        <label for="new-food-name">Image</label>
+        <input type="text" [(ngModel)]="newFoodImage">
+      </div>
+
+      <button (click)="newFood()">Add Food</button>
+    </div>
+  </div>
+
   <ul class="food-list">
     <li class="single-food">
       <img [src]="newFoodImage">

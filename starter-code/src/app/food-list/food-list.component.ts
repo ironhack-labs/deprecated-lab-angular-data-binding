@@ -29,4 +29,37 @@ export class FoodListComponent implements OnInit {
     this.foods = foodsList;
   }
 
+
+  // This function is triggered whenever a User clicks on the "Add New Food"
+  // link and is what displays the form based on whether the User clicks "in"
+  // or "out".
+
+  addFood(){
+    // If I'm correct, this is to say that we want "this.isEditing" to be equal 
+    // to the OPPOSITE of whatever it is.
+
+    // If "this.isEditing" is initially FALSE, then it will be set to TRUE.
+
+    // If "this.isEditing" is initially TRUE, then it will be set to FALSE.
+    this.isEditing = !this.isEditing
+  }
+
+  // This function handles the actual STORING of the new food.
+  
+  newFood() {
+    const newFood = {
+      name: this.newFoodName,
+      calories: this.newFoodCalories,
+      image: this.newFoodImage,
+      quantity: 0
+    }
+
+    // What is this line of code doing?
+    this.foods.unshift(newFood)
+
+    this.isEditing = false;
+    this.newFoodName = "";
+    this.newFoodCalories = null;
+    this.newFoodImage = "";
+  }
 }
