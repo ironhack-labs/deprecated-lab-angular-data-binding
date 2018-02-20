@@ -1,6 +1,14 @@
-<div *ngFor='let f of foods' >
+<div>
+    <label for="foods">Search</label>
+    <input type="text" [(ngModel)]="pattern" >
+</div>
+<br>
+
+<div *ngFor='let f of foods | foodSearch :"name" :pattern'>
+  <hr>
   <h2>{{f.name}}</h2>
-  <p>Calories:{{f.calories}}</p>
-  <img src={{f.image}} alt="food photo" width="200">
+  <p><u>Calories:</u> <b>{{f.calories}}</b></p>
+  <img src={{f.image}} alt="food photo" width="50%">
+  <hr>
 </div>
 
