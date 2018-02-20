@@ -8,6 +8,7 @@ import foods from '../foods';
 })
 export class AddFoodFormComponent implements OnInit {
   newFood: Object = {};
+  feedbackEnabled= false;
 
   constructor() { }
 
@@ -15,8 +16,14 @@ export class AddFoodFormComponent implements OnInit {
   }
 
   addFood(form){
-    foods.push(this.newFood);
-    this.newFood = {};
+    if (form.valid) {
+      foods.push(this.newFood);
+      this.newFood = {};
+      this.feedbackEnabled = false;
+    } else {
+      this.feedbackEnabled = true;
+    }
+
   }
 
 }
