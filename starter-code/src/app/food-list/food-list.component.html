@@ -1,3 +1,37 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <button (click)="showNewFormFood()">add food</button>
+  <div *ngIf="show">
+    <label for="thing_name"> Thing Name </label>
+    <input placeholder="name" type="text" [(ngModel)]="newFoods.name">
+    <input placeholder="calories" type="text" [(ngModel)]="newFoods.calories">
+    <input placeholder="quantity" type="text" [(ngModel)]="newFoods.quantity">
+    <button (click)="AddNewFood(newFoods)">add food</button>
+  </div>
+  <div>
+    <div>
+      <label for="things_name"> Search thing: </label>
+      <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+      <div>
+      </div>
+      <div class="row">
+        <article *ngFor="let items of foods | filter:'name':pattern; let i = index" class="col-xs-12">
+          <div class="col-xs-8">
+            <p>{{items.name}}</p>
+            <p>Calories: {{items.calories}}</p>
+            <input type="number" name="quantity" id="" value="0">
+            <button (click)="AddTodayFood(items)">Today foods</button>
+          </div>
+          <div class="col-xs-4">
+            <img src="{{items.image}}" alt="">
+          </div>
+
+        </article>
+        <article *ngFor="let items of todayFoods | filter:'name':pattern; let i = index" class="col-xs-12">
+          <div class="col-xs-8">
+            <p>{{items.name}}</p>
+            <p>Calories: {{items.name}}</p>
+          </div>
+        </article>
+      </div>
+
+    </div>
