@@ -9,6 +9,12 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   foods: Object [];
+  newFood: Object = {};
+  todaysFood: Object[];
+  feedbackEnabled = false;
+  display: boolean = false;
+  pattern: string;
+
 
   constructor() {
     this.foods;
@@ -18,4 +24,18 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
+  submitForm(form) {
+    this.feedbackEnabled = true;
+    if (form.valid) {
+       this.foods.push(this.newFood);
+       this.newFood = '';
+       this.feedbackEnabled = false;
+    }
+  }
+  displayForm(){
+    this.display = true;
+  }
+  hideForm(){
+    this.display = false;
+  }
 }
