@@ -1,32 +1,48 @@
-<div class="filter">
-  <label>Filter:</label>
-  <input type="text" [(ngModel)]="pattern">
-</div>
+<div class="left">
 
-<button (click)="toggleForm()">Add Food</button>
-
-<div class="form" *ngIf=showForm>
-
-  <label for="contact-name">Name:</label>
-  <input type="text" [(ngModel)]="newFood.name">
-
-  <label for="contact-email">Calories:</label>
-  <input type="text" [(ngModel)]="newFood.calories">
-
-  <label for="contact-image">Image:</label>
-  <input type="text" [(ngModel)]="newFood.image">
-
-  <button (click)="addFood();toggleForm()">Create Food</button>
-</div>
-
-<div *ngFor="let f of foods | filter:'name':pattern;" class="food">
-  <div class="pic">
-    <img [src]="f.image">
+  <div class="filter">
+    <label>Filter:</label>
+    <input type="text" [(ngModel)]="pattern">
   </div>
 
-  <div class="data">
-    <h4>{{f.name}}</h4>
-    <p>{{f.calories}} Calories</p>
-    <p>{{f.quantity}}</p>
+  <hr>
+
+  <button (click)="toggleForm()">Add Food</button>
+
+  <div class="form" *ngIf=showForm>
+    <label for="contact-name">Name:</label>
+    <input type="text" [(ngModel)]="newFood.name">
+
+    <label for="contact-email">Calories:</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+
+    <label for="contact-image">Image:</label>
+    <input type="text" [(ngModel)]="newFood.image">
+
+    <button (click)="addFood();toggleForm()">Create Food</button>
+  </div>
+
+  <hr>
+
+  <div class="today">
+    <strong>today's foods!</strong>
+    <ul>
+      <li *ngFor="let tf of todaysFoods">{{tf.name}}</li>
+    </ul>
+  </div>
+
+</div>
+<div class="right">
+  <div *ngFor="let f of foods | filter:'name':pattern;" class="food">
+    <div class="pic">
+      <img [src]="f.image">
+    </div>
+  
+    <div class="data">
+      <h4>{{f.name}}</h4>
+      <p>{{f.calories}} Calories</p>
+      <p>{{f.quantity}}</p>
+      <button (click)="addTodayFood(f)" >Eat today!</button>
+    </div>
   </div>
 </div>
