@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.food-container {
+  width: 250px;
+}
+
+.food-container img {
+  width: 250px;
+}
+
+.food-container :nth-child(2) {
+  width: 250px;
+}
+
+.food-container :last-child {
+  color: gray;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+
+.invisible {
+  display: none;
+}
