@@ -13,6 +13,7 @@ export class FoodListComponent implements OnInit {
   feedbackEnabled = false;
   todayFoods: Object[] = [{}]
   counter: number = 0
+  pattern: String;
 
   constructor() { 
  
