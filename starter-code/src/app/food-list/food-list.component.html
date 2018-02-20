@@ -1,3 +1,39 @@
-<p>
-  food-list works!
-</p>
+<div class="foodlist">
+
+  <div *ngFor="let food of foodList | filter:'name':pattern ; let i = index" class="container">
+    <div>
+      <img src="{{food.image}}" width="80" height="80">
+    </div>
+    <div class="description">
+      <h4>{{food.name}}</h4>
+      <p>{{food.calories}}KCal</p>
+      <button (click)="addMenu(food)">+</button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button (click)="show = !show">{{show ? 'Hide' : 'Add more food'}}</button>
+  <div *ngIf="show">
+    <label>name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+    <label>calories</label>
+    <input type="number" [(ngModel)]="newFood.calories">
+    <label>image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+    <button (click)="addFood() ; show = !show">Add</button>
+  </div>
+</div>
+
+<div class="search">
+  <h3 class="search-title">Search foods</h3>
+  <input class="search" [(ngModel)]="pattern">
+</div>
+
+<div class="menu">
+  <h3>Today's Menu</h3>
+  <div *ngFor="let food of foodMenu" class="container">
+    <p>{{food.name}}</p>
+  </div>
+  <h4 class="totalCalories">Total Calories: {{totalCalories}}</h4>
+</div>
