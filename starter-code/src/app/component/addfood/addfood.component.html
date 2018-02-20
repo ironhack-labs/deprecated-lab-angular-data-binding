@@ -1,0 +1,12 @@
+<div   *ngIf="show">
+    <form *ngIf="!menulist">
+        <p><label>name</label></p> 
+           <input type="text" name="name" [(ngModel)]="newFood.name" #nameField="ngModel"/>
+        <p><label>calories</label></p> 
+           <input type="text" name="name" [(ngModel)]="newFood.calories" #nameField="ngModel"/>
+         </form>
+         <p><button (click)="handleClick(form)">Add Food</button></p>
+</div>
+<button (click)="toggle()">ENSEÑAR</button>
+    
+   
