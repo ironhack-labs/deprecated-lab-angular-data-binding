@@ -1,3 +1,77 @@
 <p>
   food-list works!
 </p>
+
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+<div>
+
+<div> 
+  <button (click)="create()"> Add new food </button>
+</div>
+
+<div *ngIf="createForm">
+<form (ngSubmit)="addFood(form)" #form="ngForm" novalidate>
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+    <label for="food-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name" name = 'name' #nameField="ngModel" required minlength="6">
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+    <label for="food-calories">calories</label>
+    <input type="number" [(ngModel)]="newFood.calories" name = 'calories' #caloriesField="ngModel" required minlength="10">
+    <div *ngIf="feedbackEnabled && nameField.errors">
+      <p *ngIf="caloriesField.errors.required" class="validation">calories required</p>
+      <p *ngIf="caloriesField.errors.minlength" class="validation">calories is too short</p>
+    </div>
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+    <label for="food-image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image" name = 'image' #imageField="ngModel" required >
+    <div *ngIf="feedbackEnabled && nameField.errors">
+      <p *ngIf="nameField.errors.required" class="validation">Image required</p>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit">Submit New Food</button>
+    <div *ngIf="feedbackEnabled && form.invalid">
+      <p class="validation">there are errors in the form, please review the fields</p>
+    </div>
+  </div>
+
+</form>
+</div>
+
+<div *ngFor="let food of foods | foodsearch:'name':pattern">
+  <ul>
+    <li>
+      <ul>
+        <li>Name: {{food.name}}</li>
+        <li>Calories: {{food.calories}}</li>
+        <li>Image: <img src="{{food.image}}"> </li>
+        <li>Quantity: {{food.quantity}}</li>
+        <li><button (click)="addToday(food)"> Add to todays list </button></li>
+        <li><button (click)="addQuantity(food)"> Add 1 </button></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<h2> Todays list</h2>
+
+<div *ngFor="let article of foodsToday">
+  <ul>
+    <li>
+      <ul>
+        <li>Name: {{article.name}}</li>
+        <!-- <li>Calories: {food.calories}}</li> -->
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div> {{ todaysCalories }} </div>
