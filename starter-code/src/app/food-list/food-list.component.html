@@ -3,18 +3,16 @@
 </p>
 
 <div>
-
-    <label for="foods_name"> Filter foods by name: </label>
-    <input id="foods_name" placeholder="food name"
+    <label for="things_name"> Search thing: </label>
+    <input id="things_name" placeholder="thing name"
             type="text" [(ngModel)]="pattern">
-<div>
+  <div>
 
-<ul>
-  <div *ngFor="let food of foods | filter:'name':pattern; let i = index">
-      {{ i+1 }}) {{ food.name }}">
-    <li><strong>{{food.name}} </strong></li>
-    <li> {{food.calories}} </li>
-    <li> <img class="food-images" [src]="food.image"> </li>
-    <li> {{food.quantity}}</li>
+<div *ngFor="let food of foods | filter:'name':pattern">
+  <ul>
+  <li><strong>{{food.name}} </strong></li>
+  <li> {{food.calories}} </li>
+  <li> <img class="food-images" [src]="food.image"> </li>
+  <li> {{food.quantity}}</li>
+  </ul>
 </div>
-</ul> 
