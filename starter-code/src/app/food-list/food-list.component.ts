@@ -21,7 +21,7 @@ export class FoodListComponent implements OnInit {
   }
   addFood() {
     this.newFood['quantity']=1;
-    this.foods.unshift(this.newFood);
+    this.foods.push(this.newFood);
     this.newFood = {};
   }
   addMenu(food) {
@@ -31,7 +31,7 @@ export class FoodListComponent implements OnInit {
       this.myMenuIndexesAdded.push((foods.indexOf(food)));
       this.myMenu.push(food);
     } else {
-      this.myMenu[this.myMenuIndexesAdded.indexOf(this.indexClicked)]['quantity'] += 1
+      this.myMenu[this.myMenuIndexesAdded.indexOf(this.indexClicked)]['quantity'] += food.quantity
     }
     this.totalCalories += (food.calories * food.quantity);
   }
