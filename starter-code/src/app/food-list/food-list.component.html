@@ -1,9 +1,14 @@
 
+<input class="search" type="text" placeholder="Busca la comida">
+  <div *ngFor="let food of foods" class="container">
 
-<div *ngFor="let food of foods">
-   <h1>{{food.name}}</h1>
-   <h1>{{food.calories}}</h1>
-   <img [src]="food.image">
+
+
+      <h1 >{{food.name}}</h1>
+      <hr>
+      <h1>{{food.calories}}</h1>
+      <hr>
+      <img class="img" [src]="food.image">
 
 
 </div>
