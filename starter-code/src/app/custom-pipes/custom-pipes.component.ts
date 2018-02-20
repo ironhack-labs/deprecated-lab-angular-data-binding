@@ -10,9 +10,11 @@ export class CustomPipesComponent implements OnInit {
 
   name:string;
   calories:number;
-  image:string; //"https://i.imgur.com/eTmWoAN.png",
+  image:string; 
   quantity:number;
   addFoodForm:boolean;
+  todayFoodCalories:number;
+  todayFood: Array<string>;
 
   foodList: Object[];
   food: Object = {
@@ -25,6 +27,8 @@ export class CustomPipesComponent implements OnInit {
   constructor() { 
     this.foodList = foods;
     this.addFoodForm = false;
+    this.todayFoodCalories = 0;
+    this.todayFood = [];
   }
 
   ngOnInit() {
@@ -38,5 +42,16 @@ export class CustomPipesComponent implements OnInit {
     
      this.addFoodForm = !this.addFoodForm;
   }
+
+  addCalories(calories:number){
+
+    this.todayFoodCalories += calories;
+
+  }
+
+  addFoodToday(foodName:string){
+    this.todayFood.push(foodName);
+  }
+
 
 }

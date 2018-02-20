@@ -2,12 +2,23 @@
   custom-pipes works!
 </p-->
 <div>
+  <h4>Today's food calories: {{todayFoodCalories}}</h4>
+  <ul>
+      <li *ngFor="let food of todayFood">
+            <p>food</p>
+      </li>
+  </ul>
+</div>
+
+<div>
     <label for="foods_name"> Search food: </label>
     <input id="foods_name" placeholder="food name" type="text" [(ngModel)]="food.name">
-<div>
+</div>
+
 <div>
   <button (click)="showFoodForm()">Add food</button>
 </div>
+
 <div *ngIf="addFoodForm === true">
     <label for="food_name">Name </label>
     <input placeholder="new food" type="text" #foodName>
@@ -25,5 +36,6 @@
           <p>{{ i+1 }}) {{food.name}}</p>
           <p>{{food.calories}}</p>
           <img [src]="food.image" [alt]="food.name" width="200">
+          <button (click)="addCalories(food.calories); addFoodToday(food.name)">Add food</button>
   </li>
 </ul>
