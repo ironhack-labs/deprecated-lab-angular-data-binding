@@ -1,11 +1,10 @@
-<p>
-  food-list works!
-</p>
 <div *ngFor= "let item of foods">
-  <p>
-    <img src="{{item.image}}" width="100px">
-    <br>{{item.name}}
-    <br>{{item.calories}}
-    <br>
-  </p>
+    <img src="{{item.image}}">
+    <p>{{item.name}}</p>
+    <p>{{item.calories}}</p>
+</div>
+
+<div>
+  <label><strong>Buscador:</strong></label>
+  <input type="text" [(ngModel)]="pattern">
 </div>

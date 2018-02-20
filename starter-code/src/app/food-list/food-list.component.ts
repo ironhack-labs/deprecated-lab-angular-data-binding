@@ -6,13 +6,14 @@ import foods from '../foods';
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
+
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  pattern: string;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
   }
-
 }
