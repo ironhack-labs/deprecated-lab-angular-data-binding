@@ -1,0 +1,14 @@
+.food-list{
+  margin: 0 auto;
+  max-width: 960px;
+}
+.food-item{
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+.food-item h2{
+  margin-top: 0;
+}
+.food-item img{
+  max-width: 300px;
+}
