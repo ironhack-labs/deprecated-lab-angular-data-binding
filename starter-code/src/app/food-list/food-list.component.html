@@ -1,4 +1,12 @@
-<div class="food-card" *ngFor="let food of foods">
+
+<div class="search">
+  <p>{{searched}}</p>
+  <input type="text"
+    [(ngModel)] = "searched" 
+    (keyup)="filterFoods()">
+</div>
+
+<div class="food-card" *ngFor="let food of foodList">
   <div class="food-img">
     <img class="food-img" [src]="food.image">
   </div>
@@ -16,21 +24,3 @@
     </div>
   </div>  
 </div>
-
-
-
-
-
-<div>WTF</div>
-<ul *ngFor="let food of foods">
-  <li >
-    {{food.name}}
-  </li>
-  <li >
-    {{food.calories}}
-  </li>
-  <li >
-    {{food.quantity}}
-  </li>
-  <img class='food-img' [src]="food.image">
-</ul>
