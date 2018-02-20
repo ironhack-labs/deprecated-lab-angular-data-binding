@@ -20,10 +20,20 @@
   </div>
 <br>
 
+  <div class="today">
+    <strong>Today's Food!</strong>		     
+        <ul>
+          <li *ngFor="let food of todaysFood">{{food.name}} - {{food.calories}}</li>
+        </ul>
+  </div>
+<br>
+<h1>Amount of cal {{totalCal}}</h1>
+
 <div *ngFor='let f of foods | foodSearch :"name" :pattern'>
   <hr>
   <h2>{{f.name}}</h2>
   <p><u>Calories:</u> <b>{{f.calories}}</b></p>
+  <button (click)="todayFood(f)">ÑAM!</button>
   <img src={{f.image}} alt="food photo" width="50%">
   <hr>
 </div>
