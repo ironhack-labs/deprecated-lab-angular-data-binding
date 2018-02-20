@@ -4,6 +4,7 @@ import foods from '../foods';
 class Food {
   name:string;
   calories:number;
+  quantity:number = 0;
 }
 
 @Component({
@@ -36,8 +37,9 @@ export class FoodListComponent implements OnInit {
     this.foods.push(this.newFood)
   }
   addTodayFood(food:Food){
-    console.log(food.calories);
-    this.totalCalories += food.calories;
-    this.todaysFoods.push(food)
+    if(food.quantity > 0){
+      this.totalCalories += (food.calories * food.quantity);
+      this.todaysFoods.push(food)
+    } 
   }
 }

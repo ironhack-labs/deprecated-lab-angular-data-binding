@@ -64,3 +64,18 @@ hr{
 .today{
   text-align: left;
 }
+.form{
+padding-top: 30px; 
+}
+.form button{
+  margin-top: 20px;
+}
+.add-today input{
+  width: 100px;
+}
+.add-today label{
+  display: inline;
+}
+.add-today button{
+  width: 100px;
+}

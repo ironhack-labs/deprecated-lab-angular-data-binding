@@ -27,7 +27,7 @@
   <div class="today">
     <strong>today's foods!</strong>
     <ul>
-      <li *ngFor="let tf of todaysFoods">{{tf.name}}</li>
+      <li *ngFor="let tf of todaysFoods">{{tf.name}} x{{tf.quantity}}</li>
     </ul>
     <strong>today's calories: {{totalCalories}}</strong>
   </div>
@@ -42,8 +42,11 @@
     <div class="data">
       <h4>{{f.name}}</h4>
       <p>{{f.calories}} calories</p>
-      <p>{{f.quantity}}</p>
-      <button (click)="addTodayFood(f)" >Eat today!</button>
+      <div class="add-today">
+        <label>quantity:</label>
+        <input type="text" [(ngModel)]="f.quantity">
+        <button (click)="addTodayFood(f)" >Eat today!</button>
+      </div>
     </div>
   </div>
 </div>
