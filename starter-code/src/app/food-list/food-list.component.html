@@ -1,3 +1,45 @@
 <p>
   food-list works!
 </p>
+<div class="search-container">
+  <input [(ngModel)]="foodName" class="search" type="text" placeholder="Name of the dish">
+</div>
+<ul *ngFor = "let food of foods | filter:foodName">
+  <li>
+    {{ food.name }} -- {{ food.calories }} -- {{ food.quantity }} -- <img src="{{food.image}}" alt="{{ food.name }}" width="100">
+  </li>
+  <button type="button" (click)="addToSpecial(food)">ADD</button>
+</ul>
+<div class="main-container">
+  <div class="left-side">
+    <h3>Add new food</h3>
+    <div *ngIf="enableForm">
+      <div>
+        <label for="name"></label>
+        <input type="text" [(ngModel)] = "newFood.name" placeholder="Add a food">
+      </div>
+      <div>
+        <label for="calories"></label>
+        <input type="text" [(ngModel)] = "newFood.calories" placeholder="calories?">
+      </div>
+      <div>
+        <label for="image"></label>
+        <input type="text" [(ngModel)] = "newFood.image" placeholder="address">
+      </div>
+      <div>
+        <label for="quantity"></label>
+        <input type="text" [(ngModel)] = "newFood.quantity" placeholder="quantity?">
+      </div>
+    </div>
+    <button (click)="addFood(newFood)">FatAss</button>
+    </div>
+</div>
+
+<h2>Today's foods: {{specialFoodsCalories}}</h2>
+    <ul>
+        <li *ngFor = "let food of specialFoods">
+          <p>{{food.name}}</p>
+          <p>Number of calories: {{food.calories}}</p>
+          <img src="{{food.image}}" width="100">
+        </li>
+      </ul>
