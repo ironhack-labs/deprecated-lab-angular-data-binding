@@ -1,3 +1,17 @@
-<p>
-  food-list works!
-</p>
+<div>
+
+  <input placeholder="search" type="text" #thingName>  
+  <button (click)="addItem(thingName.value); thingName.value=''">
+    search
+</button>
+
+</div>
+
+<div *ngFor="let item of foods">
+  <div class="img">
+    <img [src]="item.image" style="width: 250px">
+  </div>
+  <h4>{{item.name}}</h4>
+  <p>{{item.calories}}</p>
+  <p>{{item.quantity}}</p>
+</div>
