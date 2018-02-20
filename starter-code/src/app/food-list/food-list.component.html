@@ -1,3 +1,16 @@
-<p>
-  food-list works!
-</p>
+
+<div class="container">
+  <h1>Menu</h1>
+  <div class="search-field">
+      <label for="things_name"> Search thing: </label>
+      <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+    </div>
+  <div *ngFor="let item of foods | filter:'name':pattern" class="dish">
+    <h2>{{item.name}}</h2>
+    <span>Calories: {{item.calories}}</span>
+    <img src={{item.image}}/>
+    <span>Quantity: {{item.quantity}}</span>
+  </div>
+</div>
+<!-- <span>Image: {{contact.image}}</span> -->
+
