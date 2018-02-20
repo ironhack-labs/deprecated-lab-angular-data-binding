@@ -38,7 +38,9 @@
 <input type="text" [(ngModel)]="pattern">
 <br>
 
-<div class="foods" *ngFor="let food of foods | filter:'name':pattern ">
+<div class="foods" *ngFor="let food of foods | filter:'name':pattern "><br>
+  <button (click)="addItemTodayList(food)"> Add To Todays List  
+    </button>
   <p>
     Food:{{food.name}}
   </p>
@@ -46,6 +48,4 @@
   <p>Quantity:{{food.quantity}}</p>
 
   <img [src]="food.image" width="200px" height="100px">
-  <button (click)="addItemTodayList(food)"> Add To Todays List  
-    </button>
 </div>
