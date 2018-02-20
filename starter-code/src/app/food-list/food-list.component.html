@@ -1,27 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col s10">
-      Search
+      <p>Search</p>
       <input type="text" placeholder="Find by" [(ngModel)]="pattern">
-      Add Food
-      <div>
-        <label for="contact-name"></label>
-        <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
-      </div>
-      <div>
-        <label for="contact-email"></label>
-        <input type="text" [(ngModel)]="newFood.calories" placeholder="email">
-      </div>
-      <div>
-        <label for="contact-phone"></label>
-        <input type="text" [(ngModel)]="newFood.quantity" placeholder="phone">
-      </div>
-      <div>
+      <button (click)="toogleForm()">Add Food</button>
+      <div *ngIf="show">
+        <p>Add Food</p>
+          <div>
+            <label for="contact-name"></label>
+            <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+          </div>
+          <div>
+            <label for="contact-email"></label>
+            <input type="text" [(ngModel)]="newFood.calories" placeholder="email">
+          </div>
+          <div>
+            <label for="contact-phone"></label>
+            <input type="text" [(ngModel)]="newFood.quantity" placeholder="phone">
+          </div>
+          <div>
         <label for="contact-image"></label>
         <input type="text" [(ngModel)]="newFood.image" placeholder="image">
       </div>
       
-      <button (click)="addFood($event)">Submit New Contact</button>
+      <button (click)="addFood($event)">Submit Food</button>
+      </div>
       <table>
         <thead>
           <tr>

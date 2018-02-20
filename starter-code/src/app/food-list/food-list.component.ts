@@ -8,6 +8,7 @@ import foodsList from '../foods';
 })
 export class FoodListComponent implements OnInit {
   total:number=0;
+  show:boolean = false;
   foods:Object[];
   newFood:Object = {};
   newList:object[]=[];
@@ -26,5 +27,9 @@ export class FoodListComponent implements OnInit {
   addList(food){
     this.newList.push(food);
     this.total += food.calories;
+  }
+
+  toogleForm(){
+    this.show = !this.show;
   }
 }
