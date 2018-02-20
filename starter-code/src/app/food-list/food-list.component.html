@@ -1,3 +1,57 @@
-<p>
-  food-list works!
-</p>
+
+<div>
+  <label for="food-search"> Search thing: </label>
+  <input id="food-search" type="text" [(ngModel)]="pattern" name="food-search" placeholder="food name">
+<div>
+
+<div>
+  <label for="thing_name"> Thing Name </label>
+  <input placeholder="new food" type="text" #thingName>
+  <button (click)="addItem(thingName.value); thingName.value=''">add</button>
+</div>
+
+<div>
+  <button type="submit" (click)="handleClick()">Enter new food</button>
+  <!-- // aqui no se como hacer para decirle al boton que me aplique o no la clase del form -->
+</div>
+
+<form (ngSubmit)="addFood(form)" #form="ngForm" [ngClass]="{'invisible': false}" novalidate>  
+  
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled}">
+    <label>Food name</label>
+    <input type="text" name="name" [(ngModel)]="newFood.name" #nameField="ngModel"/>
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled}">
+    <label>Calories</label>
+    <input type="text" name="calories" [(ngModel)]="newFood.calories" #caloriesField="ngModel"/>
+  </div>
+  
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled}">
+    <label>Image</label>
+    <input type="text" name="image" [(ngModel)]="newFood.image" #imageField="ngModel"/>
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled}">
+    <label>Quantity</label>
+    <input type="text" name="quantity" [(ngModel)]="newFood.quantity" #quantityField="ngModel"/>
+  </div>
+
+
+  <div class="field submit">
+    <button type="submit">Save</button>
+  </div>
+
+</form>
+
+<div class="wrapper">
+  <div *ngFor="let paquito of foods | filter:'name':pattern; let i = index" class="food-container">
+    <img src= {{paquito.image}}>
+    <p>{{paquito.name}}</p>
+    <p>{{paquito.calories}} calories </p>
+  </div>
+</div>
+
+
+
+
