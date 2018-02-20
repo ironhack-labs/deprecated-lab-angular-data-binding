@@ -9,11 +9,16 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   processing = false;
   feedbackEnabled = false;
-  foods: Object[];
-  newFood: Object = {};
   createForm = false;
+  foods: Object[];
+  newFood: Object;
+  todaysList: Object[];
+  totalCalories:number;
 
-  constructor() { 
+  constructor() {
+    this.totalCalories = 0;
+    this.newFood = {};
+    this.todaysList= [];
   }
   
   ngOnInit() {
@@ -40,6 +45,11 @@ export class FoodListComponent implements OnInit {
     else{
       this.feedbackEnabled = true;
     }
+  }
+
+  addTodaysList(food){
+    this.todaysList.push(food)
+    this.totalCalories += food.calories;
   }
 
 }

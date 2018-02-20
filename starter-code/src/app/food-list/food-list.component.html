@@ -34,6 +34,13 @@
     </form>
   </div>
 </div>
+<div class="todays-list">
+  <h2>Todays List</h2>
+  <ul *ngFor="let product of todaysList">
+    <li>{{ product.name }}</li>
+  </ul>
+  <span>Total calories</span>: {{ totalCalories }}
+</div>
 <div class="search-food">
   <label for="things_name"> Search thing: </label>
   <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
@@ -48,6 +55,9 @@
     </div>
     <div class="food-image">
       <img [src]="food.image" [alt]="food.name" />
+    </div>
+    <div>
+      <button (click)="addTodaysList(food)">Add</button>
     </div>
   </div>
 </div>
