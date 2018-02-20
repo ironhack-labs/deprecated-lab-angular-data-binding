@@ -32,10 +32,15 @@
   </div>
 </div>
 
+<div>
+  <label for="foods_name" >search food</label>
+  <input type="text" id="foods_name" [(ngModel)]="pattern">
+</div>
+
 
 
 <ul>
-  <li *ngFor='let todayFood of todayFoods'>
+  <li *ngFor="let todayFood of todayFoods ">
     {{todayFood.name}}
     {{todayFood.calories}}
     {{todayFood.quantity}}
@@ -45,7 +50,7 @@
 </ul>
 
 <ul>
-  <li *ngFor='let food of foods'>
+  <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
     name: {{food.name}}
     calories: {{food.calories}}
     quantity: {{food.quantity}}
