@@ -3,6 +3,22 @@
     <input type="text" [(ngModel)]="pattern" >
 </div>
 <br>
+<button (click)="show()">Show Fom for add new Food.</button>
+<br>
+<div *ngIf="visible">
+
+      <label for="Foods-name" >Nombre</label>
+      <input type="text" [(ngModel)]="newFood.name">
+      <br>
+      <label for="Foods-email">Calories </label>
+      <input type="text" [(ngModel)]="newFood.calories">
+      <br>
+      <label for="Foods-image" >Food Photo</label>
+      <input type="text" [(ngModel)]="newFood.image">
+    <br>
+    <button (click)="addFood()">Add New Foods</button>
+  </div>
+<br>
 
 <div *ngFor='let f of foods | foodSearch :"name" :pattern'>
   <hr>
@@ -11,4 +27,5 @@
   <img src={{f.image}} alt="food photo" width="50%">
   <hr>
 </div>
+
 
