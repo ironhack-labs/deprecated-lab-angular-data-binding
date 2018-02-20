@@ -31,12 +31,23 @@
   <ul>
     <li >
       <ul>
-        <li>Name: {{food.name}}</li>
+        <li>Name: {{food.name}} </li>
         <li> calories: {{food.calories}}</li>
         <li>Image: <img src="{{food.image}}"> </li>
+        <button (click)="addTodayFood(form)">Add </button>
       </ul>
     </li>
   </ul>
 </div>
 
-
+<div *ngFor="let todayFood of todayFoods">
+    <ul>
+      <li >
+        <ul>
+          <li>Name: {{food.name}} </li>
+          <li> calories: {{food.calories}}</li>
+          <li>Image: <img src="{{food.image}}"> </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
