@@ -4,9 +4,9 @@
 
 <ul class="food-list">
   <li class="food-item" *ngFor='let food of foods'>
+    <img [src]="food.image" />
     <p>{{ food.name }}</p>
     <p>Calories: {{ food.calories }}</p>
-    <img [src]="food.image"/>
   </li>
 </ul>
 
