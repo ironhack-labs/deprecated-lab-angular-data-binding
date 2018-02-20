@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { SearchablePipe } from './pipe/searchable.pipe';
 import { AddFoodComponent } from './add-food/add-food.component';
+import { TodaySpecialComponent } from './today-special/today-special.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AddFoodComponent } from './add-food/add-food.component';
     FoodListComponent,
     SearchablePipe,
     AddFoodComponent,
+    TodaySpecialComponent,
   ],
   imports: [
     BrowserModule,
