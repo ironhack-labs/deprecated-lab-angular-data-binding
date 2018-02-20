@@ -1,14 +1,16 @@
 .left{
+  box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
   height: 100vh;
   width: 200px;
 }
 .right{
+  box-sizing: border-box;
   display: inline-block;
   height: 100vh;
   overflow: auto;
-  width: calc(100vw - 250px)
+  width: calc(100vw - 250px);
 }
 .food{
   border: 1px solid #18b485;
@@ -42,11 +44,12 @@ button{
 input{
   width: 100%;
   height: 30px;
+  margin-bottom: 10px;
   box-sizing: border-box;
 }
 label{
   display: block;
-  margin: 15px 0 5px 0;
+  margin: 5px 0;
 }
 .filter,
 .form{
@@ -57,6 +60,6 @@ label{
 hr{
   margin: 30px 0;
 }
-ul{
+.today{
   text-align: left;
 }

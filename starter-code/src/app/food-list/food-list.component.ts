@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
 
+class Food {
+  name:string;
+  calories:number;
+}
+
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
@@ -12,6 +17,11 @@ export class FoodListComponent implements OnInit {
   pattern:string;
   showForm:boolean = false;
   todaysFoods: Object[] = [];
+  todaysFood: Object = {
+    name : "",
+    calories : 0,
+  }
+  totalCalories: number = 0;
   constructor() { 
    
   }
@@ -25,8 +35,9 @@ export class FoodListComponent implements OnInit {
   addFood(){
     this.foods.push(this.newFood)
   }
-  addTodayFood(food:Object){
+  addTodayFood(food:Food){
+    console.log(food.calories);
+    this.totalCalories += food.calories;
     this.todaysFoods.push(food)
-    console.log(this.todaysFoods)
   }
 }
