@@ -65,7 +65,9 @@
 
 <div class="todays-food-list">
   <ul>
-    <li *ngFor="let todaysFoods of todaysFood"></li>
+    <li *ngFor="let todaysFoods of todaysFood">
+     <p>{{todaysFoods.name}} - {{todaysFoods.calories}}</p>
+    </li>
     <li>Calories: {{counter}}</li>
   </ul>
 </div>
