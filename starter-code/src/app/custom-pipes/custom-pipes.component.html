@@ -1,0 +1,15 @@
+<!--p>
+  custom-pipes works!
+</p-->
+<div>
+    <label for="foods_name"> Search food: </label>
+    <input id="foods_name" placeholder="food name" type="text" [(ngModel)]="food.name">
+  <div>
+  <h4> Food list </h4>
+  <ul>
+    <li *ngFor="let food of foodList | search:'name':food.name; let i = index">
+          <p>{{ i+1 }}) {{food.name}}</p>
+          <p>{{food.calories}}</p>
+          <img [src]="food.image" [alt]="food.name" width="200">
+  </li>
+</ul>
