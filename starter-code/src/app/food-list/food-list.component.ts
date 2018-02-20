@@ -12,6 +12,8 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
   feedbackEnabled = false; 
+  todaysList: Object[];
+  newForToday: Object = {};
 
   constructor() { }
 
@@ -28,6 +30,10 @@ export class FoodListComponent implements OnInit {
     foods.push(this.newFood);
     this.newFood = {};
     this.createForm = false;
+  }
+
+  addToday(food){
+    console.log(food)
   }
 
 }
