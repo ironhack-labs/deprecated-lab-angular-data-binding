@@ -10,19 +10,19 @@
 
     <div class="row" id="form">
         <div>
-          <label for="Foods-name" >Nombre            </label>
+          <label for="Foods-name" >Nombre</label>
           <input type="text" [(ngModel)]="newFoods.name">
         </div>
         <div>
-          <label for="Foods-email">Calories           </label>
+          <label for="Foods-email">Calories</label>
           <input type="text" [(ngModel)]="newFoods.calories">
         </div>
         <div>
-          <label for="Foods-image" >Foto perfil</label>
+          <label for="Foods-image" >Imagen</label>
           <input type="text" [(ngModel)]="newFoods.image">
         </div>
-        <button (click)="addFoods()">Submit New Foods</button>
-        
+        <button (click)="addFoods()">¡Añadir comida!</button>
+
 </div>
 </div>
 <div *ngFor="let food of foods | filter:'name':pattern; let i = index">
@@ -34,5 +34,13 @@
       <p>{{food.name}}</p>
       <p>{{food.calories}}</p>
     </div>
-  </div>
+    <button (click)="addFoodsDay(food) ">¡Añadir al menú!</button>
+  </div> 
 </div>
+
+<h1>Tú selección</h1>
+<div *ngFor="let food of newMenu">
+  <h3>{{food.name}}</h3>
+  <p>{{food.calories}}</p>
+</div>
+

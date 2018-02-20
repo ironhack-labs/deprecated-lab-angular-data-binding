@@ -10,14 +10,22 @@ import {FilterPipe} from '../pipes/filter.pipe'
 export class FoodListComponent implements OnInit {
   foods = foods;
   newFoods: Object = {};
+  newMenu: Object[];
   constructor() { 
   }
 
   ngOnInit() {
+    this.newMenu = [];
   }
   addFoods(){
     this.foods.push(this.newFoods)
     this.newFoods={};
   }
+
+  addFoodsDay(food){
+    this.newFoods = food
+    this.newMenu.push(this.newFoods)
+  }
 }
+
 
