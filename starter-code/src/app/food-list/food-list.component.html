@@ -53,7 +53,9 @@
         <li>Name: {{food.name}}</li>
         <li>Calories: {{food.calories}}</li>
         <li>Image: <img src="{{food.image}}"> </li>
-        <li><button (click)="addToday(food)"> Add </button></li>
+        <li>Quantity: {{food.quantity}}</li>
+        <li><button (click)="addToday(food)"> Add to todays list </button></li>
+        <li><button (click)="addQuantity(food)"> Add 1 </button></li>
       </ul>
     </li>
   </ul>

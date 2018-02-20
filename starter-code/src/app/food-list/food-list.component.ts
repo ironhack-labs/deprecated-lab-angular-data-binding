@@ -45,4 +45,9 @@ export class FoodListComponent implements OnInit {
     console.log(food)
   }
 
+  addQuantity(food){
+    console.log(food.quantity)
+    food.quantity = food.quantity + 1;
+  }
+
 }
