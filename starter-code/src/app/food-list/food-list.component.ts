@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import foodList from '../foods';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-food-list',
@@ -8,9 +9,34 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  constructor() { }
+  specialFoodsCalories: number = 0;
+  specialFoods: any = [];
+  enableForm: boolean = false;
+  foods: Array<Object>;
+  newFood: Object = {
+    name: null,
+    calories: null,
+    quantity: null,
+    image: null
+  };
+
+  addFood (newFood) {
+    if (!this.enableForm) {
+      console.log("hello there")
+      this.foods.push(newFood);
+      this.newFood = {}
+    }
+    this.enableForm = !this.enableForm;
+  }
 
   ngOnInit() {
+    this.foods = foodList;
   }
+
+  addToSpecial(food) {
+    this.specialFoods.push(food);
+    this.specialFoodsCalories += food.calories;
+  }
+
 
 }
