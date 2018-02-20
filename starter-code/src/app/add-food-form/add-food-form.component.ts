@@ -9,10 +9,15 @@ import foods from '../foods';
 export class AddFoodFormComponent implements OnInit {
   newFood: Object = {};
   feedbackEnabled= false;
+  formAddFood = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showForm() {
+    this.formAddFood = true;
   }
 
   addFood(form){
@@ -20,6 +25,7 @@ export class AddFoodFormComponent implements OnInit {
       foods.push(this.newFood);
       this.newFood = {};
       this.feedbackEnabled = false;
+      this.formAddFood = false;
     } else {
       this.feedbackEnabled = true;
     }

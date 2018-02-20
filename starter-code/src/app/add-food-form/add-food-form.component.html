@@ -1,36 +1,42 @@
-<form (ngSubmit)="addFood(form)" #form="ngForm" novalidate>
+<div class='button-container'>
+  <button (click)="showForm()">Create Food Element</button>
+</div>
 
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
-    <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="newFood.name" #nameField="ngModel" required pattern='[a-z]*[A-Z]*' [disabled]="processing"/>
-    <div *ngIf="feedbackEnabled && nameField.errors">
-      <p *ngIf="nameField.errors.required" class="validation">Name required</p>
-      <p *ngIf="nameField.errors.pattern" class="validation">Name is invalid (only letters)</p>
-    </div>
-  </div>
+<div class='add-form' *ngIf='formAddFood'>
+  <form (ngSubmit)="addFood(form)" #form="ngForm" novalidate>
 
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && caloriesField.errors}">
-    <label>Calories</label>
-    <input type="text" name="calories" [(ngModel)]="newFood.calories" #caloriesField="ngModel" required pattern='[0-9]*' [disabled]="processing"/>
-    <div *ngIf="feedbackEnabled && caloriesField.errors">
-      <p *ngIf="caloriesField.errors.required" class="validation">Calories required</p>
-      <p *ngIf="caloriesField.errors.pattern" class="validation">Calories is invalid (only numbers)</p>
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+      <label>Name</label>
+      <input type="text" name="name" [(ngModel)]="newFood.name" #nameField="ngModel" required pattern='[a-z]*[A-Z]*' [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && nameField.errors">
+        <p *ngIf="nameField.errors.required" class="validation">Name required</p>
+        <p *ngIf="nameField.errors.pattern" class="validation">Name is invalid (only letters)</p>
+      </div>
     </div>
-  </div>
 
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
-    <label>Image URL</label>
-    <input type="text" name="image" [(ngModel)]="newFood.image" #imageField="ngModel" required pattern='^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}' [disabled]="processing"/>
-    <div *ngIf="feedbackEnabled && imageField.errors">
-      <p *ngIf="imageField.errors.required" class="validation">Image required</p>
-      <p *ngIf="imageField.errors.pattern" class="validation">Image URL is invalid</p>
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && caloriesField.errors}">
+      <label>Calories</label>
+      <input type="text" name="calories" [(ngModel)]="newFood.calories" #caloriesField="ngModel" required pattern='[0-9]*' [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && caloriesField.errors">
+        <p *ngIf="caloriesField.errors.required" class="validation">Calories required</p>
+        <p *ngIf="caloriesField.errors.pattern" class="validation">Calories is invalid (only numbers)</p>
+      </div>
     </div>
-  </div>
 
-  <div class="field submit">
-    <button type='submit' [disabled]="processing">Add New Food</button>
-    <div *ngIf="feedbackEnabled && form.invalid">
-      <p class="validation">there are errors in the form, please review the fields</p>
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+      <label>Image URL</label>
+      <input type="text" name="image" [(ngModel)]="newFood.image" #imageField="ngModel" required pattern='^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}' [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && imageField.errors">
+        <p *ngIf="imageField.errors.required" class="validation">Image required</p>
+        <p *ngIf="imageField.errors.pattern" class="validation">Image URL is invalid</p>
+      </div>
     </div>
-  </div>
-</form>
+
+    <div class="field submit">
+      <button type='submit' [disabled]="processing">Add New Food</button>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">there are errors in the form, please review the fields</p>
+      </div>
+    </div>
+  </form>
+</div>
