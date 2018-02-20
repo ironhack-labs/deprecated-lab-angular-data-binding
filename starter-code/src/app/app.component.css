@@ -1,0 +1,11 @@
+.buscador{
+    width: 300px;
+    height: 20px;
+    background-color: aquamarine;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.tex_buscador{
+    width: 300px;
+    margin-left: 70px;
+}
