@@ -1,16 +1,7 @@
-img {
-    width: 250px;
-    height: 250px;
-    margin-top: 20px;
-}
-
 ul {
     list-style: none;
-    width: 25%;
     padding: 15px;
-    float: left;
-    margin-left: 15px;
-    display: inline;
+    width: 75%;
 }
 
 .border{
@@ -28,5 +19,10 @@ ul {
 }
 
 .cantidad {
-    max-width: 30px;
+    max-width: 50px;
+}
+
+img {
+    width: 50%;
+    height: auto;
 }
