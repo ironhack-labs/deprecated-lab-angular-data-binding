@@ -1,0 +1,20 @@
+<p>
+  add-food works!
+</p>
+
+<form (ngSubmit)="addItem(form)" #form="ngForm">
+  <div>
+    <label for="food_name"> Food Name </label>
+    <input name="food" placeholder="new food" type="text" [(ngModel)]="newfood.name" #nameField="ngModel">
+  </div>
+  <div>
+    <label for="food_calories"> Food Calories </label>
+    <input name="calories" placeholder="calories" type="text" [(ngModel)]="newfood.calories" #caloriesField="ngModel">
+  </div>
+  <div>
+    <label for="image"> Image </label>
+    <input name="image" placeholder="image link" type="text" [(ngModel)]="newfood.image" #imageField="ngModel">
+  </div>
+
+  <button> + add </button>
+</form>
