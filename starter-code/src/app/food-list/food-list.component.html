@@ -1,16 +1,32 @@
 <div class="filter">
   <label>Filter:</label>
-  <input type="text" [(ngModel)]="pattern" >
+  <input type="text" [(ngModel)]="pattern">
 </div>
 
-<div *ngFor="let f of foods | filter:'name':pattern;" class="food" > 
+<button (click)="toggleForm()">Add Food</button>
+
+<div class="form" *ngIf=showForm>
+
+  <label for="contact-name">Name:</label>
+  <input type="text" [(ngModel)]="newFood.name">
+
+  <label for="contact-email">Calories:</label>
+  <input type="text" [(ngModel)]="newFood.calories">
+
+  <label for="contact-image">Image:</label>
+  <input type="text" [(ngModel)]="newFood.image">
+
+  <button (click)="addFood();toggleForm()">Create Food</button>
+</div>
+
+<div *ngFor="let f of foods | filter:'name':pattern;" class="food">
   <div class="pic">
     <img [src]="f.image">
   </div>
 
   <div class="data">
     <h4>{{f.name}}</h4>
-    <p>{{f.calories}}</p>
+    <p>{{f.calories}} Calories</p>
     <p>{{f.quantity}}</p>
   </div>
 </div>
