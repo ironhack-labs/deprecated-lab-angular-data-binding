@@ -1,4 +1,13 @@
 <div>
+  <label for="name"> Name </label>
+  <input type="text" [(ngModel)]="newFood.name">
+  <label for="image"> Image </label>
+  <input type="text" [(ngModel)]="newFood.image">
+  <label for="calories"> Calories </label>
+  <input type="number" [(ngModel)]="newFood.calories">
+  <button (click)="addItem();">Add</button>
+</div>
+<div>
   <label for="things_name"> Search food: </label>
   <input id="things_name" type="text" [(ngModel)]="pattern">
 <div>
