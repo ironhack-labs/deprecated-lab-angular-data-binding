@@ -9,6 +9,10 @@ import foods from '../foods';
 
 export class FoodListComponent implements OnInit {
   foodArray: Array<{}>;
+  today = new Date();
+  pattern: string;
+  newFood:Object = {};
+  isFormHidden: string = "";
 
   constructor() {
    }
@@ -17,4 +21,17 @@ export class FoodListComponent implements OnInit {
     this.foodArray = foods;
   }
 
+  addItem() {
+    this.foodArray.push(this.newFood);
+    this.newFood = {};
+  }
+
+  toggleInput() {
+    if (this.isFormHidden === "") { 
+      this.isFormHidden = "hide";
+    } else {
+    this.isFormHidden = "" ;
+    }
+  }
 }
+
