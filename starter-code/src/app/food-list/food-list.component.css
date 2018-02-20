@@ -6,7 +6,7 @@ img {
 
 ul {
   list-style: none;
-  width: 25%;
+  width: 20%;
   padding: 15px;
   float: left;
   margin-left: 15px;
@@ -15,7 +15,7 @@ ul {
 
 .border{
   border: 1px solid gray;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .name {
@@ -29,4 +29,15 @@ ul {
 
 .cantidad {
   max-width: 100px;
+}
+
+.today {
+  width: 100%;
+  min-height: 200px;
+}
+
+.today ul {
+  margin: 5px;
+  width: 15%;
+  padding: 0 0 0 20px;
 }
