@@ -8,3 +8,11 @@
   <label><strong>Buscador:</strong></label>
   <input type="text" [(ngModel)]="pattern">
 </div>
+
+<div>
+  <label for="thing_name"> Food name </label>
+  <input type="text">
+  <button (click)="addFood(name.value); name.value=''">
+      Add
+  </button>
+</div>
