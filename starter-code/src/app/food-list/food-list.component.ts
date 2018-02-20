@@ -10,10 +10,11 @@ export class FoodListComponent implements OnInit {
 
   foods: Object [];
   newFood: Object = {};
-  todaysFood: Object[];
+  todaysFood: Object[] = [{}];
   feedbackEnabled = false;
   display: boolean = false;
   pattern: string;
+  counter: number = 0;
 
 
   constructor() {
@@ -35,7 +36,14 @@ export class FoodListComponent implements OnInit {
   displayForm(){
     this.display = true;
   }
+
   hideForm(){
     this.display = false;
+  }
+
+  addTodaysFood(e){
+    this.todaysFood.push(e);
+    const addCalories = Number(e.calories);
+    this.counter = this.counter + addCalories;
   }
 }

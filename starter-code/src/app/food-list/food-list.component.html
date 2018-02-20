@@ -47,8 +47,8 @@
 </div>
 
 <div>
-  <label for="things_name"> Search by Name: </label>
-  <input id="things_name" placeholder="food name" type="text" [(ngModel)]="pattern">
+  <label for="foods_name"> Search by Name: </label>
+  <input id="foods_name" placeholder="food name" type="text" [(ngModel)]="pattern">
 <div>
 
 <div class="food-list">
@@ -58,7 +58,14 @@
       <p>Calories: {{food.calories}}</p>
       <p>Image: </p><img src='{{food.image}}'>
       <p>Quantity: {{food.quantity}}</p>
-      <button>+</button>
+      <button (click)="addTodaysFood(food)">+</button>
     </li>
+  </ul>
+</div>
+
+<div class="todays-food-list">
+  <ul>
+    <li *ngFor="let todaysFoods of todaysFood"></li>
+    <li>Calories: {{counter}}</li>
   </ul>
 </div>
