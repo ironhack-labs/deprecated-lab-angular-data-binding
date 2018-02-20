@@ -1,15 +1,26 @@
 
-<input class="search" type="text" placeholder="Busca la comida">
-  <div *ngFor="let food of foods" class="container">
+    <div>
+        <label for="things_name"> Search thing: </label>
+        <input id="things_name" placeholder="thing name"
+                type="text" [(ngModel)]="pattern">
+    </div>
+<div>
 
+    <ul *ngFor="let food of foods | filter:'name':pattern; let i = index">
 
-
-      <h1 >{{food.name}}</h1>
-      <hr>
-      <h1>{{food.calories}}</h1>
-      <hr>
-      <img class="img" [src]="food.image">
-
-
+         <li> {{food.name }}</li>
+           <li>{{ food.calories }}</li>
+    <img class="img" src="{{food.image}}">
+  
+</ul>
+<br/>
+  <hr>
 </div>
 
+<div>
+  <label for="form"></label>
+  <input type="text" placeholder="name" [(ngModel)]="newFoods.name">
+  <input type="text" placeholder="calories" [(ngModel)]="newFoods.calories">
+  <input type="text" placeholder="quantity" [(ngModel)]="newFoods.quantity">
+  <button (click)= "AddNewFood(newFoods)">agrega la comidita</button>
+</div>
