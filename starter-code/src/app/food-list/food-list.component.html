@@ -1,3 +1,13 @@
 <p>
   food-list works!
 </p>
+<ul>
+    <div *ngFor="let element of foodArray">
+      <div><img src = {{element.image}}></div>
+      <div>
+        <span> Name: {{element.name}}--</span> 
+        <span> Calories: {{element.calories}}--</span> 
+        <span> Quantity: {{element.quantity}}</span>
+      </div>
+    </div>
+</ul>
