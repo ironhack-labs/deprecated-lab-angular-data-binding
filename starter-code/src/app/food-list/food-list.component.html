@@ -1,6 +1,6 @@
-<p>
-  food-list works!
-</p>
+<div class="general_container">
+
+<div class="container_general">
 <label>Search:
   <input [(ngModel)]="pattern">
 </label>
@@ -37,10 +37,15 @@
     <button (click)="addFoodsDay(food) ">¡Añadir al menú!</button>
   </div> 
 </div>
+</div>
 
+<div class="container_menu">
 <h1>Tú selección</h1>
-<div *ngFor="let food of newMenu">
+<div class="menu" *ngFor="let food of newMenu">
   <h3>{{food.name}}</h3>
   <p>{{food.calories}}</p>
+</div>
+<h2>{{calories}}</h2>
+</div>
 </div>
 
