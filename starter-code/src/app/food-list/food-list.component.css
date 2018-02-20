@@ -1,0 +1,47 @@
+img{
+    max-width: 100%!important;
+}
+
+div#input{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+div#input input{
+    width: 300px;
+    border: 1px solid #3c3434;
+}
+
+article{
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+article div.cal{
+ display: flex;
+ align-items: center;
+ margin-bottom: 30px;
+}
+
+article div.cal p, article div.cal h2{
+    margin-bottom: 0;
+}
+
+article div.cal p{
+    margin-left: 10px;
+    color: red;
+    margin-top: 10px;
+}
+
+article div.cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+article div.cont input{
+    padding: 5px 10px;
+}
