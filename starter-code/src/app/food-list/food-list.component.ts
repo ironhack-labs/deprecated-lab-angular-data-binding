@@ -40,7 +40,8 @@ addFood(form) {
 }
 addTodayFood(e) {
   this.todayFoods.push(e)
-  // this.counter = this.counter + this.foods.calories
+  const addCalories = Number(e.calories)
+  this.counter = this.counter + addCalories
 
 }
 }

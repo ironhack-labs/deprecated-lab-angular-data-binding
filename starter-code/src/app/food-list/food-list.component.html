@@ -41,6 +41,7 @@
     {{todayFood.quantity}}
 
   </li>
+  <li>Calories: {{counter}}</li>
 </ul>
 
 <ul>
@@ -49,6 +50,6 @@
     calories: {{food.calories}}
     quantity: {{food.quantity}}
     <img src="{{food.image}}" alt="">
-    <input type="submit" value="add to today's food" (click)="addTodayFood($event)">
+    <input type="submit" value="add to today's food" (click)="addTodayFood(food)">
   </li>
 </ul>
