@@ -44,12 +44,11 @@
   </div>
 
 </form>
-
 </div>
 
 <div *ngFor="let food of foods | foodsearch:'name':pattern">
   <ul>
-    <li >
+    <li>
       <ul>
         <li>Name: {{food.name}}</li>
         <li>Calories: {{food.calories}}</li>
@@ -60,16 +59,17 @@
   </ul>
 </div>
 
-<!-- <div *ngFor="let article of todaysList">
+<h2> Todays list</h2>
+
+<div *ngFor="let article of foodsToday">
   <ul>
-    <li >
+    <li>
       <ul>
         <li>Name: {{article.name}}</li>
-        <li>Calories: {article.calories}}</li>
-        <li>Image: <img src="{{article.image}}"> </li>
+        <!-- <li>Calories: {food.calories}}</li> -->
       </ul>
     </li>
   </ul>
-</div> -->
+</div>
 
 <div> {{ todaysCalories }} </div>
