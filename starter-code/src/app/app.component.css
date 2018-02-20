@@ -1,0 +1,8 @@
+h2 {
+    color: white;
+    background-color: darkred;
+    width: 90%;
+    height: 35px;
+    padding: 10px;
+    border-radius: 7px;
+}
