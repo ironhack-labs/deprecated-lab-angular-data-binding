@@ -29,18 +29,14 @@ export class FoodListComponent implements OnInit {
   }
 
   addFood(form){
-    console.log("Add contact has been called");
     foods.push(this.newFood);
     this.newFood = {};
     this.createForm = false;
   }
 
   addToday(food){
-    console.log(food)
-    console.log(food.name)
-    console.log(food.calories)
+    // this.todaysList.push(food);
     this.todaysCalories = this.todaysCalories + food.calories;
-    console.log(this.todaysCalories);
   }
 
 }

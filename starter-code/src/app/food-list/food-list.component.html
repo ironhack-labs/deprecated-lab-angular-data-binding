@@ -21,7 +21,7 @@
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
     <label for="food-calories">calories</label>
-    <input type="text" [(ngModel)]="newFood.calories" name = 'calories' #caloriesField="ngModel" required minlength="10">
+    <input type="number" [(ngModel)]="newFood.calories" name = 'calories' #caloriesField="ngModel" required minlength="10">
     <div *ngIf="feedbackEnabled && nameField.errors">
       <p *ngIf="caloriesField.errors.required" class="validation">calories required</p>
       <p *ngIf="caloriesField.errors.minlength" class="validation">calories is too short</p>
@@ -59,3 +59,17 @@
     </li>
   </ul>
 </div>
+
+<!-- <div *ngFor="let article of todaysList">
+  <ul>
+    <li >
+      <ul>
+        <li>Name: {{article.name}}</li>
+        <li>Calories: {article.calories}}</li>
+        <li>Image: <img src="{{article.image}}"> </li>
+      </ul>
+    </li>
+  </ul>
+</div> -->
+
+<div> {{ todaysCalories }} </div>
