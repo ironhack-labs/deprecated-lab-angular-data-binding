@@ -1,0 +1,24 @@
+.food{
+  border: 1px solid #18b485;
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  margin: 20px;
+  padding: 20px;
+  text-align: left;
+}
+.food .pic{
+  width: 40%;
+  min-width: 300px;
+  display: inline-block;
+  height: 140px;
+  text-align: center;
+}
+.food img{
+  max-width: 300px;
+  max-height: 100%;
+}
+.data{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 40px;
+}

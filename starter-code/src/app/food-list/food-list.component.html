@@ -1,3 +1,16 @@
-<p>
-  food-list works!
-</p>
+<div class="filter">
+  <label>Filter:</label>
+  <input type="text" [(ngModel)]="pattern" >
+</div>
+
+<div *ngFor="let f of foods | filter:'name':pattern;" class="food" > 
+  <div class="pic">
+    <img [src]="f.image">
+  </div>
+
+  <div class="data">
+    <h4>{{f.name}}</h4>
+    <p>{{f.calories}}</p>
+    <p>{{f.quantity}}</p>
+  </div>
+</div>
