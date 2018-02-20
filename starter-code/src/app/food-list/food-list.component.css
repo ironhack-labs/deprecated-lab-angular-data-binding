@@ -7,6 +7,10 @@ div#input{
     margin-bottom: 30px;
 }
 
+div#an{
+    text-align: center;
+}
+
 div#input input{
     width: 300px;
     border: 1px solid #3c3434;
@@ -44,4 +48,75 @@ article div.cont{
 
 article div.cont input{
     padding: 5px 10px;
+}
+
+div#ana-for{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+div#ana-for div.in{
+    padding-left: 0!important;
+    margin-bottom: 30px;
+}
+
+div#ana-for div.in input{
+    padding-left: 10px!important;
+}
+
+div#ana-for div.in:last-child{
+    padding-right: 0!important;
+}
+
+div#ana-for div.in button{
+    width: 100%;
+    background: red;
+    color: #fff;
+    cursor: pointer;
+    transition: all .5s;
+    border: none;
+    height: 30px;
+}
+
+div#ana-for div.in button:hover{
+    background: #585858;
+}
+
+div#ana-for div.in input{
+    width: 100%;
+}
+
+div#an i{
+    width: 300px;
+    background: #585858;
+    display: inline-block;
+    padding: 3px;
+    transition: all .5s;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+div#an i:hover{
+    background: red;
+}
+
+div.cont div.ad i{
+    background: #585858;
+    padding: 9px;
+    color: #fff;
+    transition: all .5s;
+    cursor: pointer;
+    border: 1px solid #585858;
+}
+
+div.cont div.ad i:hover{
+    background: red;
+    border: 1px solid red;
+}
+
+aside{
+    background: #ddd;
+    height: 300px;
 }

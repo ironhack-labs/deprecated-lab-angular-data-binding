@@ -1,19 +1,55 @@
 <div class="container">
   <div class="row">
-    <div id="input" class="col-md-12">
-      <input id="input" class="col-md-12" placeholder="thing name" type="text" [(ngModel)]="pattern">
+    <div id="input" class="col-md-8">
+      <input id="input" class="col-md-8" placeholder="thing name" type="text" [(ngModel)]="pattern">
     </div>
-    <article class="col-md-12" *ngFor="let item of foods | filter:'name':pattern; let i = index">
-      <div class="img-div col-md-6">
-        <img src="{{item.image}}" alt="{{item.name}}">
+    <div id="an" class="col-md-8">
+      <i class="ion-plus-round" (click)="showForm()"></i>
+    </div>
+    <div class="col-md-8" id="ana-for" *ngIf="show">
+      <div class="in col-md-3">
+        <input type="text" placeholder="name" [(ngModel)]="newFood.name">
       </div>
-      <div class="cont col-md-6">
-        <div class="cal">
-          <h2>{{item.name}}</h2>
+      <div class="in col-md-3">
+        <input type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+      </div>
+      <div class="in col-md-3">
+        <input type="text" placeholder="image" [(ngModel)]="newFood.image">
+      </div>
+      <div class="in col-md-3">
+        <button (click)="addFood(newFood)">Add</button>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <article class="col-md-12" *ngFor="let item of foods | filter:'name':pattern; let i = index">
+        <div class="img-div col-md-6">
+          <img src="{{item.image}}" alt="{{item.name}}">
+        </div>
+        <div class="cont col-md-6">
+          <div class="cal">
+            <h2>{{item.name}}</h2>
+            <p>{{item.calories}}</p>
+          </div>
+          <div class="ad">
+            <i class="ion-plus-round" (click)="todayFood()"></i>
+            <input type="number" value="0">
+          </div>
+        </div>
+      </article>
+    </div>
+    <aside class="col-md-4 today">
+      <div *ngFor="let item of todayisFood">
+        <div>
+          <img src="{{item.image}}" alt="">
+        </div>
+        <div>
+          <p>{{item.name}}</p>
+        </div>
+        <div>
           <p>{{item.calories}}</p>
         </div>
-        <input type="number" value="0">
       </div>
-    </article>
+
+    </aside>
   </div>
 </div>
