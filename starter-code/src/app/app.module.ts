@@ -7,15 +7,13 @@ import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { SearchablePipe } from './pipe/searchable.pipe';
 import { AddFoodComponent } from './add-food/add-food.component';
-import { TodaySpecialComponent } from './today-special/today-special.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
     SearchablePipe,
-    AddFoodComponent,
-    TodaySpecialComponent,
+    AddFoodComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,41 @@
+
+h1{
+  font-size: 700%;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  padding-right: 200px;
+}
+
+.center-tittle {
+  margin-left: 200px;
+}
+
+.hearder-wrapper {
+  background-image: url('../assets/heart.png');
+	display: flex;
+	flex-direction: row;
+}
+
+.header-container {
+  width: 500px;
+}
+
+.container-wrapper{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+
+}
+
+.container-left{
+  display: flex;
+  width: 500px;
+}
+
+.container-right{
+  display: flex;
+  flex-direction: row;
+}

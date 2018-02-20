@@ -10,11 +10,20 @@ export class AddFoodComponent implements OnInit {
 
   foods: Object[];
   newfood: Object = {};
+  showSelected: Boolean = false;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+  }
+
+  showform(){
+    this.showSelected = true;
+  }
+
+  hideform(){
+    this.showSelected = false;
   }
 
   addItem(form) {
