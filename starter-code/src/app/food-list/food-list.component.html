@@ -2,6 +2,14 @@
   food-list works!
 </p>
 
+<h4> Stuff list </h4>
+  
+    <div>
+        <label for="foods_name"> Search food: </label>
+        <input id="foods_name" placeholder="food name"
+                type="text" [(ngModel)]="pattern">
+      <div>
+
 <button type="button" (click)='showHideForm()'>Form</button>
 
 <div *ngIf='showForm'>
@@ -41,9 +49,9 @@
 </div>
 
 <ul>
-  <li *ngFor="let food of foods">
-      <span>Name: {{ food.name }} </span>
-      <span>Calories: {{ food.calories }} </span>
-      <img src="{{ food.image }}"/>
-  </li>
-</ul>
+    <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
+      <span> Name: {{ food.name }}</span>
+      <span>Calories: {{ food.calories }}</span>
+      <span>Image: <img src="{{ food.image }}"/></span>
+    </li>
+  </ul>
