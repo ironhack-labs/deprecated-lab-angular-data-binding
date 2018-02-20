@@ -3,9 +3,10 @@
   <input type="text" [(ngModel)]="pattern">
 </div>
 <div class='today-food' *ngIf="todayFood.length > 0">
-  <h4>Today's food</h4>
+  <h3>Today's food</h3>
+  <h4>Total Calories: {{ calorieCount }}</h4>
   <ul>
-    <li *ngFor="let food of todayFood">{{food.name}}</li>
+    <li *ngFor="let food of todayFood; index as i">{{food.food.name}} x{{todayFood[i].quantity}}</li>
   </ul>
 </div>
 <div class='add-food-container'>
@@ -61,6 +62,7 @@
       <li>{{ food.calories }}</li>
       <li>{{ food.quantity}}</li>
     </ul>
+    <input type="number" value="1" name="quantity" [(ngModel)]="quantity">
     <button (click)=addTodayFood(food)>I ate this today</button>
   </div>
 </div>

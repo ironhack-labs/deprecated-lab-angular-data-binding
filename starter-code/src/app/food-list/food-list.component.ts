@@ -12,6 +12,8 @@ export class FoodListComponent implements OnInit {
   todayFood: Object[] = [];
   showForm: Boolean = false;
   feedbackEnabled: Boolean = false;
+  calorieCount = 0;
+  quantity = 1;
   constructor() {}
 
   ngOnInit() {
@@ -38,6 +40,10 @@ export class FoodListComponent implements OnInit {
   }
 
   addTodayFood(food) {
-    this.todayFood.push(food);
+    this.todayFood.push({
+      food: food,
+      quantity: this.quantity
+    });
+    this.calorieCount += food.calories * this.quantity;
   }
 }
