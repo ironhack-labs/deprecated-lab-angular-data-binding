@@ -1,0 +1,9 @@
+.food-list{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.food-item{
+  margin: 15px;
+  padding: 10px;
+}
