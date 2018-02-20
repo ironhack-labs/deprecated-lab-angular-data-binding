@@ -1,0 +1,15 @@
+.imagen_comida{
+    width: 150px;
+}
+.container{
+    display: flex;
+    border: 1px solid black;
+    width: 300px;
+}
+.container_1{
+    flex-direction: row;
+    padding: 5px;
+}
+.container_2{
+    flex-direction: row
+}

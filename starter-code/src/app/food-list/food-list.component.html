@@ -1,3 +1,38 @@
 <p>
   food-list works!
 </p>
+<label>Search:
+  <input [(ngModel)]="pattern">
+</label>
+
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+<div *ngIf="show">
+
+    <div class="row" id="form">
+        <div>
+          <label for="Foods-name" >Nombre            </label>
+          <input type="text" [(ngModel)]="newFoods.name">
+        </div>
+        <div>
+          <label for="Foods-email">Calories           </label>
+          <input type="text" [(ngModel)]="newFoods.calories">
+        </div>
+        <div>
+          <label for="Foods-image" >Foto perfil</label>
+          <input type="text" [(ngModel)]="newFoods.image">
+        </div>
+        <button (click)="addFoods()">Submit New Foods</button>
+        
+</div>
+</div>
+<div *ngFor="let food of foods | filter:'name':pattern; let i = index">
+  <div class="container">
+    <div class="container_2">
+      <img [src]="food.image" class="imagen_comida">
+    </div>
+    <div class="container_1">
+      <p>{{food.name}}</p>
+      <p>{{food.calories}}</p>
+    </div>
+  </div>
+</div>
