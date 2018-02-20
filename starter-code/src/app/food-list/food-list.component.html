@@ -1,7 +1,7 @@
 <div class="left">
 
   <div class="filter">
-    <label>Filter:</label>
+    <label><strong>Filter:</strong></label>
     <input type="text" [(ngModel)]="pattern">
   </div>
 
@@ -29,7 +29,7 @@
     <ul>
       <li *ngFor="let tf of todaysFoods">{{tf.name}}</li>
     </ul>
-    <span>Today's Calories: {{totalCalories}}</span>
+    <strong>today's calories: {{totalCalories}}</strong>
   </div>
 
 </div>
@@ -41,7 +41,7 @@
   
     <div class="data">
       <h4>{{f.name}}</h4>
-      <p>{{f.calories}} Calories</p>
+      <p>{{f.calories}} calories</p>
       <p>{{f.quantity}}</p>
       <button (click)="addTodayFood(f)" >Eat today!</button>
     </div>
