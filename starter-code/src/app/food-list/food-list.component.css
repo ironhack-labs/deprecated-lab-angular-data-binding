@@ -1,0 +1,22 @@
+.foods{
+    display:inline-block;
+    border: 1px solid red;
+    width: 300px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    background-color: rgb(88, 104, 155)
+}
+ul{
+    text-align: center;
+   
+}
+li{
+    display: inline-block;
+}
+hr{
+    width: 50%
+}
+.total ,  h2{
+    text-align: center
+}
