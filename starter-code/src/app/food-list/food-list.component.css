@@ -1,0 +1,32 @@
+img {
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    width: 25%;
+    padding: 15px;
+    float: left;
+    margin-left: 15px;
+    display: inline;
+}
+
+.border{
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.calories {
+    font-style: italic;
+}
+
+.cantidad {
+    max-width: 30px;
+}

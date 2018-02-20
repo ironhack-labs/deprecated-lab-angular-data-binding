@@ -1,3 +1,25 @@
-<p>
-  food-list works!
-</p>
+<div class="center">
+  <div>
+    <input placeholder="Nombre del alimento" type="text" [(ngModel)]="newFood.name">
+    <input placeholder="Indique calorias" type="text" [(ngModel)]="newFood.calories">
+    <input placeholder="Imagen" type="text" [(ngModel)]="newFood.image">
+    <button (click)="addItem(newFood)">Añade un alimento</button>
+  </div><br><hr>
+  <div>
+    <input placeholder="Search..." type="text" [(ngModel)]="pattern">
+    <h2>Calorias totales de hoy: <span>{{totalCalories}} cal</span></h2>
+    <ul *ngFor="let hoy of listToday">
+        <li *ngIf="hoy.quantity > 1">
+            {{ hoy.name }} - {{ hoy.calories }} Calories x {{ hoy.quantity }}</li>
+            <li *ngIf="hoy.quantity == 1">{{ hoy.name }} - {{ hoy.calories }} Calories</li>    </ul>
+  </div>
+  <div *ngFor="let comida of foodsList | filter:'name':pattern; let i = index">
+    <ul class="border">
+      <li class="name">{{comida.name | uppercase}}</li>
+      <li class="calories">{{comida.calories}}</li>
+      <img src={{comida.image}} alt="">
+      <li><label>Cantidad ingerida hoy: </label><input type="number" value="1" #quantity class="cantidad"><input (click)="addToday(comida, quantity.value)" type="button" value="+"></li>
+      <p>hola {{quantity.value}}</p>
+    </ul>
+  </div>
+</div>
