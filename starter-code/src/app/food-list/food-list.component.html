@@ -10,7 +10,10 @@
 </div>
 <br>
 <br>
-<div>
+<button (click)="toggleForm()">Show Form</button>
+
+<div *ngIf=show>
+
 <label for="food_search">Food-name:</label>
 <input type="text "id="name" [(ngModel)]="newFood.name">
 <label for="food_search">Calories:</label>
@@ -19,10 +22,8 @@
 <input type="text "id="image" [(ngModel)]="newFood.image">
 <label for="food_search">Quantity:</label>
 <input type="number "id="quantity" [(ngModel)]="newFood.quantity">
+<button (click)="addItem();toggleForm()"> AddFood</button>
 
-
-<button (click)="addItem()"> Add
-</button>
 </div>
 <br>
 

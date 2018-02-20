@@ -7,12 +7,13 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  total:number = 0;
+  total: number = 0;
+  show: boolean = false;
   name: string = "";
   calories: number;
   image: string = "";
   quantity: number = 0;
-  newList: Object[]=[]
+  newList: Object[] = []
   foods: Object[];
   newFood: Object = {
     name: this.name,
@@ -31,9 +32,12 @@ export class FoodListComponent implements OnInit {
     this.newFood = {};
   }
   addItemTodayList(food) {
-    this.total+=food.calories
+    this.total += food.calories
     this.newList.push(food)
     console.log(this.total)
+  }
+  toggleForm() {
+    this.show = !this.show;
   }
 
 }
