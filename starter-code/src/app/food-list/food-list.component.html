@@ -1,3 +1,59 @@
 <p>
   food-list works!
 </p>
+
+
+<div>
+  <button (click)="ShowButton()">add food</button>
+  <div *ngIf="showSelected">
+    <form  (ngSubmit)="HideButton()" #form="ngForm" novalidate>
+      <div class='field' [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+        <label for="foodName">food name</label>
+        <input type="text" [(ngModel)]='newFood.name' name='name' #nameField='ngModel' >
+      </div>
+
+      <div class='field' [ngClass]="{'has-error': feedbackEnabled && caloriesField.errors}">
+          <label for="foodCal">food calories</label>
+          <input type="text" [(ngModel)]='newFood.calories' name='calories' #caloriesField='ngModel' >
+      </div>
+
+      <div class='field' [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+          <label for="foodImage">food image</label>
+          <input type="text" [(ngModel)]='newFood.image' name='image' #imageField='ngModel' >
+      </div>
+
+      <div class='field' [ngClass]="{'has-error': feedbackEnabled && quantityField.errors}">
+          <label for="foodQuantity">food quantity</label>
+          <input type="text" [(ngModel)]='newFood.quantity' name='quantity' #quantityField='ngModel' >
+      </div>
+      <button type="submit" (click)="addFood(form)" >submit food</button>
+
+    </form>
+  </div>
+</div>
+
+<div>
+  <label for="foods_name" >search food</label>
+  <input type="text" id="foods_name" [(ngModel)]="pattern">
+</div>
+
+
+
+<ul>
+  <li *ngFor="let todayFood of todayFoods ">
+    {{todayFood.name}}
+    
+
+  </li>
+  <li>Calories: {{counter}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
+    name: {{food.name}}
+    calories: {{food.calories}}
+    quantity: {{food.quantity}}
+    <img src="{{food.image}}" alt="">
+    <input type="submit" value="add to today's food" (click)="addTodayFood(food)">
+  </li>
+</ul>
