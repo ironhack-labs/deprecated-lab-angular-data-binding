@@ -39,11 +39,11 @@ export class FoodListComponent implements OnInit {
     }
   }
 
-  addTodayFood(food) {
+  addTodayFood(food, quantity) {
     this.todayFood.push({
       food: food,
-      quantity: this.quantity
+      quantity: quantity
     });
-    this.calorieCount += food.calories * this.quantity;
+    this.calorieCount += food.calories * quantity;
   }
 }

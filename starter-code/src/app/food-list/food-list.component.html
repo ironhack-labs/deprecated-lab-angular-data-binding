@@ -62,7 +62,7 @@
       <li>{{ food.calories }}</li>
       <li>{{ food.quantity}}</li>
     </ul>
-    <input type="number" value="1" name="quantity" [(ngModel)]="quantity">
-    <button (click)=addTodayFood(food)>I ate this today</button>
+    <input #quantityInput type="number" value="1" name="quantity" >
+    <button (click)="addTodayFood(food, quantityInput.value)">I ate this today</button>
   </div>
 </div>
