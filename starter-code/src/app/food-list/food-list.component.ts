@@ -4,7 +4,7 @@ import foods from '../foods';
 class Food {
   name:string;
   calories:number;
-  quantity:number = 0;
+  quantity:number = 1;
 }
 
 @Component({
@@ -17,12 +17,14 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   pattern:string;
   showForm:boolean = false;
-  todaysFoods: Object[] = [];
-  todaysFood: Object = {
+  todaysFoods: Array<Food> = [];
+  todaysFood: Food = {
     name : "",
     calories : 0,
+    quantity : 1
   }
   totalCalories: number = 0;
+  addQuantity:number = 1;
   constructor() { 
    
   }
@@ -37,8 +39,14 @@ export class FoodListComponent implements OnInit {
     this.foods.push(this.newFood)
   }
   addTodayFood(food:Food){
-    if(food.quantity > 0){
-      this.totalCalories += (food.calories * food.quantity);
+    if(this.addQuantity > 0){
+      for (let i = 0; i < this.todaysFoods.length; i++ ){
+        if(this.todaysFoods[i].name == food.name ){
+          this.todaysFoods[i].quantity += this.addQuantity;
+          return
+        }
+      }
+      this.totalCalories += (food.calories * this.addQuantity);
       this.todaysFoods.push(food)
     } 
   }
