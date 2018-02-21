@@ -43,11 +43,11 @@ export class FoodListComponent implements OnInit {
       for (let i = 0; i < this.todaysFoods.length; i++ ){
         if(this.todaysFoods[i].name == food.name ){
           this.todaysFoods[i].quantity += this.addQuantity;
-          console.log(this.todaysFoods[i])
+          this.totalCalories += (this.todaysFoods[i].calories * this.addQuantity);
           return
         }
       }
-      this.totalCalories += (food.calories * this.addQuantity);
+      this.totalCalories += (food.calories * food.quantity);
       this.todaysFoods.push(food)
     } 
   }
