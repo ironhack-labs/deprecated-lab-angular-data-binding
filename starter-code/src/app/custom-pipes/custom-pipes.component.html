@@ -16,7 +16,7 @@
 </div>
 
 <div>
-  <button (click)="showFoodForm()">Add food</button>
+  <button (click)="showFoodForm()" class="waves-effect waves-light btn">Add food</button>
 </div>
 
 <div *ngIf="addFoodForm === true">
@@ -31,11 +31,12 @@
 
 
   <h4> Food list </h4>
+  
   <ul>
     <li *ngFor="let food of foodList | search:'name':food.name; let i = index">
           <p>{{ i+1 }}) {{food.name}}</p>
           <p>{{food.calories}}</p>
           <img [src]="food.image" [alt]="food.name" width="200">
-          <button (click)="addCalories(food.calories); addFoodToday(food.name)">Add food</button>
+          <button (click)="addCalories(food.calories); addFoodToday(food.name)" class="btn-floating green">Add</button>
   </li>
 </ul>
