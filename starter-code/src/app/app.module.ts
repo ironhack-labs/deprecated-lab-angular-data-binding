@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { FoodListComponent } from './food-list/food-list.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Ng2SearchPipeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
