@@ -1,3 +1,39 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+    Search
+    <input type="text" placeholder="Find by" [(ngModel)]="pattern">
+    Add Food
+    <div>
+      <label for="contact-name"></label>
+      <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+    </div>
+    <div>
+      <label for="contact-email"></label>
+      <input type="text" [(ngModel)]="newFood.calories" placeholder="email">
+    </div>
+    <div>
+      <label for="contact-phone"></label>
+      <input type="text" [(ngModel)]="newFood.quantity" placeholder="phone">
+    </div>
+    <div>
+      <label for="contact-image"></label>
+      <input type="text" [(ngModel)]="newFood.image" placeholder="image">
+    </div>
+    <button (click)="addFood($event)">Submit New Contact</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+          <th>quantity</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tr *ngFor = "let f of food | filter:'name':pattern">
+        <th>{{f.name}}</th>
+        <th>{{f.calories}}</th>
+        <th><option value="{{f.quantity}}">{{f.quantity}}</option></th>
+        <th><img src={{f.image}} alt="" width="100"></th>
+      </tr>
+    </table>
+    
+    </div>
