@@ -1,3 +1,55 @@
 <p>
   food-list works!
 </p>
+
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+<div>
+
+<div class="registration" *ngIf="showForm">
+  <form >
+    <div class="field" >
+        <label for="food-name">Name</label>
+        <input type="text" [(ngModel)]="newFood.name" name = 'name'>
+    </div>
+    <div class="field">
+        <label for="food-calories">Calories</label>
+        <input type="text" [(ngModel)]="newFood.calories" name = 'name'>
+    </div>
+    <div class="field">
+        <label for="food-image">Image Url</label>
+        <input type="text" [(ngModel)]="newFood.image" name = 'image'>
+    </div>
+    <button (click)="addFood(form)">Submit New Food </button>
+  </form>
+</div>
+
+
+<div *ngFor="let food of foods | foodSearch: 'name':pattern ">
+  <ul>
+    <li >
+      <ul>
+        <li>Name: {{food.name}} </li>
+        <li> calories: {{food.calories}}</li>
+        <li>Image: <img src="{{food.image}}"> </li>
+        <button (click)="addTodayFood(food)">Add </button>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="food" *ngIf="showFood"></div>
+  <div *ngFor="let food of todayFoods">
+    <ul> Today Food:
+      <li >
+        <ul>
+          <li>Name: {{food.name}} </li>
+          <li> calories: {{food.calories}}</li>
+          <li>Image: <img src="{{food.image}}"> </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
