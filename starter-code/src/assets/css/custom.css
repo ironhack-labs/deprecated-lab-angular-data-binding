@@ -1,7 +1,7 @@
 .mat-button.mat-primary {
   background: #5cb85c;
   color: white !important;
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 0.65em;
   margin-top: 10px;
   padding: 6px 7px;

@@ -14,6 +14,7 @@ export class FoodListComponent implements OnInit {
   totalCalories: number = 0;
   myMenuIndexesAdded: Array<number> = [];
   indexClicked: number;
+  visible:boolean;
   constructor() {
   }
   ngOnInit() {
@@ -23,6 +24,7 @@ export class FoodListComponent implements OnInit {
     this.newFood['quantity']=1;
     this.foods.push(this.newFood);
     this.newFood = {};
+    this.visible = false;
   }
   addMenu(food) {
     this.notEmpty = true;

@@ -14,28 +14,22 @@
           </div>
           <div class="qty">
             <input class="calories-input" type="number" min="1" value="1" [(ngModel)]="food.quantity"> </div>
-          <!-- <button class="btn btn-success addMenu" (click)="addMenu(food)">add to my menu</button> -->
           <button class="addMenu" mat-button color="primary" (click)="addMenu(food)">add to my menu</button>
         </div>
       </div>
     </div>
     <div class="col-sm-4 text-center">
       <div class="new-food-wrapper">
-        <p>
-          <a class="btn btn-primary" data-toggle="collapse" href="#newFood" role="button" aria-expanded="false" aria-controls="newFood">Add new food</a>
-        </p>
-        <div class="collapse" id="newFood">
-          <div class="form-group">
-            <label for="name">Food name</label>
-            <input type="text" class="form-control" placeholder="Pizza" [(ngModel)]="newFood.name"> </div>
-          <div class="form-group">
-            <label for="calories">Calories</label>
-            <input type="number" class="form-control" placeholder="500" name="calories" [(ngModel)]="newFood.calories"> </div>
-          <div class="form-group">
-            <label for="src">Image url</label>
-            <input type="text" class="form-control" placeholder="http://myimage.jpg" name="src" [(ngModel)]="newFood.image"> </div>
-          <button (click)="addFood()" class="btn btn-success" role="button" id="addIt">Add it!</button>
-        </div>
+        <mat-expansion-panel [expanded]='visible'>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Add new item </mat-panel-title>
+            <mat-panel-description> Use this form </mat-panel-description>
+          </mat-expansion-panel-header>
+            <mat-form-field><input matInput placeholder="Food name" [(ngModel)]="newFood.name"></mat-form-field>
+            <mat-form-field><input matInput placeholder="Food calories" [(ngModel)]="newFood.calories"></mat-form-field>
+            <mat-form-field><input matInput placeholder="http://myimage.jpg" [(ngModel)]="newFood.image"></mat-form-field>
+            <button  (click)="addFood()" mat-button id="addIt">add to my menu</button>
+        </mat-expansion-panel>
       </div>
       <div class="menu-container" *ngIf="notEmpty">
         <div class="menu-header">
@@ -62,3 +56,4 @@
     </div>
   </div>
 </div>
+
