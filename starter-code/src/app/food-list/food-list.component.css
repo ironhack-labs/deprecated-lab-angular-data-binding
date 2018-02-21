@@ -1,0 +1,12 @@
+.img{
+    width: 200px;
+
+}
+.container{
+    width: 230px;
+    height: 320px;
+    border-style: solid;
+    text-align: center;
+    margin-top: 2%;
+    border-radius: 20%;
+}
