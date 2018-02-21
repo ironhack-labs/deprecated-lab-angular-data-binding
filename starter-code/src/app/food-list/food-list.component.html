@@ -1,3 +1,39 @@
 <p>
-  food-list works!
+  Lets get healthy!!!
 </p>
+<div>
+    <label for="food-name"></label>
+    <input type="text" [(ngModel)]="newItem.name">
+</div>
+<div>
+    <label for="food-calories"></label>
+    <input type="text" [(ngModel)]="newItem.calories">
+</div>
+<div>
+    <label for="food-image"></label>
+    <input type="text" [(ngModel)]="newItem.image">
+</div>
+<div>
+    <label for="food-quantity"></label>
+    <input type="text" [(ngModel)]="newItem.quantity">
+</div>
+<button (click)="addFood()">Add Food</button>
+
+<div>
+  <label for="item_name"> Search for food</label>
+  <input id="item_name" placeholder="food name"
+          type="text" [(ngModel)]="pattern">
+<div>
+<div>
+  <ul>
+      <li *ngFor="let item of foods | filter:'name':pattern; let i = index">
+          <p>Name : {{item.name}}</p>
+          <p>Calories : {{item.calories}}</p>
+          <img [src]="item.image"/>
+          <p>Quantity : {{item.quantity}}</p>      
+      </li>
+  </ul>
+</div>
+
+
+ 
