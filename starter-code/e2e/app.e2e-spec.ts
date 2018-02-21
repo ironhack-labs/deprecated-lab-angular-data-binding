@@ -1,10 +1,10 @@
-import { ContactAppPage } from './app.po';
+import { LabAngularDataBindingPage } from './app.po';
 
-describe('contact-app App', function() {
-  let page: ContactAppPage;
+describe('lab-angular-data-binding App', function() {
+  let page: LabAngularDataBindingPage;
 
   beforeEach(() => {
-    page = new ContactAppPage();
+    page = new LabAngularDataBindingPage();
   });
 
   it('should display message saying app works', () => {

@@ -1,0 +1,26 @@
+<input type="text" [(ngModel)]="search"><br>
+<button (click)="toggleFrom()">Add food</button><br>
+
+<form *ngIf=status>
+  <input type="text" name="name" id="name" [(ngModel)]="newFood.name">
+  <input type="text" name="calories" id="calories" [(ngModel)]="newFood.calories">
+  <input type="text" name="image" id="image" [(ngModel)]="newFood.image">
+  <input type="submit" value="Save Food" (click)=addFood()>
+</form>
+
+<ul>
+  <li *ngFor="let food of foods | filter : 'name': search">
+    {{ food.name }}<br>
+    {{ food.calories }}<br>
+    {{ food.quantity }}<br>
+    
+     <img width="30" src="{{ food.image }}"/><br>
+     <br/>
+     <button (click)=gettotalCalories(food)>Get calories for each items</button>
+  </li>
+</ul>
+
+<h1>Total calories today:</h1>
+<ul>
+  <h4>{{calories}}</h4>
+</ul>
