@@ -1,7 +1,22 @@
 img {
   width: 200px;
+  height: 150px;
 }
 
 ul {
   list-style: none;
+}
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.food-list div {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  text-align: center;
 }

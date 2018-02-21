@@ -59,8 +59,7 @@
     <img src={{food.image}} alt="">
     <ul>
       <li>{{ food.name }}</li>
-      <li>{{ food.calories }}</li>
-      <li>{{ food.quantity}}</li>
+      <li>{{ food.calories }} kcal</li>
     </ul>
     <input #quantityInput type="number" value="1" name="quantity" >
     <button (click)="addTodayFood(food, quantityInput.value)">I ate this today</button>
