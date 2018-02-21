@@ -1,3 +1,12 @@
-<p>
-  food-list works!
-</p>
+
+
+<h1>List of foods</h1>
+
+<div id="foodContainer">
+  <article class="foodItem" *ngFor='let food of foods | filter:"name":pattern'>
+    <h3>{{food.name}}</h3>
+    <img src="{{food.image}}" alt="Photo of {{food.name | lowercase}}" width="400px">
+    <p>Calories {{food.calories}}</p>
+    <button (click)="addThisFood(food)">Add</button>
+  </article>
+</div>
