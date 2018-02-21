@@ -1,3 +1,125 @@
-<p>
-  food-list works!
-</p>
+<div class="main">
+  <div class="list">
+      <h2>Available foods</h2>
+      <div class="search">
+          <p>{{searched}}</p>
+          <input type="text"
+            [(ngModel)] = "searched" 
+            (keyup)="filterFoods()"
+            placeholder="Search...">
+      </div>      
+      <div class="food-card" *ngFor="let food of foodList">
+        <div class="food-img">
+          <img class="food-img" [src]="food.image">
+        </div>
+        <div class="food-details">
+          <div>
+              <h4>{{food.name}}</h4>
+          </div>
+          <div class="food-info">
+            <div class="food-calories">
+              <p><strong>Calories: </strong> {{food.calories}}</p>
+            </div>
+            <div class="food-quantity">
+              <p><strong>Quantity: </strong> {{food.quantity}}</p>
+            </div>
+          </div>
+        </div> 
+        <div>
+          <button (click) = "addToTodayList(food)">Add to today's menu</button>
+        </div> 
+      </div>
+      <button (click)="toggleForm()">Add food</button>
+      
+      <form 
+        *ngIf="showForm"
+        (ngSubmit)="createFood(form)"
+        #form = "ngForm"
+        novalidate>
+        <div class="field">
+          <label for="name">Name:</label>
+          <input type="text"
+            name = "name"
+            #name = "ngModel"
+            [(ngModel)] = "newFood.name"
+            required>
+            <div *ngIf = "showErrorMessage && name.errors">
+              <p *ngIf = "name.errors.required"
+                class="validation">
+                {{requiredMsg}}
+              </p>
+            </div>
+        </div>
+        <div class="field">
+          <label for="calories">Calories:</label>
+          <input type="number"
+            name = "calories"
+            #calories = "ngModel"
+            [(ngModel)] = "newFood.calories"
+            required>
+            <div *ngIf = "showErrorMessage && calories.errors">
+              <p *ngIf = "calories.errors.required"
+                class="validation">
+                {{requiredMsg}}
+              </p>
+            </div>
+        </div>
+        <div class="field">
+          <label for="name">Quantity:</label>
+          <input type="number"
+            name = "quantity"
+            #quantity = "ngModel"
+            [(ngModel)] = "newFood.quantity"
+            required>
+            <div *ngIf = "showErrorMessage && quantity.errors">
+              <p *ngIf = "quantity.errors.required"
+                class="validation">
+                {{requiredMsg}}
+              </p>
+            </div>
+        </div>
+        <div class="field">
+          <label for="name">Image URL:</label>
+          <input type="text"
+            name = "img-url"
+            #imgUrl = "ngModel"
+            [(ngModel)] = "newFood.image"
+            required>
+            <div *ngIf = "showErrorMessage && imgUrl.errors">
+              <p *ngIf = "imgUrl.errors.required"
+                class="validation">
+                {{requiredMsg}}
+              </p>
+            </div>
+        </div>
+        <button type="submit"
+          [disabled] = "processing">
+          Submit
+        </button>      
+      </form>      
+  </div>
+  <div class="today-list">
+    <h2>Today's food</h2>
+    <h4>Total calories: {{totalCalories}}</h4>
+    <div class="food-card" *ngFor="let food of todayList">
+      <div class="food-img">
+        <img class="food-img" [src]="food.image">
+      </div>
+      <div class="food-details">
+        <div>
+            <h4>{{food.name}}</h4>
+        </div>
+        <div class="food-info">
+          <div class="food-calories">
+            <p><strong>Calories: </strong> {{food.calories}}</p>
+          </div>
+          <div class="food-quantity">
+            <p><strong>Quantity: </strong> {{food.quantity}}</p>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+
+</div>
+
