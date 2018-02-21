@@ -94,6 +94,12 @@ const foods: Object[] = [
     calories: 125,
     image: "https://i.imgur.com/URhdrAm.png",
     quantity: 0
+  },
+  {
+    name: "Mierda",
+    calories: 1000,
+    image: "http://1.bp.blogspot.com/-gNcOHfzIfdI/TmTyirsB_lI/AAAAAAAAACw/PT8TN5eZSiM/s1600/mierda.jpg",
+    quantity: 0
   }
 ]
 
