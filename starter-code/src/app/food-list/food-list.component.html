@@ -1,3 +1,56 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col s10">
+      <p>Search</p>
+        <input class="form-control form-control-lg" type="text" placeholder="Product"[(ngModel)]="term">
+        <button (click)="toogleForm()">Add Food</button>
+        <div *ngIf="show">
+            <div>
+                <label for="contact-name"></label>
+                <input type="text" [(ngModel)]="newFoods.name" placeholder="Name">
+              </div>
+              <div>
+                <label for="contact-email"></label>
+                <input type="text" [(ngModel)]="newFoods.calories" placeholder="Calories">
+              </div>
+              <div>
+                <label for="contact-phone"></label>
+                <input type="text" [(ngModel)]="newFoods.quantity" placeholder="Quantity">
+              </div>
+              <div>
+            <label for="contact-image"></label>
+            <input type="text" [(ngModel)]="newFoods.image" placeholder="Image">
+          </div>
+          </div>
+          <button (click)="addProduct($event)">Submit Food</button>
+          
+          
+<table *ngFor="let user of foods | filter: term"  class="table">
+   
+    <tbody>
+      <tr>
+        <th scope="row">name</th>
+        <td>{{user.name}}</td>
+ 
+      </tr>
+      <tr>
+        <th scope="row">Calories</th>
+        <td>{{user.calories}}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">Img</th>
+        <td><img src="{{user.image}}" width="100px" height="100px"></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+
+
+
+
+
