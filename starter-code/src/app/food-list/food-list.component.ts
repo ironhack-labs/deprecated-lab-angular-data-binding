@@ -8,9 +8,42 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  constructor() { }
+  foods: Object [];
+  newFood: Object = {};
+  todaysFood: Object[] = [{}];
+  feedbackEnabled = false;
+  display: boolean = false;
+  pattern: string;
+  counter: number = 0;
 
-  ngOnInit() {
+
+  constructor() {
+    this.foods;
   }
 
+  ngOnInit() {
+    this.foods = foods;
+  }
+
+  submitForm(form) {
+    this.feedbackEnabled = true;
+    if (form.valid) {
+       this.foods.push(this.newFood);
+       this.newFood = '';
+       this.feedbackEnabled = false;
+    }
+  }
+  displayForm(){
+    this.display = true;
+  }
+
+  hideForm(){
+    this.display = false;
+  }
+
+  addTodaysFood(e){
+    this.todaysFood.push(e);
+    const addCalories = Number(e.calories);
+    this.counter = this.counter + addCalories;
+  }
 }
