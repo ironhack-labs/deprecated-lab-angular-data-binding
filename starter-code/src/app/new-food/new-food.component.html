@@ -1,0 +1,18 @@
+<div class="new-food-wrapper">
+  <mat-expansion-panel [expanded]='visible'>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Add new item </mat-panel-title>
+      <mat-panel-description> Use this form </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <input matInput placeholder="Food name" [(ngModel)]="newFood.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Food calories" [(ngModel)]="newFood.calories">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="http://myimage.jpg" [(ngModel)]="newFood.image">
+    </mat-form-field>
+    <button (click)="addFood()" mat-button id="addIt">add to my menu</button>
+  </mat-expansion-panel>
+</div>

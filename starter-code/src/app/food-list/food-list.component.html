@@ -25,12 +25,24 @@
             <mat-panel-title> Add new item </mat-panel-title>
             <mat-panel-description> Use this form </mat-panel-description>
           </mat-expansion-panel-header>
-            <mat-form-field><input matInput placeholder="Food name" [(ngModel)]="newFood.name"></mat-form-field>
-            <mat-form-field><input matInput placeholder="Food calories" [(ngModel)]="newFood.calories"></mat-form-field>
-            <mat-form-field><input matInput placeholder="http://myimage.jpg" [(ngModel)]="newFood.image"></mat-form-field>
-            <button  (click)="addFood()" mat-button id="addIt">add to my menu</button>
+            <form (ngSubmit)="submitForm(newFood)" #newFood="ngForm">
+              <mat-form-field><input required matInput placeholder="Food name" name="name" type="text" #newFoodName="ngModel" [(ngModel)]="newFood.name" minlength="3"></mat-form-field>
+              <mat-form-field><input required matInput placeholder="Food calories" name="calories" type="number" #newFoodCalories="ngModel" [(ngModel)]="newFood.calories"></mat-form-field>
+              <mat-form-field><input required matInput placeholder="http://myimage.jpg" name="image" type="url" #newFoodImage="ngModel" [(ngModel)]="newFood.image" minlength="3" pattern="https?://.+"></mat-form-field>
+              <button mat-button id="addIt">add to my menu</button>
+              <div *ngIf="newFoodName.errors && (newFoodName.dirty || newFoodName.touched)">
+                <small class="error"> Name must be at least 3 characters long. </small>
+              </div>
+              <div *ngIf="newFoodCalories.errors && (newFoodCalories.dirty || newFoodCalories.touched)">
+                <small class="error"> Calories is required. </small>
+              </div>
+              <div *ngIf="newFoodImage.errors && (newFoodImage.dirty || newFoodImage.touched)">
+                <small class="error"> Image is required and must be a valid URL </small>
+              </div>
+            </form>
         </mat-expansion-panel>
       </div>
+      <!-- <app-new-food></app-new-food> -->
       <div class="menu-container" *ngIf="notEmpty">
         <div class="menu-header">
           <h5>My weekly menu</h5>
