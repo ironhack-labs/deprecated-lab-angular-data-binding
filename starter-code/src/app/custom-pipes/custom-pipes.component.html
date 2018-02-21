@@ -1,0 +1,39 @@
+<div class="containerall">
+<h3> Search Food </h3> 
+<div>
+  <label for="things_name"> Search thing: </label> <input id="things_name" placeholder="thing name"type="text" [(ngModel)]="pattern">
+</div>
+<h3> Add New Item </h3> 
+<div>
+  <label for="thing_name"> Thing Name </label>
+  <input placeholder="Food Name" type="text" #thingName> 
+  <br>
+  <label for="thing_calories"> Calories </label>
+  <input placeholder="Calories" type="number" #thingCalories> 
+  <br>
+  <label for="photo"> Photo </label>
+  <input placeholder="Photo" type="text" #thingPhoto> 
+  <button (click)="addItem(thingName.value);thingName.value;addItem(thingCalories.value);thingCalories.value;addItem(thingPhoto.value);thingPhoto.value=''"> add </button> 
+</div>
+
+<h3> Foods List </h3> 
+  
+  <div class="container-contacts">
+    <div *ngFor="let f of foods| filter:'name':pattern; let i = index">
+      <div class="contactinfo">
+        <div class="name">
+          <h3>{{f.name}}</h3>
+        </div>
+        <div class="calories">
+          <h4>{{f.calories}}</h4>
+        </div>
+        <div class="quantity">
+          <h4>{{f.quantity}}</h4>
+        </div>
+        <div class="photo">
+          <img [src]="f.image" alt="" style="width: 150px">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
