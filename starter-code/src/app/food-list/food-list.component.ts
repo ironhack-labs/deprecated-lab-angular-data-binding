@@ -8,6 +8,9 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  display: boolean = false;
+  newFood: Object = {};
+  todayFoods: object[];
 
   constructor() { }
 
@@ -15,4 +18,19 @@ export class FoodListComponent implements OnInit {
     this.foods = foods;
   }
 
+  showForm() {
+    this.display=true;
+  }
+
+  addItem () {
+    if (this.display === true) {
+      this.foods.push(this.newFood);
+      this.display = false;
+    } 
+    
+  }
+
+  addToday(todayFood) {
+    this.todayFoods.push(todayFood);
+  }
 }
