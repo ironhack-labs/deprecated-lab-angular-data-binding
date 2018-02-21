@@ -11,27 +11,26 @@
 </div>
 
 <h2>List of Foods</h2>
-  <div class="container-wrapper">
-    <div class="container-left">
+<div class="container-wrapper">
+  <div class="container-left">
 
-      <div *ngFor="let food of foods | searchable:'name':pattern"  class="left">
-        <ul>
-          <li>
-            <div class="food-wrapper">
-            <div class="food-container">
-              <p> Food: {{ food.name }} <br>
-              Calories: {{ food.calories }} 
-              <img [src]="food.image" /> </p>
-            </div>
-            <div>
-            <button (click)=addTodaySpecial(food)><strong> Add to today's</strong></button>
-            </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-
+    <div *ngFor="let food of foods | searchable:'name':pattern"  class="left">
+      <ul>
+        <li>
+          <div class="food-wrapper">
+          <div class="food-container">
+            <p> Food: {{ food.name }} <br>
+            Calories: {{ food.calories }} 
+            <img [src]="food.image" /> </p>
+          </div>
+          <div>
+          <button (click)=addTodaySpecial(food)><strong> Add to today's</strong></button>
+          </div>
+          </div>
+        </li>
+      </ul>
     </div>
+
   </div>
 
   <div class="container-right">
