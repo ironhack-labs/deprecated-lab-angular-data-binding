@@ -1,3 +1,56 @@
-<p>
-  food-list works!
-</p>
+
+
+<div class="container">
+  
+   <h1>Menu</h1>
+   <form class="create-dish" (ngSubmit)="addDish(form)" #form="ngForm" novalidate>
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+      <label>Name</label>
+      <input type="text" name="name" [(ngModel)]="newDish.name" #nameField="ngModel" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && nameField.errors">
+        <p *ngIf="nameField.errors.required" class="validation">Name required</p>
+      </div>
+    </div>
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && caloriesField.errors}">
+      <label>Calories</label>
+      <input type="number" name="calories" [(ngModel)]="newDish.calories" #emailField="ngModel" required [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && caloriesField.errors">
+        <p *ngIf="caloriesField.errors.required" class="validation">Calories required</p>
+      </div>
+    </div>
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+      <label>Image</label>
+      <input type="text" name="image" [(ngModel)]="newDish.image" #imageField="ngModel" required [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && imageField.errors">
+        <p *ngIf="imageField.errors.required" class="validation">Image required</p>
+      </div>
+    </div>
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && quantityField.errors}">
+        <label>Quantity</label>
+        <input type="number" name="quantity" [(ngModel)]="newDish.quantity" #quantityField="ngModel" required [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && quantityField.errors">
+          <p *ngIf="quantityField.errors.required" class="validation">Quantity required</p>
+        </div>
+      </div>
+    <div class="field submit">
+      <button type="submit" [disabled]="processing">Create a dish</button>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">There are errors in the form, please review the fields</p>
+      </div>
+    </div>
+  </form>
+  <div class="search-field">
+    <label for="things_name"> Search dish: </label>
+    <input id="things_name" placeholder="Enter the dish name" type="text" [(ngModel)]="pattern">
+  </div>
+  <div *ngFor="let item of foods | filter:'name':pattern" class="dish">
+    <h2>{{item.name}}</h2>
+    <span>Calories: {{item.calories}}</span>
+    <img src={{item.image}}/>
+    <input id="number" type="number" value="{{item.quantity}}" placeholder="0">
+    <button>Add dish</button>
+    <!-- <span>Quantity: {{item.quantity}}</span> -->
+  </div>
+</div>
+<!-- <span>Image: {{contact.image}}</span> -->
+
