@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class LabAngularDataBindingPage {
+export class ContactAppPage {
   navigateTo() {
     return browser.get('/');
   }

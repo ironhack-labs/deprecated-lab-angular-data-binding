@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.28.3",
-    "name": "lab-angular-data-binding"
+    "name": "contact-app"
   },
   "apps": [
     {
@@ -58,10 +58,10 @@
     "spec": {
       "class": false,
       "component": false,
-      "directive": true,
+      "directive": false,
       "module": false,
       "pipe": false,
-      "service": true
+      "service": false
     }
   }
 }
