@@ -9,10 +9,10 @@
   <input placeholder="Food Name" type="text" #thingName> 
   <br>
   <label for="thing_calories"> Calories </label>
-  <input placeholder="Calories" type="text" #thingCalories> 
+  <input placeholder="Calories" type="number" #thingCalories> 
   <br>
   <label for="photo"> Photo </label>
-  <input placeholder="Photo" type="text" #thingCalories> 
+  <input placeholder="Photo" type="text" #thingPhoto> 
   <button (click)="addItem(thingName.value);thingName.value;addItem(thingCalories.value);thingCalories.value;addItem(thingPhoto.value);thingPhoto.value=''"> add </button> 
 </div>
 
