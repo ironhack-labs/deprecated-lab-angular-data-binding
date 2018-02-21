@@ -1,3 +1,71 @@
-<p>
-  food-list works!
-</p>
+<div class="container-fluid search">
+  <div>
+    <input [(ngModel)]="pattern" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 text-center">
+      <div class="row food">
+        <div *ngFor="let food of foods | filter:'name':pattern; let i = index" class="food-item col-md-4 col-sm-6 col-12">
+          <div class="img-wrap">
+            <img class="food-img" [src]="food.image" alt="Food image"> </div>
+          <div class="name"> {{food.name}}
+            <span class="calories">{{food.calories}}</span>
+          </div>
+          <div class="qty">
+            <input class="calories-input" type="number" min="1" value="1" [(ngModel)]="food.quantity"> </div>
+          <button class="addMenu" mat-button color="primary" (click)="addMenu(food)">add to my menu</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="new-food-wrapper">
+        <mat-expansion-panel [expanded]='visible'>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Add new item </mat-panel-title>
+            <mat-panel-description> Use this form </mat-panel-description>
+          </mat-expansion-panel-header>
+            <form (ngSubmit)="submitForm(newFood)" #newFood="ngForm">
+              <mat-form-field><input required matInput placeholder="Food name" name="name" type="text" #newFoodName="ngModel" [(ngModel)]="newFood.name" minlength="3"></mat-form-field>
+              <mat-form-field><input required matInput placeholder="Food calories" name="calories" type="number" #newFoodCalories="ngModel" [(ngModel)]="newFood.calories"></mat-form-field>
+              <mat-form-field><input required matInput placeholder="http://myimage.jpg" name="image" type="url" #newFoodImage="ngModel" [(ngModel)]="newFood.image" minlength="3" pattern="https?://.+"></mat-form-field>
+              <button mat-button id="addIt">add to my menu</button>
+              <div *ngIf="newFoodName.errors && (newFoodName.dirty || newFoodName.touched)">
+                <small class="error"> Name must be at least 3 characters long. </small>
+              </div>
+              <div *ngIf="newFoodCalories.errors && (newFoodCalories.dirty || newFoodCalories.touched)">
+                <small class="error"> Calories is required. </small>
+              </div>
+              <div *ngIf="newFoodImage.errors && (newFoodImage.dirty || newFoodImage.touched)">
+                <small class="error"> Image is required and must be a valid URL </small>
+              </div>
+            </form>
+        </mat-expansion-panel>
+      </div>
+      <!-- <app-new-food></app-new-food> -->
+      <div class="menu-container" *ngIf="notEmpty">
+        <div class="menu-header">
+          <h5>My weekly menu</h5>
+        </div>
+        <div class="align-items-center row menu-item-wrapper" *ngFor="let menu of myMenu">
+          <div class="col-sm-2">{{menu.quantity}} x</div>
+          <div class="col-sm-3">
+            <img class="menu-img" [src]="menu.image" alt=""> </div>
+          <div class="col-sm-4">{{menu.name}}</div>
+          <div class="col-sm-3">
+            <span class="cals">{{menu.calories}}</span>
+          </div>
+        </div>
+        <div class="align-items-center row total-cal-wrap">
+          <div class="col-sm-4 offset-sm-8">
+            <div class="total-calories">total calories
+              <br>
+              <span>{{totalCalories}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,1 +1,159 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+header {
+  padding: 50px 0 0;
+  background: #5cb85c;
+}
+
+.header-title {
+  letter-spacing: 30px;
+  text-align: center;
+  color: white;
+  font-size: 1.2em;
+}
+
+img {
+  max-width: 100%;
+}
+
+.img-wrap {
+  text-align: center;
+}
+
+.food-img,
+.menu-img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px dotted grey;
+}
+
+.menu-img {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+app-food-list {
+  width: 100%;
+  display: block;
+}
+
+.search {
+  background: #5cb85c;
+  text-align: center;
+  padding: 20px 0 40px;
+  margin-bottom: 30px;
+}
+
+.search input {
+  width: 50%;
+  display: inline-block;
+  height: 50px;
+  text-align: center;
+}
+
+.menu-item-wrapper {
+  border-bottom: 1px dotted grey;
+  padding: 15px 10px 10px;
+}
+
+.menu-item-wrapper:last-child {
+  border: none;
+}
+
+.menu-item-wrapper .cals,
+.name span {
+  display: inline-block;
+  background: #ffcb0e;
+  margin-left: 20px;
+  padding-top: 11px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.addMenu {
+  font-size: 0.65em;
+  margin-top: 10px;
+  padding: 6px 7px;
+  cursor: pointer;
+}
+
+.name {
+  margin: 10px 0;
+  font-size: 1.4em;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.name span {
+  margin-left: 5px;
+  padding-top: 11px;
+  height: 45px;
+  width: 45px;
+  font-size: 0.7em;
+}
+
+.calories-input {
+  width: 80px;
+  text-align: center;
+  color: #3c5810;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.food-item {
+  margin-bottom: 50px;
+}
+
+.new-food-wrapper .btn-primary {
+  background: #5cb85c;
+  border-color: #5cb85c;
+}
+
+.menu-container {
+  margin-top: 50px;
+  border: 1px solid rgb(204, 204, 204);
+  border-bottom: none;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2),
+  0 2px 2px 0 rgba(0, 0, 0, .14),
+  0 1px 5px 0 rgba(0, 0, 0, .12);
+
+  overflow: hidden;
+  padding: 20px 10px 0;
+}
+
+#newFood {
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 10px;
+  padding: 20px 25px 30px;
+}
+
+.menu-header h5 {
+  font-size: 1rem;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.total-cal-wrap {
+  border-bottom: 1px dotted grey;
+}
+
+.total-calories {
+  background: #5bb85c;
+  padding: 10px 2px;
+  width: 100%;
+  min-width: 100px;
+  font-size: .7em;
+  color: white;
+}
+
+.total-calories span {
+  font-size: 2em;
+}
+
+.col-sm-8.text-center {
+  border-right: 1px dotted grey;
+}
