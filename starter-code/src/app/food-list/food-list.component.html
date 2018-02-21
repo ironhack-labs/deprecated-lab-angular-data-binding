@@ -1,3 +1,51 @@
-<p>
-  food-list works!
-</p>
+
+<div class="hearder-wrapper">
+  <div>
+    <h1> Welcome! Search </h1>
+  </div>
+  
+  <div>
+    <label for="things_name"> Search for: </label>
+    <input id="things_name" placeholder="Food name" type="text" [(ngModel)]="pattern">
+  <div>
+</div>
+
+<h2>List of Foods</h2>
+<div class="container-wrapper">
+  <div class="container-left">
+
+    <div *ngFor="let food of foods | searchable:'name':pattern"  class="left">
+      <ul>
+        <li>
+          <div class="food-wrapper">
+          <div class="food-container">
+            <p> Food: {{ food.name }} <br>
+            Calories: {{ food.calories }} 
+            <img [src]="food.image" /> </p>
+          </div>
+          <div>
+          <button (click)=addTodaySpecial(food)><strong> Add to today's</strong></button>
+          </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container-right">
+    <h2> Today's Food & <br> Total Calories: {{ counter }}</h2>
+    <div *ngFor="let today of todaySpecial" class="right">
+      <ul *ngIf="todaySpecial.length > 0">
+        <li>
+          <div class="food-container">
+            <p> Food: {{ today.name }} <br>
+            Calories: {{ today.calories }}
+            <img [src]="today.image" /> </p>
+          </div>
+        </li>
+    </ul>
+    </div>
+  </div>
+
+</div>
