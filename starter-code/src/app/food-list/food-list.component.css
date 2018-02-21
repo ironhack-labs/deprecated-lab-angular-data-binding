@@ -1,0 +1,19 @@
+.comida{
+    display: inline-block;
+    text-align: center;
+}
+.cuadro{
+    border: 1px solid grey;
+    border-radius: 5%;
+    width: 210px;
+    height: 220px;
+    text-align: center;
+    margin: 10px;
+}
+.centro{
+    text-align: center;
+    margin-top: 30px;
+}
+.buscar{
+    text-align: center;
+}

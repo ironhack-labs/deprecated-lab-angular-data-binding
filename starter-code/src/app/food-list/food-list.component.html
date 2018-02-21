@@ -1,3 +1,29 @@
-<p>
-  food-list works!
-</p>
+<div class="buscar">
+  <h1>Supermercados Jesús</h1>
+  <input type="text" [(ngModel)]="term" placeholder="Buscar">
+  <br>
+  <br>
+  <br>
+  <div *ngIf="enableForm">
+    <label for="food-name"></label>
+    <input type="text" [(ngModel)]="newFood.name" placeholder="name">
+    <label for="food-calorias"></label>
+    <input type="text" [(ngModel)]="newFood.calories" placeholder="calorias">
+    <label for="food-image"></label>
+    <input type="text" [(ngModel)]="newFood.image" placeholder="imagen">
+  </div>
+  <br>
+  <button (click)="addFood(newFood)">Añadir producto</button>
+</div>
+
+<div class="centro">
+  <div class="comida" *ngFor="let c of foods | filter:term">
+    <div class="cuadro">
+      <h5>{{c.name}}</h5>
+      <h5>{{c.calories}}</h5>
+      <img src="{{c.image}}" width="200px" height="100" alt="">
+      <button  (click)="addList(foods)">Añadir a lista</button>
+    </div>
+    
+  </div>
+</div>
