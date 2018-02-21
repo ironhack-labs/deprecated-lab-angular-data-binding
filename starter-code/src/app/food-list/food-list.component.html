@@ -4,7 +4,7 @@
       Add new food
   </button>
 
-  <div [class]="isFormHidden">
+  <div [ngClass]="{hide: isFormHidden}">
     <label for="meal_name"> Meal Name </label>
     <input id="meal_name" [(ngModel)]="newFood.name" placeholder="name" type="text" name="name">
 
@@ -25,13 +25,16 @@
             type="text" [(ngModel)]="pattern">
   </div>
 
-  <h4> Food list </h4>
-  <!-- <ul>
-    <li *ngFor="let thing of foodArray | filter:'name':pattern; let i = index">
-      {{ i+1 }}) {{ thing.name }}
-    </li>
-  </ul> -->
+  <div class = "today-foods">
+    <h4> today's foods cal {{getCalories()}}</h4>
+    <ul>
+      <li *ngFor="let thing of myList; let i = index">
+        {{ i+1 }}) {{ thing.name }} with {{ thing.calories }} cal
+      </li>
+    </ul> 
+  </div>
 
+  <h4> Food search </h4>
   <div class="search-result">
     <div *ngFor="let element of foodArray | filter:'name':pattern; let i = index">
       <div><img src = {{element.image}}></div>
@@ -39,8 +42,10 @@
         <span> Name: {{element.name}}--</span> 
         <span> Calories: {{element.calories}}--</span> 
         <span> Quantity: {{element.quantity}}</span>
+        <button (click)="pushToList(i)">Select</button>
       </div>
-  </div>  
-</div>
+    </div>  
+  </div>
+
 
 
