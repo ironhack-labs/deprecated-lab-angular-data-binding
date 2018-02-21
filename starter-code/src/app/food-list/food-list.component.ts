@@ -37,7 +37,7 @@ export class FoodListComponent implements OnInit {
   }
 
   todayFood(q){
-    this.foods.push(q);  
-    console.log("culitos")  
+    console.log(q)
+    this.todayisFood.push(q);  
   }
 }

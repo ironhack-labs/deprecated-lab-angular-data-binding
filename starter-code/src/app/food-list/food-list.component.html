@@ -23,7 +23,7 @@
     <div class="col-md-8">
       <article class="col-md-12" *ngFor="let item of foods | filter:'name':pattern; let i = index">
         <div class="img-div col-md-6">
-          <img src="{{item.image}}" alt="{{item.name}}">
+          <img src="{{item.image}}" alt="">
         </div>
         <div class="cont col-md-6">
           <div class="cal">
@@ -31,22 +31,22 @@
             <p>{{item.calories}}</p>
           </div>
           <div class="ad">
-            <i class="ion-plus-round" (click)="todayFood()"></i>
+            <i class="ion-plus-round" (click)="todayFood(item)"></i>
             <input type="number" value="0">
           </div>
         </div>
       </article>
     </div>
     <aside class="col-md-4 today">
-      <div *ngFor="let item of todayisFood">
+      <div *ngFor="let it of todayisFood">
         <div>
-          <img src="{{item.image}}" alt="">
+          <img src="{{it.image}}" alt="">
         </div>
         <div>
-          <p>{{item.name}}</p>
+          <p>{{it.name}}</p>
         </div>
         <div>
-          <p>{{item.calories}}</p>
+          <p>{{it.calories}}</p>
         </div>
       </div>
 
