@@ -24,7 +24,7 @@ export class FoodListComponent implements OnInit {
     quantity : 1
   }
   totalCalories: number = 0;
-  addQuantity:number = 1;
+  addQuantity: number = 1;
   constructor() { 
    
   }
@@ -43,6 +43,7 @@ export class FoodListComponent implements OnInit {
       for (let i = 0; i < this.todaysFoods.length; i++ ){
         if(this.todaysFoods[i].name == food.name ){
           this.todaysFoods[i].quantity += this.addQuantity;
+          console.log(this.todaysFoods[i])
           return
         }
       }
