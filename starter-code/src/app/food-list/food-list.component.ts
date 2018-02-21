@@ -9,9 +9,10 @@ import todayFoods from '../todayFoods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
-  todayFoods: Object[];
+  todayFoods: Object[] = [{}];
   newFood: Object = {};
   showForm = true;
+  showFood = false;
 
 
   constructor() {}
@@ -27,7 +28,9 @@ export class FoodListComponent implements OnInit {
     this.newFood = {};
     this.showForm=false
   }
-  addTodayFood(){
-    todayFoods.push(this.foods);
+  addTodayFood(e){   
+    todayFoods.push(e);
+    this.showFood = true;
+
   }
-}
+} 
