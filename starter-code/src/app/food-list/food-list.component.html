@@ -35,14 +35,6 @@
         <div class="menu-header">
           <h5>My weekly menu</h5>
         </div>
-        <div class="align-items-center row total-cal-wrap">
-          <div class="col-sm-4 offset-sm-8">
-            <div class="total-calories">total calories
-              <br>
-              <span>{{totalCalories}}</span>
-            </div>
-          </div>
-        </div>
         <div class="align-items-center row menu-item-wrapper" *ngFor="let menu of myMenu">
           <div class="col-sm-2">{{menu.quantity}} x</div>
           <div class="col-sm-3">
@@ -50,6 +42,14 @@
           <div class="col-sm-4">{{menu.name}}</div>
           <div class="col-sm-3">
             <span class="cals">{{menu.calories}}</span>
+          </div>
+        </div>
+        <div class="align-items-center row total-cal-wrap">
+          <div class="col-sm-4 offset-sm-8">
+            <div class="total-calories">total calories
+              <br>
+              <span>{{totalCalories}}</span>
+            </div>
           </div>
         </div>
       </div>
