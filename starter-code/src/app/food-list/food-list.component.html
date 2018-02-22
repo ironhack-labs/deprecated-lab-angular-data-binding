@@ -1,3 +1,67 @@
-<p>
-  food-list works!
-</p>
+<div class='search-container'>
+  <h3>Search</h3>
+  <input type="text" [(ngModel)]="pattern">
+</div>
+<div class='today-food' *ngIf="todayFood.length > 0">
+  <h3>Today's food</h3>
+  <h4>Total Calories: {{ calorieCount }}</h4>
+  <ul>
+    <li *ngFor="let food of todayFood; index as i">{{food.food.name}} x{{todayFood[i].quantity}}</li>
+  </ul>
+</div>
+<div class='add-food-container'>
+  <button (click)="triggerForm()">Add food</button>
+  <div class='form-container' *ngIf="showForm">
+    <form (ngSubmit)="addNewFood(form)" #form="ngForm" novalidate>
+    
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+        <label>Name</label>
+        <input type="text" name="name" [(ngModel)]="newFood.name" #nameField="ngModel" required minlength="6" [disabled]="processing"
+        />
+        <div *ngIf="feedbackEnabled && nameField.errors">
+          <p *ngIf="nameField.errors.required" class="validation">name required</p>
+          <p *ngIf="nameField.errors.minlength" class="validation">name is too short</p>
+        </div>
+      </div>
+    
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && caloriesField.errors}">
+        <label>Calories</label>
+        <input type="calories" name="calories" [(ngModel)]="newFood.calories" #caloriesField="ngModel" required [disabled]="processing"
+        />
+        <div *ngIf="feedbackEnabled && caloriesField.errors">
+          <p *ngIf="caloriesField.errors.required" class="validation">calories required</p>
+          <p *ngIf="caloriesField.errors.minlength" class="validation">calories is too short</p>
+        </div>
+      </div>
+
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+        <label>Image</label>
+        <input type="text" name="image" [(ngModel)]="newFood.image" #imageField="ngModel" required minlength="6" [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && imageField.errors">
+          <p *ngIf="imageField.errors.required" class="validation">image required</p>
+          <p *ngIf="imageField.errors.minlength" class="validation">image is too short</p>
+        </div>
+      </div>
+    
+      <div class="field submit">
+        <button type="submit" [disabled]="processing">Add food</button>
+        <div *ngIf="feedbackEnabled && form.invalid">
+          <p class="validation">there are errors in the form, please review the fields</p>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+<div class='food-list'>
+  <div *ngFor="let food of foods | searchPipe:'name':pattern; let i = index">
+    <img src={{food.image}} alt="">
+    <ul>
+      <li>{{ food.name }}</li>
+      <li>{{ food.calories }} kcal</li>
+    </ul>
+    <input #quantityInput type="number" value="1" name="quantity" >
+    <button (click)="addTodayFood(food, quantityInput.value)">I ate this today</button>
+  </div>
+</div>

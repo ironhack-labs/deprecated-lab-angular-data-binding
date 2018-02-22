@@ -7,10 +7,43 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-
-  constructor() { }
+  foods: Object[];
+  newFood: Object = {};
+  todayFood: Object[] = [];
+  showForm: Boolean = false;
+  feedbackEnabled: Boolean = false;
+  calorieCount = 0;
+  quantity = 1;
+  constructor() {}
 
   ngOnInit() {
+    this.foods = foods;
   }
 
+  triggerForm() {
+    if (this.showForm) {
+      this.showForm = false;
+    } else {
+      this.showForm = true;
+    }
+  }
+
+  addNewFood(form) {
+    if (form.valid) {
+      this.foods.push(this.newFood);
+      this.newFood = '';
+      this.showForm = false;
+      this.feedbackEnabled = false;
+    } else {
+      this.feedbackEnabled = true;
+    }
+  }
+
+  addTodayFood(food, quantity) {
+    this.todayFood.push({
+      food: food,
+      quantity: quantity
+    });
+    this.calorieCount += food.calories * quantity;
+  }
 }
