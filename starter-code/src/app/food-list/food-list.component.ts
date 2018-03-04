@@ -9,6 +9,8 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
+  todayFoods: Object[];
+  food: Object = {};
   classForm: String = 'no-active';
   constructor() { }
 
@@ -22,5 +24,8 @@ export class FoodListComponent implements OnInit {
     // add contact to contacts list
     this.foods.unshift(this.newFood);
     this.classForm = 'no-active';
+  }
+  addFoodList() {
+    this.todayFoods.unshift(this.food);
   }
 }
