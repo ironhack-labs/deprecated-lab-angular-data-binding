@@ -1,5 +1,18 @@
 <h1>Food List</h1>
-<button>Add Food</button>
+
+<button (click)="showForm()">Add Food</button>
+<div class="{{classForm}}">
+  <div>
+    <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <button (click)="addFood()">Submit New Contact</button>
+</div>
 <input [(ngModel)]="pattern" placeholder="enter search term here">
 <div *ngFor="let foods of foods | filter:'name':pattern; let i = index">
   <p>{{foods.name}}</p>

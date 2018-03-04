@@ -13,7 +13,6 @@ export class FilterPipe implements PipeTransform {
     if (!value) {
       return items;
     }
-
     const myPattern = new RegExp(value, 'i');
     return items.filter(it => it[field].match(myPattern));
   }
