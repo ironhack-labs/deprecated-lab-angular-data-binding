@@ -1,5 +1,6 @@
 <h1>Food List</h1>
-<div *ngFor="let foods of foods">
+<input [(ngModel)]="pattern" placeholder="enter search term here">
+<div *ngFor="let foods of foods | filter:'name':pattern; let i = index">
   <p>{{foods.name}}</p>
   <p>{{foods.calories}}</p>
   <img src="{{foods.image}}">
