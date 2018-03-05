@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 import foods from '../foods';
 
 
@@ -8,26 +11,26 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods: Array<Object> = foods;
-  newFood : Object = {};
+  foods: Array < Object > = foods;
+  newFood: Object = {};
   search: string = '';
+  visible: boolean = false;
 
   constructor() {}
 
   ngOnInit() {
     this.foods = foods;
   }
-  addFood():void{
+  addFood(): void {
     console.log("A new food has been added");
     console.log(foods);
     foods.push(this.newFood);
     this.newFood = "";
   }
- showForm():void{
-
-
+  toggleForm(): void {
+    this.visible = !this.visible;
   };
 
 
- 
+
 }
