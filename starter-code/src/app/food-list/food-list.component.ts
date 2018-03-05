@@ -8,11 +8,23 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  food: Object = {};
+  visible: Boolean;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+  }
+
+  showForm() {
+    this.visible = true;
+  }
+
+  addFood() {
+    this.foods.push(this.food);
+    this.food = {};
+    this.visible = false;
   }
 
 }
