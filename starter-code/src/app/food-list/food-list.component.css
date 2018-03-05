@@ -1,0 +1,45 @@
+.container {
+  margin-top: 50px;
+}
+#search-form {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#search-row {
+  display: flex;
+  flex-direction: row;
+}
+.row.item {
+  border: 1px solid black;
+  padding: 30px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#add-button{
+  margin: 4vh;
+}
+
+.calories {
+  color: orange;
+  margin-left: 2vw;
+}
+
+.quantity {
+  margin: 0 auto;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+}
