@@ -14,7 +14,7 @@ export class FoodListComponent implements OnInit {
     name: '',
     calories: 0,
   };
-  counter: Number;
+
   todayFoods: Array<Food> = [];
   classForm: String = 'no-active';
   pattern;
@@ -32,9 +32,7 @@ export class FoodListComponent implements OnInit {
     this.classForm = 'no-active';
   }
   addFoodList(food: Food) {
-    console.log(food)
     this.todayFoods.unshift(food);
-    // this.todayFoods.reduce(this.calories);
   }
   removeFoodList(food: Food) {
     this.todayFoods.splice(food[0], 1);
