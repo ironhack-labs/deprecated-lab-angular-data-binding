@@ -2,8 +2,13 @@
   Food List
 </h2>
 
+<div class="form-group">
+  <label for="search">Search</label>
+  <input type="text" class="form-control" id="search" placeholder="Enter search" [(ngModel)]="pattern" >
+</div>
+
 <div class="container-fluid">
-  <div class="card w-50" *ngFor="let food of foods">
+  <div class="card w-50" *ngFor="let food of foods | filter:'name':pattern">
     <div class="card-body">
       <h5 class="card-title">{{ food.name }}</h5>
       <img src="{{ food.image }}">
