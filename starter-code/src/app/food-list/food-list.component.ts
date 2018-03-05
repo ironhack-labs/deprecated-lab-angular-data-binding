@@ -23,13 +23,22 @@ export class FoodListComponent implements OnInit {
   }
   addFood(): void {
     console.log("A new food has been added");
-    console.log(foods);
+    console.log(this.newFood);
     foods.push(this.newFood);
     this.newFood = "";
+    this.toggleForm();
   }
   toggleForm(): void {
     this.visible = !this.visible;
   };
+
+  increaseQuantity(){
+    alert('plus button clicked');
+  }
+
+decreaseQuantity(){
+  alert('minus button clicked');
+}
 
 
 
