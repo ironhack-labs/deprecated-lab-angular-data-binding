@@ -26,9 +26,10 @@
   </div>
 </div>
 
-<div class="food-container" [class.todayActive]="todayFoods.length">
+<div class="today-food-container" [class.todayActive]="todayFoods.length">
   <h2>todayFood</h2>
-  <div class="card" *ngFor="let food of todayFoods">
+  <h2>Calories Counter:</h2>
+  <div class="card-today" *ngFor="let food of todayFoods">
     <img [src]="food.image">
     <p>{{food.name}}</p>
     <p>{{food.calories}}</p>

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
-import {Food} from '../interfaces/food';
+import { Food } from '../interfaces/food';
 
 @Component({
   selector: 'app-food-list',
@@ -11,13 +11,14 @@ export class FoodListComponent implements OnInit {
   foods: Array<Food>;
   newFood: Food = {
     image: '',
+    name: '',
     calories: 0,
-    name: ''
   };
+  counter: Number;
   todayFoods: Array<Food> = [];
   classForm: String = 'no-active';
   pattern;
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.foods = foods.reverse();
@@ -31,7 +32,11 @@ export class FoodListComponent implements OnInit {
     this.classForm = 'no-active';
   }
   addFoodList(food: Food) {
+    console.log(food)
     this.todayFoods.unshift(food);
+    // this.todayFoods.reduce(this.calories);
   }
-  removeFoodList(food) {}
+  removeFoodList(food: Food) {
+    this.todayFoods.splice(food[0], 1);
+  }
 }
