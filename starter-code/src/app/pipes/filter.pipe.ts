@@ -1,11 +1,11 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
+import {Food} from '../interfaces/food';
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-
-  transform(items: Object[], field: string, value: string): Object[] {
+  transform(items: Array<Food>, field: string, value: string): Object[] {
     if (!items) {
       return [];
     }
