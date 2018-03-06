@@ -1,8 +1,22 @@
 <!-- Search Form Here -->
-<div>
+<div class="search-bar">
   <label for="ironfood"> Search thing: </label>
   <input id="ironfood" placeholder="Food Name" type="text" [(ngModel)]="pattern">
+</div>
+
+<!-- Button to show add form -->
 <div>
+  <button (click) = "buttonClicked()" >Click me to Add a New Food</button>
+</div>
+
+<!-- Form to Add Food -->
+<!-- Ternary Operrator with ngClass to toggle showing form -->
+<div [ngClass]="buttonClick ? 'show-form' : 'hide-form' ">
+    <label for="thing_name"> Thing Name </label>
+    <input placeholder="new thing" type="text" #thingName>
+    <button (click)=" addItem(thingName.value); thingName.value='' ">add</button>
+</div>
+
 
 <!-- Iterate through the Array of Foods -->
 <!-- Custom Piping for Search Filter applied here as well  -->

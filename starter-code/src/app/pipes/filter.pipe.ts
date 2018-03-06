@@ -5,18 +5,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(items: any[], field: string, value:string): any[] {
-    if (!items) {
+  // Got this from the lesson, Look into the Syntax and Logic of this
+  transform(foodItems: any[], field: string, value:string): any[] {
+    if (!foodItems) {
       return [];
     }
 
     if (!value) {
-      return items;
+      return foodItems;
     }
 
     const myPattern = new RegExp(value, 'i');
     // Using the Normal JS Filter Method 
-    return items.filter(it => it[field].match(myPattern));
+    return foodItems.filter(it => it[field].match(myPattern));
   }
 
 }

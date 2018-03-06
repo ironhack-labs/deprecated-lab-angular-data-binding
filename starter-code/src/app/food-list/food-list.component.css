@@ -8,3 +8,15 @@ img{
   width: 33%;
   float: left;
 }
+
+.search-bar, .add-bar{
+  margin: 20px auto;
+}
+
+.show-form{
+  display: block;
+}
+
+.hide-form{
+  display: none;
+}

@@ -13,13 +13,19 @@ export class FoodListComponent implements OnInit {
   foods  : Object[];
   // Define newFood as an empty object //
   newFood: Object = {}
+  buttonClick: boolean = false;
 
   constructor() { }
-
   ngOnInit() {
     // import the foods from the foodList //
     this.foods = foodList;
   }
   
+  // Show "Add New" Form when button is clicked
+  buttonClicked(){
+    this.buttonClick = !this.buttonClick;
+    // Console log to see if buttonClick changes value
+    console.log(this.buttonClick);
+  }
 
 }
