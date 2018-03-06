@@ -1,4 +1,13 @@
-<div class="food-div" *ngFor="let food of foods">
+<!-- Search Form Here -->
+<div>
+  <label for="ironfood"> Search thing: </label>
+  <input id="ironfood" placeholder="Food Name" type="text" [(ngModel)]="pattern">
+<div>
+
+<!-- Iterate through the Array of Foods -->
+<!-- Custom Piping for Search Filter applied here as well  -->
+<div class="food-div" *ngFor="let food of foods | filter:'name':pattern;">
+  <!-- Notice above that filter is just 'name' & NOT food.name -->
   <div>
     <strong>Food:</strong> 
     {{ food.name }}
@@ -12,6 +21,7 @@
     {{ food.quantity }}
   </div>
   <div>
+      <!-- Make sure the image's src property is properly bound -->
     <img [src] ="food.image" alt="{{ food.name }}">
   </div>
 </div> 
