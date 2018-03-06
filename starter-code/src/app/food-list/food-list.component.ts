@@ -10,10 +10,12 @@ import foodList from '../foods';
 })
 export class FoodListComponent implements OnInit {
   // Define foods as an object //
-  foods  : Object[];
+  foods  : Array<Object>; // Or Object[];
   // Define newFood as an empty object. Will push into the Array //
-  newFood: Object = {}
+  newFood: Object = {quantity: 0}
+  todaysFoods: Array<Object> = [];
   buttonClick: boolean = false;
+  calorieCount: number = 0;
 
   constructor() { }
   ngOnInit() {
@@ -29,12 +31,18 @@ export class FoodListComponent implements OnInit {
   }
 
   addNew(){
+    console.log(this.newFood);
     // Push new food into Array
     this.foods.push(this.newFood);
     // Clear the newFood Object
     this.newFood = {};
     // Hide the Form once this button is added
     this.buttonClick = ! this.buttonClick;
+  }
+
+  addToday(foodie){
+    this.todaysFoods.push(foodie)
+    console.log(this.todaysFoods);
   }
 
 }

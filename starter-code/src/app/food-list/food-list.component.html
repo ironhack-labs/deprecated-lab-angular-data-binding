@@ -1,3 +1,12 @@
+<!-- Today's Foods Here -->
+<div>
+  <h1>Today's Foods</h1>
+  <ul>
+    <li *ngFor="let todaysfood of todaysFoods" >
+      {{ todaysfood }}
+    </li>
+  </ul>
+</div>
 <!-- Search Form Here -->
 <div class="search-bar">
   <label for="ironfood"> Search thing: </label>
@@ -44,5 +53,8 @@
   <div>
       <!-- Make sure the image's src property is properly bound -->
     <img [src] ="food.image" alt="{{ food.name }}">
+  </div>
+  <div>
+    <button (click) = "addToday(food.name)">Add to Today's Foods</button>
   </div>
 </div> 
