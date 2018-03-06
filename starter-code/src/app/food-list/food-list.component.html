@@ -1,16 +1,23 @@
 
 <div class="container-fluid">
+    <input [(ngModel)]="name" (keyup)="serchFoods()">
+    <p> Hello {{ name }}</p>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let elem of foods">
         <ul>
          <li>{{elem.name}}</li>
+         
          <li>{{elem.calories}}</li>
+         
          <li><img src="{{elem.image}}"alt=""></li>
-         <li>{{elem.quantity}}</li>   
+         
+         <li>{{elem.quantity}}</li>  
+         
         </ul>
   
       </div>
     </div>
   </div>
     
+  
   
