@@ -14,19 +14,22 @@ export class FoodListComponent implements OnInit {
     displayList: boolean = false;       //this controls the *todayList* section visualization
 
     todayList: String[] = [];
-    totalCalories: Number = 0;
+    totalCalories: number = 0;
+
+    value: number = 1;
+    numberOfItems: number = 1;
 
   constructor() { }
 
-      ngOnInit() {
+      ngOnInit(): void {
         this.foods = foods;
       }
 
-      showForm() {
+      showForm(): void {
           this.display = !this.display;
       }
 
-      addFood() {
+      addFood(): void {
         if(Object.keys(this.newFood).length === 0) {
             this.display = false;
         } else {
@@ -36,12 +39,15 @@ export class FoodListComponent implements OnInit {
         }
       }
 
-      addToTodayList(name, cal) {
-          this.totalCalories += cal;
+      addToTodayList(name, cal): void {
+          this.numberOfItems = this.value;
+          this.totalCalories += cal * this.numberOfItems;
           this.todayList.push(name);
 
           if(this.totalCalories != 0) {
               this.displayList = true;
           }
+
+          this.value = 1;
       }
 }

@@ -46,7 +46,7 @@
             <p class="col s12 center"><span id="name">{{ food.name }}</span> - {{ food.calories }} cal</p>
             <form class="col s8 offset-s2" action="index.html" method="post">
                 <button (click)="addToTodayList(food.name, food.calories)" class="btn col s3 center grey darken-2" type="submit" name="button">+</button>
-                <input class="center col s9" type="number" name="" value="1" min="1">
+                <input [(ngModel)]="value" class="center col s9" type="number" name="numberOfItems" value="1" min="1">
             </form>
         </div>
     </div>
@@ -59,7 +59,7 @@
         <div *ngIf="displayList" class="">
             <div>
                 <h5>Calories: </h5>
-                {{ totalCalories }} <p *ngIf="totalCalories > 1000" style="color: red">Watch out you are getting too FAT</p>
+                {{ totalCalories }} <p *ngIf="totalCalories > 1000" style="color: red">Watch out !!! You'll get too FAT</p>
             </div>
             <div>
                 <h5>Foods</h5>
