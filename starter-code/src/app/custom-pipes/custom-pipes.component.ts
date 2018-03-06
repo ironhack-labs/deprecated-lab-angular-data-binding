@@ -26,6 +26,7 @@ export class CustomPipesComponent implements OnInit {
   addFood(){
     this.foodList.push(this.newFood)
     this.newFood={};
+    this.showForm();
   }
 
   addSpecial(event){

@@ -14,7 +14,7 @@ export class FilterPipe implements PipeTransform {
             return null; 
           }
         
-        const myPattern = value;
+        const myPattern = new RegExp(value, 'i');
         return items.filter(it=>it[name].match(myPattern));
       }
 

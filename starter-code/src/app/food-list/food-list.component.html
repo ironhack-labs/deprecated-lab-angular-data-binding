@@ -10,7 +10,9 @@
       <img [src]="food.image">
     </div>
     <div class="quantity">Quantity: {{food.quantity}}</div>
-      <button class="special-button" (click)="addSpecial(food)">Add to Today's Foods</button>
+    <button class="special-button" (click)="addSpecial(food)">Add to Today's Foods</button>
+    <label for="quantity-input">Quantity:</label>
+    <input type="number" placeholder="Quantity" [(ngModel)]="food.quantity" id="quantity-input">
     <br>
     <hr>
   </div>
@@ -22,7 +24,7 @@
         <li>{{food.name}}</li>
       </ul>
     </div>
-     <p>Calories:{{cal}}</p>
+     <p>Total Calories: {{cal}}</p>
     <hr>
   </div>
 </div>
