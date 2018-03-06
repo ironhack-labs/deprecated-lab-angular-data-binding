@@ -1,3 +1,52 @@
-<p>
-  food-list works!
-</p>
+<p>Hello!</p>
+
+<button (click)="clickButton()">Add A Food!</button>
+
+<div [ngStyle]="{'display':buttonClicked === true ? 'block' : 'none'}">
+  <label for="food-name"> Food Name </label>
+  <input placeholder="Food name" type="text" [(ngModel)]="newFood.name">
+
+  <label for="food-calories"> Food Calories </label>
+  <input placeholder=0 type="number" [(ngModel)]="newFood.calories">
+
+  <label for="food-image"> Food Image </label>
+  <input placeholder="Food image URL" type="text" [(ngModel)]="newFood.image">
+
+  <label for="food-quantity"> Food Quantity </label>
+  <input placeholder="Food quantity" type="number" [(ngModel)]="newFood.number">
+
+  <button (click)="addFood()">
+      Add it!
+  </button>
+</div>
+
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name" type="text" [(ngModel)]="pattern">
+<div>
+
+<div class="half-float">
+  <h4> Food List </h4>
+  <ul>
+    <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
+      <img [src]="food.image" alt="">
+      <p>{{ food.name }}</p>
+      <p>{{ food.calories }}</p>
+      <label for="food-quantity"> Food Quantity </label>
+      <input placeholder="Food quantity" type="number" value="1" [(ngModel)]="food.quantity">
+      <button (click)="addToMyFood(food, food.quantity)">I Ate This!</button>
+    </li>
+  </ul>
+</div>
+
+<div class="half-float">
+  <h4>My Food List</h4>
+  <ul>
+    <li *ngFor="let food of todaysFoods">
+      <img [src]="food.image" alt="">
+      <p>{{ food.name }}</p>
+      <p>{{ food.calories }}</p>
+    </li>
+  </ul>
+  <p>Today's Calories: {{ todaysCalories }}</p>
+</div>
