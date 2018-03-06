@@ -1,0 +1,28 @@
+.food img {
+    height: 90%;
+    width: auto;
+}
+
+.food {
+    height: 15vh;
+    border: 1px solid rgb(189, 189, 189);
+    margin: 1vh 1vw;
+    padding-left: 1vw;
+    padding-top: 1vh;
+}
+
+#name {
+    color: grey;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+.search-bar form {
+    padding: 10px;
+}
+
+.today-list {
+    margin-top: 25vh;
+    position: absolute;
+    margin-bottom: 5vh;
+}
