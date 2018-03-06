@@ -15,7 +15,7 @@
       <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
     </div>
     <div>
-      <input type="text" [(ngModel)]="newFood.calories" placeholder="Calories">
+      <input type="number" [(ngModel)]="newFood.calories" placeholder="Calories">
     </div>
     <div>
       <input type="text" [(ngModel)]="newFood.image" placeholder="Image URL">
@@ -26,13 +26,13 @@
 
 <div class="today-food-container" [class.todayActive]="todayFoods.length">
   <h2>todayFood</h2>
-  <h2>Calories Counter:</h2>
-  <div class="card-today" *ngFor="let food of todayFoods">
+  <h2>Calories Counter: {{totalCalories}}</h2>
+  <div class="card-today" *ngFor="let food of todayFoods; let i = index">
     <img [src]="food.image">
     <p>{{food.name}}</p>
     <p>{{food.calories}}</p>
     <p>{{food.quantity}}</p>
-    <button (click)="removeFoodList(food)">Remove</button>
+    <button (click)="removeFoodList(i)">Remove</button>
   </div>
 </div>
 
@@ -45,4 +45,3 @@
     <button (click)="addFoodList(food)">Today Food</button>
   </div>
 </div>
-
