@@ -1,3 +1,32 @@
+<button (click)="show = !show">Add Food</button>
+
+<br>
+<div *ngIf="!show; else elseBlock"> Click Button To Add Food
+</div>
+<div>
+ <ng-template #elseBlock>
+
+   <label for="food-name"></label>
+   <input type="text" placeholder="name" [(ngModel)]="newFood.name">
+
+   <br>
+   <label for="food-calories"></label>
+   <input type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+
+   <br>
+
+   <label for="food-image"></label>
+   <input type="text" placeholder="image" [(ngModel)]="newFood.image">
+
+   <br>
+   <button (click)="addFood()">Submit Food</button>
+
+
+ </ng-template>
+</div>
+
+<hr>
+
 <div>
   <label for="things_name"> Search Foods: </label>
   <input id="things_name" placeholder="thing name"
