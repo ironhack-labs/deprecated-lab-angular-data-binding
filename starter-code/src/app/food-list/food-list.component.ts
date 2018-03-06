@@ -13,6 +13,7 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
   searchFood: string = "";
+  htmlToAdd: string = "";
   constructor() {}
 
   ngOnInit() {

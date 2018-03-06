@@ -1,6 +1,17 @@
 <p>
   food-list works!
-</p>
+</p>  
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+<br>
+<div *ngIf="show">
+  <div>
+    <label for="thing_name"> Thing Name </label>
+    <input placeholder="new thing" #thingName>
+    <button (click)="addItem(thingName.value); thingName.value=''">
+      add
+    </button>
+  </div>
+</div>
 
 <div>
   <label for="">Search a Food:</label>
@@ -10,7 +21,7 @@
 
 <div class="cards-container">
   <div class="row">
-    <div class="col-sm-4" *ngFor="let food of foods, let i = index" style="width: 20rem;">
+    <div class="col-sm-4" *ngFor="let food of foods">
       <div class="">
         <img class="card-img-top" src="{{food.image}}" alt="Card image cap">
       </div>
