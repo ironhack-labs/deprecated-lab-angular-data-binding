@@ -2,6 +2,12 @@
   food-list works!
 </p>
 
+<div>
+  <label for="">Search a Food:</label>
+  <input [(ngModel)]="searchFood" (keyup)="newSearch()">
+  <p>You have write: {{searchFood}}</p>
+</div>
+
 <div class="cards-container">
   <div class="row">
     <div class="col-sm-4" *ngFor="let food of foods, let i = index" style="width: 20rem;">
