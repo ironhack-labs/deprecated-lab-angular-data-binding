@@ -22,8 +22,10 @@ export class FoodListComponent implements OnInit {
   }
 
   addFood() {
-    this.foods.push(this.food);
-    this.food = {};
+    if(Object.keys(this.food).length !== 0) {
+      this.foods.push(this.food);
+      this.food = {};
+    }
     this.visible = false;
   }
 
