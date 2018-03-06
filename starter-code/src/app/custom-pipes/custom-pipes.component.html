@@ -1,0 +1,28 @@
+<h1 style="text-align:center">Food Search</h1>
+<div class="search-form">
+  <label for="food_name">Search Food:</label>
+  <input id="foods_name" placeholder="Food Name" type="text"
+  [(ngModel)]="pattern">
+</div>
+
+<!-- <ul *ngFor="let food of foodList | filter:'name':pattern"> -->
+  <ul *ngFor="let food of foodList | filter:'name':pattern"> 
+  <li>
+    {{food.name}}
+  </li>
+</ul>
+<br>
+<div class="add">
+  <button (click)="showForm()">Add Food</button>
+</div>
+<div class="add-form" [ngClass]="{transparent: isTransparent}">
+    <h1>Add Food</h1>
+    <label for="new-food-name">Name:</label>
+    <input type="text" [(ngModel)]="newFood.name" id="new-food-name">
+    <label for="new-food-calories">Calories:</label>
+    <input type="number" [(ngModel)]="newFood.calories" id="new-food-calories">
+    <label for="new-food-img-url">Image URL:</label>
+    <input type="text" [(ngModel)]="newFood.image" id="new-food-img-url">
+    <button (click)="addFood()">Submit</button>
+  </div>
+

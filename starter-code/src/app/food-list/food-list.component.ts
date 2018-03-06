@@ -7,10 +7,23 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  foodList: Object[];
+  specialList: Object[] = [];
+  cal: number =0;
 
   constructor() { }
 
   ngOnInit() {
+    this.foodList= foods;
+  }
+  
+  addSpecial(food){
+    if(this.specialList.indexOf(food) === -1){
+    this.specialList.push(food);
+    this.cal += food.calories;
+    
+    console.log(this.specialList)
+    }
   }
 
 }
