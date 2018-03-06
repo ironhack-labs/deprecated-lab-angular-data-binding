@@ -1,22 +1,40 @@
 <div class="row">
     <div class="col s6">
         <div class="add-food col s3">
-            <button class="btn btn-large grey darken-2" type="button" name="button">Add food</button>
+            <button (click)="showForm()" class="btn btn-large grey darken-2" type="button" name="button">Add food</button>
         </div>
         <div class="search-bar col s6 offset-s3">
             <form class="input-field" action="index.html" method="post">
                 <i class="material-icons prefix">search</i>
-                <input type="text" name="" placeholder="Search food" value="">
+                <input [(ngModel)]="searchText" type="text" id="search" placeholder="Search food" name="search">
+                <label for="search">Search</label>
+            </form>
+        </div>
+        <div *ngIf="display" class="col s12">
+            <form action="index.html" method="post">
+                <div class="">
+                    <label for="name">Name: </label>
+                    <input [(ngModel)]="newFood.name" type="text" name="name" value="" placeholder="Type name here...">
+                </div>
+                <div class="">
+                    <label for="calories">Calories: </label>
+                    <input [(ngModel)]="newFood.calories" type="number" name="calories" value="50">
+                </div>
+                <div class="">
+                    <label for="image">ImageURL: </label>
+                    <input [(ngModel)]="newFood.image" type="text" name="image" value="" placeholder="Paste image URL here...">
+                </div>
+                <button (click)="addFood()" class="btn grey darken-2" type="button" name="button">Add</button>
             </form>
         </div>
     </div>
-    <div *ngFor="let food of foods" class="food col s6 z-depth-4">
+    <div *ngFor="let food of foods | filter:'name':searchText" class="food col s6 z-depth-4">
         <img class="circle col s6" src="{{ food.image }}" alt="{{ food.name }} image">
         <div class="col s6 right">
             <p class="col s12 center"><span id="name">{{ food.name }}</span> - {{ food.calories }} cal</p>
             <form class="col s8 offset-s2" action="index.html" method="post">
                 <button class="btn col s3 center grey darken-2" type="submit" name="button">+</button>
-                <input class="center col s9" type="number" name="" value="0" min="0">
+                <input class="center col s9" type="number" name="" value="1" min="1">
             </form>
         </div>
     </div>
