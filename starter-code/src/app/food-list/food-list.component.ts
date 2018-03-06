@@ -10,6 +10,7 @@ export class FoodListComponent implements OnInit {
   foodList: Object[];
   specialList: Object[] = [];
   cal: number =0;
+  newFood: Object = {}
 
   constructor() { }
 
@@ -24,6 +25,13 @@ export class FoodListComponent implements OnInit {
     
     console.log(this.specialList)
     }
+  }
+
+  addFood(){
+    this.foodList.push(this.newFood)
+    console.log(this.foodList)
+    this.newFood={};
+    // this.showForm();
   }
 
 }

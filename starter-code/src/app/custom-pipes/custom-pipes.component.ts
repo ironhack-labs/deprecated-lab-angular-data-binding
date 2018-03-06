@@ -15,7 +15,7 @@ export class CustomPipesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.foodList=foods;
+    this.foodList= foods;
     this.isTransparent = true;
   }
 
@@ -25,6 +25,7 @@ export class CustomPipesComponent implements OnInit {
 
   addFood(){
     this.foodList.push(this.newFood)
+    console.log(this.foodList)
     this.newFood={};
     this.showForm();
   }

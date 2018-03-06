@@ -1,14 +1,13 @@
-<p>
-  food-list works!
-</p>
 
 <div class="main">
-  <div class="search-form">
+  <!-- <div class="search-form">
       <label for="food_name">Search Foods:</label>
       <input id="foods_name" placeholder="Food Name" type="text"
       [(ngModel)]="pattern">
-    </div>
-  <div class="foods" *ngFor="let food of foodList | filter:'name':pattern">
+    </div> -->
+  <div class="foods" *ngFor="let food of foodList">
+  <!-- For Search Form -->
+  <!-- <div class="foods" *ngFor="let food of foodList | filter:'name':pattern"> -->
     <div class="food">
       <div class="name">Name: {{food.name}}</div>
       <div class="calories">Calories: {{food.calories}}</div>

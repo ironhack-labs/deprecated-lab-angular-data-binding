@@ -9,6 +9,10 @@ export class FilterPipe implements PipeTransform {
         if (!items){
               return [];
             }
+
+        if(!value){
+          return null;
+        }
         
         const myPattern = new RegExp(value, 'i');
         return items.filter(it=>it[name].match(myPattern));
