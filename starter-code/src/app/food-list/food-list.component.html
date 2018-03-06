@@ -1,3 +1,46 @@
-<p>
-  food-list works!
-</p>
+
+
+
+
+<h2>Iron Nutrition</h2>
+
+<button (click)='addFood()'>AddFood</button>
+
+<!-- (submit)="pushToFoods(nuevaComida)" -->
+
+<form (submit)="pushtoFoods()"  *ngIf='show'>
+  <input [(ngModel)]="nuevaComida.name" placeholder="name" type="text" name="name" >
+  <br>
+  <input [(ngModel)]="nuevaComida.calories" placeholder="calories" type="text" name="calories" >  <br>
+  <input [(ngModel)]="nuevaComida.image" placeholder="image" type="text" name="image" >
+<input type="submit">
+</form>
+<br>
+<br>
+
+<input placeholder="buscador" [(ngModel)]="search" type="text">
+
+<ul>
+  <li *ngFor="let food of foods | filter:'name':search">
+    <h4>{{food.name}}</h4>
+    <img [src]="food.image" [alt]="food.name" style="width:100px">
+    <p>{{food.calories}}</p>
+    <button (click)="addToday(food)">+</button>
+  </li>
+</ul>
+
+<div *ngIf="todayList.length>0" style="position:fixed; top:0; right:0">
+
+  <h3>Total de caloriras: {{totalCalories}}</h3>
+
+<ul >
+  <li *ngFor="let food of todayList">
+<h4>{{food.name}}</h4>
+<img width="100" [src]="food.image" [alt]="food.name">
+<p>Calorias: {{food.calories}}</p>
+<p>Cuantidad:{{food.quantity}} </p>
+  </li>
+
+</ul>
+
+</div>
