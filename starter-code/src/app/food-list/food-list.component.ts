@@ -11,7 +11,7 @@ import foodList from '../foods';
 export class FoodListComponent implements OnInit {
   // Define foods as an object //
   foods  : Object[];
-  // Define newFood as an empty object //
+  // Define newFood as an empty object. Will push into the Array //
   newFood: Object = {}
   buttonClick: boolean = false;
 
@@ -26,6 +26,15 @@ export class FoodListComponent implements OnInit {
     this.buttonClick = !this.buttonClick;
     // Console log to see if buttonClick changes value
     console.log(this.buttonClick);
+  }
+
+  addNew(){
+    // Push new food into Array
+    this.foods.push(this.newFood);
+    // Clear the newFood Object
+    this.newFood = {};
+    // Hide the Form once this button is added
+    this.buttonClick = ! this.buttonClick;
   }
 
 }

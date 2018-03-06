@@ -15,8 +15,10 @@ img{
 
 .show-form{
   display: block;
+  margin: 30px auto;
 }
 
 .hide-form{
   display: none;
+  margin: 30px auto;
 }
