@@ -1,3 +1,21 @@
 <p>
   food-list works!
 </p>
+
+<div class="cards-container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let food of foods, let i = index" style="width: 20rem;">
+      <div class="">
+        <img class="card-img-top" src="{{food.image}}" alt="Card image cap">
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">{{food.name}}</h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{food.calories}}</li>
+        <li class="list-group-item">{{food.quantity}}</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+</div>
