@@ -1,3 +1,52 @@
-<p>
-  food-list works!
-</p>
+<section class="foods">
+
+<h2>Today Foods!!</h2>
+
+  <ul>
+
+      <li *ngFor="let today of todayFoods">
+        <h4>{{today.quantity}} X {{today.name}}</h4>
+        <img [src]="today.image" [alt]="today.name">
+        <p>{{today.calories}}</p>
+        
+      </li>
+    
+     <h3>Total: {{totalCalories}}</h3>
+
+    </ul>
+
+  <hr>
+
+  <button (click)="addFood()">Add Food </button>
+
+  <h2>Busca tu comida: </h2>
+
+  <form  (submit)="addFoodtotheList()" *ngIf="show">
+
+    <input type="text" name="name" placeholder="name" [(ngModel)]="newfood.name"> <br>
+    <input type="text" name="calories" placeholder="calories" [(ngModel)]="newfood.calories"> <br>
+    <input type="text" name="image" placeholder="image" [(ngModel)]="newfood.image"> <br>
+    <input type="submit">
+  </form>
+
+  <h3>Search by name:</h3>
+
+  <input placeholder="busca"type="text" [(ngModel)]="search">
+
+    <ul>
+
+        <li *ngFor="let f of foods | filter :'name':search">
+          <h4>{{f.name}}</h4>
+          <img [src]="f.image" [alt]="f.name">
+          <p>{{f.calories}}</p>
+
+          <button (click)="addTodayFood(f)">Add to today´s food</button>
+      
+        </li>
+      
+      
+      </ul>
+
+
+  
+</section>

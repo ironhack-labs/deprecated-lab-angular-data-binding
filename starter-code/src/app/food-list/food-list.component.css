@@ -1,0 +1,28 @@
+.foods {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.foods ul{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.foods ul li, img{
+    width:20vw;
+    margin:20px;
+}
+
+.foods li{
+    list-style: none;
+}
+form input{
+    width:25vw;
+}
