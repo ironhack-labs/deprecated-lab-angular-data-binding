@@ -1,3 +1,22 @@
-<p>
-  food-list works!
-</p>
+<button (click)="buttonClickMethod()">Add New Food</button>
+<br>
+<br>
+<input placeholder="Search Foods" type="text" [(ngModel)]="pattern">
+<br>
+<hr>
+<div *ngIf="boolean === false" class="addFood">
+	<input type="text" placeholder="name" [(ngModel)]="newFood.name">
+	<br><input type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+	<br><input type="text" placeholder="image" [(ngModel)]="newFood.image">
+	<button type="submit" (click)="addFood()">Submit</button>
+</div>
+
+<ul *ngFor="let food of foods | filter:'name':pattern; let i = index;" >
+  <li>
+    <b>{{food.name}}</b>
+    <br>
+    <img [src]="food.image"/>
+    <br> Calories: {{food.calories}}
+    <br><button (click)="addList()">Add Food to List</button>
+  </li>
+</ul> 
