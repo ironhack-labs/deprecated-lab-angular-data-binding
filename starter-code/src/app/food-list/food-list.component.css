@@ -1,10 +1,4 @@
-img{
-  width: 150px;
-  height: 150px;
-}
-
 .special-button{
-    margin-left: 15vw;
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -19,3 +13,11 @@ img{
   margin-bottom: 5vh;
 }
 
+.food{
+  width: 50vw;
+}
+
+.search-form{
+  float: right;
+  margin-right: 20vw;
+}

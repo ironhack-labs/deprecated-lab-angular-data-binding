@@ -10,10 +10,6 @@ export class FilterPipe implements PipeTransform {
               return [];
             }
         
-        if (!value){
-            return null; 
-          }
-        
         const myPattern = new RegExp(value, 'i');
         return items.filter(it=>it[name].match(myPattern));
       }
