@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 import foods from '../foods';
 
 @Component({
@@ -7,24 +10,21 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods:Object[];
-  newFood:Object={};
-  // searchFood: string="";
-  constructor() { }
+  foods: Object[];
+  newFood: Object = {};
+  searchFood: string = "";
+  constructor() {}
 
   ngOnInit() {
-    this.foods=foods;
+    this.foods = foods;
   }
 
-  newSearch(){
-    console.log("AAAAAAAA");
-    console.log("AAAAAAAA");
-    console.log("AAAAAAAA");
-    console.log("AAAAAAAA");
-    console.log("AAAAAAAA");
-    console.log("AAAAAAAA");
-    
+  newSearch() {
+    this.foods = foods;
+    this.foods = this.foods.filter((food) => {
+      return food["name"].includes(this.searchFood);
+    });
   }
 
-  
+
 }
