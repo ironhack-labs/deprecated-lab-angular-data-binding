@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<div class="today-food-container" [class.todayActive]="todayFoods.length">
+<div [class.todayActive]="todayFoods.length">
   <h2>todayFood</h2>
   <h2>Calories Counter: {{totalCalories}}</h2>
   <div class="card-today" *ngFor="let food of todayFoods; let i = index">
