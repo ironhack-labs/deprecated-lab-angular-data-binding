@@ -30,17 +30,16 @@ export class FoodListComponent implements OnInit {
   }
 
   addToMyFood(aFood, quantity) {
-    for (var i = 0; i < quantity; i++) {
-      this.todaysFoods.push(aFood);
-    }
+    this.todaysFoods.push(aFood);
 
     this.todaysCalories = this.sumCals(this.todaysFoods);
+    console.log(this.todaysFoods);
   }
 
   sumCals(foodArr) {
     var cals = 0;
     for (var i = 0; i < foodArr.length; i++) {
-      cals += foodArr[i].calories;
+      cals += foodArr[i].calories * foodArr[i].quantity;
     }
     return cals;
   }

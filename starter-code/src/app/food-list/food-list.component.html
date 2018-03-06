@@ -44,7 +44,7 @@
   <ul>
     <li *ngFor="let food of todaysFoods">
       <img [src]="food.image" alt="">
-      <p>{{ food.name }}</p>
+      <p>{{ food.name }}: {{ food.quantity }}</p>
       <p>{{ food.calories }}</p>
     </li>
   </ul>
