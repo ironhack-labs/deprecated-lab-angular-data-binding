@@ -9,21 +9,39 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
     foods: Object[];
     newFood: Object = {};
-    display: boolean = false;
+
+    display: boolean = false;       //this controls the *newFood* form visualization
+    displayList: boolean = false;       //this controls the *todayList* section visualization
+
+    todayList: String[] = [];
+    totalCalories: Number = 0;
 
   constructor() { }
 
-  ngOnInit() {
-    this.foods = foods;
-  }
+      ngOnInit() {
+        this.foods = foods;
+      }
 
-  showForm() {
-      this.display = !this.display;
-  }
+      showForm() {
+          this.display = !this.display;
+      }
 
-  addFood() {
-    this.foods.push(this.newFood);
-    this.newFood = {};
-    this.display = false;
-  }
+      addFood() {
+        if(Object.keys(this.newFood).length === 0) {
+            this.display = false;
+        } else {
+            this.foods.push(this.newFood);
+            this.newFood = {};
+            this.display = false;
+        }
+      }
+
+      addToTodayList(name, cal) {
+          this.totalCalories += cal;
+          this.todayList.push(name);
+
+          if(this.totalCalories != 0) {
+              this.displayList = true;
+          }
+      }
 }

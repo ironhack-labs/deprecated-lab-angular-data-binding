@@ -3,6 +3,10 @@
         <div class="add-food col s3">
             <button (click)="showForm()" class="btn btn-large grey darken-2" type="button" name="button">Add food</button>
         </div>
+
+        <!--***************** Search bar ******************-->
+        <!-- *********************************************** -->
+
         <div class="search-bar col s6 offset-s3">
             <form class="input-field" action="index.html" method="post">
                 <i class="material-icons prefix">search</i>
@@ -10,6 +14,10 @@
                 <label for="search">Search</label>
             </form>
         </div>
+
+        <!--***************** New Food Form ******************-->
+        <!-- *********************************************** -->
+
         <div *ngIf="display" class="col s12">
             <form action="index.html" method="post">
                 <div class="">
@@ -24,18 +32,41 @@
                     <label for="image">ImageURL: </label>
                     <input [(ngModel)]="newFood.image" type="text" name="image" value="" placeholder="Paste image URL here...">
                 </div>
-                <button (click)="addFood()" class="btn grey darken-2" type="button" name="button">Add</button>
+                <button (click)="addFood()" class="btn grey darken-2 col s6 offset-s3" type="button" name="button">Add</button>
             </form>
         </div>
     </div>
+
+    <!--***************** Food List ******************-->
+    <!-- *********************************************** -->
+
     <div *ngFor="let food of foods | filter:'name':searchText" class="food col s6 z-depth-4">
         <img class="circle col s6" src="{{ food.image }}" alt="{{ food.name }} image">
         <div class="col s6 right">
             <p class="col s12 center"><span id="name">{{ food.name }}</span> - {{ food.calories }} cal</p>
             <form class="col s8 offset-s2" action="index.html" method="post">
-                <button class="btn col s3 center grey darken-2" type="submit" name="button">+</button>
+                <button (click)="addToTodayList(food.name, food.calories)" class="btn col s3 center grey darken-2" type="submit" name="button">+</button>
                 <input class="center col s9" type="number" name="" value="1" min="1">
             </form>
+        </div>
+    </div>
+
+    <!--***************** Today's List ******************-->
+    <!-- *********************************************** -->
+
+    <div class="today-list col s1.5 offset-s6">
+        <h3>Today's food</h3>
+        <div *ngIf="displayList" class="">
+            <div>
+                <h5>Calories: </h5>
+                {{ totalCalories }} <p *ngIf="totalCalories > 1000" style="color: red">Watch out you are getting too FAT</p>
+            </div>
+            <div>
+                <h5>Foods</h5>
+                <ul>
+                    <li *ngFor="let food of todayList; index as i">{{ i+1 }}- {{ food }}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

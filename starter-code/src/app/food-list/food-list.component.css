@@ -20,3 +20,9 @@
 .search-bar form {
     padding: 10px;
 }
+
+.today-list {
+    margin-top: 25vh;
+    position: absolute;
+    margin-bottom: 5vh;
+}
