@@ -2,41 +2,58 @@
   Food List
 </h2>
 
-<div class="form-group">
-  <label for="search">Search</label>
-  <input type="text" class="form-control" id="search" placeholder="Enter search" [(ngModel)]="pattern" >
-</div>
-
-<button (click)="showForm()">
-  Add new food
-</button>
-
-<form id="add-new-form" *ngIf="visible" (ngSubmit)="addFood()">
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name" placeholder="Food name" [(ngModel)]="food.name" name="name">
-  </div>
-  <div class="form-group">
-    <label for="calories">Calories:</label>
-    <input type="text" class="form-control" id="calories" placeholder="Calories" [(ngModel)]="food.calories" name="calories">
-  </div>
-  <div class="form-group">
-    <label for="image">Image:</label>
-    <input type="text" class="form-control" id="image" [(ngModel)]="food.image" name="image">
-  </div>
-  <button type="submit" class="btn btn-primary">Add food</button>
-</form>
-
-
-
-
-<div class="container-fluid">
-  <div class="card w-50" *ngFor="let food of foods | filter:'name':pattern">
-    <div class="card-body">
-      <h5 class="card-title">{{ food.name }}</h5>
-      <img src="{{ food.image }}">
-      <p class="card-text">Calories: {{ food.calories }}</p>
-      <p class="card-text">Quantity: {{ food.quantity }}</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" class="form-control" id="search" placeholder="Enter search" [(ngModel)]="pattern" >
     </div>
+      
+    <button (click)="showForm()">
+      Add new food
+    </button>
+      
+    <form id="add-new-form" *ngIf="visible" (ngSubmit)="addFood()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Food name" [(ngModel)]="food.name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="calories">Calories:</label>
+        <input type="text" class="form-control" id="calories" placeholder="Calories" [(ngModel)]="food.calories" name="calories">
+      </div>
+      <div class="form-group">
+        <label for="image">Image:</label>
+        <input type="text" class="form-control" id="image" [(ngModel)]="food.image" name="image">
+      </div>
+      <button type="submit" class="btn btn-primary">Add food</button>
+    </form>
+
+    <div class="container-fluid">
+      <div class="card w-100" *ngFor="let food of foods | filter:'name':pattern">
+        <div class="card-body">
+          <h5 class="card-title">{{ food.name }}</h5>
+          <img src="{{ food.image }}">
+          <p class="card-text">Calories: {{ food.calories }}</p>
+          Quantity: <input class="card-text" type="text" [value]="food.quantity" [(ngModel)]="food.quantity">
+          <button (click)="addItem(food)">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div> 
+
+  <div class="col-md-6">
+      <h4> Today's food: {{ totalCal }} </h4>
+      <ul>
+        <li *ngFor="let foodToday of foodsToday">
+          {{ foodToday.name }} : {{ foodToday.calories }} x {{ foodToday.quantity }}
+        </li>
+      </ul>
   </div>
 </div>
+
+
+
+
+
