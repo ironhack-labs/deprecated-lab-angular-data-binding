@@ -1,0 +1,30 @@
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.foods {
+  display: flex;
+  flex-wrap: wrap;  
+  align-content: center;
+}
+
+.foods li{
+  list-style-type: none;
+  border: 1px solid black;
+
+}
+
+.foods img {
+  width: 200px;
+}
+
+.todays-food{
+  position: relative;
+}
+
+.food-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
