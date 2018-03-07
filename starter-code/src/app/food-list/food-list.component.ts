@@ -41,8 +41,11 @@ export class FoodListComponent implements OnInit {
   }
 
   addToday(foodie){
+    // Push food object into todays Foods array
     this.todaysFoods.push(foodie)
-    console.log(this.todaysFoods);
+    // Add food calories to calorie count
+    this.calorieCount += foodie.calories;
+    console.log(this.calorieCount);
   }
 
 }

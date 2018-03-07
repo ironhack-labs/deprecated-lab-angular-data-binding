@@ -22,3 +22,12 @@ img{
   display: none;
   margin: 30px auto;
 }
+
+.header{
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 300px;
+  padding: 30px 30px;
+  margin: 15px auto;
+  background-color: lightblue;
+}

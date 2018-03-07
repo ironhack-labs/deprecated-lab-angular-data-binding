@@ -1,21 +1,24 @@
 <!-- Today's Foods Here -->
-<div>
-  <h1>Today's Foods</h1>
-  <ul>
-    <li *ngFor="let todaysfood of todaysFoods" >
-      {{ todaysfood }}
-    </li>
-  </ul>
-</div>
-<!-- Search Form Here -->
-<div class="search-bar">
-  <label for="ironfood"> Search thing: </label>
-  <input id="ironfood" placeholder="Food Name" type="text" [(ngModel)]="pattern">
-</div>
+<div class="header">
+  <div>
+    <h1>Today's Foods</h1>
+    <h2>Total Calories: {{ calorieCount }} </h2>
+    <ul>
+      <li *ngFor="let todaysfood of todaysFoods" >
+        {{ todaysfood.name }}
+      </li>
+    </ul>
+  </div>
+  <!-- Search Form Here -->
+  <div class="search-bar">
+    <label for="ironfood"> Search thing: </label>
+    <input id="ironfood" placeholder="Food Name" type="text" [(ngModel)]="pattern">
+  </div>
 
-<!-- Button to show add form -->
-<div>
-  <button (click) = "buttonClicked()" >Click me to Add a New Food</button>
+  <!-- Button to show add form -->
+  <div>
+    <button (click) = "buttonClicked()" >Click me to Add a New Food</button>
+  </div>
 </div>
 
 <!-- Form to Add Food -->
@@ -55,6 +58,6 @@
     <img [src] ="food.image" alt="{{ food.name }}">
   </div>
   <div>
-    <button (click) = "addToday(food.name)">Add to Today's Foods</button>
+    <button (click) = "addToday(food)">Add to Today's Foods</button>
   </div>
 </div> 
