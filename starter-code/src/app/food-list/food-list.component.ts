@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import comidas from './foods';
 
 @Component({
   selector: 'app-food-list',
@@ -9,6 +9,32 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   constructor() { }
+  foods: Object[] = comidas;
+  show: Boolean = false;
+  nuevaComida: Object = {};
+  todayList = [];
+  totalCalories: Number = 0;
+  totalQuantity: Number = 0;
+
+addToday(food) {
+  if (this.todayList.find(comida => food.name === food.name)) {
+    // this.totalQuantity++;
+  }
+  this.todayList.push(food);
+  console.log(this.todayList);
+  this.totalCalories += food.calories;
+
+}
+
+  addFood() {
+    this.show = true;
+
+  }
+
+  pushToFoods() {
+    this.foods.unshift(this.nuevaComida);
+    this.show = false;
+  }
 
   ngOnInit() {
   }
