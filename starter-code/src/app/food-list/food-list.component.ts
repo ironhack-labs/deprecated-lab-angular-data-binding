@@ -18,7 +18,6 @@ export class FoodListComponent implements OnInit {
   todayFoods: Array<Food> = [];
   classForm: string = 'no-active';
   pattern;
-  constructor() { }
 
   ngOnInit() {
     this.foods = foods.reverse();
@@ -33,7 +32,6 @@ export class FoodListComponent implements OnInit {
   }
   addFoodList(food: Food) {
     this.todayFoods.unshift(food);
-
     this.totalCalories += food.calories;
   }
   removeFoodList(index: number, todayFoods: Food) {
