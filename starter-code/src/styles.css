@@ -460,11 +460,17 @@ body {
   width: 200px;
   height: 150px;
 }
+
+.today {
+  position: fixed;
+  right: -300px;
+}
+
 .todayActive {
   width: 400px;
   padding: 15px;
   position: fixed;
-  right: 0;
+  right: 0 !important;
   background: #fff;
   z-index: 5;
   box-shadow: 0 2px 4px lightgray;
@@ -475,6 +481,7 @@ body {
   animation-name: openModal;
   animation-duration: 0.5s;
 }
+
 @keyframes openModal {
   from {
     transform: translate(550px, 0px);
@@ -492,6 +499,7 @@ body {
     opacity: 1;
   }
 }
+
 .card-today {
   display: flex;
   justify-content: space-evenly;
