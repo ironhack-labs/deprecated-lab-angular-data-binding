@@ -15,6 +15,7 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   search: string = '';
   visible: boolean = false;
+  todaysFoods: Object[] = [];
 
   constructor() {}
 
@@ -32,12 +33,15 @@ export class FoodListComponent implements OnInit {
     this.visible = !this.visible;
   };
 
-  increaseQuantity(){
-    alert('plus button clicked');
+  increaseQuantity(food){
+    food.quantity += 1;
+    this.todaysFoods.push(food);
+    console.log(this.todaysFoods);
+
   }
 
-decreaseQuantity(){
-  alert('minus button clicked');
+decreaseQuantity(food){
+  food.quantity -= 1;
 }
 
 
