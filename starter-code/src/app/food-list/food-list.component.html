@@ -1,3 +1,25 @@
-<p>
-  food-list works!
-</p>
+<!--<div>
+  <div *ngFor="let food of foods">
+    <div>
+      <h2> {{food.name}}</h2>
+      <img [src]="food.image" />
+      <p> Calories: {{food.calories}}</p>
+      Quantity: <input type="number" value={{food.quantity}} [{ngModel}]="food.quantity">
+    </div>
+  </div>
+</div> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <div *ngFor="let food of foods">
+        <h3>{{food.name}}</h3>
+        <img [src]="food.image" />
+        <p> Calories: {{food.calories}}</p>
+        Quantity: <input type="number" value="{{food.quantity}}">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p> hola </p>
