@@ -1,17 +1,13 @@
-<!--<div>
-  <div *ngFor="let food of foods">
-    <div>
-      <h2> {{food.name}}</h2>
-      <img [src]="food.image" />
-      <p> Calories: {{food.calories}}</p>
-      Quantity: <input type="number" value={{food.quantity}} [{ngModel}]="food.quantity">
-    </div>
-  </div>
-</div> -->
+<div class="search-bar col s6 offset-s3">
+    <form class="input-field" action="#" method="post">
+        <i class="glyphicon glyphicon-search"></i>
+        <input [(ngModel)]="searchFood" type="text" id="search" placeholder="Search food" name="search">
+    </form>
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4">
-      <div *ngFor="let food of foods">
+      <div *ngFor="let food of foods | filter:'name':searchFood">
         <h3>{{food.name}}</h3>
         <img [src]="food.image" />
         <p> Calories: {{food.calories}}</p>
@@ -20,6 +16,3 @@
     </div>
   </div>
 </div>
-
-
-<p> hola </p>
