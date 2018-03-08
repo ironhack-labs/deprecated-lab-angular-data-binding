@@ -1,3 +1,13 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4 food-item" *ngFor="let food of foodList">
+      <div class="card">
+        <img class="card-img-top" [src]="food.image" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-text"><b>{{ food.name }}</b></h4>
+          <p class="card-text">Calories: {{ food.calories }} kcal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

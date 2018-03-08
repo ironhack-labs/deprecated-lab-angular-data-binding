@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+.food-item {
+  margin-bottom: 20px;
+}
+
+.card {
+  align-content: stretch;
+}
+
+.card-img-top {
+  height: 200px;
+}
