@@ -6,6 +6,10 @@
   align-content: stretch;
 }
 
-.card-img-top {
-  height: 200px;
+.add-food-form {
+  margin: 20px 0;
+}
+
+.add-new {
+  margin-bottom: 20px;
 }
