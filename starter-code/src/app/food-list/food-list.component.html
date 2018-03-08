@@ -1,3 +1,72 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Search food</span>
+    </div>
+    <input type="text" [(ngModel)]="pattern" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+  </div>
+
+  <button type="button" class="btn btn-primary add-new" (click)="toggleForm()">Add new food</button>
+
+  <form class="add-food-form" *ngIf="visible" (ngSubmit)="addFood()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Food name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" name="name" [(ngModel)]="food.name" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="calories">Calories</label>
+        <input type="number" class="form-control" id="calories" placeholder="Number of calories" name="calories" [(ngModel)]="food.calories" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="text" class="form-control" id="image" placeholder="Food image" name="image" [(ngModel)]="food.image" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add this food</button>
+  </form>
+
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-4 food-item" *ngFor="let food of foodList | search:'name':pattern">
+          <div class="card">
+            <img class="card-img-top" [src]="food.image" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-text"><b>{{ food.name }}</b></h4>
+              <p class="card-text">Calories: {{ food.calories }} kcal</p>
+              <input style="margin-bottom: 20px" [(ngModel)]="food.quantity" type="number" class="form-control" placeholder="Quantity">
+              <button (click)="addQuantity(food)" class="btn btn-primary">+ Today's list</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+          Today's list
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Quantity</th>
+                <th scope="col">Name</th>
+                <th scope="col">Calories</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fooday of todayList">
+                <td>{{ fooday.quantity }}x</td>
+                <td>{{ fooday.name }}</td>
+                <td>{{ fooday.calories }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><b>Total calories: </b>{{ totalCalories }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

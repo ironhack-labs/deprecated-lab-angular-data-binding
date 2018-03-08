@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.food-item {
+  margin-bottom: 20px;
+}
+
+.card {
+  align-content: stretch;
+}
+
+.add-food-form {
+  margin: 20px 0;
+}
+
+.add-new {
+  margin-bottom: 20px;
+}
