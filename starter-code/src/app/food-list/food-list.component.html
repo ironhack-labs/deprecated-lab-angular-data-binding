@@ -1,3 +1,54 @@
-<p>
-  food-list works!
-</p>
+<div>
+  <label for="things_name"></label>
+  <input id="things_name" placeholder="Search Foods" type="text" [(ngModel)]="pattern">
+  <span>    
+    <button (click)="buttonClicked()" class="btn btn-primary">Add New Food</button>
+  </span>
+<div>
+
+
+
+  <div [ngClass]="buttonClick ? 'show-form' : 'hide-form'">
+      <div class="form-group">
+        <label for="food-name"></label>
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="newFood.name">
+      </div>
+      <div class="form-group">
+        <label for="food-calories"></label>
+        <input type="text" class="form-control" placeholder="Calories" [(ngModel)]="newFood.calories">
+      </div>
+      <div class="form-group">
+        <label for="food-image"></label>
+        <input type="text" class="form-control" placeholder="Image" [(ngModel)]="newFood.image">
+      </div>
+      <button (click) = "addNewFood()" class="btn btn-primary" type="submit">Submit</button>
+  </div>
+<hr>
+
+<div class="container-fluid">
+  <!-- food list -->
+  <div class="row">
+    <div class="col-4 col-4" *ngFor="let food of foodList | filter:'name':pattern;">
+      <img src="{{ food.image }}" class="img-responsive">
+      <h2>{{ food.name }}</h2>
+      <p>{{ food.calories }}</p>
+      <button (click) = "addTodaysFood(food)" class="btn btn-primary" type="submit">Add To List</button>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+    <h3>Today's Foods</h3>
+    <h4>Total Calories: {{ calorieCount }}</h4>
+
+<div class="container-fluid">
+  <div class="row">
+      <ul>
+        <li *ngFor="let food of todaysFoods | filter:'name':pattern;">
+          <h3>{{ food.name }}</h3>
+          <p>{{ food.calories }}</p>    
+        </li>
+      </ul>
+  </div>
+</div>
