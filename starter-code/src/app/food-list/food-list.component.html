@@ -7,6 +7,26 @@
   <input type="text" placeholder="Search..." [(ngModel)]="pattern">
 </div>
 
+<button (click)="showForm()">
+  Add new food...
+</button>
+
+<form *ngIf="visible" (ngSubmit)="addFood()">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Food Name" [(ngModel)]="food.name">
+  </div>
+  <div>
+    <label for="calories">Calories </label>
+    <input type="text" name="calories" id="calories" [(ngModel)]="food.calories">
+  </div>
+  <div>
+    <label for="image">Image </label>
+    <input type="text" name="image" id="image" [(ngModel)]="food.image">
+  </div>
+  <button type="submit">Add food</button>
+</form>
+
 <div *ngFor="let food of foods | filter:'name':pattern">
   <div>
     <div class="food__item">
