@@ -1,3 +1,34 @@
-<p>
-  food-list works!
-</p>
+<h2>Buscale Carnal!</h2>
+<button (click)="addFood()">Add Food</button>
+<br>
+<input placeholder="search a food" [(ngModel)]= "search" type="text">
+<br>
+<form (submit)="pushToFoods()" *ngIf="show">
+  <input [(ngModel)]="newFood.name" placeholder="food name" type="text" name="name">
+  <br>
+  <input [(ngModel)]="newFood.calories" placeholder="food kCal" type="text" name="calories">
+  <br>
+  <input [(ngModel)]="newFood.image" placeholder="food image" type="text" name="image">
+  <input type="submit">
+</form>
+<br>
+<ul>
+  <li *ngFor="let food of foods | filter:'name':search" >
+    <h4>{{food.name}}</h4>
+    <img width="200px" [src]="food.image" [alt]="food.name"/>
+    <p>Calorias: {{food.calories}}</p>
+    <button (click)="addToList(food, qty.value)">Add to today's list</button>
+    <input #qty placeholder="quantity" type="number" name="qty" min="1" value="1">
+  </li>
+</ul>
+<div style="position: fixed; top:0; right:0">
+  <h3>Calories Total: {{this.totalCalories}}</h3>
+<ul>
+  <li *ngFor="let food of todaysList" >
+    <h4>{{food.name}}</h4>
+    <h4>Quantity: {{food.quantity}}</h4>
+    <img width="200px" [src]="food.image" [alt]="food.name"/>
+    <p>Calorias: {{food.calories}}</p>
+  </li>
+</ul>
+</div>
