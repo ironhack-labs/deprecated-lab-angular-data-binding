@@ -30,20 +30,34 @@ export class FoodListComponent implements OnInit {
   }
 
   addFood() {
-    let boo: boolean = true;
+    let isNewFood: Boolean = true;
     this.foods.forEach(food => {
-      if (this.newFood["name"] === food["name"]) {
-        food["name"] += " +1"
-        boo = false;
+      let arrName: Array < String > = food["name"].split("+");
+      if (this.newFood["name"] === arrName[0]) {
+        if (arrName.length === 1) {
+          food["name"] += "+1"
+        } else {
+          let quantity: Number = Number(arrName[1]) + 1;
+          food["name"] = arrName[0] +"+"+ quantity.toString();
+        }
+        isNewFood = false;
       }
     });
-    if (boo)
+    if (isNewFood)
       this.foods.push(this.newFood);
   }
 
   addTodaySpecials(food) {
-    this.calories += food.calories;
-    this.todaySpecials.push(food);
+    let isNotRepeat: Boolean = true;
+    this.todaySpecials.forEach(special => {
+      if (special["name"] === food["name"]) {
+        isNotRepeat = false;
+      }
+    });
+    if (isNotRepeat) {
+      this.calories += food.calories;
+      this.todaySpecials.push(food);
+    }
   }
 
   addQuantity(quantity, food) {
