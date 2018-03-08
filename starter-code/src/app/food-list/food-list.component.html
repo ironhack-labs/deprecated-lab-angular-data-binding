@@ -1,3 +1,64 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="col-xs-8 col-sm-8 col-md-8">
+    <div class="col-xs-6 col-sm-6 col-md-6 form-group">
+      <label for="search">Search:</label>
+      <input [(ngModel)]="search" type="text" class="form-control" id="search">
+    </div>
+    <button (click)="toggleForm()"class="btn btn-success" id='add-button'>Add new food!</button>
+    <div *ngIf='visible'>
+    <form id="search-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" name="name" id="name" [(ngModel)]="newFood.name">
+      </div>
+      <div class="form-group">
+        <label for="calories">Calories:</label>
+        <input type="text" class="form-control" name="calories" id="calories" [(ngModel)]="newFood.calories">
+      </div>
+      <div class="form-group">
+        <label for="image">Image Url:</label>
+        <input type="text" class="form-control" name="image" id="image" [(ngModel)]="newFood.image">
+      </div>
+      <button (click)="addFood()" type="button" class="btn btn-default">Add</button>
+    </form>
+  </div>
+
+    <div *ngFor="let food of foods | filter:search"> 
+      <div class="row item">
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <img class='img-responsive' src="{{food.image}}" alt="">
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 item-info">
+          <div class="header">
+            <h2>{{food.name}}</h2>
+            <p class='calories'>{{food.calories}}cal</p>
+          </div>
+
+          <div class="input-group col-xs-4 col-sm-4 col-md-4 quantity">
+            <span class="input-group-btn">
+              <button (click)="decreaseQuantity(food)"type="button" class="btn btn-default btn-number" data-type="minus" data-field="quantity">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </span>
+            <input type="text" name="quantity" class="form-control input-number" [value]=food.quantity min="0" max="25">
+            <span class="input-group-btn">
+              <button (click)="increaseQuantity(food, i)"type="button" class="btn btn-default btn-number" data-type="plus" data-field="quantity">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-4 col-sm-4 col-md-4 info">
+    <h2>Today's food:
+      <span>0</span>calories</h2>
+    <div *ngFor="let todaysFood of todaysFoods"> {{ todaysFood.name }} x {{ todaysFood.quantity}} ({{todaysFood.calories * todaysFood.quantity}}) </div>
+    
+  </div>
+
+</div>
+
