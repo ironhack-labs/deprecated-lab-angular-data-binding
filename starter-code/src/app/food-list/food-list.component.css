@@ -1,0 +1,15 @@
+.food__item {
+  float: left;
+}
+
+.food__img {
+  width: 200px;
+}
+
+.food__item-h2 {
+  margin: 0 auto;
+}
+
+.clearfix {
+  clear: both;
+}
