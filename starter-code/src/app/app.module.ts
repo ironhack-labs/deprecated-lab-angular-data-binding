@@ -13,6 +13,7 @@ import { FoodListComponent } from './food-list/food-list.component';
   ],
   imports: [
     BrowserModule,
+    // todos los forms funcionan como angular ahora
     FormsModule,
     HttpModule
   ],

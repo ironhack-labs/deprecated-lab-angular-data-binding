@@ -1,0 +1,11 @@
+img{
+  height: 200px;
+}
+.food-container{
+  padding: 20px;
+  border: 1px solid black;
+}
+.specials{
+  padding: 20px;  
+  background-color: aquamarine;
+}

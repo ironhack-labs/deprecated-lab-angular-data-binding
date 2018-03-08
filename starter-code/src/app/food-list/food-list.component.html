@@ -1,3 +1,68 @@
 <p>
   food-list works!
 </p>
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+<br>
+<div *ngIf="show">
+  <div class="form-group col-sm-6">
+    <label class="form-label">Name</label>
+    <input type="text" [(ngModel)]="newFood.name" class="form-control" placeholder="Type the  product name...">
+  </div>
+  <div class="form-group col-sm-6">
+    <label class="form-label">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories" class="form-control" placeholder="Type calories...">
+  </div>
+  <div class="form-group col-sm-6">
+    <label class="form-label">Image URL</label>
+    <input type="text" [(ngModel)]="newFood.image" class="form-control" placeholder="Type image URL...">
+  </div>
+  <div class="form-group col-sm-6">
+    <label class="form-label">Quantity</label>
+    <input type="text" [(ngModel)]="newFood.quantity" class="form-control" placeholder="Type quantity...">
+  </div>
+  <div class="form-row button-container">
+    <button (click)="addFood()" class="btn btn-primary btn-form">Create FOOD</button>
+  </div>
+</div>
+
+<div>
+  <label for="">Search a Food:</label>
+  <input [(ngModel)]="searchFood" (keyup)="newSearch()">
+  <p>You have write: {{searchFood}}</p>
+</div>
+<div class="specials">
+  <div class="row">
+    <div>
+      <h2>Daily Specials:</h2>
+      <h4>Calories : {{calories}}</h4>
+    </div>
+    <div class="col-sm-4">
+      <p *ngFor="let special of todaySpecials">Name = {{special.name}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="cards-container">
+  <div class="row">
+    <div class="col-sm-4 food-container" *ngFor="let food of foods">
+      <div class="">
+        <img class="card-img-top" src="{{food.image}}" alt="Card image cap">
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">{{food.name}}</h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{food.calories}}</li>
+        <li class="list-group-item">{{food.quantity}}</li>
+        <li>
+          <div>
+            <input type="text" #inputCalories class="form-control" placeholder="Type quantity">
+            <button (click)="addQuantity(inputCalories.value, food)" class="btn btn-success btn-form">Add Quantity</button>
+          </div>
+        </li>
+      </ul>
+      <button (click)="addTodaySpecials(food)" class="btn btn-primary btn-form">Add to Specials</button>
+    </div>
+  </div>
+  <hr>
+</div>
