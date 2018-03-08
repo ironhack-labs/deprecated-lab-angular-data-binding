@@ -411,7 +411,7 @@ body {
 .card button {
   display: flex;
   align-items: center;
-  padding: 1px 10px 0px 7px;
+  padding: 10px 10px;
   border: none;
   background: #58b10b;
   border-radius: 5px;
@@ -512,4 +512,21 @@ body {
 .card-today img {
   width: 60px;
   height: 50px;
+}
+
+.remove-btn {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 10px 5px 7px;
+  border: none;
+  background: #EF5350;
+  border-radius: 5px;
+  margin-left: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.remove-btn i {
+  font-size: 14px;
 }
