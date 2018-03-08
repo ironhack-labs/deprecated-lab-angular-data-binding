@@ -30,10 +30,21 @@
   <input [(ngModel)]="searchFood" (keyup)="newSearch()">
   <p>You have write: {{searchFood}}</p>
 </div>
+<div class="specials">
+  <div class="row">
+    <div>
+      <h2>Daily Specials:</h2>
+      <h4>Calories : {{calories}}</h4>
+    </div>
+    <div class="col-sm-4">
+      <p  *ngFor="let special of todaySpecials">Name = {{special.name}}</p>
+    </div>
+  </div>
+</div>
 
 <div class="cards-container">
   <div class="row">
-    <div class="col-sm-4" *ngFor="let food of foods">
+    <div class="col-sm-4 food-container" *ngFor="let food of foods">
       <div class="">
         <img class="card-img-top" src="{{food.image}}" alt="Card image cap">
       </div>
@@ -44,6 +55,7 @@
         <li class="list-group-item">{{food.calories}}</li>
         <li class="list-group-item">{{food.quantity}}</li>
       </ul>
+      <button (click)="addTodaySpecials(food)" class="btn btn-primary btn-form">Add to Specials</button>
     </div>
   </div>
   <hr>

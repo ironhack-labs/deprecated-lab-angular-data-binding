@@ -11,9 +11,11 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Object[];
+  todaySpecials: Object[] = new Array();
   newFood: Object = {};
   searchFood: string = "";
   htmlToAdd: string = "";
+  calories: number = 0;
   constructor() {}
 
   ngOnInit() {
@@ -27,9 +29,17 @@ export class FoodListComponent implements OnInit {
     });
   }
 
-  addFood(){
+  addFood() {
     this.foods.push(this.newFood);
   }
+  addTodaySpecials(food) {
+    // console.log("AAAAAA");
+    console.log(food);
+    // this.todaySpecials[0]=food;
+    this.calories += food.calories;
+    this.todaySpecials.push(food);
+    console.log(this.todaySpecials);
 
+  }
 
 }
