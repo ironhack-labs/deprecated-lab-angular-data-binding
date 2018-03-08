@@ -37,7 +37,7 @@
       <h4>Calories : {{calories}}</h4>
     </div>
     <div class="col-sm-4">
-      <p  *ngFor="let special of todaySpecials">Name = {{special.name}}</p>
+      <p *ngFor="let special of todaySpecials">Name = {{special.name}}</p>
     </div>
   </div>
 </div>
@@ -54,6 +54,12 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">{{food.calories}}</li>
         <li class="list-group-item">{{food.quantity}}</li>
+        <li>
+          <div>
+            <input type="text" #inputCalories class="form-control" placeholder="Type quantity">
+            <button (click)="addQuantity(inputCalories.value, food)" class="btn btn-success btn-form">Add Quantity</button>
+          </div>
+        </li>
       </ul>
       <button (click)="addTodaySpecials(food)" class="btn btn-primary btn-form">Add to Specials</button>
     </div>
