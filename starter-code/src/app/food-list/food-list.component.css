@@ -1,0 +1,32 @@
+.foods {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center
+}
+
+.foods ul li, img{
+    width: 20vw;
+    margin: 20px;
+}
+
+.foods ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center
+}
+
+.foods ul li {
+    list-style: none;
+}
+
+input, form input  {
+    width: 25vw;
+    margin: 5px;
+    font-size: 20px;
+}
