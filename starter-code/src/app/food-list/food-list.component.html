@@ -20,6 +20,9 @@
     <div>
       <input type="text" [(ngModel)]="newFood.image" placeholder="Image URL">
     </div>
+    <div>
+      <input type="text" [(ngModel)]="newFood.quantity" placeholder="">
+    </div>
     <button (click)="addFood()">Save Food</button>
   </div>
 </div>
@@ -42,7 +45,7 @@
     <img src="{{food.image}}">
     <p>{{food.name}}</p>
     <p>{{food.calories}}</p>
-    <p>{{food.quantity}}</p>
+    <input type="text" [(ngModel)]="food.quantity" placeholder="">
     <button (click)="addFoodList(food)">Today Food</button>
   </div>
 </div>

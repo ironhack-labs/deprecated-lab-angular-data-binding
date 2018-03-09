@@ -12,7 +12,8 @@ export class FoodListComponent implements OnInit {
   newFood: Food = {
     image: '',
     name: '',
-    calories: 0
+    calories: 0,
+    quantity: 0
   };
   totalCalories: number = 0;
   todayFoods: Array<Food> = [];
@@ -25,15 +26,17 @@ export class FoodListComponent implements OnInit {
   showForm() {
     this.classForm = 'active';
   }
-  addFood() {
-    // add contact to contacts list
+  addFood(food: Food) {
+    console.log(food.name)
     this.foods.unshift(this.newFood);
     this.classForm = 'no-active';
   }
-  addFoodList(food: Food) {
+  addFoodList(food: Food, index: number, todayFoods: Food) {
     this.todayFoods.unshift(food);
-    this.totalCalories += food.calories;
+    console.log(this.totalCalories)
+    this.totalCalories += this.todayFoods[0].calories * food.quantity;
   }
+
   removeFoodList(index: number, todayFoods: Food) {
     console.log(this.todayFoods[index].calories);
     this.totalCalories -= this.todayFoods[index].calories;
