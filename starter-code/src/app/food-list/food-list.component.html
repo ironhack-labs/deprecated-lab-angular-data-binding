@@ -1,3 +1,51 @@
-<p>
-  food-list works!
-</p>
+<h1>Food List</h1>
+
+<div class="search-container">
+
+  <input class="search-input" [(ngModel)]="pattern" placeholder="Food Search">
+  <!-- <i class="material-icons">search</i> -->
+  <button (click)="showForm()">
+    <i class="material-icons">add</i> Add Food</button>
+</div>
+
+<div [class]="classForm">
+  <h2>New Food Form</h2>
+  <div class="form-new-food">
+    <div>
+      <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+    </div>
+    <div>
+      <input type="number" [(ngModel)]="newFood.calories" placeholder="Calories">
+    </div>
+    <div>
+      <input type="text" [(ngModel)]="newFood.image" placeholder="Image URL">
+    </div>
+    <div>
+      <input type="text" [(ngModel)]="newFood.quantity" placeholder="">
+    </div>
+    <button (click)="addFood()">Save Food</button>
+  </div>
+</div>
+
+<div class="today" [class.todayActive]="todayFoods.length">
+  <h2>todayFood</h2>
+  <h2>Calories Counter: {{totalCalories}}</h2>
+  <div class="card-today" *ngFor="let food of todayFoods; let i = index">
+    <img [src]="food.image">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <p>{{food.quantity}}</p>
+    <button class="remove-btn" (click)="removeFoodList(i)">
+      <i class="material-icons">delete</i> Remove</button>
+  </div>
+</div>
+
+<div class="food-container">
+  <div class="card" *ngFor="let food of foods | filter:'name':pattern; let i = index">
+    <img src="{{food.image}}">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <input type="text" [(ngModel)]="food.quantity" placeholder="">
+    <button (click)="addFoodList(food)">Today Food</button>
+  </div>
+</div>
