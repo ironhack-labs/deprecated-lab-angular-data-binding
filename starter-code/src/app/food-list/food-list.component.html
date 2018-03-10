@@ -1,3 +1,65 @@
 <p>
   food-list works!
 </p>
+<div>
+  <div class="food__content-box">
+    <div>
+      <label for="searchFoods"></label>
+      <input type="text" placeholder="Search..." [(ngModel)]="pattern">
+    </div>
+
+    <button (click)="showForm()">
+      Add new food...
+    </button>
+
+    <form *ngIf="visible" (ngSubmit)="addFood()">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Food Name" [(ngModel)]="food.name">
+      </div>
+      <div>
+        <label for="calories">Calories </label>
+        <input type="number" name="calories" id="calories" [(ngModel)]="food.calories">
+      </div>
+      <div>
+        <label for="image">Image </label>
+        <input type="text" name="image" id="image" [(ngModel)]="food.image">
+      </div>
+      <button type="submit">Add food</button>
+    </form>
+
+    <div *ngFor="let food of foods | filter:'name':pattern">
+      <div class="food__box">
+        <div class="food__item">
+          <img class="food__img" [src]="food.image" alt="Food Image">
+        </div>
+        <div class="food__item food__item--box">
+          <div>
+            <h2 class="food__item-h2">{{food.name}}</h2>
+          </div>
+          <!-- <div>
+            <p>Calories: {{food.calories}}</p>
+          </div> -->
+          <div>
+              <label for="quantity">Qty:</label>
+              <input type="number" name="quantity" id="quantity" [(ngModel)]="food.quantity">
+              <button (click)="countCalories(food)">+</button>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <div class="food__content-box">
+    <div>
+      <h2>Today's foods {{totalCalories}} calories</h2>
+    </div>
+    <div>
+      <ul *ngFor="let foodCalories of totalFoodsCalories">
+        <li>{{foodCalories.quantity}}X {{foodCalories.name}} Calories: {{foodCalories.calories}}</li>
+      </ul>
+    </div>
+    
+  </div>
+  <div class="clearfix"></div>
+</div>
