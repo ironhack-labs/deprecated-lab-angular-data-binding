@@ -1,5 +1,20 @@
+.food__content-box{
+  width: 50%;
+  float: left;
+}
+.food__box{
+  border: 1px solid;
+  background: gray;
+  margin-top: 10px;
+}
+
 .food__item {
   float: left;
+}
+
+.food__item--box{
+  width: 50%;
+  text-align: center;
 }
 
 .food__img {
@@ -12,4 +27,8 @@
 
 .clearfix {
   clear: both;
+}
+
+#quantity{
+  width: 50px;
 }
