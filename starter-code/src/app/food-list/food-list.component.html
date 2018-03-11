@@ -10,16 +10,15 @@
 <div class="m-4 p-2">
   <button name="button" class="btn btn-primary" (click)="showDiv()">Add foods</button>
 
-  <form [ngClass]="{ hidden: isHidden }">
+  <form [ngClass]="{ hidden: isHidden }" class="mt-4 p-1 border rounded" #addFoodsForm>
     <label for="foodName">Name food</label>
     <input type="text" name="foodName" value="" class="form-control" #foodName>
     <label for="foodCalories">Calories food</label>
     <input type="text" name="foodCalories" value="" class="form-control" #foodCalories>
-    <label for="foodAmount">Amount food</label>
-    <input type="text" name="foodAmount" value="" class="form-control" #foodAmount>
     <label for="foodImage">Image URL</label>
     <input type="text" name="foodImage" value="" class="form-control" #foodImage>
-    <button type="submit" (click)="addFood(foodName.value, foodCalories.value, foodAmount.value, foodImage.value)">Save food</button>
+    <br>
+    <button class="btn btn-success" type="submit" (click)="addFood(foodName.value, foodCalories.value, foodImage.value); addFoodsForm.reset(addFoodsForm.value)">Save food</button>
   </form>
 </div>
 

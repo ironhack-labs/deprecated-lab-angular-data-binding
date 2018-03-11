@@ -21,12 +21,11 @@ export class FoodListComponent implements OnInit {
     this.isHidden = false;
   }
 
-  addFood(name, calories, amount, image) {
+  addFood(name, calories, image) {
     let food = {
       name: name,
       calories: calories,
       image: image,
-      quantity: amount
     }
     this.foods.push(food);
     this.isHidden = true;
