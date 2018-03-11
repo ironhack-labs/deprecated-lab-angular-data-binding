@@ -1,3 +1,11 @@
-<p>
-  food-list works!
-</p>
+<h1 class="ml-4">List of foods</h1>
+
+    <div class="d-flex flex-row justify-content-start m-4 p-2 border rounded" *ngFor="let food of foods">
+        <div class="food-image rounded-circle">
+          <img [src]="food.image" alt="image" class="food-img-size">
+        </div>
+        <div class="ml-4">
+          <h4>{{ food.name }}</h4>
+          <p>Calorie amount: {{ food.calories }}</p>
+        </div>
+    </div>
