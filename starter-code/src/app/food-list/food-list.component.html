@@ -1,11 +1,18 @@
 <h1 class="ml-4">List of foods</h1>
 
-    <div class="d-flex flex-row justify-content-start m-4 p-2 border rounded" *ngFor="let food of foods">
-        <div class="food-image rounded-circle">
-          <img [src]="food.image" alt="image" class="food-img-size">
-        </div>
-        <div class="ml-4">
-          <h4>{{ food.name }}</h4>
-          <p>Calorie amount: {{ food.calories }}</p>
-        </div>
+<!-- Search bar for foods -->
+<div class="m-4 p-2 form-group">
+  <label for="food_name"> Search foods in database </label>
+  <input id="food_name" placeholder="Search foods" class="form-control" type="text" [(ngModel)]="pattern">
+</div>
+
+<!-- Display list of foods -->
+<div class="d-flex flex-row justify-content-start m-4 p-2 border rounded" *ngFor="let food of foods | filter:'name':pattern; let i = index">
+    <div class="food-image rounded-circle">
+      <img [src]="food.image" alt="image" class="food-img-size">
     </div>
+    <div class="ml-4">
+      <h4>{{ food.name }}</h4>
+      <p>Calorie amount: {{ food.calories }}</p>
+    </div>
+</div>
