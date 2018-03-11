@@ -6,6 +6,23 @@
   <input id="food_name" placeholder="Search foods" class="form-control" type="text" [(ngModel)]="pattern">
 </div>
 
+<!-- Add foods div -->
+<div class="m-4 p-2">
+  <button name="button" class="btn btn-primary" (click)="showDiv()">Add foods</button>
+
+  <form [ngClass]="{ hidden: isHidden }">
+    <label for="foodName">Name food</label>
+    <input type="text" name="foodName" value="" class="form-control" #foodName>
+    <label for="foodCalories">Calories food</label>
+    <input type="text" name="foodCalories" value="" class="form-control" #foodCalories>
+    <label for="foodAmount">Amount food</label>
+    <input type="text" name="foodAmount" value="" class="form-control" #foodAmount>
+    <label for="foodImage">Image URL</label>
+    <input type="text" name="foodImage" value="" class="form-control" #foodImage>
+    <button type="submit" (click)="addFood(foodName.value, foodCalories.value, foodAmount.value, foodImage.value)">Save food</button>
+  </form>
+</div>
+
 <!-- Display list of foods -->
 <div class="d-flex flex-row justify-content-start m-4 p-2 border rounded" *ngFor="let food of foods | filter:'name':pattern; let i = index">
     <div class="food-image rounded-circle">
