@@ -30,5 +30,17 @@
     <div class="ml-4">
       <h4>{{ food.name }}</h4>
       <p>Calorie amount: {{ food.calories }}</p>
+      <button class="btn btn-light" (click)="addToDailyList(food)">Add food to daily intake</button>
     </div>
+</div>
+
+<!-- Display list of daily foods -->
+<h1 class="ml-4">List of daily food intake</h1>
+<div class="ml-4" >
+    <ul>
+      <li *ngFor="let dailyFood of dailyFoods">
+        {{ dailyFood.name }}, {{ dailyFood.calories }}
+      </li>
+    </ul>
+    <p>Daily calories intake:  {{ dailyCaloryIntake }}</p>
 </div>

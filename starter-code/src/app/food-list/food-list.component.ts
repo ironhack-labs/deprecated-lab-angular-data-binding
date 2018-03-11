@@ -9,19 +9,22 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   foods: Array<Object> = [];
+  dailyFoods: Array<Object> = [];
   isHidden: boolean = true;
+  dailyCaloryIntake: number;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+    this.dailyCaloryIntake = 0;
   }
 
-  showDiv() {
+  showDiv(): void {
     this.isHidden = false;
   }
 
-  addFood(name, calories, image) {
+  addFood(name, calories, image): void {
     let food = {
       name: name,
       calories: calories,
@@ -29,6 +32,11 @@ export class FoodListComponent implements OnInit {
     }
     this.foods.push(food);
     this.isHidden = true;
+  }
+
+  addToDailyList(food): void {
+    this.dailyFoods.push(Object.assign({}, food));
+    this.dailyCaloryIntake += food.calories;
   }
 
 }
