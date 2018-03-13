@@ -1,7 +1,37 @@
-<label for="foodSearch"> Vamoh' a buscar: </label>
-<input type="text" name="foodSearch"
-  placeholder="Busca una comida" [(ngModel)]="pattern">
+<button style="margin-bottom: 20px; width: 100px;"
+  (click)="showForm=true">Add Food</button>
 
+  <form 
+    style="display: inline-block; 
+    margin-left: 20px;
+    margin-top: 1px solid orange;
+    margin-left: 1 px solid orange;
+    margin-right: 1px solid orange;
+    background-color:lightsalmon" 
+
+    *ngIf="showForm === true">
+
+    <label for="Name">Name: </label>
+    <input #name required>
+
+    <label for="Fatties">Fatties: </label>
+    <input #calories>
+
+    <label for="Img">Image Url: </label>
+    <input #image>
+
+    <input type="submit" value="Añadir a la lista" 
+    (click)="addItem(name.value, calories.value, image.value); showForm=false">
+  </form>
+
+
+
+<div style="border: 1px solid darkBlue; background-color:coral; padding: 15px">
+<label for="foodSearch"> Vamoh' a buscar: </label>
+<input style="height: 30px; width: 300px;" 
+  type="text" name="foodSearch"
+  placeholder="Busca una comida" [(ngModel)]="pattern">
+</div>
 
 <ul style="list-style: none; 
 border-bottom: 1px solid blue;
