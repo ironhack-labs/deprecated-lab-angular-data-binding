@@ -38,10 +38,27 @@ border-bottom: 1px solid blue;
 border-top: 1px solid blue;
 background-color: lightGrey;"
 
- *ngFor="let food of myFoods | filter:'name':pattern; let i = index"
- >
-  <li> <b>Name:</b> {{ food.name }} </li>
-  <li> <b>Fatties:</b> {{ food.calories }} </li>
-  <li> <img style="width: 150px" [src]="food.image">  </li>
-  <li> <b>Cantidad:</b> {{ food.quantity }} </li>
+ *ngFor="let food of myFoods | filter:'name':pattern; let i = index">
+
+  <li #coolName> <b>Name:</b> {{ food.name }} </li>
+  <li #coolCalories> <b>Fatties:</b> {{ food.calories }} </li>
+  <li #coolImage> <img style="width: 150px" [src]="food.image">  </li>
+  <li #coolQuantity> <b>Cantidad:</b> {{ food.quantity }} </li>
+  <label for="Quantity"></label>
+  <input type="number" name="nQuantity" #nQuantity [value]="1">
+  <input type="submit" value="Añadir a la lista de cosas chulis" 
+  (click)="coolList(food.name, food.calories, food.image, nQuantity.value)">
 </ul>
+
+<div style="z-index: 1; padding: 0 20px; 
+  position: fixed; top: 5%; right: 5%; 
+  background-color:lemonchiffon; border: 1px solid green">
+  <h2>Listado de cosas guays</h2>
+  <ul style="list-style: none; border-bottom: 1px solid green" 
+  *ngFor="let item of niceFoods">
+    <li> {{item.name}}</li>
+    <li> {{item.calories}}</li>
+    <li> <img onerror="this.style.display='none'"  style="width: 50px" [src]="item.image"></li>
+    <li>{{item.quantity}}</li>
+  </ul>
+</div>
