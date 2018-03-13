@@ -1,3 +1,20 @@
 <p>
-  food-list works!
+  food-list
 </p>
+<div class="search-food">
+  <p>Search food</p>
+  <input type="text">
+</div>
+
+<button class="btn btn-info" (click)='addNewFood()'>Add New Food</button>
+<app-food-new *ngIf="isActive"></app-food-new>
+<ul>
+  <li *ngFor='let food of foods'>
+    <div class='row food-card'>
+      <img src="{{food.image}}">
+      <div class='food-info'>
+        <b>{{food.name}}</b> {{food.calories}}
+      </div>
+    </div>
+  </li>
+</ul>
