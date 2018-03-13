@@ -1,10 +1,15 @@
+<label for="foodSearch"> Vamoh' a buscar: </label>
+<input type="text" name="foodSearch"
+  placeholder="Busca una comida" [(ngModel)]="pattern">
 
 
 <ul style="list-style: none; 
 border-bottom: 1px solid blue;
 border-top: 1px solid blue;
 background-color: lightGrey;"
- *ngFor="let food of myFoods">
+
+ *ngFor="let food of myFoods | filter:'name':pattern; let i = index"
+ >
   <li> <b>Name:</b> {{ food.name }} </li>
   <li> <b>Fatties:</b> {{ food.calories }} </li>
   <li> <img style="width: 150px" [src]="food.image">  </li>
