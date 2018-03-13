@@ -1,6 +1,12 @@
-<ul *ngFor="let food of myFoods">
-  <li> {{ food.name }} </li>
-  <li> {{ food.calories }} </li>
+
+
+<ul style="list-style: none; 
+border-bottom: 1px solid blue;
+border-top: 1px solid blue;
+background-color: lightGrey;"
+ *ngFor="let food of myFoods">
+  <li> <b>Name:</b> {{ food.name }} </li>
+  <li> <b>Fatties:</b> {{ food.calories }} </li>
   <li> <img style="width: 150px" [src]="food.image">  </li>
-  <li> {{ food.quantity }} </li>
+  <li> <b>Cantidad:</b> {{ food.quantity }} </li>
 </ul>
