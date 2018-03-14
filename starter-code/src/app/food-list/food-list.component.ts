@@ -4,13 +4,14 @@ import foods from '../foods';
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class FoodListComponent implements OnInit {
-
+  foodList: Object[];
   constructor() { }
 
   ngOnInit() {
+    this.foodList = foods;
   }
 
 }
