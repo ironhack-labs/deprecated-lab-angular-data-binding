@@ -4,12 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FoodListComponent } from './food-list/food-list.component';
+import { FoodListComponent } from './components/food-list/food-list.component';
+import { FoodItemComponent } from './components/food-item/food-item.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FormNewProductComponent } from './components/form-new-product/form-new-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
+    FoodItemComponent,
+    FilterPipe,
+    FormNewProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+
+
+<!-- <form (ngSubmit)="submitForm(myForm)" action=""></form> #myForm="ngForm" -->
+
+
+
+<form action="" class="mt-15 flex-container flex-form">
+  <div class="flex-container flex-form-item w-45 ">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" [(ngModel)]="newFood.name">
+  </div>
+  <div class="flex-container flex-form-item w-45">
+    <label for="name">Calories</label>
+    <input type="text" name="calories" id="calories" [(ngModel)]="newFood.calories">
+  </div>
+  <div class="flex-container flex-form-item w-45">
+    <label for="name">Image url</label>
+    <input type="text" name="image" id="image" [(ngModel)]="newFood.image">
+  </div>
+  <button class="mt-15" (click)="addProduct()">Add product</button>
+</form>
