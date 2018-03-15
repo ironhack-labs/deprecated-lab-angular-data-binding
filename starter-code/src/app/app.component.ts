@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import foods from '../app/foods';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'IronFood';
+  foods: Object[];
+  selectedFood: Object;
+
+  ngOnInit() {
+    this.foods = foods;
+  }
+
+  toTodayList(food) {
+    this.selectedFood = food;
+  }
 }

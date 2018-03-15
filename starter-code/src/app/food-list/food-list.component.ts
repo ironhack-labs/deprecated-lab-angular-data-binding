@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import foods from '../foods';
 
 @Component({
@@ -9,6 +9,9 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   isActive: boolean;
+  pattern: string;
+
+  @Output() selectFood = new EventEmitter<any>();
 
   constructor() { }
 
@@ -18,6 +21,9 @@ export class FoodListComponent implements OnInit {
 
   addNewFood(): void{
     this.isActive = !this.isActive;
-    console.log('add food');
+  }
+
+  addTodayList(food): void{
+    this.selectFood.emit(food);   
   }
 }

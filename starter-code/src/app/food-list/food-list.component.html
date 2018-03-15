@@ -3,17 +3,19 @@
 </p>
 <div class="search-food">
   <p>Search food</p>
-  <input type="text">
+  <input type="text" [(ngModel)]='pattern'>
 </div>
 
 <button class="btn btn-info" (click)='addNewFood()'>Add New Food</button>
-<app-food-new *ngIf="isActive"></app-food-new>
+<app-food-new *ngIf="isActive" (close)='addNewFood()'></app-food-new>
 <ul>
-  <li *ngFor='let food of foods'>
+  <li *ngFor="let food of foods | filter: 'name':pattern; let i = index">
     <div class='row food-card'>
       <img src="{{food.image}}">
       <div class='food-info'>
         <b>{{food.name}}</b> {{food.calories}}
+        <input type="text">
+        <button class="btn btn-primary" (click)='addTodayList(food)'>Add Today's Food List</button>
       </div>
     </div>
   </li>

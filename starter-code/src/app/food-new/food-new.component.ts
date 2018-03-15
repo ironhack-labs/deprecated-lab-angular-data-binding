@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import foods from '../foods';
 
 @Component({
@@ -10,6 +10,8 @@ export class FoodNewComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
 
+  @Output() close = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
@@ -19,6 +21,7 @@ export class FoodNewComponent implements OnInit {
   addFoodList() {
     this.foods.unshift(this.newFood);
     this.newFood = {};
+    this.close.emit('close');
   }
 
 }
