@@ -1,10 +1,12 @@
-<p>
-  food-list works!
-  <input type="text" ng-model="string">
-<div>
+
   <div class="container">
-    <div *ngFor="let food of foodList">
-      <app-fooditem [foodInput]="food"></app-fooditem>
+    <label for="food_name"> Search food: </label>
+    <input id="food_name" type="text" [(ngModel)]="pattern">
+  </div>
+  <div>
+    <div class="container">
+      <div *ngFor="let food of foodList | filter:'name':pattern; let i = index">
+        <app-fooditem [foodInput]="food "></app-fooditem>
+      </div>
     </div>
   </div>
-</div>
