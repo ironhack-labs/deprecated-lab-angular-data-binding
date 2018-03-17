@@ -3,9 +3,8 @@
   <div class="card-text">
     <h2>{{foodInput.name}}</h2>
     <p>Calories: {{foodInput.calories}}</p>
-    <input type="number" value="{{foodInput.quantity}}">
-    
-    <!-- <button (click)="removeContact()">Delete contact</button> -->
-    <!--<p>Hey</p>-->
+    <input type="number" [(ngModel)]="foodInput.quantity" value="{{foodInput.quantity}}">
+  <button (click) = "addTodaysFood()">Add</button>
+
   </div>
 </div>

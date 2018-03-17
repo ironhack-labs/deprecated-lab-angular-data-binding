@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+// tslint:disable-next-line:quotemark
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: 'app-fooditem',
@@ -7,9 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FooditemComponent implements OnInit {
   @Input() foodInput: any = [];
-  constructor() { }
+  @Output() onToCart = new EventEmitter<string>();
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  addTodaysFood() {
+    this.onToCart.emit(this.foodInput);
   }
-
 }
