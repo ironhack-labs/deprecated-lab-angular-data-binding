@@ -13,6 +13,7 @@ export class FoodItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.food.quantity = 1;
   }
 
   onAddFood() {

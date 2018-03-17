@@ -13,6 +13,7 @@ export class FoodListComponent implements OnInit {
   foodList: Object[];
   foodCalories: Array<number>;
   totalCalories: number;
+  totalByProduct: number;
 
   constructor() { }
 
@@ -20,6 +21,7 @@ export class FoodListComponent implements OnInit {
     this.foodList = foods;
     this.foodCalories = [];
     this.totalCalories = 0;
+    this.totalByProduct = 0;
   }
 
   foodForm(): void {
@@ -27,9 +29,9 @@ export class FoodListComponent implements OnInit {
   }
 
   handleAddFood(food) {
-    this.foodCalories.push(food.calories);
+    this.totalByProduct = food.calories * food.quantity;
+    this.foodCalories.push(this.totalByProduct);
     this.totalCalories = this.foodCalories.reduce((total, amount) => total + amount);
-    console.log(this.totalCalories);
   }
 
 }
