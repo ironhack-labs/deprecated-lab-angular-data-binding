@@ -8,6 +8,7 @@ import { FoodListComponent } from './components/food-list/food-list.component';
 import { FoodItemComponent } from './components/food-item/food-item.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormNewProductComponent } from './components/form-new-product/form-new-product.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormNewProductComponent } from './components/form-new-product/form-new-
     FoodItemComponent,
     FilterPipe,
     FormNewProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
