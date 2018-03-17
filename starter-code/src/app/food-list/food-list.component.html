@@ -1,3 +1,41 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="column">
+    <p> Search food:
+      <input id="food_name" type="text" [(ngModel)]="pattern">
+    </p>
+    <div *ngFor="let food of foodList | filter:'name':pattern; let i = index">
+      <app-fooditem [foodInput]="food" (onToCart)="addTodaysFood($event)"></app-fooditem>
+    </div>
+
+    <button class="show-form" *ngIf="!showForm" (click)="showForm = !showForm">show form</button>
+    <form *ngIf="showForm" (ngSubmit)="addFood(food)" #food="ngForm">
+      <p> Add name:
+        <input type="text" name="name" [(ngModel)]="food.name" required/>
+      </p>
+      <p> Number of calories:
+        <input type="text" name="calories" [(ngModel)]="food.calories" required/>
+      </p>
+      <p> Image:
+        <input type="text" name="image" [(ngModel)]="food.image" required/>
+      </p>
+      <button type="submit"> Add to list </button>
+    </form>
+  </div>
+
+  <div class="column">
+
+    <div class="blue">
+      <div>
+        <div class="container" *ngFor="let foodItem of foodListCart">
+          <p>x{{foodItem.quantity}} {{foodItem.name}}, {{foodItem.calories}} kcal</p>
+        </div>
+        <hr style="width:200px; border-color:#57D6C7">
+      </div>
+      <div class="container">
+        <p>Total calories:
+          <strong>{{totalCalories}} kcal</strong>
+        </p>
+      </div>
+    </div>
+</div>
+</div>

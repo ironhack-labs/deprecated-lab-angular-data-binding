@@ -1,0 +1,10 @@
+<div class="card">
+  <img class="card-image" [src]="foodInput.image">
+  <div class="card-text">
+    <h2>{{foodInput.name}}</h2>
+    <p>Calories: {{foodInput.calories}}</p>
+    <input type="number" [(ngModel)]="foodInput.quantity" value="{{foodInput.quantity}}">
+  <button (click) = "addTodaysFood()">Add</button>
+
+  </div>
+</div>
