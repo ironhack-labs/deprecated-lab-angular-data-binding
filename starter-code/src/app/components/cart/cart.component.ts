@@ -7,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  @Input() totalCalories: any;
+  @Input() totalCalories: number;
+  @Input() foodNameOnCart: Array<Object> = [];
 
   constructor() { }
 

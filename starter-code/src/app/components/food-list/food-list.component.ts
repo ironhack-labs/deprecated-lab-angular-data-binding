@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../../foods';
 
+interface Food{
+  name: string;
+  quantity: number;
+}
+
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
@@ -11,17 +16,16 @@ export class FoodListComponent implements OnInit {
   isHide: boolean;
 
   foodList: Object[];
-  foodCalories: Array<number>;
   totalCalories: number;
-  totalByProduct: number;
+  foodCart: Array<Food> = [];
+  foodNameOnCart: Array<string> = [];
+  name: string;
 
   constructor() { }
 
   ngOnInit() {
     this.foodList = foods;
-    this.foodCalories = [];
     this.totalCalories = 0;
-    this.totalByProduct = 0;
   }
 
   foodForm(): void {
@@ -29,9 +33,9 @@ export class FoodListComponent implements OnInit {
   }
 
   handleAddFood(food) {
-    this.totalByProduct = food.calories * food.quantity;
-    this.foodCalories.push(this.totalByProduct);
-    this.totalCalories = this.foodCalories.reduce((total, amount) => total + amount);
+    this.totalCalories += food.calories * food.quantity;
+    this.foodNameOnCart.push(food.name);
+    console.log(this.foodNameOnCart);
   }
 
 }

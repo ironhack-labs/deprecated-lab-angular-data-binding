@@ -1,4 +1,5 @@
 <h2>Total calories</h2>
 <ul>
   <li class="font-2 align-right"><span class=" underline">{{ totalCalories }}</span></li>
+  <li *ngFor="let foodName of foodNameOnCart">{{ foodName }}</li>
 </ul>
