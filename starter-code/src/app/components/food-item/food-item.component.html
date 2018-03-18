@@ -1,0 +1,10 @@
+<div class="w-20">
+  <img src="{{ food.image }}" alt="{{ food.name }}" class="w-100">
+</div>
+<div class="ml-50 flex-container flex-product w-100">
+  <h2>{{ food.name }}
+    <span class="calories">{{ food.calories }}</span>
+  </h2>
+  <input type="number" value="{{ food.quantity }}" [(ngModel)]="food.quantity">
+  <button (click)="onAddFood()">Add to cart</button>
+</div>

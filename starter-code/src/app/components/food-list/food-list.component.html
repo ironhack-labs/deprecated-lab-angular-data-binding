@@ -1,0 +1,18 @@
+<app-cart class="cart" [totalCalories]="totalCalories" [foodNameOnCart]="foodNameOnCart"></app-cart>
+
+<div class="center w-50 text-center">
+  <label for="search">Search your pizza</label>
+  <input type="text" id="search" placeholder="start typping" [(ngModel)]='pattern'>
+</div>
+
+<div class="center-t-25 w-50 text-center">
+  <button *ngIf="!isHide" class="" (click)="foodForm()">Add new product</button>
+  <button *ngIf="isHide" class="" (click)="foodForm()">Close form</button>
+  <app-form-new-product *ngIf="isHide" (closeForm)="foodForm()"></app-form-new-product>
+</div>
+
+<ul class="center w-50">
+  <li *ngFor="let food of foodList | filter:'name': pattern; let i = index" class="flex-container mt-25 border br-4">
+    <app-food-item [food]="food" (addFood)="handleAddFood($event)" class="flex-container"></app-food-item>
+  </li>
+</ul>
