@@ -1,11 +1,16 @@
-<div class="row card-box"> 
-  <div class="card">
-    <img class="card-img-top img-crop" src="{{ foodItem.image }}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ foodItem.name }}</h5>
-      <p class="list-group-item"> Calories: {{ foodItem.calories }}</p>
-      <p class="list-group-item"> Quantity: {{ foodItem.quantity }} </p>
-    </div>
-    <div class="card-footer text-muted text-center">Iron Food</div>
+<div class="card">
+  <img class="card-img-top img-crop" src="{{ foodItem.image }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ foodItem.name }}</h5>
+    <p class="list-group-item"> Calories: {{ foodItem.calories }}</p>
+    <form>
+      <div class="input-group">
+        <input type="text" name="quantity" [(ngModel)]="foodItem.quantity" class="form-control" id="foodQuantity" placeholder="Quantity">
+        <span class="input-group-btn">
+          <button class="btn btn-success" (click)="addSelectedFood(foodItem)" type="button">Add</button>
+        </span>
+      </div>
+    </form>
   </div>
+  <div class="card-footer text-muted text-center">Iron Food</div>
 </div>

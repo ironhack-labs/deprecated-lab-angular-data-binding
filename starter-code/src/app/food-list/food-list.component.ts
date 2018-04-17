@@ -10,7 +10,7 @@ export class FoodListComponent implements OnInit {
   foodList: Array<any>;
   newFood: Object = {};
   formHidden: boolean = false;
- 
+
   constructor() { }
 
   ngOnInit() {

@@ -7,10 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FoodItemComponent implements OnInit {
   @Input() foodItem: Object[];
+  foodSelectedList: Object[] = [];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addSelectedFood(foodItem) {
+      this.foodSelectedList.push(foodItem);
+      console.log(this.foodSelectedList)
+      console.log(this.foodItem);
   }
 
 }
