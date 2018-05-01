@@ -9,7 +9,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   constructor() { }
-
+  foods: Array <Object> = foods;
   ngOnInit() {
   }
 
