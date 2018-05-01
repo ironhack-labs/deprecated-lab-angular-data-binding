@@ -1,3 +1,9 @@
-<p>
-  food-list works!
-</p>
+<div *ngFor="let food of foods" >
+  <p>****************************</p>
+  <p>{{food.name}}</p>
+  <p>{{food.calories}}</p>
+  <img src={{food.image}} height="10%" width="10%">
+  <p>{{food.quantity}}</p>
+
+  </div>
+  
