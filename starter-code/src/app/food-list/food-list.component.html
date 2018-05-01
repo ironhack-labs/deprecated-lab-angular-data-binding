@@ -1,3 +1,42 @@
-<p>
-  food-list works!
-</p>
+<h1>Food calories</h1>
+
+<div class="food-list">
+  <div *ngFor="let food of foods" class="profile">
+    <img [src]="food.image" alt="{{ food.name }}">
+    <div>{{ food.name }}</div>
+    <div>{{ food.calories }}</div>
+    <input type="number" [(ngModel)]="food.quantity">
+    <button class="fav-btn" (click)="setFavorite(food)">set Favorite</button>
+  </div>
+</div>
+
+<button (click)="showForm = true">Show Form</button>
+
+<div id="input-wrapper" *ngIf="showForm === true">
+  <div class="input-field">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div class="input-field">
+    <label for="calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div class="input-field">
+    <label for="image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <button (click)="addMeal()">Add food</button>
+</div>
+
+<div class="profile" *ngIf="todaysFood.length > 0">
+  <h1>Favourite Food</h1>
+  <p>current Calories Count: {{caloriesCount}}</p>
+  <div class="food-list">
+    <div *ngFor="let favFood of todaysFood" class="profile">
+      <img [src]="favFood.image" alt="{{ favFood.name }}">
+      <div>{{ favFood.name }}</div>
+      <div>{{ favFood.calories }}</div>
+      <div>{{ favFood.quantity }}</div>
+    </div>
+  </div>
+</div>
