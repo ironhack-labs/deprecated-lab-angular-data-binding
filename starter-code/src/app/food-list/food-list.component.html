@@ -1,8 +1,9 @@
-<p>
-  food-list works!
-</p>
 <div id="container">
-  <div *ngFor="let f of foods" class="card">
+  <div id="searchbox">
+    <label for="word">Search your food here</label>
+    <input type="text" name="word" [(ngModel)]="pattern">
+  </div>
+  <div *ngFor='let f of foods | searchbox:"name":pattern; let i = index' class="card">
     <img src={{f.image}}>
     <h3>{{f.name}}</h3>
     <p>Calories: {{f.calories}}</p>

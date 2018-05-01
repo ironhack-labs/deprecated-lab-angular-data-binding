@@ -1,0 +1,17 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'searchbox'
+})
+export class SearchboxPipe implements PipeTransform {
+  transform(items: any[], field: string, value: string): any[] {
+    if (!items) {
+      return [];
+    }
+    if (!value) {
+      return items;
+    }
+    const pattern = new RegExp(value, 'i');
+    return items.filter(it => it[field].match(pattern));
+  }
+}
