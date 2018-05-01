@@ -3,3 +3,25 @@ img {
   max-width: 250px;
   border-radius: 15px;
 }
+ul{
+  text-decoration-style: none;
+  list-style-type: none;
+}
+li{
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid gainsboro;
+  width: 300px;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+.left{
+  position: absolute;
+  left: 100px;
+}
