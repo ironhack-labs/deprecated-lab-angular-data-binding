@@ -1,0 +1,3 @@
+1. In food-list-component, how do we accurately bind the image source? 
+2. Why is it necessary to clear the inputs again? 
+3. How to permanently save new foods to foods array so they load on init as well? 
