@@ -1,0 +1,25 @@
+.food-list,
+.profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile {
+  flex-direction: column;
+  flex: 1 0 auto;
+  padding: 20px;
+}
+
+img {
+  width: 150px;
+  padding-top: 10px;
+}
+
+p {
+  margin: 5px;
+}

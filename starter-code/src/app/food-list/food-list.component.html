@@ -1,3 +1,45 @@
-<p>
-  food-list works!
-</p>
+<button (click)="showForm = true">Show Form</button>
+
+<div *ngIf="todayMeal.length > 0">
+  <h1>Today Food List</h1>
+  <p>Total calories: {{count}}</p>
+  <div class="food-list">
+    <div *ngFor="let food of todayMeal" class="profile">
+      <p>{{food.name}}</p>
+      <p>{{food.calories}}</p>
+      <p>{{food.quantity}}</p>
+      <img [src]="food.image" [alt]="food.image">
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showForm">
+  <div>
+    <label for="contact-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-quantity">Quantity</label>
+    <input type="text" [(ngModel)]="newFood.quantity">
+  </div>
+  <div>
+    <label for="food-image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <button (click)="addFood()">Submit New Food</button>
+  
+</div>
+<h1>Foods List</h1>
+<div class="food-list">
+  <div *ngFor="let food of foods" class="profile">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <p>{{food.quantity}}</p>
+    <img [src]="food.image" [alt]="food.image">
+    <button (click)="addTodayFood(food)">Add Today Food</button>
+  </div>
+</div>
