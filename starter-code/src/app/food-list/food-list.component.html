@@ -4,7 +4,7 @@
   <input type="text" [(ngModel)]="name" name="search">
 </form>
 
-<button (click)="toggle()" id="bt">
+<button (click)="toggle()">
     {{buttonName}}
 </button>
 
@@ -26,7 +26,8 @@
   <h5>{{e.name}}</h5>
   <p>{{e.calories}}</p>
   <p>{{e.quantity}}</p>
-  <button (click)="addToFavorite(e)" >Add to Favorite List</button>
+  <input type="number" name="quantity" #qty placeholder="1" value="1">
+  <button (click)="addToFavorite(e, qty.value)" >Add to Favorite List</button>
 </div>
 
 <h2>Favorite List</h2>

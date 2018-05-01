@@ -13,6 +13,7 @@ export class FoodListComponent implements OnInit {
   show = false;
   buttonName = 'Show Form';
   caloriesCount = 0;
+  newFood = {};
   constructor() {}
 
   ngOnInit() {}
@@ -29,8 +30,14 @@ export class FoodListComponent implements OnInit {
      this.buttonName = 'Show Form';
     }
   }
-  addToFavorite(food) {
-    this.favoriteFood.push(food);
-    this.caloriesCount += food.calories;
+  addToFavorite(food, quantity) {
+    this.caloriesCount += food.calories * quantity;
+    this.newFood = {
+      name : food.name,
+      calories: food.calories * quantity,
+      quantity: quantity
+    };
+    this.favoriteFood.push(this.newFood);
+    console.log(this.favoriteFood);
   }
 }
