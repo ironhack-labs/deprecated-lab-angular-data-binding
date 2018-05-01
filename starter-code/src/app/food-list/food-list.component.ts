@@ -8,9 +8,11 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   food: Array<Object> = foods;
+  favoriteFood: Array<Object> = [];
   newItem = {};
   show = false;
   buttonName = 'Show Form';
+  caloriesCount = 0;
   constructor() {}
 
   ngOnInit() {}
@@ -21,10 +23,14 @@ export class FoodListComponent implements OnInit {
   }
   toggle() {
     this.show = !this.show;
-    if (this.show){
+    if (this.show) {
     this.buttonName = 'Hide Form';
     } else {
      this.buttonName = 'Show Form';
+    }
   }
-}
+  addToFavorite(food) {
+    this.favoriteFood.push(food);
+    this.caloriesCount += food.calories;
+  }
 }

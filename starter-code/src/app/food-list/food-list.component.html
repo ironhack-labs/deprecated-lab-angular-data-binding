@@ -26,5 +26,14 @@
   <h5>{{e.name}}</h5>
   <p>{{e.calories}}</p>
   <p>{{e.quantity}}</p>
+  <button (click)="addToFavorite(e)" >Add to Favorite List</button>
 </div>
 
+<h2>Favorite List</h2>
+<h3>Total Calories: {{caloriesCount}}</h3>
+<div *ngFor="let e of favoriteFood">
+    <img src="{{e.image}}" alt="" width="300" height="200">
+    <h5>{{e.name}}</h5>
+    <p>{{e.calories}}</p>
+    <p>{{e.quantity}}</p>
+</div>
