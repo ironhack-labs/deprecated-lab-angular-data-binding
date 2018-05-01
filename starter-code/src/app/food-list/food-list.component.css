@@ -1,0 +1,26 @@
+.cont-food{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 5% 5%;
+
+}
+.diet,
+.lista-usuario{
+    width: 50%;
+    text-align: center;
+    
+  }
+  
+  .diet-img img {
+    max-width: 100%;
+    
+  }
+  
+  .invisible{
+      display: none;
+  }
+  .lista-usuario ul{
+      list-style-type: none;
+  }
+  
