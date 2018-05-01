@@ -1,3 +1,51 @@
 <p>
   food-list works!
 </p>
+
+<button (click)="toggle()" id="bt">
+  {{buttonName}}
+</button>
+<div *ngIf="show">
+<div>
+  <label for="food-name"></label>
+  <input type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image">
+</div>
+
+<button (click)="addItem($event, newFood.name,newFood.calories,newFood.image)">Submit New Food</button>
+</div>
+
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+<div>
+
+<div class="container">
+  <div *ngFor = "let item of foods | foodPipe:'name': pattern; trackBy:foodsTrackerFunction">
+    <p>{{item.name}}</p>
+    <p>{{item.calories}}</p>
+    <img [src]="item.image" alt="">
+    <input type="number" #quantity value="1">
+    <button (click)="addList($event, item, item.quantity)">Add to Today´s List</button>
+  </div>
+</div>  
+
+
+<div class="list-container">
+    <h2>Today's Foods: {{totalCalories}}</h2>
+     <ul>
+      <li *ngFor="let item of listFood">
+        <p>{{item.name}}</p>
+        <p>{{item.calories}}x{{item.quantity}}</p>
+      </li>
+     </ul>
+</div>
+
