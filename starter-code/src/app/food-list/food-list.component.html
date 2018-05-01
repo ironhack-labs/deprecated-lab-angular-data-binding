@@ -1,3 +1,23 @@
-<p>
-  food-list works!
-</p>
+<h1>Holaaa</h1>
+<div>
+  <ul *ngFor="let e of foods, let l=last, let f=first, let e=even, let o=odd">
+
+    <div [ngStyle]="{ 'background-color': 'white'}">
+      <p>{{e.name}}</p>
+    </div>
+
+    <div>
+      {{e.calories}}
+    </div>
+
+    <div>
+      <img [src]="e.image" alt="" height="100" width="auto">
+    </div>
+
+
+    <div>
+      {{e.quantity}}
+    </div>
+
+  </ul>
+</div>
