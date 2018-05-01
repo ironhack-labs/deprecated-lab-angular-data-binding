@@ -1,15 +1,28 @@
-.container {
+.main-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.container div {
-  width: 30%;
+.food-container,
+.list-container {
+  width: 50%;
 }
 
-.container img {
+.food-container-item {
+  display: flex;
+}
+
+.food-container img {
   max-width: 100%;
+}
+
+.list-container {
+  text-align: center;
+}
+
+.list-container ul {
+  list-style: none;
 }
 
 .noVisible {

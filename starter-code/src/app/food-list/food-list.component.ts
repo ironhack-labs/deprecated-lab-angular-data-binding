@@ -10,9 +10,13 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   pattern: string;
   noVisible: boolean;
+  listFood: Object[];
+  caloriesCount: number;
 
   constructor() {
     this.noVisible = true;
+    this.listFood = [];
+    this.caloriesCount = 0;
    }
 
   ngOnInit() {
@@ -27,12 +31,23 @@ export class FoodListComponent implements OnInit {
     }
   }
 
-  addFood($event, name, email, image) {
+  addFood($event, name, calories, image) {
     this.foods.unshift({
       name,
-      email,
+      calories,
       image
     })
+
+    this.showForm();
   }
 
+  addList($event, food, quantity) {
+    this.listFood.push({
+      name: food.name,
+      calories: food.calories,
+      quantity
+    });
+
+    this.caloriesCount += (food.calories * quantity);
+  }
 }
