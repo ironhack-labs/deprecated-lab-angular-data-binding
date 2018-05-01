@@ -1,3 +1,21 @@
+<div class="foods__header">
+  <h1>W7 D2 Daily</h1>
+  <div class="search__food">
+      <label for="foodSearch">Seach for a meal</label>
+      <input placeholder= "Search" type="text" name="foodSearch" [(ngModel)]="name">
+  </div>
+  <div class="addYours"><h4>Add your food</h4>
+      <label for="name">Name: </label>
+      <input placeholder= "Your food name" type="text" [(ngModel)]="newFood.name">
+      <label for="image">Image: </label>
+      <input placeholder="Your food img url" type="text" [(ngModel)]="newFood.image">
+      <label for="calories">Calories: </label>
+      <input placeholder= "Your food in Kcals" type="text" [(ngModel)]="newFood.calories">
+      <button (click)="addYours()">New Food</button>
+  </div>
+  
+</div>
+
 <div class="foods__container">
   <div class='foods__inner' *ngFor='let foods of foods'> 
     <h4>{{foods.name}}</h4>
