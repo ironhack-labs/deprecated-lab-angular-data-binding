@@ -1,8 +1,22 @@
-<p>
-  food-list works!
-</p>
+<!-- <form>
+  <label for="name">Name</label>
+  <input type="text" name="name">
 
-<div *ngFor="let e of food">
+  <label for="calories">Calories</label>
+  <input type="text" name="calories">
+
+  <label for="quantity">Quantity</label>
+  <input type="text" name="quantity">
+
+  <button>Search</button>
+</form> -->
+
+<form>
+  <label for="search">Search</label>
+  <input type="text" [(ngModel)]="name" name="search">
+</form>
+
+<div *ngFor="let e of food | searchPipe: name">
   <img src="{{e.image}}" alt="" width="300" height="200">
   <h5>{{e.name}}</h5>
   <p>{{e.calories}}</p>
