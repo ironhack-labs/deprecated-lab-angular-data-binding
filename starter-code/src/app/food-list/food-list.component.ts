@@ -14,6 +14,7 @@ export class FoodListComponent implements OnInit {
   todaysFood: Object[];
   dailyCaloryIntake: number;
 
+
   constructor() {
     this.isHidden=true;
    }
@@ -22,13 +23,14 @@ export class FoodListComponent implements OnInit {
     this.foods=foods;
     this.todaysFood=[];
     this.dailyCaloryIntake=0;
+    
   }
 
   addFood(name, calories,image){
     this.foods.unshift({
       name,
       calories,
-      image
+      image,
     });
     //this.foods.push(foods);
     this.isHidden= true;
@@ -41,8 +43,9 @@ showForm():void {
 }
 
 addTodaysFood(f){
-  this.todaysFood.push(f)
+  this.todaysFood.push(f);
   this.dailyCaloryIntake += f.calories;
+ 
 }
 
 }
