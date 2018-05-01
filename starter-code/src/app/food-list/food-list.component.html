@@ -1,3 +1,35 @@
-<p>
-  food-list works!
-</p>
+
+<section class="container">
+
+  <div class="inner-container" *ngFor="let food of foods">
+    <p>Food name: {{food.name}}</p>
+    <p>Calories: {{food.calories}}</p>
+    <img [src]="food.image" alt="">
+    <button (click)="addToToday(food)" >Eat today!</button>
+  </div>
+       
+  <div class="inner-container">
+    <button (click)="toggleAddNewBtn()" >Add new food</button>
+    <div *ngIf="showAddNewBtn">
+      <div>
+        <input placeholder="name" type="text" [(ngModel)]="newFood.name">
+      </div>
+      <div>
+        <input placeholder="calories" type="number" [(ngModel)]="newFood.calories">
+      </div>
+      <div>
+        <input placeholder="image url" type="text" [(ngModel)]="newFood.image">
+      </div>
+      <div>
+        <button (click)="addNewFood()">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="todaysFood"> 
+    <p>Today's food</p>
+    <div *ngFor="let food of todaysFood">
+      <p>{{food.name}} x {{food.quantity}}</p>
+    </div>
+  </div>
+</section>  

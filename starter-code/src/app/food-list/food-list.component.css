@@ -1,0 +1,35 @@
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.inner-container {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 15px;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.inner-container img {
+  width: 100%;
+}
+
+#todaysFood {
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(161, 161, 161);
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+}
+
+#todaysFood img {
+  width: 100%;
+}
+
