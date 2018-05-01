@@ -1,8 +1,16 @@
 <div id="container">
-  <div id="searchbox">
+  <div id="searchbox" class="form">
     <label for="word">Search your food here</label>
     <input type="text" name="word" [(ngModel)]="pattern">
   </div>
+  <button [hidden]="formVis" type="button" (click)="showForm()">Add food</button>
+  <form [hidden]="!formVis">
+    <input type="text" name="name" [(ngModel)]="newFood.name" placeholder="Food Name">
+    <input type="text" name="calories" [(ngModel)]="newFood.calories" placeholder="Calories">
+    <input type="text" name="image" [(ngModel)]="newFood.image" placeholder="Image Link">
+    <button type="button" (click)="addFood()">Confirm</button>
+  </form>
+
   <div *ngFor='let f of foods | searchbox:"name":pattern; let i = index' class="card">
     <img src={{f.image}}>
     <h3>{{f.name}}</h3>
