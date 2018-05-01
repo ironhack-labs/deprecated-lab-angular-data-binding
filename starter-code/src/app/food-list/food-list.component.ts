@@ -15,10 +15,17 @@ export class FoodListComponent implements OnInit {
   
   // calories: number;
   foods: Array<object> = foods;
-  newFood: Object = {
-  };
+  // newFood: Object = {
+  // };
+  newFood: {
+    name: string,
+    calories: number,
+    image: string,
+    quantity: number
+};
+
   specialFoods: Array<Object> =[];
-  filtrado: Array<Object> =[];
+  filtrado: Array<Object> =[{}];
   totalCalories:number = 0;
   
   constructor() { 
@@ -35,11 +42,11 @@ export class FoodListComponent implements OnInit {
     this.totalCalories += food.calories*quantity;
     this.newFood = {
       name: food.name,
-      calories: parseInt(food.calories*quantity),
+      calories: parseInt(food.calories)*parseInt(quantity),
       image: food.image,
       quantity: parseInt(quantity), 
     }
-    this.filtrado = this.specialFoods.filter((e, i)=>{
+    this.filtrado = this.specialFoods.filter((e)=>{
       return e.name === food.name;
     })
 
@@ -50,8 +57,8 @@ export class FoodListComponent implements OnInit {
     else{
       this.specialFoods.map((e)=>{
         if (e.name === food.name) {
-          e.quantity += parseInt(this.newFood.quantity);
-          e.calories += parseInt(this.newFood.calories);
+          e.quantity += this.newFood.quantity;
+          e.calories += this.newFood.calories;
 
         }
         return e;
