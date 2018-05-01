@@ -4,29 +4,67 @@
   <p>Search </p>
 </div>
 
-  <input [(ngModel)]="searchText" placeholder="search text goes here" type="text">
+<input [(ngModel)]="searchText" placeholder="search text goes here" type="text">
 
+
+<button (click)="toogle()">show new product</button>
+<div class="row" id=" form" *ngIf="show">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" [(ngModel)]="name">
+  </div>
+  <div>
+    <label for="calories">Calories</label>
+    <input type="text" [(ngModel)]="calories">
+  </div>
+  <div>
+    <label for="image">Image</label>
+    <input type="text" [(ngModel)]="image">
+  </div>
+  <div>
+    <label for="Quantity">Quantity</label>
+    <input type="number" [(ngModel)]="quantity">
+  </div>
+  <div>
+    <button (click)="addNewFood()">Submit New Food</button>
+  </div>
+</div>
 
 
 <div>
   <ul *ngFor="let e of foods | searchText : searchText">
-
     <div [ngStyle]="{ 'background-color': 'white'}">
       <p>{{e.name}}</p>
     </div>
-
     <div>
       {{e.calories}}
     </div>
-
     <div>
       <img [src]="e.image" alt="" height="100" width="auto">
     </div>
-
-
     <div>
       {{e.quantity}}
     </div>
-
+      <input type="number" #quantity value="1">
+    <button (click)="todaysFood(e, quantity.value)">Añadir a Today`s Food</button>
   </ul>
 </div>
+
+<div>
+  <h2>Today´s Food</h2>
+    <ul *ngFor="let e of todaysFoods" [ngStyle]="{ 'background-color': 'red'}">
+      <div >
+        <p>{{e.name}}</p>
+      </div>
+      <div>
+        {{e.calories}}
+      </div>
+      <div>
+        <img [src]="e.image" alt="" height="100" width="auto">
+      </div>
+      <div>
+        {{e.quantity}}
+      </div>      
+    </ul>
+    <h2> total de calorias = {{totalCalorias}}</h2>
+  </div>
