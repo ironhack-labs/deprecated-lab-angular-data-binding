@@ -1,3 +1,43 @@
-<p>
-  food-list works!
-</p>
+<input [(ngModel)]="searchText" placeholder="search text goes here">
+<button (click)="toggle()">Add new food</button>
+<div *ngIf = "platano" class="form">
+  <label for="foods-name">name</label>
+  <input type="text" [(ngModel)]="foods.name">
+  <div>
+    <label for="foods-calories">calories</label>
+    <input type="text" [(ngModel)]="foods.calories">
+  </div>
+  <div>
+    <label for="foods-quantity">quantity</label>
+    <input type="text" [(ngModel)]="foods.quantity">
+  </div>
+  <div>
+    <label for="foods-image">image</label>
+    <input type="text" [(ngModel)]="foods.image">
+  </div>
+  <button (click)="addFood()">Add new food</button>
+</div>
+
+<ul>
+  <li *ngFor="let e of foods | piperan:'name':searchText">
+    <p>{{e.name}}</p>
+    <p>{{e.calories}}</p>
+    <img width="300" height="150" src='{{e.image}}'>
+    <p>{{e.quantity}}</p>
+    <button (click)="addFavorite(e, qty)">Add to favorites</button>
+    <div>
+      <label for="pedido-quantity">Quantity</label>
+      <input type="number" min="1" value="1" #qty>
+    </div>
+  </li>
+</ul>
+<hr>
+<ul>
+  <li *ngFor= "let pedido of favorite">
+    <img width="300" height="150" src='{{pedido.image}}'>
+    <p>{{pedido.name}}</p>
+    <p>{{pedido.calories}}</p>
+    <p> Calories {{pedido.total}}</p>
+    <p> Added {{pedido.added}}</p>
+  </li>
+</ul>
