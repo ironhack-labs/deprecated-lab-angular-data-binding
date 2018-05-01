@@ -1,0 +1,17 @@
+#container {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.card {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 15px;
+}
