@@ -1,6 +1,15 @@
 <label for="foodName">Name: </label>
 <input type="text" [(ngModel)]="pattern">
-
+<button *ngIf="!isNewFood" (click)="toggleInput()">Add food</button>
+<div *ngIf="isNewFood">
+  <label for="">Name: </label>
+  <input type="text" [(ngModel)]="newFood.name">
+  <label for="">Calories: </label>
+  <input type="text" [(ngModel)]="newFood.calories">
+  <label for="">Image: </label>
+  <input type="text" [(ngModel)]="newFood.image">
+  <button (click)="toggleInput(); addFood()">Add food</button>
+</div>
 <ul>
   <li *ngFor="let food of foodList | filter:'name':pattern">
     <img [src]="food.image" alt="food">
