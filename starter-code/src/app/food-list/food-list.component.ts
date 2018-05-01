@@ -28,7 +28,7 @@ export class FoodListComponent implements OnInit {
   }
 
   addList($event, item, quantity) {
-    item.quantity += parseInt(quantity);
+    item.quantity = parseInt(quantity);
     
     if( this.listFood.indexOf(item) == -1 ) {
     if( this.totalCalories == 0 ) {

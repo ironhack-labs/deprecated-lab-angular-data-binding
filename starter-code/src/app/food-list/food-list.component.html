@@ -34,7 +34,7 @@
     <p>{{item.calories}}</p>
     <img [src]="item.image" alt="">
     <input type="number" #quantity value="1">
-    <button (click)="addList($event, item, quantity.value)">Add to Today´s List</button>
+    <button (click)="addList($event, item, item.quantity)">Add to Today´s List</button>
   </div>
 </div>  
 
