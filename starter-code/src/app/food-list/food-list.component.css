@@ -1,0 +1,26 @@
+.search{
+display: flex;
+justify-content: center;
+}
+.food{
+    margin: 0px 45vh;
+}
+img{
+    height: 150px;
+}
+.name{
+    border: 2px;
+    border-style: dashed;
+    width: 77vh;
+    height: 30vh;
+    font-size: 30px
+}
+.calories {
+    color: gray;
+}
+.newfood{
+    font-size: 37px;
+    margin: 0px 35vh;
+    height: 10vh;
+    background: skyblue;
+}

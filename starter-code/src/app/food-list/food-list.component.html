@@ -1,3 +1,31 @@
-<p>
-  food-list works!
-</p>
+<div class="search">
+  <div>
+    <label for="food"> Search Food: </label>
+    <input placeholder="Search Food" type="text" [(ngModel)]="name">
+  </div>
+</div>
+<div class="food">
+  <ul>
+    <li *ngFor="let food of foods | filter:'name':name">
+      
+        <div class="name">
+          <img src="{{food.image}}"> {{food.name}}
+          <button (click)="foodList(food)">Añadir</button>
+          <p class="calories">
+            {{food.calories}} kcal
+          </p>
+        </div>
+      
+    </li>
+  </ul>
+</div>
+<div class="newfood">
+  <label for="Name">Name: </label>
+  <input type="text" [(ngModel)]="newFood.name">
+  <label for="Image">Image: </label>
+  <input type="text" [(ngModel)]="newFood.image">
+  <label for="Calories">Calories: </label>
+  <input type="text" [(ngModel)]="newFood.calories">
+
+<button (click)="addFood()">New Food</button>
+</div>
