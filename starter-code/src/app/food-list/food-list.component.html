@@ -2,9 +2,15 @@
   App foods doesn't work
 </p>
 
+<div>
+  <label for="busqueda">Buscar: </label>
+  <input id="busqueda" placeholder="busqueda"
+          type="text" [(ngModel)]="busqueda">
+<div>
+
 <div class="content">
-  <div class="item">
-    <div *ngFor="let e of foods">
+  <div>
+    <div class="item" *ngFor="let e of foods | searchItem:'name':busqueda; let i = index">
         {{e.name}}
         {{e.calories}}
         <img src="{{e.image}}" alt="" width="100">
