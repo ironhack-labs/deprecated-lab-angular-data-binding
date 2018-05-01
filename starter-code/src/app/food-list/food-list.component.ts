@@ -11,6 +11,8 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
   showForm: boolean = false;
+  todayFoods: Object[] = [];
+  caloriesSum: number = 0;
 
   constructor() { }
 
@@ -28,24 +30,16 @@ export class FoodListComponent implements OnInit {
   }
 
   addFood() {
-
-    // add contact to contacts list
+    // add new food to foods list
     this.foods.push(this.newFood);
     // clear inputs
     this.newFood = {};
     this.showForm = false;
-
   }
 
-
-  // addContact($event) {
-  //   console.log("Add contact has been called");
-  //   console.log(this.newContact);
-
-  //   // add contact to contacts list
-  //   this.contacts.push(this.newContact);
-  //   // clear inputs
-  //   this.newContact = {};
-  // }
+  addTodayFood(food) {
+    this.todayFoods.push(food);
+    this.caloriesSum += food.calories;
+  }
 
 }
