@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+img {
+  width: 100px;
+}
+
+.left-panel {
+  width: 50%;
+}
+
+.right-panel {
+  width: 50%;
+}
+
+.food-wrapper {
+  border: 3px solid grey;
+  width: 100%;
+  margin: 20px 0
+}
