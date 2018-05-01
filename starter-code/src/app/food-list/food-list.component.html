@@ -1,19 +1,24 @@
-<!-- <form>
-  <label for="name">Name</label>
-  <input type="text" name="name">
-
-  <label for="calories">Calories</label>
-  <input type="text" name="calories">
-
-  <label for="quantity">Quantity</label>
-  <input type="text" name="quantity">
-
-  <button>Search</button>
-</form> -->
 
 <form>
   <label for="search">Search</label>
   <input type="text" [(ngModel)]="name" name="search">
+</form>
+
+<button (click)="toggle()" id="bt">
+    {{buttonName}}
+</button>
+
+<form *ngIf="show">
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="newItem.name" name="name">
+
+  <label for="calories">Calories</label>
+  <input type="text" [(ngModel)]="newItem.calories" name="calories">
+
+  <label for="quantity">Quantity</label>
+  <input type="text" [(ngModel)]="newItem.quantity" name="quantity">
+
+  <button (click)="add()">Add</button>
 </form>
 
 <div *ngFor="let e of food | searchPipe: name">
@@ -22,3 +27,4 @@
   <p>{{e.calories}}</p>
   <p>{{e.quantity}}</p>
 </div>
+
