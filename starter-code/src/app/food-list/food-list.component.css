@@ -1,0 +1,46 @@
+h1 {
+  text-align: center;
+  text-decoration-line: underline;
+}
+
+img {
+  width: 200px;
+}
+
+.food-list ul {
+  list-style: none;
+}
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.food-list div {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-style: bold;
+}
+
+input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.field {
+	margin-bottom: 20px;
+}
+
+.submit button {
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #27afdc;
+  cursor: pointer;
+}
+
