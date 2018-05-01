@@ -26,17 +26,14 @@ export class FoodListComponent implements OnInit {
   }
 
   addTodayList(food, qty) {
+    food.quantity += parseInt(qty.value);
 
     if(this.todayList.indexOf(food) === -1){
-      food.numAddedItem = 1;
-      food.quantity = qty.value;
       food.caloriesToShow = food.calories * qty.value;
       this.todayList.push(food);
     }
     else{
-      food.quantity = qty.value;
       food.caloriesToShow += food.calories * qty.value;
-      food.numAddedItem += +qty.value; //Giorgio's Tip
     }
   }
 }

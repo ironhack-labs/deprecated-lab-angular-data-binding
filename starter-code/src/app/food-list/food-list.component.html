@@ -42,7 +42,7 @@
       <h1>Today's Foods</h1>
       <ul *ngIf="todayList">
         <li *ngFor="let foodItem of todayList">
-          <p>{{foodItem.name}} {{foodItem.caloriesToShow}} | Added {{foodItem.numAddedItem}}</p>          
+          <p>{{foodItem.name}} {{foodItem.caloriesToShow}} | Added {{foodItem.quantity}}</p>          
         </li>
       </ul>
     </div>
