@@ -8,9 +8,21 @@
   </div>
 
   <div class="w-50">
-    <button class="btn btn-dark">Add new food</button>
-    <ul>
-      <li *ngFor="let food of foods | filter : searchText" class="d-flex w-100 m-2 p-3 food-item">
+    <button class="btn btn-dark" (click)="toggle()">Add new food</button>
+    <div class="d-flex flex-column" *ngIf="show">
+      <label for="name" class="m-0 mt-2">Name</label>
+      <input type="text" [(ngModel)]="newFood.name" maxlength="15">
+
+      <label for="name" class="m-0 mt-2">Calories</label>
+      <input type="text" [(ngModel)]="newFood.calories" maxlength="15">
+
+      <label for="name" class="m-0 mt-2">Image</label>
+      <input type="text" [(ngModel)]="newFood.image" maxlength="15">
+
+      <button class="btn btn-primary mt-2" (click)="addFood(newFood.name, newFood.calories, newFood.image, newFood.quantity); toggle()">Add</button>
+    </div>
+    <ul class="p-0">
+      <li *ngFor="let food of foods | filter : searchText" class="d-flex w-100 m-0 mt-2 p-3 food-item">
         <img [src]="food.image" alt="" class="img-responsive w-25 h-25">
         <div class="d-flex justify-content-center w-100">
           <h3>{{food.name}}</h3>
