@@ -1,3 +1,62 @@
-<p>
-  food-list works!
-</p>
+<div class="background">
+  <header>
+    <div class="logo">
+      <h1>MARC-ADONA
+        <span class="material-icons" id="shopping_cart">shopping_cart</span>
+      </h1>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="left title col-sm-6 wrapperino">
+      <div class="title filter">
+        <h2>Filter:
+          <input type="text" [(ngModel)]="pattern">
+          <a class="material-icons" id="add" *ngIf="!isNewFood" (click)="toggleInput()">add_box</a>
+        </h2>
+
+      </div>
+      <div class="container">
+        <div class="newForm" *ngIf="isNewFood">
+          <label for="">Name: </label>
+          <input type="text" [(ngModel)]="newFood.name">
+          <label for="">Calories: </label>
+          <input type="text" [(ngModel)]="newFood.calories">
+          <label for="">Image: </label>
+          <input type="text" [(ngModel)]="newFood.image">
+          <button class="btn btn-danger" (click)="toggleInput(); addFood()">Add food</button>
+        </div>
+        <ul class="list">
+          <li *ngFor="let food of foodList | filter:'name':pattern">
+            <img [src]="food.image" alt="food">
+            <h3>{{food.name}}
+              <button class="btn btn-success" (click)="addToday(food)">
+                <span class="fas fa-arrow-alt-circle-right"></span>
+              </button>
+            </h3>
+            <h4>{{food.calories}} kcal</h4>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right col-sm-4 wrapperino">
+      <div class="title">
+        <h2>Today's list</h2>
+      </div>
+      <div class="container">
+          <div class="title calories">
+              <h2>Calories: {{caloriesCount}}</h2>
+            </div>
+        <ul class="list">
+          <li *ngFor="let food of todayList">
+            <img [src]="food.image" alt="food">
+            <h3>{{food.name}}</h3>
+            <h4>{{food.calories}} kcal</h4>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
