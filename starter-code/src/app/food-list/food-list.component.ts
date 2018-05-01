@@ -8,7 +8,6 @@ import foods from "../foods";
 })
 export class FoodListComponent implements OnInit {
   foods: Array<object>;
-  newFood: Object = {};
   todayList: Array<object> = [];
 
   show: Boolean = false;
