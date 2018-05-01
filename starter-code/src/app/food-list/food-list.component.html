@@ -1,3 +1,36 @@
-<p>
-  food-list works!
-</p>
+<h2>Food list</h2>
+<button (click)="showFormAddFood()">Add food</button>
+<div *ngIf = "showForm===true">
+  <label for="image">Image</label>
+  <div>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <label for="name">Name</label>
+  <div>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <label for="calories">Calories</label>
+  <div>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <button (click)="addFood()">Submit</button>
+</div>
+<div class="food-parent">
+  <div *ngFor = "let food of foodList" class="food-child">
+    <img [src]="food.image" alt="lol" height="100px">
+    <hr>
+    <p>Name: {{food.name}}</p>
+    <p>Calories: {{food.calories}}</p>
+    <input type="number" value="1"  [(ngModel)]="food.quantity">
+    <button (click)="addToSpecialties(food)">Add to specialties</button>
+  </div>
+</div>
+<!-- specialties -->
+<hr>
+<div>
+  <h3>Specialites</h3>
+  <p>Calories: {{calCount}}</p>
+  <ul *ngFor="let food of specialFood">
+    <li>Name: {{this.food.name}} qty: {{this.food.quantity}}</li>
+  </ul>
+</div>
