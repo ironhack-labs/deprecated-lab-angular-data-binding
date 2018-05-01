@@ -1,5 +1,10 @@
+<div>
+  <strong>Search:</strong>
+  <input type="text" [(ngModel)]="pattern">
+</div>
+
 <div class="container">
-  <div *ngFor="let food of foods">
+  <div *ngFor="let food of foods | search:'name':pattern;">
     <p>{{food.name}}</p>
     <p>Calories: {{food.calories}}</p>
     <p>Quantity: {{food.quantity}}</p>
