@@ -9,12 +9,12 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   quantity: number=1;
   isVis: boolean = true;
-  food: Object ={
+  food: any ={
 
   }
   
   // calories: number;
-  foods: Array<object> = foods;
+  foods: Array<any> = foods;
   // newFood: Object = {
   // };
   newFood: {
@@ -24,8 +24,8 @@ export class FoodListComponent implements OnInit {
     quantity: number
 };
 
-  specialFoods: Array<Object> =[];
-  filtrado: Array<Object> =[{}];
+  specialFoods: Array<any> =[];
+  filtrado: Array<any> =[{}];
   totalCalories:number = 0;
   
   constructor() { 
