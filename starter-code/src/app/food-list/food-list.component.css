@@ -1,0 +1,15 @@
+.img {
+  width: 100px;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content {
+  display: flex;
+  margin: 15px;
+  margin: 0 auto;
+}
