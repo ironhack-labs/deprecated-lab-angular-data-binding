@@ -22,11 +22,10 @@
 
 </div>
 
-
   <h1>Today's foods</h1>
 
   <div *ngFor="let specialFood of todayFoods">
-    <h4>{{specialFood.name}}</h4>
+    <h4>{{specialFood.name}}</h4> x {{specialFood.quantity}}
     <p>Calories: {{specialFood.calories}}</p>
     <img [src]="specialFood.image" alt="" class="img">
   </div>
