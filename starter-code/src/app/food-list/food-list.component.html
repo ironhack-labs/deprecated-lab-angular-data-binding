@@ -1,3 +1,9 @@
-<p>
-  food-list works!
-</p>
+<div class="foods__container">
+  <div class='foods__inner' *ngFor='let foods of foods'> 
+    <h4>{{foods.name}}</h4>
+    <!-- <img [src]="foods.image" alt=""> -->
+    <div class="foods__img" [ngStyle]="{ 'background':'url(' + foods.image + ')', 'background-size': 'contain' , 'background-repeat': 'no-repeat', 'background-position': 'center'}"></div>
+    <!-- [ngStyle]="{'background': '#fff url(' + article.uri + ') no-repeat 0 0'}" -->
+    <p>{{foods.calories}} Kcal</p>
+  </div>
+</div>

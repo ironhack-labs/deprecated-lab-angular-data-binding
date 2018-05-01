@@ -1,0 +1,26 @@
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.column {
+    flex-direction: column;
+}
+.foods__container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+.foods__inner {
+    margin-bottom: 3rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+.foods__img  {
+  
+    height: 200px;
+    border-radius: 5px;
+}
+.test {
+    height: 200px;
+}
