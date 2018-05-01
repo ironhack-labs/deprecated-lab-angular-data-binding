@@ -11,3 +11,7 @@
 .container img {
   max-width: 100%;
 }
+
+.noVisible {
+  display: none;
+}

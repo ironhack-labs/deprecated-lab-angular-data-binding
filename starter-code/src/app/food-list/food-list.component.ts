@@ -9,11 +9,30 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   pattern: string;
+  noVisible: boolean;
 
-  constructor() { }
+  constructor() {
+    this.noVisible = true;
+   }
 
   ngOnInit() {
     this.foods = foods;
+  }
+
+  showForm() {
+    if( this.noVisible ) {
+      this.noVisible = false;
+    } else {
+      this.noVisible = true;
+    }
+  }
+
+  addFood($event, name, email, image) {
+    this.foods.unshift({
+      name,
+      email,
+      image
+    })
   }
 
 }

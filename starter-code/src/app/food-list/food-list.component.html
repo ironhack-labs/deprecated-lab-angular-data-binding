@@ -3,6 +3,25 @@
   <input type="text" [(ngModel)]="pattern">
 </div>
 
+<div>
+  <button (click)="showForm()">Add new food</button>
+  <div [ngClass]="{noVisible: noVisible}">
+    <div>
+      <label for="food-name">Name: </label>
+      <input type="text" [(ngModel)]="name">
+    </div>
+    <div>
+      <label for="food-calories">Calories: </label>
+      <input type="text" [(ngModel)]="email" name ="calories">
+    </div>
+    <div>
+      <label for="food-image">Image: </label>
+      <input type="text" [(ngModel)]="image">
+    </div>
+    <button (click)="addFood($event, name, email, image)">Save new food</button>
+  </div>
+</div>
+
 <div class="container">
   <div *ngFor="let food of foods | search:'name':pattern;">
     <p>{{food.name}}</p>
