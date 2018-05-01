@@ -1,3 +1,10 @@
-<p>
-  food-list works!
-</p>
+<input [(ngModel)]="searchText" placeholder="search text goes here">
+
+<ul>
+  <li *ngFor="let e of foods | piperan:'name':searchText">
+    <p>{{e.name}}</p>
+    <p>{{e.calories}}</p>
+    <img width="300" height="150" src='{{e.image}}'>
+    <p>{{e.quantity}}</p>
+  </li>
+</ul>
