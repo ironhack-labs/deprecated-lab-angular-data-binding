@@ -1,3 +1,38 @@
-<p>
-  food-list works!
-</p>
+<button *ngIf="showButton" (click)="formShow()">Click here to add a new food</button>
+
+<div *ngIf= "showForm">
+<div>
+  <label for="food-name">Food name</label>
+  <input type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories">Food calories</label>
+  <input type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="contact-phone">Food image</label>
+  <input type="text" [(ngModel)]="newFood.image">
+</div>
+<!-- <div>
+  <label for="contact-image"></label>
+  <input type="text" [(ngModel)]="newContact.image">
+</div> -->
+<button (click)="addFood()">Add new food</button>
+</div>
+
+
+<div *ngFor ="let food of foodList">
+  <img [src]="food.image">
+  <p>{{food.name}}</p>
+  <p>{{food.calories}}</p>
+  <input type="number" min="1" max="100" [(ngModel)]="food.quantity">
+  <button (click)="addtoList(food)">Add to list</button>
+</div>
+
+<h3>Todays Food</h3>
+
+<div *ngFor="let item of todayFood">
+  <p>{{item.name}} x {{item.quantity}}</p>
+</div>
+<h4>Total Calories</h4>
+<p>{{totalCalories}}</p>
