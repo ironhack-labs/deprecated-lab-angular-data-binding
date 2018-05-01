@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import { Component, OnInit } from "@angular/core";
+import foods from "../foods";
 
 @Component({
-  selector: 'app-food-list',
-  templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css']
+  selector: "app-food-list",
+  templateUrl: "./food-list.component.html",
+  styleUrls: ["./food-list.component.css"]
 })
 export class FoodListComponent implements OnInit {
+  name: string = "";
+  constructor() {}
 
-  constructor() { }
-  foods: Array <Object> = foods;
-  ngOnInit() {
-  }
-
+  foods: Array<Object> = foods;
+  ngOnInit() {}
 }
