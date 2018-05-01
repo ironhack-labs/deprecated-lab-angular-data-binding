@@ -1,3 +1,14 @@
 <p>
-  food-list works!
+  App foods doesn't work
 </p>
+
+<div class="content">
+  <div class="item">
+    <div *ngFor="let e of foods">
+        {{e.name}}
+        {{e.calories}}
+        <img src="{{e.image}}" alt="" width="100">
+        {{e.quantity}}
+    </div>  
+  </div>
+</div>
