@@ -4,39 +4,35 @@
 </div>
 
 <button type="button" (click)="showForm()"> Show Form </button>
-<form [hidden]="clickForm">
-  <br> Name:
-  <br>
-  <input [(ngModel)]="newFood.name" type="text" name="title">
-  <br> Calories:
-  <input [(ngModel)]="newFood.calories" type="text" name="calories">
-  <br> Quantity:
-  <input [(ngModel)]="newFood.quantity" type="text" name="quantity">
-  <br> Image:
-  <input [(ngModel)]="newFood.image" type="text" name="img">
-  <button type="button" (click)="addFood()"> ADD FOOD </button>
-
-</form>
-
-
-
-
-
-<div *ngFor="let food of foodsNew| filter: name ">
-
-  <p>{{food.name}}</p>
-  <p>Calories: {{food.calories}}</p>
-  <br>
-  <img class="food-image" [src]=food.image/>
-  <br>
-  <p>Quantity:</p>
-  <input #quantity type="text" name="quantity" value="1">
-
-
-
-  <button type="button" (click)="addFoodTodayList(food, quantity)">Add </button>
-
+<div [hidden]="clickForm">
+  <form>
+    <br> Name:
+    <input [(ngModel)]="newFood.name" type="text" name="title">
+    <br> Calories:
+    <input [(ngModel)]="newFood.calories" type="text" name="calories">
+    <br> Quantity:
+    <input [(ngModel)]="newFood.quantity" type="text" name="quantity">
+    <br> Image:
+    <input [(ngModel)]="newFood.image" type="text" name="img">
+    <button type="button" (click)="addFood()"> ADD FOOD </button>
+  </form>
 </div>
+<br>
+
+<div class="container">
+  <div *ngFor="let food of foodsNew | filter: name " class="food-info">
+    <p>{{food.name}}</p>
+    <p>Calories: {{food.calories}}</p>
+    <br>
+    <img class="food-image" [src]=food.image/>
+    <br>
+    <p>Quantity:</p>
+    <input #quantity type="text" name="quantity" value="1">
+    <button type="button" (click)="addFoodTodayList(food, quantity)">Add </button>
+
+  </div>
+</div>
+
 <div>
   <h1>TODAY'S FOOD LIST</h1>
   <div *ngFor="let food of todayList">

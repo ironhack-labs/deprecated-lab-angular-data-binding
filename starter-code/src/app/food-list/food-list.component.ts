@@ -8,12 +8,13 @@ import foods from "../foods";
 })
 export class FoodListComponent implements OnInit {
   name: string = "";
-  newFood: Object = {};
   total: number = 0;
+  newFood: object = {}
   foodsNew: Array<Object> = foods;
   todayList: Array<Object> = [];
   clickForm: boolean = true;
   constructor() {}
+ 
 
   ngOnInit() {}
 
@@ -23,13 +24,15 @@ export class FoodListComponent implements OnInit {
 
   addFoodTodayList(food, quantity) {
     this.total += food.calories * quantity.value;
-    let newFood = {
+    this.newFood = {
       name: food.name,
       calories: food.calories,
       quantity: quantity.value
     };
-    this.todayList.push(newFood);
-    this.newFood = {}
+
+    this.todayList.push(this.newFood);
+   
+    this.newFood = {};
   }
 
   showForm() {
