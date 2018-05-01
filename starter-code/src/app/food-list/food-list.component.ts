@@ -9,6 +9,7 @@ import foods from "../foods";
 export class FoodListComponent implements OnInit {
   foods: Array<object>;
   newFood: Object = {};
+  todayList: Array<object> = [];
 
   show: Boolean = false;
   constructor() {
@@ -23,5 +24,18 @@ export class FoodListComponent implements OnInit {
 
   toggle() {
     this.show ? (this.show = false) : (this.show = true);
+  }
+
+  addTodayList(food, qty) {
+    
+    if(this.todayList.indexOf(food) === -1){
+      food.numAddedItem = 1;
+      food.quantity = qty.value;
+      food.calories *= qty.value;
+      this.todayList.push(food);
+    }
+    else{
+      food.numAddedItem++;
+    }
   }
 }
