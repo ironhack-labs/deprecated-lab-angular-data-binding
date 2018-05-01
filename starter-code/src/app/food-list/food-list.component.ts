@@ -8,13 +8,33 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  foods:Object[];
+  foods: Object[];
   newFood: Object = {};
+  showForm: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
+  }
+
+  onAddNewClick() {
+    // show and hidde the form
+    if (this.showForm) {
+      this.showForm = false;
+    } else {
+      this.showForm = true;
+    }
+  }
+
+  addFood() {
+
+    // add contact to contacts list
+    this.foods.push(this.newFood);
+    // clear inputs
+    this.newFood = {};
+    this.showForm = false;
+
   }
 
 
