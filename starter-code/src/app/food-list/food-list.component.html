@@ -1,5 +1,8 @@
+<label for="foodName">Name: </label>
+<input type="text" [(ngModel)]="pattern">
+
 <ul>
-  <li *ngFor = "let food of foodList">
+  <li *ngFor="let food of foodList | filter:'name':pattern">
     <img [src]="food.image" alt="food">
     <h3>{{food.name}}</h3>
     <h4>{{food.calories}} kcal</h4>
