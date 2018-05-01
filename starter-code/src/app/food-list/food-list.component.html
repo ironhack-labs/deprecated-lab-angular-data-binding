@@ -3,7 +3,8 @@
   <input [(ngModel)]="name" type="text" name="name">
 </div>
 
-<form>
+<button type="button" (click)="showForm()"> Show Form </button>
+<form [hidden]="clickForm">
   <br> Name:
   <br>
   <input [(ngModel)]="newFood.name" type="text" name="title">
