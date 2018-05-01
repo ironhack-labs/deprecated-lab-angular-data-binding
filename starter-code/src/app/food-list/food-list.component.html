@@ -35,11 +35,11 @@
 </div>
 <h1>Foods List</h1>
 <div class="food-list">
-  <div *ngFor="let food of foods, let i = index" class="profile">
+  <div *ngFor="let food of foods" class="profile">
     <p>{{food.name}}</p>
     <p>{{food.calories}}</p>
     <p>{{food.quantity}}</p>
     <img [src]="food.image" [alt]="food.image">
-    <button (click)="addTodayFood(food, i)">Add Today Food</button>
+    <button (click)="addTodayFood(food)">Add Today Food</button>
   </div>
 </div>
