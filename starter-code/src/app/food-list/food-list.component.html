@@ -24,7 +24,7 @@
 
 <div class="main-container">
   <div class="food-container">
-    <div *ngFor="let food of foods | search:'name':pattern;" class="food-container-item">
+    <div *ngFor="let food of foods | search:'name':pattern; let i = index" class="food-container-item">
       <div class="food-container-image">
         <img [src]="food.image" [alt]="food.name">
       </div>
@@ -33,8 +33,8 @@
           <span>{{food.calories}}</span>
         </p>
         <p>
-          <input type="number" [(ngModel)]="quantity" min="1">
-          <button (click)="addList($event, food, quantity)">+</button>
+          <input type="number" [(ngModel)]="food.quantity">
+          <button (click)="addList($event, food)">+</button>
         </p>
       </div>
     </div>

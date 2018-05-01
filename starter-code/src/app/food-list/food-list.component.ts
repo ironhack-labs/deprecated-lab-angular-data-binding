@@ -35,19 +35,15 @@ export class FoodListComponent implements OnInit {
     this.foods.unshift({
       name,
       calories,
-      image
+      image,
+      quantity: 1
     })
 
     this.showForm();
   }
 
-  addList($event, food, quantity) {
-    this.listFood.push({
-      name: food.name,
-      calories: food.calories,
-      quantity
-    });
-
-    this.caloriesCount += (food.calories * quantity);
+  addList($event, food) {
+    this.listFood.push(food);
+    this.caloriesCount += (food.calories * food.quantity);
   }
 }
