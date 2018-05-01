@@ -10,7 +10,6 @@ export class FilterPipe implements PipeTransform {
     searchText = searchText.toLowerCase();
     
     return items.filter(function(e){
-    
       if (((e.name).toLowerCase()).indexOf(searchText)>-1){
         return e
       }
