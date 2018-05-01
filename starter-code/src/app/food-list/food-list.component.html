@@ -33,14 +33,14 @@
           <span>{{food.calories}}</span>
         </p>
         <p>
-          <input type="number" [(ngModel)]="food.quantity">
-          <button (click)="addList($event, food)">+</button>
+          <input type="number" #quantity value="1">
+          <button (click)="addList($event, food, quantity.value)">+</button>
         </p>
       </div>
     </div>
   </div>
   <div class="list-container">
-    <h2>Today's Foods: {{caloriesCount}}</h2>
+    <h2>Today's Foods: {{totalCalories}}</h2>
     <ul>
       <li *ngFor="let food of listFood">
         {{food.name}} {{food.calories}}x{{food.quantity}}

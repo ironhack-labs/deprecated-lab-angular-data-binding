@@ -11,12 +11,14 @@ export class FoodListComponent implements OnInit {
   pattern: string;
   noVisible: boolean;
   listFood: Object[];
-  caloriesCount: number;
+  totalCalories: number;
+  totalQuantity: number;
 
   constructor() {
     this.noVisible = true;
     this.listFood = [];
-    this.caloriesCount = 0;
+    this.totalCalories = 0;
+    this.totalQuantity = 0;
    }
 
   ngOnInit() {
@@ -42,8 +44,18 @@ export class FoodListComponent implements OnInit {
     this.showForm();
   }
 
-  addList($event, food) {
-    this.listFood.push(food);
-    this.caloriesCount += (food.calories * food.quantity);
+  addList($event, food, quantity) {
+    food.quantity += parseInt(quantity);
+
+    if( this.listFood.indexOf(food) == -1 ) {
+      if( this.totalCalories == 0 ) {
+        this.totalCalories = food.calories * quantity;
+      } else {
+        this.totalCalories += food.calories * quantity;
+      }
+      this.listFood.push(food);
+    } else {
+      this.totalCalories += food.calories * quantity;
+    }
   }
 }
