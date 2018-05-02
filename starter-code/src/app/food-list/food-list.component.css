@@ -1,0 +1,28 @@
+.foods{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+   
+    
+}
+.foods div{
+    justify-content: space-between;
+    border: 1px solid gray;
+    width: 40%;
+    margin: 0 auto;
+    
+}
+img{
+    width: 70%;
+    height: 150px;
+    margin: 2% 7%;
+}
+
+.hidden{
+    display: none;
+}
+
+.buttonAdd {
+    margin-bottom: 10px;
+}
