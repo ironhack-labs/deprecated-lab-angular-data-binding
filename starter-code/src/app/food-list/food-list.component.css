@@ -1,0 +1,24 @@
+.food-image{
+  width: 200px
+}
+
+.food-info{
+/* width: 33%;
+  /* border: 1px solid black; 
+  display: inline-block */
+
+}
+
+input{
+
+  border: 0.5px solid rebeccapurple;
+}
+
+button{
+  border: 0.5px solid rebeccapurple;
+}
+
+.container{
+  width: 80%;
+  
+}
