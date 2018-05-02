@@ -1,5 +1,16 @@
-* {
-   
+hr {
+    margin: 2rem 0;
+    padding: 0;
+    opacity: 0.2;
+}
+input {
+    padding: 2px 5px;
+}
+h4 span {
+    text-decoration: underline;
+}
+button:hover {
+    box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.1), 0 0 5px 2px rgba(255,255,255,0.2);
 }
 .flex {
     display: flex;
@@ -42,12 +53,25 @@
 .search__food {
     margin: 3rem 0;
 } 
-
-hr {
-    margin: 2rem 0;
-    padding: 0;
-    opacity: 0.2;
+.addButton {
+    padding: 5px 15px;
+    color: #333;
+    background:thistle;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    margin-bottom: 2rem;
 }
-input {
-    padding: 2px 5px;
+
+.total__kcal {
+    position: fixed;
+    border: 1px solid rgba(129, 81, 119,0.3);
+    border-radius: 5px;
+    padding: 5px 15px;
+    text-align: center;
+    color: rgb(129, 81, 119);
+    width: 15%;
+    margin-left: 5%;
+}
+.show {
+    display: none;
 }

@@ -9,6 +9,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = [];
+  totalCalories = 0;
   constructor() { }
 
   ngOnInit() {
@@ -18,5 +19,8 @@ export class FoodListComponent implements OnInit {
     this.foods.push(this.newFood);
     this.newFood = [];
   }
-
+  totalKcal(myValue, food) {
+    this.totalCalories += myValue * food.calories;
+    console.log (this.totalCalories);
+  }
 }

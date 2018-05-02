@@ -4,7 +4,7 @@
       <label for="foodSearch">Seach for a meal</label>
       <input placeholder= "Search" type="text" name="foodSearch" [(ngModel)]="name">
   </div>
-  <div class="addYours"><h4>Add your food</h4>
+  <div class="addYours" [ngClass]="{'show': show}"><button><h4>Add your food</h4></button>
       <label for="name">Name: </label>
       <input placeholder= "Your food name" type="text" [(ngModel)]="newFood.name">
       <label for="image">Image: </label>
@@ -15,13 +15,18 @@
   </div>
   
 </div>
-
+<div class="total__kcal">
+    <h4>Today's Foods:</h4>
+    <h4><span>{{totalCalories}}</span> Kcal</h4>
+  </div>
 <div class="foods__container">
-  <div class='foods__inner' *ngFor='let foods of foods'> 
-    <h4>{{foods.name}}</h4>
+  <div class='foods__inner' *ngFor='let food of foods'> 
+    <h4>{{food.name}}</h4>
     <!-- <img [src]="foods.image" alt=""> -->
-    <div class="foods__img" [ngStyle]="{ 'background':'url(' + foods.image + ')', 'background-size': 'contain' , 'background-repeat': 'no-repeat', 'background-position': 'center'}"></div>
+    <div class="foods__img" [ngStyle]="{ 'background':'url(' + food.image + ')', 'background-size': 'contain' , 'background-repeat': 'no-repeat', 'background-position': 'center'}"></div>
     <!-- [ngStyle]="{'background': '#fff url(' + article.uri + ') no-repeat 0 0'}" -->
-    <p>{{foods.calories}} Kcal</p>
+    <p>{{food.calories}} Kcal</p>
+    <input class="addQuantity" #addQuantity type="number" value="1" >
+    <button class="addButton" (click)='totalKcal(addQuantity.value, food)'>Todays Food</button>
   </div>
 </div>
