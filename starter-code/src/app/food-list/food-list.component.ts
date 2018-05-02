@@ -8,15 +8,15 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  // foods: Array<Object> = foods
-  foods: Object[] = foods
+  foods: Array<Object> = foods
+  newFood: Object = {};
+
   constructor() { }
 
-  newFood: Object = {
-  };
 
   addItem() {
-    this.foods.push(this.newFood);
+    foods.push(this.newFood);
+    console.log("Nuev plato")
     this.newFood = {};
   }
 

@@ -3,14 +3,16 @@
 </p>
 <div>
   <label for="plato"> Plato</label>
-  <input placeholder="Plato" type="text" [(ngModel)]="newFood.plato">
+  <input placeholder="Plato" type="text" [(ngModel)]="newFood.name">
   <label for="calorias"> Calorias </label>
-  <input placeholder="calorias" type="text" [(ngModel)]="newFood.calorias">
+  <input placeholder="calorias" type="text" [(ngModel)]="newFood.calories">
   <label for="imagen"> Imagen</label>
-  <input placeholder="imagen" type="file" [(ngModel)]="newFood.imagen">
+  <input placeholder="imagen" type="text" [(ngModel)]="newFood.image">
+  <label for="cantidad"> Cantidad</label>
+  <input placeholder="cantidad" type="number" [(ngModel)]="newFood.quantity">
   
   <button (click)="addItem()">
-      Add
+      Add new
   </button>
 </div>
 
