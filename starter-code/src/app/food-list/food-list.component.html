@@ -4,6 +4,27 @@
   <p>{{food.calories}}</p>
   <img src={{food.image}} height="10%" width="10%">
   <p>{{food.quantity}}</p>
+  <button (click)="addToToday(todayFood)">Add</button>
 
   </div>
+  
+  <p>****************************</p>
+  <div>
+    <label for="food-name"></label>
+    <input type="text" [(ngModel)]="newFood.name" placeholder = "Food">
+  </div>
+  <div>
+    <label for="contact-email"></label>
+    <input type="text" [(ngModel)]="newFood.calories" placeholder = "Calories">
+  </div>
+  <div>
+    <label for="contact-phone"></label>
+    <input type="text" [(ngModel)]="newFood.image" placeholder = "Insert image URL">
+  </div>
+  <div>
+    <label for="contact-image"></label>
+    <input type="text" [(ngModel)]="newFood.quantity" placeholder = "Quantity">
+  </div>
+  
+  <button (click)="addFood(newFood)">Submit New Food</button>
   
