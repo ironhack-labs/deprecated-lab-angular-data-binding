@@ -1,3 +1,48 @@
-<p>
-  food-list works!
-</p>
+
+<h1>FOOD LIST</h1>
+<div class="col">
+  <label for="search">Search:</label>
+  <button type="button" (click)="displayForm()">Add new food</button>
+  <div [hidden]="isVis">
+    <form >
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="food.name" name="name">
+      <br><br>
+      <label for="calories">Calories:</label>
+      <input type="text" [(ngModel)]="food.calories" name="calories">
+      <br><br>
+      <label for="image">Image:</label>
+      <input type="text" [(ngModel)]="food.image" name="image">
+      <br><br>
+      <button type="button" (click)="addNewFood()">Add</button>
+    </form>
+  </div>
+  <label for="search">Search</label>
+  <input  id="search" name="search" type="text" [(ngModel)]="search">
+  
+    <div *ngFor="let food of foods  | filter:'name':search;let i=index ">
+      
+      <div class="cuadros">
+        <img src="{{food.image}}" alt="comida">
+        <h2>{{food.name}}</h2>
+        <h2>{{food.calories}}</h2> 
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" #quantity value="1" >
+        <button type="button" (click)="addSpecialFood(food, quantity.value)">Add to Special Food List</button>
+      </div>
+    </div>
+</div>
+
+  <div class="col">
+    <h1>Special Food</h1>
+    <h3>Total calories: {{totalCalories}}</h3>
+    <div *ngFor="let specialFood of specialFoods, let j=index ">
+     
+      <div class="cuadros">
+        <img src="{{specialFood.image}}" alt="comida">
+        <h2>{{specialFood.name}} * {{specialFood.quantity}}</h2>
+        <h2>{{specialFood.calories}}</h2> 
+      </div>
+    </div>
+  </div>
+  

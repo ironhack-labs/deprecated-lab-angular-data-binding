@@ -1,0 +1,11 @@
+img{
+  width: 200px;
+}
+.cuadros{
+
+  display: inline-block;
+}
+.col{
+  float: left;
+  padding: 50px;
+}
