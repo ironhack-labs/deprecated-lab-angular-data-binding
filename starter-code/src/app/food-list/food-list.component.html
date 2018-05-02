@@ -1,3 +1,35 @@
 <p>
-  food-list works!
+  App foods doesn't work
 </p>
+<div>
+  <label for="plato"> Plato</label>
+  <input placeholder="Plato" type="text" [(ngModel)]="newFood.name">
+  <label for="calorias"> Calorias </label>
+  <input placeholder="calorias" type="text" [(ngModel)]="newFood.calories">
+  <label for="imagen"> Imagen</label>
+  <input placeholder="imagen" type="text" [(ngModel)]="newFood.image">
+  <label for="cantidad"> Cantidad</label>
+  <input placeholder="cantidad" type="number" [(ngModel)]="newFood.quantity">
+  
+  <button (click)="addItem()">
+      Add new
+  </button>
+</div>
+
+
+<div>
+  <label for="busqueda">Buscar: </label>
+  <input id="busqueda" placeholder="busqueda"
+          type="text" [(ngModel)]="busqueda">
+<div>
+
+<div class="content">
+  <div>
+    <div class="item" *ngFor="let e of foods | searchItem:'name':busqueda; let i = index">
+        {{e.name}}
+        {{e.calories}}
+        <img src="{{e.image}}" alt="" width="100">
+        {{e.quantity}}
+    </div>  
+  </div>
+</div>

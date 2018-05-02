@@ -8,7 +8,17 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  foods: Array<Object> = foods
+  newFood: Object = {};
+
   constructor() { }
+
+
+  addItem() {
+    foods.push(this.newFood);
+    console.log("Nuev plato")
+    this.newFood = {};
+  }
 
   ngOnInit() {
   }
