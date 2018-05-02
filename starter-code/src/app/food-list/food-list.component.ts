@@ -41,9 +41,14 @@ export class FoodListComponent implements OnInit {
     console.log("food has been added to the special list");
     
     this.specialFood.push(foods);
+    
+    const noDuplicateFoodItems = Array.from(new Set(this.specialFood));
+    console.log(noDuplicateFoodItems);
     this.showAddFood = true;
     this.count += foods.calories;
     this.quantity += foods.quantity;
+     
+    
      }
 
 }
