@@ -1,3 +1,27 @@
-<p>
-  food-list works!
-</p>
+<header>
+  <input type="text" [(ngModel)]="searchText" placeholder="Search">
+</header>
+
+<div class="sidebar">
+    <input type="text" name="name" [(ngModel)]="newFood.name" placeholder="Name">
+    <input type="text" name="calories" [(ngModel)]="newFood.calories"  placeholder="Calories">
+    <input type="text" name="picture" [(ngModel)]="newFood.image" placeholder="Picture">
+    <button (click)="addToList()">Add</button>
+
+    <div>
+      <ul>
+        {{sideList}}
+        <li *ngFor="let sideItem of sideList">{{sideItem.name}} ({{sideItem.calories}})</li>
+      </ul>
+    </div>
+    <hr>
+    {{totalCalories}} calories
+</div>
+
+  <div class="container">
+    <div *ngFor="let food of foodList | filter : searchText" class="card">
+      <img [src]="food.image" (click)=" addToSidebar(food.name,food.calories)">
+      <div class="food-name">{{food.name}}</div>
+      <div class="calories">{{food.calories}}</div>
+    </div>
+</div>
