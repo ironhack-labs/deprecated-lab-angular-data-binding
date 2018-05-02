@@ -1,0 +1,48 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-between;
+}
+
+#search-button {
+  width: 100%;
+}
+
+button {
+  width:72px;
+  height: 48px;
+  background-color: lawngreen;
+  border-radius: 16px;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+}
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.card {
+  width: 25%;
+  box-sizing: content-box;
+  padding: 16px;
+  margin: 16px;
+  background-color: lightgreen;
+}
+
+#add-food {
+  width: 100%
+}
+
+#add-food > * {
+  width: 30%
+}

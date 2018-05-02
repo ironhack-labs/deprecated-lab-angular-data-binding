@@ -1,3 +1,36 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+    <div class="title">
+      <h2>Today's foods</h2>
+    </div>
+    <div *ngFor='let f of todayFoods' class="card">
+      <h3>{{f.name}}</h3>
+      <p>Calories: {{f.calories}}</p>
+    </div>
+    <div class="title">
+      <h2>Total calories: {{todayCals}}</h2>
+    </div>
+  </div>
+
+<div class="container">
+  <div id="searchbox" class="searchbox">
+    <label for="word">Search your food here</label>
+    <input type="text" name="word" [(ngModel)]="pattern">
+  </div>
+  <div id="search-button">
+    <button [hidden]="formVis" type="button" (click)="showForm()">Create food</button>
+  </div>
+  <form [hidden]="!formVis" id="add-food">
+    <input type="text" name="name" [(ngModel)]="newFood.name" placeholder="Food Name">
+    <input type="text" name="calories" [(ngModel)]="newFood.calories" placeholder="Calories">
+    <input type="text" name="image" [(ngModel)]="newFood.image" placeholder="Image Link">
+    <button type="button" (click)="addFood()">Confirm</button>
+  </form>
+
+  <div *ngFor='let f of foods | searchbox:"name":pattern; let i = index' class="card">
+    <img src={{f.image}}>
+    <h3>{{f.name}}</h3>
+    <p>Calories: {{f.calories}}</p>
+    <button type="button" (click)="addToToday(f)">Add to today's foods</button>
+  </div>
+</div>
+
