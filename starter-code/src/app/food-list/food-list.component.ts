@@ -11,7 +11,7 @@ export class FoodListComponent implements OnInit {
   isInvisible:boolean;
   todayArray:Object[];
   totalCalories:number;
-  totalQuantity:number;
+  counter:number;
   
 
 
@@ -22,6 +22,7 @@ export class FoodListComponent implements OnInit {
     this.foodsArray=foods; // este "foods" es la base de datos y el otro es el array definido en la clase
     this.todayArray=[];
     this.totalCalories = 0;
+    this.counter = 0;
   }
   toggle(){
     if(this.isInvisible == false){
@@ -36,7 +37,9 @@ export class FoodListComponent implements OnInit {
   }
   addTodayFood(food){
     this.todayArray.push(food);
-    this.totalCalories += food.calories;
+    this.counter ++;
+    this.totalCalories += food.calories * this.counter;
+    
     
     console.log(food)
   }

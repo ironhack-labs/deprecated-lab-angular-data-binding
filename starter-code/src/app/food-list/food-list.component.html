@@ -1,8 +1,12 @@
 
 <h1>Today´s food</h1>
 <div *ngFor="let today of todayArray">
-  {{today.name}}
-  {{today.calories}}
+  Item: {{today.name}}
+  <br>
+  Calories Item:{{today.calories}}
+  <br>
+  Nº de Items:{{counter}}
+  <br>
 </div>
 
 <h3>Total Calories:{{totalCalories}}</h3>
