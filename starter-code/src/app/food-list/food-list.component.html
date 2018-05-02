@@ -1,3 +1,36 @@
-<p>
-  food-list works!
-</p>
+
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+<div>
+    <button (click)="showForm()">Try new</button>
+    <form [ngClass]="{'show':show}" id="ocult">
+          <label for="name">Name:</label>
+          <input id="name" name="name" type="text" [(ngModel)]="newDish.name">
+          <br><br>
+          <label for="calories">Calories:</label>
+          <br>
+          <input name="calories" id="calories" cols="30" rows="10" [(ngModel)]="newDish.calories">
+          <br><br>
+          <label for="image">Image:</label>
+          <input id="image" name="image" type="text" [(ngModel)]="newDish.image">
+          <br><br>
+          <label for="quantity">Quantity:</label>
+          <input id="quantity" name="quantity" type="text" [(ngModel)]="newDish.quantity">
+          <br><br>
+          <button (click)="addDish()">Add new dish</button>
+      </form>
+
+<div id="cont">
+  <div *ngFor='let dish of foods | custom:"name":pattern; let i = index' class="container" >
+  <h2>{{ dish.name }}</h2>
+  <h3>{{dish.calories}}</h3>  
+  <img src={{dish.image}} alt="description">
+  <h3>{{dish.quantity}}</h3>  
+    </div>
+  </div>
+
+
+  
+
