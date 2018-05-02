@@ -36,9 +36,18 @@ addFood(name,calories, image){
   });
  this.show()
 }
-addList(f){
-  this.listFood.push(f)
-  this.dailyCalories += (f.calories * f.quantity);
-  
+addList(f, quantity){
+  f.quantity += parseInt(quantity);
+  if(this.listFood.indexOf(f)=== -1){
+    if(this.dailyCalories = 0){
+      this.dailyCalories = (f.calories * f.quantity);
+    }else{
+      this.dailyCalories += (f.calories * f.quantity);
+    }
+    this.listFood.push(f);
+  }else{
+    this.dailyCalories += (f.calories * f.quantity);
+  }
 }
+
 }

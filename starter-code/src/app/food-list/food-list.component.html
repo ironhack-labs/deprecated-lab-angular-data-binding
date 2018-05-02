@@ -26,8 +26,8 @@
     <div class="diet-name">
       <h2>{{f.name}}</h2>
       <p>{{f.calories}}</p>
-      <button (click)="addList(f)">+</button>
-      <input id="number" type="number" [(ngModel)]="f.quantity">
+      <button (click)="addList(f, quantity.value)">+</button>
+      <input id="number" type="number" value="1" #quantity>
     </div>
     <div class="diet-img">
       <img src="{{f.image}}" alt="food image">
