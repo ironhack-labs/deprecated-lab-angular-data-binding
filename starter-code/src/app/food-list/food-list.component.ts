@@ -7,10 +7,39 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  foodsArray:Object[];
+  isInvisible:boolean;
+  todayArray:Object[];
+  totalCalories:number;
+  totalQuantity:number;
+  
+
 
   constructor() { }
 
   ngOnInit() {
+    this.isInvisible = true;
+    this.foodsArray=foods; // este "foods" es la base de datos y el otro es el array definido en la clase
+    this.todayArray=[];
+    this.totalCalories = 0;
   }
+  toggle(){
+    if(this.isInvisible == false){
+      this.isInvisible = true;
+    }else{
+      this.isInvisible = false;
+    }
+  }
+  addFood(name, calories, quantity ){
+    this.foodsArray.unshift({ name, calories, quantity }); // que no se olvide meterlo como un OBJETO
+    this.toggle();
+  }
+  addTodayFood(food){
+    this.todayArray.push(food);
+    this.totalCalories += food.calories;
+    
+    console.log(food)
+  }
+
 
 }
