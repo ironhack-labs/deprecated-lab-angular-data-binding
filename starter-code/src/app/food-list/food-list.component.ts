@@ -13,10 +13,7 @@ export class FoodListComponent implements OnInit {
 
   }
   
-  // calories: number;
-  foods: Array<any> = foods;
-  // newFood: Object = {
-  // };
+  foods: Array<Object> = foods;
   newFood: {
     name: string,
     calories: number,
@@ -24,8 +21,8 @@ export class FoodListComponent implements OnInit {
     quantity: number
 };
 
-  specialFoods: Array<any> =[];
-  filtrado: Array<any> =[{}];
+  specialFoods: Array<Object> =[];
+  filtrado: Array<Object> =[{}];
   totalCalories:number = 0;
   
   constructor() { 
@@ -47,7 +44,7 @@ export class FoodListComponent implements OnInit {
       quantity: parseInt(quantity), 
     }
     this.filtrado = this.specialFoods.filter((e)=>{
-      return e.name === food.name;
+      return e["name"] === food.name;
     })
 
     if (this.filtrado.length === 0){
@@ -56,9 +53,9 @@ export class FoodListComponent implements OnInit {
     }
     else{
       this.specialFoods.map((e)=>{
-        if (e.name === food.name) {
-          e.quantity += this.newFood.quantity;
-          e.calories += this.newFood.calories;
+        if (e["name"] === food.name) {
+          e["quantity"] += this.newFood.quantity;
+          e["calories"] += this.newFood.calories;
 
         }
         return e;
