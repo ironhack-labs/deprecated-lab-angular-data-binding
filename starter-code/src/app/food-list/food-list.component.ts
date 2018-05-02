@@ -44,7 +44,7 @@ showForm():void {
 
 addTodaysFood(f){
   this.todaysFood.push(f);
-  this.dailyCaloryIntake += f.calories;
+  this.dailyCaloryIntake += (f.calories * f.quantity);
  
 }
 

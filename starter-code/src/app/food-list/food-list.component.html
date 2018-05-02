@@ -32,7 +32,7 @@
     <div class="">
       <ul>
         <li *ngFor="let tf of todaysFood">
-          <p>{{ tf.name }}, {{ tf.calories }}</p>
+          <p>{{ tf.name }} {{ tf.calories }}x{{tf.quantity}}</p>
         </li>
       </ul>
       <p>Daily calories intake: {{ dailyCaloryIntake }}</p>
@@ -46,8 +46,9 @@
         <h2>{{f.name}}</h2>
         <p>Calories:{{f.calories}}</p>
         <img [src]="f.image" alt="food image" class="im-user">
-        <p>{{f.quantity}}</p>
-        <button class="buttonAdd" name="button" (click)="addTodaysFood(f)">Add to todays food</button>
+        
+        <button class="buttonAdd" name="button" (click)="addTodaysFood(f)">+</button>
+        <input id="number" type="number" [(ngModel)]="f.quantity">
        
 
       </div>
