@@ -7,7 +7,7 @@
   </div>
   <div>
     <label for="calories">Calories</label>
-    <input type="text" [(ngModel)]="newFood.calories">
+    <input type="number" [(ngModel)]="newFood.calories">
   </div>
   <div>
     <label for="food-image">Food URL</label>
@@ -17,19 +17,21 @@
 <button (click)="addFood()">Submit new food</button>
 
 <h2>List food:</h2>
-<div *ngFor="let food of foodList">
-  <p>{{food.name}}</p>
-  <p>{{food.calories}}</p>
-  <img src="{{food.image}}" height="150px">
-  <div>
-    <label for="food-quantity">Food quantity</label>
-    <input type="number" [(ngModel)]="quantity">
+<div class="row">
+  <div *ngFor="let food of foodList" class="food">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <img src="{{food.image}}" height="150px">
+    <div>
+      <label for="food-quantity">Food quantity</label>
+      <input type="number" [(ngModel)]="quantity">
+    </div>
+    <button (click)="specialList(food)">Submit special list</button>
   </div>
-  <button (click)="specialList(food)">Submit special list</button>
 </div>
 
-<h2>Special Food:</h2>
-<div *ngFor = "let food of todayFood">
-  <p>{{food}}</p>
-  <p>{{todayFood.totalCalories}}</p>
-</div>
+  <h2>Special Food:</h2>
+  <div *ngFor = "let food of todayFood">
+    <p>{{food}}</p>
+  </div>
+  <p>Calories: {{totalCalories}}</p>

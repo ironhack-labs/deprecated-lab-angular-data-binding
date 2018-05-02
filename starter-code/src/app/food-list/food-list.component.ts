@@ -30,9 +30,9 @@ export class FoodListComponent implements OnInit {
   }
 
   specialList(food) {
-    this.todayFood.push(this.quantity + "x " + food.name, this.totalCalories += food.calories );
-    // this.totalCalories += food.calories;
-    // this.totalCalories *= this.quantity;
+    this.todayFood.push(this.quantity + "x " + food.name );
+    this.totalCalories += (food.calories * this.quantity);
+    
     this.newQuantity = {};
   }
 
