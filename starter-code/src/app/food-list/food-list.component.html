@@ -4,7 +4,8 @@
       <label for="foodSearch">Seach for a meal</label>
       <input placeholder= "Search" type="text" name="foodSearch" [(ngModel)]="name">
   </div>
-  <div class="addYours" [ngClass]="{'show': show}"><button><h4>Add your food</h4></button>
+  <!-- <button (click)='showForm()'><h4>Add your food</h4></button> -->
+  <div class="addYours" [ngClass]="{'show': show}"> <h4>Add your food!</h4>
       <label for="name">Name: </label>
       <input placeholder= "Your food name" type="text" [(ngModel)]="newFood.name">
       <label for="image">Image: </label>
