@@ -7,8 +7,10 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-
-  constructor() { }
+foodList:Object[]
+  constructor() { 
+    this.foodList=foods
+  }
 
   ngOnInit() {
   }
