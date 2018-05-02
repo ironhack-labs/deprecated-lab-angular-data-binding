@@ -1,3 +1,47 @@
 <p>
   food-list works!
 </p>
+<div class="food-list">
+  <div *ngFor="let food of foods" class="profile">
+    <div>{{ food.name }}</div>
+    <div>{{ food.calories }}</div>
+    <input type="number" placeholder="quantity" [(ngModel)]="food.quantity">{{food.quantity}}
+    <img src="{{ food.image }}" alt="{{ food.name }}">
+    <button (click)= "addFav(food)">Set favourite</button>
+    </div>
+  </div>
+
+
+<h2>Add food</h2>
+<button (click)="showform = true">show form</button>
+<form *ngIf=showform>
+<div>
+  <label for="food-name"></label>
+  <input type="text" placeholder="name" name="foodname"  [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="number" placeholder="calories" name="foodlabel" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" placeholder="image" name="foodimage" [(ngModel)]="newFood.image">
+</div>
+</form>
+
+
+<div class="field submit">
+<button type="submit" (click)="addFood()">Add new food</button>
+</div>
+
+<div class="food-list" *ngIf="todaysFoods.length>0">
+<h2>Todays food </h2>
+<p>Total calorie count: {{this.calorieCount}}</p>
+    <div *ngFor="let todaysFood of todaysFoods" class="profile">
+      <div>{{ todaysFood.name }}</div>
+      <div>{{ todaysFood.calories }}</div>
+      <div>{{ todaysFood.quantity}}</div>
+      <img src="{{ todaysFood.image }}" alt="{{ todaysFood.name }}">
+      
+      </div>
+    </div>
