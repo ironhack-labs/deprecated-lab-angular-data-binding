@@ -1,3 +1,37 @@
-<p>
-  food-list works!
-</p>
+<form>
+  <label for="search">Search</label>
+  <input type="text" name="search" [(ngModel)]="foodName">
+
+  <button (click)="toggleNew()">Search</button>
+</form>
+
+<form *ngIf="show">
+  <label for="name">Name</label>
+  <input type="text" name="name" [(ngModel)]="newFood.name">
+
+  <label for="calories">Calories</label>
+  <input type="text" name="calories" [(ngModel)]="newFood.calories">
+
+  <label for="quantity">Quantity</label>
+  <input type="text" name="quantity" [(ngModel)]="newFood.quantity">
+
+  <button (click)="addFood()">Add</button>
+</form>
+
+<div *ngFor="let f of foodList | searchPipe: foodName">
+  <img src="{{f.image}}" alt="">
+  <h4>{{f.name}}</h4>
+  <p>{{f.calories}}</p>
+  <p>{{f.quantity}}</p>
+  <input type="number" name="quantity" placeholder="1" value="1" #qty>
+  <button (click)="addTodaysFoods(f, qty.value)">Add to Favorite List</button>
+</div>
+
+<h2>Favorite List</h2>
+<h3>Total Calories: {{caloriesCount}}</h3>
+<div *ngFor="let ff of newFavFood">
+    <img src="{{ff.image}}" alt="">
+    <h5>{{ff.name}}</h5>
+    <p>{{ff.calories}}</p>
+    <p>{{ff.quantity}}</p>
+</div>
