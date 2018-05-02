@@ -1,6 +1,19 @@
 <p>
   App foods doesn't work
 </p>
+<div>
+  <label for="plato"> Plato</label>
+  <input placeholder="Plato" type="text" [(ngModel)]="newFood.plato">
+  <label for="calorias"> Calorias </label>
+  <input placeholder="calorias" type="text" [(ngModel)]="newFood.calorias">
+  <label for="imagen"> Imagen</label>
+  <input placeholder="imagen" type="file" [(ngModel)]="newFood.imagen">
+  
+  <button (click)="addItem()">
+      Add
+  </button>
+</div>
+
 
 <div>
   <label for="busqueda">Buscar: </label>
