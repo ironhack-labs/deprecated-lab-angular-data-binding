@@ -1,3 +1,47 @@
-<p>
-  food-list works!
-</p>
+<div class="container my-5">
+  <div class="row d-flex justify-content-around">
+    <div class="col-6 left-panel text-center">
+      <div class="row">
+        <div class="col-12">
+          <h3>Search</h3>
+          <input type="text" [(ngModel)]="foodsearched">
+        </div>
+      </div>
+<div class="row">
+  <div class="col">
+    <button (click)="toggle()"> {{buttonName}}</button>
+    <form action="" *ngIf="show">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="newItem.name" name="name">
+        
+        <label for="calories">Calories</label>
+        <input type="text" [(ngModel)]="newItem.calories" name="calories">
+        
+        <label for="quantity">Quantity</label>
+        <input type="text" [(ngModel)]="newItem.quantity" name="quantity">
+
+        <label for="image">I</label>
+        <input type="text" [(ngModel)]="newItem.image" name="image">
+        
+        <button (click)="add()">Add</button>
+      
+    </form>
+  </div>
+</div>
+      <div class="row">
+        <div class="col">
+          <div *ngFor="let food of foods | search:  'name': foodsearched" class="comidas">
+            <img [src]="food.image" alt="">
+            <p>{{food.name}}</p>
+            <p>{{food.calories}}</p>
+            <p>{{food.quantity}}</p>
+            <button > Add to Menu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 right-panel text-center">
+      
+    </div>
+  </div>
+</div>

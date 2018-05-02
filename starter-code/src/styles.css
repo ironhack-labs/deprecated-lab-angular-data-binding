@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+img{
+  width: 100px;
+}
+.left-panel{
+width: 50%;
+}
+.right-panel{
+width: 50%;
+}
+.comidas{
+  border-style: double;
+}
