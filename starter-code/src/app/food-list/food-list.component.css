@@ -5,3 +5,7 @@ img{
 
   display: inline-block;
 }
+.col{
+  float: left;
+  padding: 50px;
+}
