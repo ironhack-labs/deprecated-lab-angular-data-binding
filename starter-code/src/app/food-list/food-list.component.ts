@@ -8,9 +8,30 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  
+  foods: Array<Object> = foods
+  newDish: Object = {};
+
+  show: Boolean = false;
+  
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  addDish(){
+    foods.push(this.newDish);
+    console.log("Add dish has been called");
+    this.newDish={}
+
+  }
+
+  showForm() {
+    this.show = !this.show
+  }
+
 }
+
+
+
