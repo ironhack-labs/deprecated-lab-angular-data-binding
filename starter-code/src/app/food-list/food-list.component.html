@@ -1,3 +1,37 @@
-<p>
-  food-list works!
-</p>
+<button (click)="showTlii()" type="submit" class=" new btn btn-danger">Today's List</button>
+<br>
+
+<div *ngIf="showTlist" class="jumbotran">
+    <div class="row">
+        <div *ngFor="let oneFood of todayList" class="card" style="width:200px" >
+            <img class="card-img-top" width="200px" src={{oneFood.image}} alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{oneFood.name}}</h5>
+              <p class="card-text">{{oneFood.calories}}</p>
+              <button (click)="todayFood(oneFood)" class="btn btn-primary">Today's List</button>
+            </div>
+          </div>
+    </div>
+
+</div>
+
+<br>
+
+<label>
+  What kind of food you are looking for: It better not be salad!!!
+  <input [(ngModel)]="searchWord" type="text" placeholder="search through food....">
+</label>
+
+<div class="container">
+  <div class="row">
+      <div *ngFor="let oneFood of food | foodSearch:searchWord" class="card" style="width:200px" >
+          <img class="card-img-top" width="200px" src={{oneFood.image}} alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{oneFood.name}}</h5>
+            <p class="card-text">{{oneFood.calories}}</p>
+            <button (click)="todayFood(oneFood)" class="btn btn-primary">Today's List</button>
+          </div>
+        </div>
+  </div>
+</div>
+
