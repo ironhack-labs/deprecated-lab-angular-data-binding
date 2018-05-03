@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import { foods, Food } from '../foods';
 
 @Component({
   selector: 'app-food-list',
@@ -8,9 +8,25 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  userInput : string;
+  foodList : Array<Food> = foods;
+  classState : any = {
+    add : false
+  }
   constructor() { }
 
   ngOnInit() {
+
   }
 
+  addNewFood(){
+    this.classState.add = !this.classState.add;
+  }
+
+  submitNewFood(){
+    this.classState.add = !this.classState.add;
+  }
 }
+
+
+
