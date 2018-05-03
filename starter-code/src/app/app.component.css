@@ -1,0 +1,10 @@
+h1 {
+    width:100%;
+    display: block;
+    position: fixed;
+    color:#fff;
+    background-color: rgb(1, 78, 109);
+    padding-top:15px;
+    padding-bottom:15px;
+    text-align: center;
+}
