@@ -1,3 +1,65 @@
-<p>
-  food-list works!
-</p>
+<h2>Food list</h2>
+
+<label>
+  Search For Food
+  <input [(ngModel)]= "userInput" type ="search" placeholder="pizza"> 
+</label>
+<br>
+<br>
+<hr>
+
+<h3>Adding Food</h3>
+<button (click) = "toggleAddClass()">Add Some Food</button>
+<br>
+<br>
+<div [ngClass]="classState">
+ 
+    <label>
+      Name: 
+      <br>
+      <input  type="text" [(ngModel)]="newFood.name" placeholder="Croissant..">
+    </label>
+    <br>
+    <label>
+      Calories:
+      <br>
+      <input type="number" [(ngModel)]="newFood.calories">
+    </label>
+    <br>
+    <label>
+      Image:
+      <br>
+      <input type="text" [(ngModel)]="newFood.image"placeholder="https://.....">
+    </label>
+    <br>
+    <br>
+    <button (click) = "addNewFood()">Submit</button>
+</div>
+<hr>
+
+<h2>Today's Foods</h2>
+<ul>
+  <li *ngFor="let oneItem of todaysFood">
+    <h3>{{oneItem.name}}</h3>
+    <p>Calories: {{oneItem.calories}}</p>
+  </li>
+
+  <h4>Total Calories for today is: </h4>
+</ul>
+
+<hr>
+
+<ul>
+  <li *ngFor="let oneFood of (foods | foodPipe : userInput)">
+    <h3>{{oneFood.name}}</h3>
+    <p>Calories: {{oneFood.calories}}</p>
+    <img [src]="oneFood.image" alt="">
+    <br>
+    <button (click)= "addToTodays(oneFood)">Add this Food</button>
+    <hr>
+  </li>
+
+</ul>
+
+
+
