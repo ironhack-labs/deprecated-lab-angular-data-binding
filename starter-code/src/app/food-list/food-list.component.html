@@ -1,3 +1,33 @@
-<p>
-  food-list works!
-</p>
+<h2>Food list</h2>
+
+<label>
+  Search For Your Food
+  <input [(ngModel)]="userInput" type="search" placeholder="pizza">
+</label>
+
+<ul>
+  <li *ngFor="let oneFood of (foods | foodFilter:userInput)">
+    <h3>{{oneFood.name}}</h3>
+    <h4>{{oneFood.calories}}</h4>
+    <img src="{{oneFood.image}}">
+  </li>
+</ul>
+
+<button (click)="toogleForm()">Toggle form</button>
+
+<div [ngClass]="classState">
+<div>
+  <label for="food-name"></label>
+  <input type="text" [(ngModel)]="newFood.name" placeholder="jambon">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="text" [(ngModel)]="newFood.calories" placeholder="4000">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image" placeholder="https://jambon.png">
+</div>
+
+<button (click)="addFood(); toogleForm();">Submit New Food</button>
+</div>
