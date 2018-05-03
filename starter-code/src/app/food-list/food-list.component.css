@@ -1,0 +1,27 @@
+img {
+  max-width: 220px;
+}
+
+li {
+  border-radius: 8px;
+  border: 1px solid black;
+  margin: 10px;
+  width: 400px;
+  list-style: none;
+  text-align: center;
+  padding: 10px;
+}
+
+.container {
+  float: left;
+}
+
+.today {
+  position: fixed;
+  top: 200px;
+  left: 500px;
+}
+
+button {
+  margin-left: 15px;
+}
