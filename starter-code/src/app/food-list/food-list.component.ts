@@ -64,6 +64,7 @@ export class FoodListComponent implements OnInit {
   // remove a food from today's food array
   removeFood(food: Food) {
     this.todayList.splice(this.todayList.indexOf(food), 1);
+    food.quantity = 0;
     this.updateCalories();
   }
 }

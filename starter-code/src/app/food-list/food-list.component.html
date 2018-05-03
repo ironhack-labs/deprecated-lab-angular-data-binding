@@ -39,10 +39,10 @@
   <ul>
     <li *ngFor="let food of todayList">
       <p>
-        {{food.name}} <span *ngIf="food.quantity > 0">x{{food.quantity}}</span>
+        {{food.name}} <span *ngIf="food.quantity > 1">x{{food.quantity}}</span>
         <button (click)="removeFood(food)">Remove</button>
       </p>
     </li>
   </ul>
-  <p *ngIf="caloriesCount > 0">Total Calories count : <b>{{caloriesCount}}</b></p>
+  <p *ngIf="caloriesCount > 0">Total Calories count : <b>{{caloriesCount}}</b> kcal</p>
 </div>
