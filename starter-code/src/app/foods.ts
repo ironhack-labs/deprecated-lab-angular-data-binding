@@ -3,7 +3,7 @@ const foods: Object[] = [
     name: "Pizza",
     calories: 400,
     image: "https://i.imgur.com/eTmWoAN.png",
-    quantity: 0
+    quantit0: 0
   },
   {
     name: "Salad",

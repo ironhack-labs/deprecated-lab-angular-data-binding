@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+p, h1 {
+  text-align: center;
+}
+

@@ -1,3 +1,37 @@
-<p>
-  food-list works!
-</p>
+<button (click)="showForm()">add food</button>
+<div class="add-food" *ngIf="showAddFood === true">
+<div>
+    <label>Food</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label>Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div>
+    <label>Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <button (click)="addFood()">Submit New Food</button>
+  </div>
+
+
+<div class="wrapper">
+<div *ngFor="let food of foods">
+  <p>{{food.name}}</p>
+  <img class="food-images" [src]="food.image">
+  <p> Calories: {{food.calories}}</p>
+  <label>Quantity</label>
+  <input type="number" [(ngModel)]="food.quantity">
+  <button (click)="addToSpecial(food)">Add to Special list</button>
+
+</div>
+</div>
+
+<h1>today's special</h1>
+<p>Calories count: {{count}} </p>
+<div class="info" *ngFor="let special of specialFood">
+  <p>{{special.name}} + {{quantity}}</p>
+  <img class="food-images" [src]="special.image" alt="special-images">
+  
+</div>
