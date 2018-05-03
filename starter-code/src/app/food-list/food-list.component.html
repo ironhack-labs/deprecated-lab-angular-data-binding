@@ -1,3 +1,78 @@
-<p>
-  food-list works!
-</p>
+<main class="container">
+  <section class="food-list-section">
+    <h2>FOOD LIST</h2>
+    
+    <div class="form-section">
+
+      <label>
+        Search a food from the list
+        <br/>
+        <input class="search" [(ngModel)]="userInput"  type="text" placeholder="e.g. pizza"/>
+      </label>
+      
+      <button (click)="displayAddFood()">Add a food</button>
+      
+      <div *ngIf="isAddFood">
+        <label>
+          Name:
+          <br/>
+          <input [(ngModel)]="newFood.name" type="text" placeholder="e.g. eggplant"/>
+        </label>
+        <br/>
+        <label>
+          Colories:
+          <br/>
+          <input [(ngModel)]="newFood.calories"  type="number" placeholder="e.g. 2500"/>
+        </label>
+        <br/>
+        <label>
+          Image:
+          <br/>
+          <input [(ngModel)]="newFood.image"  type="text" placeholder="e.g. http..."/>
+        </label>
+        <br/>
+        <button (click)="addFood()">Submit</button>
+      </div>
+
+    </div>
+    
+    
+    
+    <ul>
+      <li class="food-item" *ngFor="let oneFood of (foodList | foodFilter:userInput)"> 
+        <img [src]="oneFood.image"/>
+        <h3>{{oneFood.name}}</h3>
+        <p class="food-name">Calories: {{oneFood.calories}}</p>
+        <label>
+          Quantity to add
+          <br/>
+          <input [(ngModel)]="oneFood.quantity" type="number" placeholder="e.g. 3">
+        </label>
+        <br/>
+        <button *ngIf="oneFood.quantity !== 0" (click)="addToday(oneFood.name, oneFood.calories, oneFood.image, oneFood.quantity)">Add to the today's menu</button>
+        <button *ngIf="oneFood.quantity === 0"  (click)="addToday(oneFood.name, oneFood.calories, oneFood.image, 1)">Add to the today's menu</button>
+      </li>
+    </ul>
+  </section>
+
+  <section class="today-list-section">
+    <h2>TODAY'S FOOD</h2>
+
+    <ul>
+      <li *ngFor="let oneFood of todayList" class="today-item"> 
+        <!-- <img [src]="oneFood.image"/> -->
+        <div class="today-infos">
+          <h3>{{oneFood.name}}</h3>
+          <p>Quantity: {{oneFood.quantity}}</p>
+        </div>
+        <div class="today-image">
+          <img [src]="oneFood.image"/>
+        </div>
+        <div class="clear-both"></div>
+      </li>
+    </ul>
+
+    <h4 class="total-cal">Total colories: {{totalCalories}}</h4>
+
+  </section>
+</main>
