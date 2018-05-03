@@ -1,0 +1,24 @@
+img {
+  width: 200px;
+}
+
+ul {
+  display: table-row;
+}
+
+li {
+  border: 1px solid;
+  float: left;
+  width: 300px;
+  height: 300px;
+  list-style: none;
+  background-image: url("https://media.giphy.com/media/l378wcSfS7eXWQgla/giphy.gif");
+}
+
+hr {
+  margin: 40px;
+}
+
+.form {
+  display: none;
+}

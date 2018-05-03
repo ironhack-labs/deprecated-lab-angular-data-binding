@@ -8,9 +8,21 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  userInput: string;
+  foodList : Object[] = foods;
+  
+  classState: any = {
+    bigText: false,
+    comicFont: false,
+    rainbowColored: false
+  }
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addFood(){
+
   }
 
 }
