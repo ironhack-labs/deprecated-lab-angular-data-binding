@@ -1,0 +1,30 @@
+<button (click)="formBtn()" type="submit" class="btn btn-danger">Add More Food</button>
+
+
+
+
+<form *ngIf="showForm">
+    <div class="form-group">
+      <label>Name:
+      <input type="text" name="name" [(ngModel)]="newFood.name" class="form-control" placeholder="Name of food...">
+    </label>
+    </div>
+
+    <div class="form-group">
+        <label>Calories:
+        <input type="number" name="calories" [(ngModel)]="newFood.calories" class="form-control" placeholder="Number of calories...">
+      </label>
+      </div>
+
+      <div class="form-group">
+          <label>Picture
+          <input type="file" name="Picture" [(ngModel)]="newFood.image" class="form-control-file" >
+        </label>
+        </div>
+
+
+ 
+    <button (click)="addFood()" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
