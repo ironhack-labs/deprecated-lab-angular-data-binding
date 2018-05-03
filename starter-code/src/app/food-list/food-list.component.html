@@ -1,3 +1,36 @@
-<p>
-  food-list works!
-</p>
+<h1>Food list</h1>
+
+<label>
+  Search for your Food
+  <input [(ngModel)]="userInput" type="search" placeholder="Pizza">
+</label>
+
+
+<br>
+<br>
+
+<div class="form">
+  <label for="food-name">Food Name: </label>
+  <input type="text" [(ngModel)]="newFood.name">
+
+  <label for="calories-number">Food Calories: </label>
+  <input type="text" [(ngModel)]="newFood.calories">
+
+  <label for="image-food">Food Image: </label>
+  <input type="text" [(ngModel)]="newFood.image">
+
+  <button (click)="addFood()">Submit new Food</button>
+</div>
+
+
+<br>
+<br>
+<div class="container-list">
+  <ul>
+    <li *ngFor="let oneFood of (foods | foodFilter : userInput)">
+      <p>{{oneFood.name}}</p>
+      <p>{{oneFood.calories}}</p>
+      <img src="{{oneFood.image}}">
+    </li>
+  </ul>
+</div>

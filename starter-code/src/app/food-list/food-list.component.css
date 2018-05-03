@@ -1,0 +1,13 @@
+.container-list {
+  text-align: center;
+  list-style: none;
+}
+
+.container-list li {
+  border: 1px solid black;
+}
+
+.container-list img {
+  width: 500px;
+  height: 300px;
+}
