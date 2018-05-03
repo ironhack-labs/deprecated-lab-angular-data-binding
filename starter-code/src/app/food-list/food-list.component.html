@@ -1,3 +1,16 @@
-<p>
-  food-list works!
-</p>
+<label>
+  Search a food
+  <input [(ngModel)]="userInput" type="search" placeholder="ex. Pizza" />
+</label>
+
+<button (click)="addFood()">Add a food</button>
+
+<ul>
+  <li *ngFor="let oneFood of (foods | foodFilter:userInput)">
+    <img [src] = "oneFood.image" />
+    <h3>{{oneFood.name}}</h3>
+    <p>Calories:{{oneFood.calories}}</p>
+    <button (click)="addToList()">Add this food to my list</button>
+  </li>
+</ul>
+
