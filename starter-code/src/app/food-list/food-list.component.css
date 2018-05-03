@@ -9,6 +9,7 @@ li {
   width: 400px;
   list-style: none;
   text-align: center;
+  padding: 10px;
 }
 
 .container {

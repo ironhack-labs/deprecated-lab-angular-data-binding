@@ -16,7 +16,7 @@ export class FoodListComponent implements OnInit {
     name: "",
     calories: 0,
     image: "",
-    quantity: 1
+    quantity: 0
   };
   caloriesCount: number;
   constructor() { }
@@ -38,6 +38,10 @@ export class FoodListComponent implements OnInit {
           this.food.image, 
           this.food.quantity);
       this.foodsList.push(currentFood);
+      this.food.name = "";
+      this.food.calories = 0;
+      this.food.image = "";
+      this.food.quantity = 0;
       this.newFood();
     }
   }
