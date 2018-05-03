@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #777;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+span {
+  margin-left: 700px;
+}
+
+img {
+  width: 300px;
+  height: 200px;
+}
+
+.show-form{
+  display: block;
+}
+
+.hide-form{
+  display: none;
+}
+
+h1, h3 {
+  background-color: #2f2f2f;
+  color: #777;
+  border: 1px solid #2f2f2f;
+}
+
+p, h4 {
+  background-color: orange;
+  color: black;
+  border: 1px solid #2f2f2f;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #2f2f2f;
+  color: #777;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: orange;
+  color: black;
+  border: none;
+}
+
+.img-responsive {
+  margin-top: 20px;
+}
