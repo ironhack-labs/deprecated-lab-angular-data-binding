@@ -2,43 +2,44 @@
   <section class="food-list-section">
     <h2>FOOD LIST</h2>
     
-    
-    <label>
-      Search a food from the list
-      <br/>
-      <input class="search" [(ngModel)]="userInput"  type="text" placeholder="e.g. pizza"/>
-    </label>
-    
-    
-    
-    <button (click)="displayAddFood()">Add a food</button>
-    
-    <div *ngIf="isAddFood">
+    <div class="form-section">
+
       <label>
-        Name:
+        Search a food from the list
         <br/>
-        <input [(ngModel)]="newFood.name" type="text" placeholder="e.g. eggplant"/>
+        <input class="search" [(ngModel)]="userInput"  type="text" placeholder="e.g. pizza"/>
       </label>
-      <br/>
-      <label>
-        Colories:
+      
+      <button (click)="displayAddFood()">Add a food</button>
+      
+      <div *ngIf="isAddFood">
+        <label>
+          Name:
+          <br/>
+          <input [(ngModel)]="newFood.name" type="text" placeholder="e.g. eggplant"/>
+        </label>
         <br/>
-        <input [(ngModel)]="newFood.calories"  type="number" placeholder="e.g. 2500"/>
-      </label>
-      <br/>
-      <label>
-        Image:
+        <label>
+          Colories:
+          <br/>
+          <input [(ngModel)]="newFood.calories"  type="number" placeholder="e.g. 2500"/>
+        </label>
         <br/>
-        <input [(ngModel)]="newFood.image"  type="text" placeholder="e.g. http..."/>
-      </label>
-      <br/>
-      <button (click)="addFood()">Submit</button>
+        <label>
+          Image:
+          <br/>
+          <input [(ngModel)]="newFood.image"  type="text" placeholder="e.g. http..."/>
+        </label>
+        <br/>
+        <button (click)="addFood()">Submit</button>
+      </div>
+
     </div>
     
     
     
     <ul>
-      <li *ngFor="let oneFood of (foodList | foodFilter:userInput)"> 
+      <li class="food-item" *ngFor="let oneFood of (foodList | foodFilter:userInput)"> 
         <img [src]="oneFood.image"/>
         <h3>{{oneFood.name}}</h3>
         <p class="food-name">Calories: {{oneFood.calories}}</p>
@@ -59,9 +60,15 @@
 
     <ul>
       <li *ngFor="let oneFood of todayList" class="today-item"> 
-        <img [src]="oneFood.image"/>
-        <h3>{{oneFood.name}}</h3>
-        <p>Quantity: {{oneFood.quantity}}</p>
+        <!-- <img [src]="oneFood.image"/> -->
+        <div class="today-infos">
+          <h3>{{oneFood.name}}</h3>
+          <p>Quantity: {{oneFood.quantity}}</p>
+        </div>
+        <div class="today-image">
+          <img [src]="oneFood.image"/>
+        </div>
+        <div class="clear-both"></div>
       </li>
     </ul>
 
