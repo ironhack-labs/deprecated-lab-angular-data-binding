@@ -1,3 +1,48 @@
-<p>
-  food-list works!
-</p>
+<h2>Food List</h2>
+
+<div class="container">
+  <label>
+    Search in the food List
+    <input type="text" [(ngModel)]="searchTerm" >
+  </label>
+  <br>
+  
+  <button (click)="newFood()">Add a new Food</button>
+  
+  <div *ngIf="addingOn">
+    <input [(ngModel)]="food.name" type="text" placeholder="Food name">
+    <br>
+    <input [(ngModel)]="food.calories" type="number" placeholder="Calories">
+    <br>
+    <input [(ngModel)]="food.image" type="text" placeholder="Image Url">
+    <br>
+    <button (click)="saveNewFood()">Add to the list</button>
+  </div>
+  
+  <ul>
+    <li *ngFor="let food of (foodsList | foodFilter:searchTerm)">
+        <h3>{{food.name}}</h3>
+        <p>{{food.calories}} kcal</p>
+        <img [src]="food.image" alt="">
+        <br>
+        <label>
+          <input (keyup)="updateCalories()" (click)="updateCalories()" [(ngModel)]="food.quantity" type="number" placeholder="quantity to add">
+        </label>
+        <button (click)="addToday(food)">Today's choice</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="todayList.length > 0" class="container today">
+  <h2>Today's foods</h2>
+  
+  <ul>
+    <li *ngFor="let food of todayList">
+      <p>
+        {{food.name}} <span *ngIf="food.quantity > 0">x{{food.quantity}}</span>
+        <button (click)="removeFood(food)">Remove</button>
+      </p>
+    </li>
+  </ul>
+  <p *ngIf="caloriesCount > 0">Total Calories count : <b>{{caloriesCount}}</b></p>
+</div>

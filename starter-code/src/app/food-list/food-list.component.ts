@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import foods, { Food } from '../foods';
 
 @Component({
   selector: 'app-food-list',
@@ -8,9 +8,62 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  foodsList: Food[] = foods;
+  todayList: Food[] = [];
+  searchTerm: string;
+  addingOn: boolean = false;
+  food: Food = {
+    name: "",
+    calories: 0,
+    image: "",
+    quantity: 1
+  };
+  caloriesCount: number;
   constructor() { }
 
   ngOnInit() {
   }
 
+  // toggle the display of form to add a new food
+  newFood() {
+    this.addingOn = !this.addingOn;
+  }
+
+  // Add a new food to the foodsList array
+  saveNewFood() {
+    if(this.food.name && this.food.calories && this.food.image) {
+      const currentFood = new Food(
+          this.food.name,
+          this.food.calories, 
+          this.food.image, 
+          this.food.quantity);
+      this.foodsList.push(currentFood);
+      this.newFood();
+    }
+  }
+
+  // Add a food to Today's food array
+  addToday(food: Food) {
+    if(this.todayList.indexOf(food) !== -1) {
+      this.todayList.splice(this.todayList.indexOf(food), 1);
+    }
+    food.quantity === 0 ? food.quantity = 1: null;
+    this.todayList.push(food);
+    this.updateCalories();
+  }
+  
+  // keep calories count up to date
+  updateCalories() {
+    let todayCalories = 0;
+    this.todayList.forEach(oneFood => {
+      todayCalories += oneFood.calories * oneFood.quantity;
+    });
+    this.caloriesCount = todayCalories;
+  }
+
+  // remove a food from today's food array
+  removeFood(food: Food) {
+    this.todayList.splice(this.todayList.indexOf(food), 1);
+    this.updateCalories();
+  }
 }
