@@ -1,0 +1,9 @@
+.food-form{  
+    display: none;
+    visibility: hidden;
+}
+
+.appear{
+    display: none;
+    visibility: visible; 
+}
