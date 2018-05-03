@@ -1,4 +1,13 @@
-const foods: Object[] = [
+export interface Food {
+  
+     name: string,
+     calories: number,
+     image: string,
+     quantity: number,
+  
+}
+
+export const foods: Food[] = [
   {
     name: "Pizza",
     calories: 400,
