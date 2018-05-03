@@ -1,3 +1,40 @@
-<p>
-  food-list works!
-</p>
+<label>
+  Search for your food!
+  <!-- step 3: use ngModel  -->
+  <input [(ngModel)]="userInput" type="search" placeholder="enter food name here">
+</label>
+
+<button (click)="showForm()">
+  Add new food!
+</button>
+
+<form [ngClass]="formState" name="add-food-form">
+  <label>Name:
+    <p [ngClass]="alertName">You forgot to enter the name</p>
+    <input [(ngModel)]="foodName" name="food-name" type="text">
+  </label>
+  <br>
+  <label>
+    Number of Calories:
+    <p [ngClass]="alertCal">You forgot to enter the number of calories</p>
+    <input [(ngModel)]="foodCal" name="food-cal" type="number">
+  </label>
+  <br>
+  <label>
+    Image Url:
+    <p [ngClass]="alertImg">You forgot to enter an image URL</p>
+    <input [(ngModel)]="foodImg" name="food-url" type="text">
+  </label>
+  <br>
+  <button (click)="addFood()">Submit New Food!</button>
+</form>
+
+<div class="food-item" *ngFor="let oneFood of (foodList) | searchFood:userInput">
+  <div class="food-img">
+    <img src="{{oneFood.image}}" alt="food-image">
+  </div>
+  <div class="food-info">
+    <h3>{{oneFood.name}}</h3>
+    <p>{{oneFood.calories}}</p>
+  </div>
+</div>

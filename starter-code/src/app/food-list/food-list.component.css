@@ -1,0 +1,31 @@
+.food-img {
+  float: left;
+}
+
+.food-img img {
+  height: 15vh;
+  margin-top: 5vh;
+  margin-right: 3vw;
+  margin-left: 1vw;
+}
+
+.food-info {
+  float: left;
+}
+
+.food-item {
+  width: 25vw;
+  clear: both;
+}
+
+/* .food-form {
+  display: none;
+} */
+
+.foodFormShow {
+  display: none;
+}
+
+.alertShow {
+  display: none;
+}
