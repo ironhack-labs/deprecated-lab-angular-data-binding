@@ -1,3 +1,52 @@
-<p>
-  food-list works!
-</p>
+<h2>Food List</h2>
+<div class = "search">
+  <label>
+    Search For A Food
+    <input [(ngModel)]="userInput" type="text" />
+  </label>
+</div>
+
+<button (click)="addFood()">Add New Food</button>
+
+<div *ngIf="classState">
+    <label for="food-name">Food Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+    <br>
+
+    <label for="food-calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+    <br>
+
+    <label for="food-quantity">Quantity</label>
+    <input type="text" [(ngModel)]="newFood.quantity">
+    <br>
+
+    <label for="food-image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+
+    <button (click)="submitFood()">Submit New Food</button>
+  </div>
+
+  <div>
+<ul>
+  <li *ngFor ="let oneFood of (foods | foodFilter: userInput)">
+    <h3>{{oneFood.name}}</h3>
+    <p>{{oneFood.calories}}</p>
+    <img [src]="oneFood.image"/>
+    <br>
+    <input (click)="updateCalories()" [(ngModel)]="oneFood.quantity" type="number">
+    <br />
+    <button (click)="addTodayFood()">Add to Today's Food</button>
+  </li>
+</ul>
+</div>
+
+
+<hr />
+<h3>Today's Foods</h3>
+<li *ngFor ="let oneTodayFood of todayFoodList">
+  <h3>{{oneTodayFood.name}}</h3>
+  <h3>{{oneTodayFood.calories}}</h3>
+</li>
+
+
