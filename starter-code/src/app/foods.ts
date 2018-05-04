@@ -1,100 +1,32 @@
-const foods: Object[] = [
-  {
-    name: "Pizza",
-    calories: 400,
-    image: "https://i.imgur.com/eTmWoAN.png",
-    quantity: 0
-  },
-  {
-    name: "Salad",
-    calories: 150,
-    image: "https://i.imgur.com/DupGBz5.jpg",
-    quantity: 0
-  },
-  {
-    name: "Sweet Potato",
-    calories: 120,
-    image: "https://i.imgur.com/hGraGyR.jpg",
-    quantity: 0
-  },
-  {
-    name: "Gnocchi",
-    calories: 500,
-    image: "https://i.imgur.com/93ekwW0.jpg",
-    quantity: 0
-  },
-  {
-    name: "Pot Roast",
-    calories: 350,
-    image: "https://i.imgur.com/WCzJDWz.jpg",
-    quantity: 0
-  },
-  {
-    name: "Lasagna",
-    calories: 750,
-    image: "https://i.imgur.com/ClxOafl.jpg",
-    quantity: 0
-  },
-  {
-    name: "Hamburger",
-    calories: 400,
-    image: "https://i.imgur.com/LoG39wK.jpg",
-    quantity: 0
-  },
-  {
-    name: "Pad Thai",
-    calories: 475,
-    image: "https://i.imgur.com/5ktcSzF.jpg",
-    quantity: 0
-  },
-  {
-    name: "Almonds",
-    calories: 75,
-    image: "https://i.imgur.com/JRp4Ksx.jpg",
-    quantity: 0
-  },
-  {
-    name: "Bacon",
-    calories: 175,
-    image: "https://i.imgur.com/7GlqDsG.jpg",
-    quantity: 0
-  },
-  {
-    name: "Hot Dog",
-    calories: 275,
-    image: "https://i.imgur.com/QqVHdRu.jpg",
-    quantity: 0
-  },
-  {
-    name: "Chocolate Cake",
-    calories: 490,
-    image: "https://i.imgur.com/yrgzA9x.jpg",
-    quantity: 0
-  },
-  {
-    name: "Wheat Bread",
-    calories: 175,
-    image: "https://i.imgur.com/TsWzMfM.jpg",
-    quantity: 0
-  },
-  {
-    name: "Orange",
-    calories: 85,
-    image: "https://i.imgur.com/abKGOcv.jpg",
-    quantity: 0
-  },
-  {
-    name: "Banana",
-    calories: 175,
-    image: "https://i.imgur.com/BMdJhu5.jpg",
-    quantity: 0
-  },
-  {
-    name: "Yogurt",
-    calories: 125,
-    image: "https://i.imgur.com/URhdrAm.png",
-    quantity: 0
-  }
-]
+export class Food {
+  constructor(
+      public name: string,
+      public calories: number,
+      public image: string,
+      public quantity: number
+  ) { }
+  styleUrls: ['./food-list.component.css']
+}
 
-export default foods;
+export const todayFoodList: Array<Food> = [];
+
+export const foodList: Array<Food> = [
+  new Food("Pizza",400,"https://i.imgur.com/eTmWoAN.png",0),
+  new Food("Salad",150,"https://i.imgur.com/DupGBz5.jpg",0),
+  new Food("Sweet Potato",120,"https://i.imgur.com/hGraGyR.jpg",0),
+  new Food("Gnocchi", 500,"https://i.imgur.com/93ekwW0.jpg",0),
+  new Food("Pot Roast", 350,"https://i.imgur.com/WCzJDWz.jpg",0),
+  new Food("Lasagna",750,"https://i.imgur.com/ClxOafl.jpg",0),
+  new Food("Hamburger",400,"https://i.imgur.com/LoG39wK.jpg",0),
+  new Food("Pad Thai",475,"https://i.imgur.com/5ktcSzF.jpg",0),
+  new Food("Almonds",75,"https://i.imgur.com/JRp4Ksx.jpg",0),
+  new Food("Bacon",175,"https://i.imgur.com/7GlqDsG.jpg",0),
+  new Food("Hot Dog",275,"https://i.imgur.com/QqVHdRu.jpg",0),
+  new Food("Chocolate Cake",490,"https://i.imgur.com/yrgzA9x.jpg",0),
+  new Food("Wheat Bread",175,"https://i.imgur.com/TsWzMfM.jpg",0),
+  new Food("Orange",85,"https://i.imgur.com/abKGOcv.jpg",0),
+  new Food("Banana",175,"https://i.imgur.com/BMdJhu5.jpg",0),
+  new Food("Yogurt",125,"https://i.imgur.com/URhdrAm.png",0)
+];
+
+
