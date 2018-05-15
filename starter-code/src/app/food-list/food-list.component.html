@@ -1,3 +1,59 @@
 <p>
   food-list works!
+name calories image quantity
 </p>
+<button type="button" (click)="changeShowStatus()">show/hide</button>
+<div class="to-left">
+    
+
+    
+    <div *ngIf="showHide" >
+      <br>
+    <form>
+        <h3>Add a food</h3>
+        <p>name</p>
+        <input [(ngModel)]="newFood.name" name="blah"  />
+        <p>calories</p>
+        <input  [(ngModel)]="newFood.calories" name="whatever"/>
+        <p>image link</p>
+        <input [(ngModel)]="newFood.image" name="yuh"  />
+        <p>quantity</p>
+        <input  [(ngModel)]="newFood.quantity" name="alright"/>
+      
+        <button (click)="addFood()">Add Food</button>
+      
+      </form>
+    </div>
+    </div>
+
+<div class="foodbox">
+  
+  
+  
+  
+  
+  <div>
+    <div class="boxydiv"*ngFor="let foodList of foods" >
+      <img [src]="foodList.image" alt="" width="200px" >
+      <h2>name: {{foodList.name}}</h2>
+      <h3>calories: {{foodList.calories}}</h3>
+      <h3>quantity: {{foodList.quantity}}</h3>
+      <button (click)="addTodaysList(foodList.name, foodList.calories)">add to todays list</button>
+    </div>
+  </div>
+                    <div>
+                        <div class="boxydiv"*ngIf="showToday">
+                          <h1>todays food ||| total calories: {{totalCalorie}}</h1>
+                        <div class="boxydiv"*ngFor="let todaysFood of todaysFood">
+                          <h3>food name: {{todaysFood.theName}}</h3>
+                          <h3>food calorie: {{todaysFood.theCalories}}</h3>  
+                        </div>
+                        </div>
+                    </div>
+                    
+
+</div>
+
+
+
+
