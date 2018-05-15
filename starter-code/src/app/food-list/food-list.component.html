@@ -1,3 +1,84 @@
-<p>
-  food-list works!
-</p>
+
+<button (click)="showFoodForm()" type="button" class="btn btn-primary btn-lg btn-block">Add New Foods</button>
+<br>
+<br>
+
+
+
+
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="container" *ngIf="isFormSHowing">
+<div class="row" >
+  <div class="col-6 col-md-4"></div>
+  <div class="col-6 col-md-4">
+        <div id="form-div" class="container">
+        <div>
+          <label for="foodList-name"></label>
+          <input type="text" placeholder="name" [(ngModel)]="newFood.name">
+        </div>
+        <br>
+        <br>
+        <div>
+          <label for="foodList-calories"></label>
+          <input type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+        </div>
+       <br>
+       <br>
+        <div>
+          <label for="contact-image"></label>
+          <input type="text" placeholder="image url" [(ngModel)]="newFood.image">
+        </div>
+        <br>
+        <br>
+        <button (click)="AddnewFood()">Create New Food</button>
+        
+        </div>
+
+     
+
+    </div>
+    <div class="col-6 col-md-4"></div>
+  </div>
+</div>  
+<br>
+<br>
+<br>
+
+
+
+<br>
+<div *ngFor = "let foodlist of foods">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="foodlist.image" alt="Card image cap">
+      <h5 class="card-title">Name: {{foodlist.name}}</h5>
+      <div class="card-body">
+        <p class="card-text">Calorie Count: {{foodlist.calories}}</p>
+        <a href="#" class="btn btn-primary">Add to today's list</a>
+      </div>
+    </div>
+  </div>
+
+
+<br>
+<br>
+<br>
+
+<div class="div-title">
+  <h2>Today's Foods List</h2>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-6">
+
+
+    
+    .col-6
+
+
+  </div>
+  <div class="col-6">
+    .col-6
+  </div>
+</div>
+</div>
