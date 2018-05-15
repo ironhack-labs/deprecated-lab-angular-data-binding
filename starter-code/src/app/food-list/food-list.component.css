@@ -1,0 +1,36 @@
+/* .to-right{
+  display: flex;
+  
+  float: right;
+  flex-direction: row;
+  flex-flow: space-around;
+  flex-wrap: wrap;
+  
+  
+
+} */
+
+.boxydiv{
+  border: .05px solid black;
+}
+
+/* .to-left{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  float: left;
+  
+
+} */
+
+.foodbox{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: initial;
+  justify-items: flex-start;
+  
+}
+
+
+
