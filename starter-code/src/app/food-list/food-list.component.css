@@ -1,0 +1,23 @@
+.food-img {
+  width: 400px;
+}
+
+.food-list {
+  border: 1px solid black;
+  width: 500px;
+}
+
+.my-foods {
+  float: right;
+  width: 500px;
+  border: 1px solid black;
+}
+
+.my-foods img {
+  width: 400px;
+}
+
+.flexbox-container {
+  display: flex;
+  flex-flow: wrap column;
+}

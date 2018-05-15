@@ -1,3 +1,32 @@
-<p>
-  food-list works!
-</p>
+<h1>Food List</h1>
+<input placeholder="Search..." [(ngModel)]='searchText' (keyup)="search(searchText)">
+
+<button (click)="newFoodForm()">Add new foods</button>
+<form *ngIf="clicked">
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="newFoods.name" name="name">
+  <label for="image">Image link</label>
+  <input type="text" [(ngModel)]="newFoods.image" name="image">
+  <label for="calories">Calories</label>
+  <input type="text" [(ngModel)]="newFoods.calories" name="calories">
+  <label for="quantity">Quantity</label>
+  <input type="text" [(ngModel)]="newFoods.quantity" name="quantity">
+  <button (click)="submit()">Submit</button>
+</form>
+
+<div class="flexbox-container">
+  <div *ngFor="let food of foodsResults" class="food-list">
+    <h3>{{food.name}}</h3>
+    <img [src]="food.image" class="food-img">
+    <p>Calories: {{food.calories}}</p>
+    <button (click)="myFoods(food)">Add to MY FOODS</button>
+  </div>
+
+  <h3>Total calories: {{caloriesCount()}}</h3>
+  <div *ngFor="let food of myFoodArr" class="my-foods">
+      <h3>{{food.name}}</h3>
+      <img [src]="food.image" class="food-img">
+      <p>Calories: {{food.calories}}</p>
+  </div>
+</div>
+
