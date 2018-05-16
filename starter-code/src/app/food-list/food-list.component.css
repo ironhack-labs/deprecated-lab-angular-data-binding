@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border: 1px red solid;
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+}
+
+.list-food {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.search-bar {
+    margin-left: 500px;
+    margin-bottom: 50px;
+}
