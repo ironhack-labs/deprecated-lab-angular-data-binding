@@ -1,3 +1,24 @@
 <p>
   food-list works!
 </p>
+<!-- ngFor added to run a loop through food list objects -->
+<!-- Array object name must equal same name 'of "..."' -->
+<div *ngFor="let oneFood of foodsList" >
+  <li>
+    <span>Name: {{oneFood.name}} </span>
+      <br>
+    <span>Calorie: {{oneFood.calories}} </span>
+      <br>
+      <div class="resize-food">
+    <img src={{oneFood.image}} />
+      </div>
+      <br>
+    <span>Quantity: {{oneFood.quantity}} </span>
+      <br>
+    
+
+    <!-- <img src="{{oneContact.image}}" width="200"> -->
+
+  </li>
+    <br><br>
+</div>
