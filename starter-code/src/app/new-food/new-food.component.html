@@ -1,0 +1,34 @@
+<div class="container" style="background: gold">
+  <div id="row">
+
+    <button (click) = "toggle = !toggle">click to create new food
+    </button>
+
+    <div id="show" *ngIf="toggle" class="row " >
+ <!-- <div class="form-group"> -->
+ <div class="col-md-3">
+   <label for="food-name" >Food name: </label>
+     <input type="text" [(ngModel)]="newFood.name" >
+   </div>
+ <!-- </div> -->
+ <!-- <div class="form-group"> -->
+ <div class="col-md-3">
+   <label for="food-calories" >Calories: </label>
+     <input type="text" [(ngModel)]="newFood.calories" >
+   </div>
+ <!-- </div> -->
+ <!-- <div class="form-group"> -->
+ <div class="col-md-3">
+   <label for="food-image" > image :</label>
+     <input type="text" [(ngModel)]="newFood.image" >
+   </div>
+ <!-- </div> -->
+</div>
+
+   <button (click)="newFoods(newFood.name, newFood.image, newFood.calories )" >Add New Food</button>
+
+</div>
+</div>
+<div class="">
+
+</div>
