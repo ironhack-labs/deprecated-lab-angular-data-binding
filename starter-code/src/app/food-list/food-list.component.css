@@ -1,19 +1,30 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  text-align: center;
+  /* text-align: left; */
   
 }
 
 
 .theFoods {
   border: 3px solid black;
-  width: 30%;
-  margin-left: 30px;
+  /* width: 30%; */
+  /* margin-left: 30px; */
   margin-bottom: 30px;
   height: 300px;
+  display: flex;
+  justify-content: left;
 }
 
 
+.todays-foods {
+  /* float: right; */
+
+}
+
+.searchFood {
+  /* float: right; */
+  align-items: right;
+}

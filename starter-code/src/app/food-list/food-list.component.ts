@@ -9,25 +9,32 @@ import foodList from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object [];
   myFoodList: any[] = foodList;
-  toggleForm: Boolean = false;
+  isFormShowing: Boolean = false;
+  todaysFoods: Array <any> = []; 
+  todaysCalories:number = 0;
+  resultsArray: Array<any> = [];
+  searchTerm: String = "" ;
+  aNewFood: any = { theDish: '', theCals: '', image: ''};
 
   constructor() { }
 
-  ngOnInit() {}
-
-  showForm(): void {
-    this.toggleForm = !this.toggleForm;
+  ngOnInit() {
+    this.resultsArray = this.myFoodList;
   }
-//   $(document).ready(function(){
-//     $(`#formButton`).click(function(){
-//         $(`#form1`).toggle();
-//     });
-// });
 
-  aNewFood = { theDish: '', theCals: '', image: ''};
+  toggleForm(){
+    if(this.isFormShowing === false) {
+      this.isFormShowing = true;
+    } else {
+      this.isFormShowing = false;
+    }
+
+  }
+
+
+  // aNewFood = { theDish: '', theCals: '', image: ''};
 
   addFood() {
-    console.log('submit new foods has been called');
     // add foods to list
     const newFoods = {
       theDish: this.aNewFood.theDish,
@@ -35,8 +42,21 @@ export class FoodListComponent implements OnInit {
       image: this.aNewFood.image
     };
     // clear inputs
-    this.foods.unshift(newFoods);
+    this.myFoodList.unshift(newFoods);
+    this.aNewFood = { theDish: '', theCals: '', image: ''};
+    this.isFormShowing = false;
   }
+    
+    addToList(theFood) {
+    this.todaysFoods.unshift(theFood);
+    this.todaysCalories += Number(theFood.calories);
+    }
+
+    filterFoods() {
+      this.resultsArray = this.myFoodList.filter((food => {
+        return food.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+      }));
+    }
 }
 
 
