@@ -1,3 +1,52 @@
-<p>
-  food-list works!
-</p>
+<div class="container-fluid">
+
+
+
+<div class="row">
+  <div class="container">
+    <div class="col-xs-8">
+    </div>
+    <div class="col-xs-4">
+      <div>
+        <label for="things_name"> Search Foods: </label>
+        <input id="things_name" placeholder="Food Name"
+                type="text" [(ngModel)]="pattern">
+      <div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<hr>
+
+  <div class="col-xs-12">
+    <div id="contact" class="col-xs-3" *ngFor="let food of foods | filter:'name':pattern">
+      <div class="row">
+        <div class="container-fluid">
+      <div class="col-sm-12" id="eachFood">
+            <img class="img-rounded"src="{{food.image}}" alt="">
+            <div class="col-xs-12" id="info">
+                    <p id="foodName">{{food.name}}</p>
+              <div class="col-sm-6">
+                <p id="foodCalories"class="foodCalories">{{food.calories}}</p>
+              </div>
+              <div class="col-sm-6">
+              <p id="Quantity"class="float-right"> <b>Quantity:  </b>{{food.quantity}}</p>
+              </div>
+      </div>
+
+      <div class="col-xs-12">
+        <button class="btn btn-primary" (click)="add">Add Item</button>
+      </div>
+    </div>
+    </div>
+
+    </div>
+  </div>
+
+  </div>
+
+</div>
+</div>
