@@ -1,0 +1,28 @@
+h1 {
+    text-align: center
+}
+li {
+    list-style-type: none;
+    text-align: center;
+}
+
+img {
+    border-radius: 200px;
+}
+
+span {
+   border: 1px solid black; 
+   width: 500px;
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.list {
+    width: 500px;
+}

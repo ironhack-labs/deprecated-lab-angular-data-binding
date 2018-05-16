@@ -1,3 +1,64 @@
-<p>
-  food-list works!
-</p>
+<div class="flex-container">
+
+<div class="list">
+<h1 class="center">Food list</h1>
+<div *ngFor="let foodItem of foods" >
+    <br>
+    <span>
+      <br>
+  <li>
+    <img [src]="foodItem.image" width="300">
+      <br>
+    <p><b>Name:</b> {{foodItem.name}} </p>
+    <p><b>Calories:</b> {{foodItem.calories}} </p>
+    <button (click)="selectFood(foodItem)" class="center">Select Food</button>
+    <br><br>
+  </li>
+    </span>
+    <br>
+</div>
+</div>
+
+
+<div>
+<h1>Add Food Item</h1>
+<div>
+  <label for="food-name">Name:</label>
+  <input type="text" [(ngModel)]="newFoodItem.name">
+    <br>
+
+  <label for="food-calories">Calories:</label>
+  <input type="text" [(ngModel)]="newFoodItem.calories">
+    <br>
+
+  <label for="food-image">Image: </label>
+  <input type="text" [(ngModel)]="newFoodItem.image">
+
+  <br><br>
+
+<button (click)="addFood()" class="center">Submit New Food</button>
+</div>
+</div>
+
+
+<div class="list">
+<h1>Todays foods {{total}}</h1>
+
+<div *ngFor="let selectedFood of todaysFoods" >
+    <br>
+    <span>
+      <br>
+  <li>
+    <img [src]="selectedFood.image" width="300">
+      <br>
+    <p><b>Name:</b> {{selectedFood.name}} </p>
+    <p><b>Calories:</b> {{selectedFood.calories}} </p>
+    <p><b>Quantity:</b> {{selectedFood.quantity}} </p>
+    <br><br>
+  </li>
+</span>
+<br>
+</div>
+</div>
+
+</div>
