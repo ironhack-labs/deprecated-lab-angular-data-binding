@@ -15,7 +15,14 @@
 
   <button type="button" (click)="addNewFood()">Submit</button>
 </form>
-<div *ngFor="let food of foodList">  
+
+<h3>Search for Foods:</h3>
+<input type="text" [(ngModel)]="searchTerm" (keyup)="filterFoods()">
+
+
+
+
+<div *ngFor="let food of resultsArray">  
   <!-- always use singular for food -->
   <h3>{{food.name}}</h3>
   <h6>Calories: {{food.calories}}</h6>
@@ -30,6 +37,8 @@
 
 <div class="todays-foods">
   <h3>Today's Foods</h3>
+<h4>Total Calories: {{todaysCalories}}</h4>
+
 <div *ngFor="let oneFood of todaysFoods">
   <h3>{{oneFood.name}}</h3>
   <h6>Calories: {{oneFood.calories}}</h6>
