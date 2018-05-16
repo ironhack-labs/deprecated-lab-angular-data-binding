@@ -1,3 +1,49 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div id="column-1">
+    <div>
+        <div>
+          <label for="food-name">Name:</label>
+          <input type="text" [(ngModel)]="newFood.name">
+        </div>
+        <div>
+          <label for="food-calories">Calories:</label>
+          <input type="text" [(ngModel)]="newFood.calories">
+        </div>
+        <div>
+          <label for="food-image">Picture:</label>
+          <input type="text" [(ngModel)]="newFood.image">
+        </div>
+        <button (click)="addFood()">Add New Food</button>
+    </div>
+    
+    
+    <div class="food-div" *ngFor="let foodList of foods">
+      <div class="food-box">
+        <div id="food-img"> <!--Food Image box-->
+          <img [src]="foodList.image" alt="food">
+        </div>
+        <div id="food-info"> <!--FOOD INFORMATION-->
+          <h2>{{foodList.name}}</h2>
+          <h4> Calories: {{foodList.calories}}</h4>
+          <button (click)="addToday(foodList.name, foodList.calories)" >+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="column-2">
+    <h2>Today's Foods</h2>
+    <h4> {{this.total}} Calories</h4>
+   
+    <div *ngFor="let todaysList of todaysFood">
+      <ul>
+        <li><h4>{{todaysList.name}}</h4> 
+          <h5>{{todaysList.calories}}</h5> 
+          <h4 *ngIf="todaysList.amount === 1">{{todaysList.amount}}</h4>
+          
+          <h4 *ngIf="todaysList.amount > 1">X{{todaysList.amount}}</h4></li>
+      </ul>
+    </div>
+  </div>
+
+</div> 
