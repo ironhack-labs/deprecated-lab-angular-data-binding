@@ -2,24 +2,26 @@
 <div class="container">
 
     <br>  
-    <button type="button" id="formButton">Click to submit foods!</button>
-<br><br>
-<form id="form1">
-  <b>Dish: </b> <input type="text" name="theDish">
-    <br><br>
-  <b>Calories: </b><input type="text" name="theCals">
-   <br><br>
-    <b>Image:</b>
-    <br><br>
-  <button (click)="addFood()" id="submit">Submit</button>
-  </form>
+   <button *ngIf = "toggleForm === false" (click) = "showForm()">Submit a foods</button>
+      <br><br>
+      <div *ngIf = "toggleForm === true" >
+          <label>Name:</label>
+          <input type= "text" [( ngModel )] ='aNewFood.theDish'>
+          <br>
+          <label>Calories:</label>
+          <input type= "text"[( ngModel )] ='aNewFood.theCals'>
+          <br>
+          <label>Image:</label>
+          <input type= "text" [( ngModel )] ='aNewFood.image'>
+          <br>
+          <button (click) = "addFood()">Submit</button>
+        </div>
     <br>
-<div *ngFor= "let foods of myFoodList" class="theFoods">
-    <img [src]="foods.image" width="200px">
-    
-    <br>
-    <h4>Dish: {{foods.name}}</h4>
-      <br>
-      <h5>Calories: {{foods.calories}}</h5>
-</div>
+              <div *ngFor= "let foods of myFoodList" class="theFoods">
+                  <img [src]="foods.image" width="200px">
+                  <br>
+                  <h4>Dish: {{foods.name}}</h4>
+                    <br>
+                    <h5>Calories: {{foods.calories}}</h5>
+              </div>
 </div>

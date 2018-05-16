@@ -9,13 +9,15 @@ import foodList from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object [];
   myFoodList: any[] = foodList;
+  toggleForm: Boolean = false;
 
   constructor() { }
 
-  ngOnInit() {
-    // this.foods = foodList;
-  }
+  ngOnInit() {}
 
+  showForm(): void {
+    this.toggleForm = !this.toggleForm;
+  }
 //   $(document).ready(function(){
 //     $(`#formButton`).click(function(){
 //         $(`#form1`).toggle();
