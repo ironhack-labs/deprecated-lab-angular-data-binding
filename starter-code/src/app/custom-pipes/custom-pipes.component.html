@@ -1,0 +1,39 @@
+<h1 style="text-align:center">Food Search</h1>
+<div class="search-form">
+  <label for="food_name">Search Food:</label>
+  <input id="foods_name" placeholder="Food Name" type="text"
+  [(ngModel)]="pattern">
+</div>
+
+<ul *ngFor="let food of foodList | filter:'name':pattern"> 
+  <div class="food">
+      <div class="name">Name: {{food.name}}</div>
+      <div class="calories">Calories: {{food.calories}}</div>
+      <div class="image">
+        <img [src]="food.image">
+      </div>
+      <div class="quantity">Quantity: {{food.quantity}}</div>
+      <button class="special-button" (click)="addSpecial(food)">Add to Today's Foods</button>
+      <label for="quantity-input">Quantity:</label>
+      <input type="number" placeholder="Quantity" [(ngModel)]="food.quantity" id="quantity-input">
+      <br>
+      <hr>
+    </div>
+</ul>
+<br>
+<hr>
+<h1 style="text-align:center">Add Food</h1>
+<div class="add">
+  <button (click)="showForm()">Add Food</button>
+</div>
+<div class="add-form" [ngClass]="{transparent: isTransparent}">
+   
+    <label for="new-food-name">Name:</label>
+    <input type="text" [(ngModel)]="newFood.name" id="new-food-name">
+    <label for="new-food-calories">Calories:</label>
+    <input type="number" [(ngModel)]="newFood.calories" id="new-food-calories">
+    <label for="new-food-img-url">Image URL:</label>
+    <input type="text" [(ngModel)]="newFood.image" id="new-food-img-url">
+    <button (click)="addFood()">Submit</button>
+  </div>
+

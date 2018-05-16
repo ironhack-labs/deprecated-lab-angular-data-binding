@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+img{
+  width: 150px;
+  height: 150px;
+}
+
+
+.special-button{
+  margin-left: 15vw;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.foods{
+margin-bottom: 5vh;
+}
