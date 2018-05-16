@@ -1,0 +1,37 @@
+input{
+    display: block;
+    text-align: center;
+}
+
+.food-list-div{
+    float: left;
+}
+
+.todays-foods{
+    float: right;
+}
+
+/* .food-form{
+    border: solid 1px black;
+} */
+
+.food-container{
+    border: 2px solid black;
+    margin: 25px;
+    width: 600px;
+}
+
+.food-image{
+    width: 350px;
+    height: 200px;
+}
+
+.food-info{
+    float: right;
+    text-align: center;
+    margin-right: 75px;
+}
+
+.text-spacing{
+    display: inline;
+}
