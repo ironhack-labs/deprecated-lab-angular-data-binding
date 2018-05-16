@@ -1,3 +1,56 @@
-<p>
-  food-list works!
-</p>
+<button (click)="toggle =!toggle">Add Food</button>
+
+<!-- <br>
+<div *ngIf="!show; else elseBlock"> Click Button To Add Food
+</div> -->
+<div *ngIf="toggle">
+ <!-- <ng-template #elseBlock> -->
+ <!-- <form action="" [hidden]="isActive"> -->
+ <label for="food-name"></label>
+ <input type="text" placeholder="name" [(ngModel)]="newFood.name">
+
+ <br>
+ <label for="food-calories"></label>
+ <input type="text" placeholder="calories" [(ngModel)]="newFood.calories">
+
+ <br>
+
+ <label for="food-image"></label>
+ <input type="text" placeholder="image" [(ngModel)]="newFood.image">
+
+ <br>
+ <button (click)="toggle = !toggle; addFood()">Submit Food</button>
+
+ <!-- </form> -->
+ <!-- </ng-template> -->
+</div>
+
+<hr>
+
+<div>
+  <label for="things_name"> Search Foods: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+</div>
+
+<h3>Today's Foods</h3>
+<ul>
+ <li></li>
+</ul>
+
+<hr>
+<ul *ngFor="let oneFood of foodsArray | filter:'name':pattern; let i = index">
+ <div class="container col-sm-4" id="single-contact">
+
+
+   <li>
+     <b> {{oneFood.name}}</b>
+     <br> {{oneFood.calories}}
+     <br>
+     <img src="{{oneFood.image}}" width="250px" height="200px">
+     <br> {{oneFood.quantity}}
+   </li>
+
+   <button (click)="addToItemList(oneFood)"> Add this item</button>
+ </div>
+</ul>
