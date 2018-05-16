@@ -1,0 +1,33 @@
+img{
+  width: 200px;
+  height: 120px;
+}
+
+.food-div{
+  border: 1px solid black;
+  width: 33%;
+  float: left;
+}
+
+.search-bar, .add-bar{
+  margin: 20px auto;
+}
+
+.show-form{
+  display: block;
+  margin: 30px auto;
+}
+
+.hide-form{
+  display: none;
+  margin: 30px auto;
+}
+
+.header{
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 300px;
+  padding: 30px 30px;
+  margin: 15px auto;
+  background-color: lightblue;
+}

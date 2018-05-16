@@ -1,3 +1,63 @@
-<p>
-  food-list works!
-</p>
+<!-- Today's Foods Here -->
+<div class="header">
+  <div>
+    <h1>Today's Foods</h1>
+    <h2>Total Calories: {{ calorieCount }} </h2>
+    <ul>
+      <li *ngFor="let todaysfood of todaysFoods" >
+        {{ todaysfood.name }}
+      </li>
+    </ul>
+  </div>
+  <!-- Search Form Here -->
+  <div class="search-bar">
+    <label for="ironfood"> Search thing: </label>
+    <input id="ironfood" placeholder="Food Name" type="text" [(ngModel)]="pattern">
+  </div>
+
+  <!-- Button to show add form -->
+  <div>
+    <button (click) = "buttonClicked()" >Click me to Add a New Food</button>
+  </div>
+</div>
+
+<!-- Form to Add Food -->
+<!-- Ternary Operrator with ngClass to toggle showing form -->
+<div [ngClass]="buttonClick ? 'show-form' : 'hide-form' ">
+    <label for="food-name"> Thing Name </label>
+    <input type="text" id="food-name" placeholder="Food Name" type="text" [(ngModel)]="newFood.name">
+    
+    <label for="food-calories">Number of Calories</label>
+    <input type="text" id="food-calories" placeholder="Over 9000" type="number" [(ngModel)]='newFood.calories'>
+
+    <label for="food-image">Image URL</label>
+    <input type="text" id="food-image" placeholder="Image URL Here" type="text" [(ngModel)]='newFood.image'>
+
+    <button (click) = "addNew()" >Add this Food</button>
+</div>
+
+
+<!-- Iterate through the Array of Foods -->
+<!-- Custom Piping for Search Filter applied here as well  -->
+<div class="food-div" *ngFor="let food of foods | filter:'name':pattern;">
+  <!-- Notice above that filter is just 'name' & NOT food.name -->
+  <div>
+    <strong>Food:</strong> 
+    {{ food.name }}
+  </div>
+  <div> 
+    <strong>Calories:</strong>
+    {{ food.calories }}
+  </div>
+  <div>
+    <strong>Quantity:</strong>
+    {{ food.quantity }}
+  </div>
+  <div>
+      <!-- Make sure the image's src property is properly bound -->
+    <img [src] ="food.image" alt="{{ food.name }}">
+  </div>
+  <div>
+    <button (click) = "addToday(food)">Add to Today's Foods</button>
+  </div>
+</div> 
