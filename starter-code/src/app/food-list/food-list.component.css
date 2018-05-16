@@ -3,9 +3,17 @@ input{
     text-align: center;
 }
 
-.food-form{
-    border: solid 1px black;
+.food-list-div{
+    float: left;
 }
+
+.todays-foods{
+    float: right;
+}
+
+/* .food-form{
+    border: solid 1px black;
+} */
 
 .food-container{
     border: 2px solid black;
