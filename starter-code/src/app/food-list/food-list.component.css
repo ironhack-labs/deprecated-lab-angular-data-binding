@@ -1,0 +1,20 @@
+.container{
+display: flex;
+justify-content: space-evenly;
+}
+.food-div {
+ display: flex;
+ flex-direction: column;
+}
+.food-box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px black solid;
+  width: 450px;
+  height: 250px;
+  margin: 10px;
+}
+img {
+  width: 200px;
+}

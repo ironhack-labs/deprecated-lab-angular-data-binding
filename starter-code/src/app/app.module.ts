@@ -17,6 +17,6 @@ import { FoodListComponent } from './food-list/food-list.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, FoodListComponent]
 })
 export class AppModule { }
