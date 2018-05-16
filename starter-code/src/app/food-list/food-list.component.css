@@ -1,0 +1,17 @@
+
+
+h3 {
+    margin-left: 10%;
+}
+
+.showform {
+visibility: visible;
+}
+.hideform{
+display:none;
+visibility:hidden;
+}
+
+div {
+    border: 1px solid lightgrey;
+}

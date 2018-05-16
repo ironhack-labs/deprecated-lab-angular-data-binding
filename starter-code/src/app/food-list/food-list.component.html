@@ -1,3 +1,36 @@
-<p>
-  food-list works!
-</p>
+<div style = "float:left;">
+  <button  type ="button" (click)="showForm()">Add new food</button>
+  <form [ngClass] = "classArray">
+    <h3>Add a Comment</h3>
+    <p>Name</p>
+    <input [(ngModel)]="newFood.name" name="name"  />
+    <p>Calories</p>
+    <input [(ngModel)]="newFood.calories" name="calories"/>
+    <p>Image</p>
+    <input [(ngModel)]="newFood.image" name="image"/>
+    <p>Quantity</p>
+    <input [(ngModel)]="newFood.quantity" name="quantity"/>
+    
+    <button (click)="addNew()">Add new food</button>
+  </form>
+</div>
+  
+<div style = "float: left;" *ngFor = "let food of foods">
+  <img [src]= food.image alt="" height= "50px">
+  <h3>{{food.name}}</h3>
+  calories: {{food.calories}}
+ 
+  <button (click)="addToList(food.name,food.calories)">Add to list</button>
+</div>
+
+
+
+  <div style = "float:right;" *ngIf = "show">
+  <p>Today's Foods {{total}}</p>
+  <ul *ngFor = "let item of todayFoods">
+   <li>Name: {{item.name}}</li> 
+   <li>Calories: {{item.calories}}</li>
+
+  </ul>
+
+  </div>
