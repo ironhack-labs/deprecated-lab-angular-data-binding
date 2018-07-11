@@ -1,0 +1,18 @@
+<div>
+  <label for=""></label>
+  <input type="text" [(ngModel)]="newFood.name" placeholder="name">
+</div>
+<div>
+  <label for=""></label>
+  <input type="number" [(ngModel)]="newFood.calories" placeholder="calories">
+</div>
+<div>
+  <label for=""></label>
+  <input type="text" [(ngModel)]="newFood.image" placeholder="image">
+</div>
+<div>
+  <label for=""></label>
+  <input type="number" [(ngModel)]="newFood.quantity" placeholder="quantity">
+</div>
+
+<button (click)="addFood()">Add Food</button>

@@ -1,3 +1,31 @@
-<p>
-  food-list works!
-</p>
+<h2>FOOD LIST</h2>
+
+<label>
+  Search for Foodstuffs
+  <input [(ngModel)]="userInput" type="text" placeholder="fatty" />
+</label>
+
+<div class="food-list">
+    <ul>
+        <li *ngFor="let oneFood of (foods | searchFoods:userInput)">
+          <h3>{{oneFood.name}}</h3>
+          <p>{{oneFood.calories}} calories</p>
+          <img [src]="oneFood.image" width="200px" />
+          <button (click)="foodToday(oneFood)">ATE TODAY</button>
+        </li>
+      </ul>
+</div>
+
+<hr />
+
+<h2>CONSUMED TODAY</h2>
+<div class="ate-today">
+    <ul>
+        <li *ngFor="let oneFood of todayArray">
+          <h3>{{oneFood.name}}</h3>
+          <p>{{oneFood.calories}} calories</p>
+          <img [src]="oneFood.image" width="200px" />
+        </li>
+        <h3>Total Calories: {{totalCalories}}</h3>
+      </ul>
+</div>
