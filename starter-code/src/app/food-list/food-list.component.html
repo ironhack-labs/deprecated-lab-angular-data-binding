@@ -18,3 +18,27 @@
     </p>
   </li>
 </ul>
+
+
+<h2>
+  Add new Food
+</h2>
+
+  <button (click)="toggleForm()">
+    Add New Food
+  </button>
+
+<div [ngClass]="classState">
+  <label for="food-name"></label>
+  <input type="text" [(ngModel)]="newFood.name" placeholder="Food Name">
+
+  <label for="food-calories"></label>
+  <input type="number" [(ngModel)]="newFood.calories" placeholder=" Food Calories">
+
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image" placeholder="Food Image URL">
+
+  <button (click)="addFood()">
+    Submit
+  </button>
+</div>
