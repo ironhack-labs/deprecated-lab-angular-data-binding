@@ -1,4 +1,11 @@
-const foods: Object[] = [
+export class Food {
+  name: string;
+  calories: number;
+  image: string;
+  quantity: number;
+}
+
+export const foods: any = [
   {
     name: "Pizza",
     calories: 400,
@@ -95,6 +102,4 @@ const foods: Object[] = [
     image: "https://i.imgur.com/URhdrAm.png",
     quantity: 0
   }
-]
-
-export default foods;
+];

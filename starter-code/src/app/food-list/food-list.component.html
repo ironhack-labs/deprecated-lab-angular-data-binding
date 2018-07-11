@@ -1,3 +1,52 @@
-<p>
-  food-list works!
-</p>
+<label>
+  Search for food:
+  <input type="search" [(ngModel)]="userInput" placeholder="I'm craving for...">
+</label>
+
+
+<ul>
+  <li *ngFor="let oneFood of foods | iteration2Pipe: userInput">
+    <h3>
+      {{oneFood.name}}
+    </h3>
+    <p>{{oneFood.calories}}</p>
+    <img [src]="oneFood.image" alt="">
+    <button (click)="addToCravings(oneFood)"> Add to my cravings </button>
+  </li>
+</ul>
+
+<button (click)="toggleForm()">Add New Food</button>
+
+<div [ngClass]="classState">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="calories">Calories</label>
+    <input type="number" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="image">Image Url</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <div>
+    <label for="quantity">Quantity</label>
+    <input type="number" [(ngModel)]="newFood.quantity">
+
+  </div>
+
+  <button (click)="addFood()">Submit New Food</button>
+</div>
+
+
+<h2>Craving List</h2>
+<ul>
+  <li *ngFor="let oneCraving of cravings">
+    <h3>
+      {{oneCraving.name}}
+    </h3>
+    <p>{{oneCraving.calories}}</p>
+    <img [src]="oneCraving.image" alt="">
+  </li>
+</ul>
