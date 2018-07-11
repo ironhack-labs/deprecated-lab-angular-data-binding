@@ -1,3 +1,20 @@
-<p>
-  food-list works!
-</p>
+<h2>
+  List of foods
+</h2>
+
+<label>
+  Search
+  <input [(ngModel)]='userInput' type="search" placeholder="rice"/>
+</label>
+
+<ul>
+  <li *ngFor="let oneFood of (foodList | foodFilter:userInput)">
+    <h3>
+      {{oneFood.name}}
+    </h3>
+    <img [src]="oneFood.image">
+    <p>
+      {{oneFood.calories}}
+    </p>
+  </li>
+</ul>
