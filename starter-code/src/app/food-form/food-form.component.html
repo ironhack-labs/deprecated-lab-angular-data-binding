@@ -1,0 +1,14 @@
+<div>
+  <label for="food-name"></label>
+  <input type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="number" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image">
+</div>
+
+<button (click)="addFood()">Submit New Food</button>
