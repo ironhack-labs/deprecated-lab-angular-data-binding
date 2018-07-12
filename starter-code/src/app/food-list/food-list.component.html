@@ -1,3 +1,31 @@
-<p>
-  food-list works!
-</p>
+<h2>
+  Food List
+</h2>
+
+<label>
+  <input [(ngModel)]="userInput" type="search" placeholder="search for food...">
+</label>
+
+<ul >
+  <li *ngFor="let oneFood of (foodArray | foodFilter:userInput)">
+   <!-- on cherche tous les éléments de benicios qui contiennent
+  le userInput selon le filtre Actorfilter défini dans le pipe actor filter-->
+    <h3> {{oneFood.name}} </h3>
+    <h3> {{oneFood.calories}} </h3>
+    <img height=100px [src]="oneFood.image" />
+  </li>
+
+</ul>
+
+<!-- go to interaction 2-->
+<app-add-food></app-add-food>
+
+
+<!--iteration 1 
+<ul>
+  <li *ngFor="let oneFood of foodArray" >
+  <img height=100px [src]="oneFood.image" >
+  <p> {{oneFood.name}}  </p>
+  <p>  {{oneFood.calories}}  </p>
+</li>
+</ul> -->
