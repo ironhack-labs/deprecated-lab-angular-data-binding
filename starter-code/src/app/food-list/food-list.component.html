@@ -1,10 +1,13 @@
 
-  <div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+  <div class="search">
     <label for="things_name"> Search Food: </label>
     <input class="form-group" [(ngModel)]="search">
   <div>
 
- <button class="btn btn-primary" (click)="toggleHidden()"> ADD FOOD</button></div>
+ <button class="btn btn-primary btnfood" (click)="toggleHidden()"> ADD FOOD</button></div>
 
 <div class="container" *ngIf="isHidden">
  <div class="form-group">
@@ -23,18 +26,34 @@
       <input #textInputCalorie class="form-control" type="text">
     </div>
 
-    <button class="btn btn-primary" (click)="addFood(foodInputName, textInputImage, textInputCalorie)">FOOD</button></div>
+    <button class="btn btn-primary" (click)="addFood(foodInputName, textInputImage, textInputCalorie)">FOOD</button>
 
 </div>
 
 
 <div class="container">
   <div class="row">
-    <div class="col-3 element" *ngFor="let f of food | filter:'name':search">
+    <div class="col element" *ngFor="let f of food | filter:'name':search">
       <img src='{{f.image}}' width=200>
-      <p>Name {{f.name}}</p>
-      <p>Calories:{{f.calories}}</p>
+      <p>{{f.name}}-Calories:{{f.calories}}</p>
+      <button class="btn btn-primary " (click)="addList(f,textInputQuantity)">Add</button>
+      <input #textInputQuantity value="1">
     </div>
   </div>
 
+</div>
+</div>
+
+</div>
+
+<div class="col">
+<h3 class="calories">Today's Foods List {{calories}} cal</h3>
+<ul>
+  <li *ngFor="let fo of arrFood">
+
+      <p>{{fo.name}} - {{fo.calories}}kCal * {{fo.quantity}} </p>
+  </li>
+</ul>
+
+</div>
 </div>

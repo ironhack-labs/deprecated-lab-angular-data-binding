@@ -10,6 +10,9 @@ export class FoodListComponent implements OnInit {
  
   food: Object[];
   isHidden:Boolean=false;
+  arrFood: Object[]=[];
+  calories:number=0;
+  
 
   toggleHidden(e){
     this.isHidden=!this.isHidden;
@@ -30,4 +33,16 @@ export class FoodListComponent implements OnInit {
   fImage.value=""; 
   fCalorie.value="";
 }
+
+addList(f,q){
+
+  let calories = f.calories;
+  f.quantity += Number(q.value)
+  if(this.arrFood.indexOf(f)==-1)
+  this.arrFood.push(f)
+
+  this.calories += calories * f.quantity;
+
+}
+
 }
