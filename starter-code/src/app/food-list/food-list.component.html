@@ -3,7 +3,7 @@
 
 <button (click)="toggleVisibility()">Add New Food</button>
 
-<div [ngClass]="{invisible: invisible}">  
+<div [ngClass]="{invisible: invisible}">
   <div>
     <label for="contact-name">Name</label>
     <input type="text" [(ngModel)]="newFood.name">
@@ -21,11 +21,21 @@
     <input type="number" [(ngModel)]="newFood.quantity">
   </div> -->
 
-  <button (click)="addFood(newFood.name, newFood.calories, newFood.image, newFood.quantity)"(click)="toggleVisibility()">Add</button>
+  <button (click)="addFood(newFood.name, newFood.calories, newFood.image, newFood.quantity)" (click)="toggleVisibility()">Add</button>
 </div>
 
 <div *ngFor="let food of foods | filter:'name':pattern;">
   <p>{{food.name}}</p>
   <p>{{food.calories}}</p>
   <img src="{{food.image}}" alt="">
+  <button (click)="addToday(food)">+</button>
+</div>
+
+<div>
+  <h1>Today's Foods</h1> 
+  <span>{{totalcalories}}</span>
+  <div *ngFor="let todays of todaysFood">
+    <p>{{todays.name}} - {{todays.calories}}kCal x {{todays.quantity}} items</p>
+
+  </div>
 </div>
