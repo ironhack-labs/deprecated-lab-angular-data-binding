@@ -1,0 +1,17 @@
+img{
+    max-width: 100%;
+}
+
+.imgWrapper{
+    height: 150px;
+    width: 150px;
+}
+
+.hidden{
+    display: none;
+}
+
+.food{
+    display: flex;
+    flex-wrap: wrap;
+}
