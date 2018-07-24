@@ -5,8 +5,35 @@
   </div>
 
   <div class="add-container">
-    <div class="row">
+    <div *ngIf="!toggleAddItem" class="button-container">
+      <button (click)="toggleAdding()">Add Item</button>
+    </div>
+    <div *ngIf="toggleAddItem" class="foodItem">
+      <label for="name">Name: </label>
+      <input type="text" [(ngModel)]="foodItem.name">
+      <label for="calories">Calories: </label>
+      <input type="number" [(ngModel)]="foodItem.calories">
+      <label for="image">Image-url</label>
+      <input type="text" [(ngModel)]="foodItem.image">
+      <label for="quantity">Quantity</label>
+      <input type="number" [(ngModel)]="foodItem.quantity">
+      <button (click)="addItem()">Add</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="foodList">
+      <h2>Food List</h2>
       <div class="foodItem" *ngFor="let item of foodList | filter:'name':term">
+        <img src="{{item.image}}" alt="{{item.name}}.jpg">
+        <h2>{{item.name}}</h2>
+        <input type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}">
+        <button (click)="addTodayFood(item)">Add to Today's Food</button>
+      </div>
+    </div>
+    <div class="foodList">
+      <h2>Today's Food List - Calories Consumed : {{caloriesConsumed}} </h2>
+      <div class="foodItem" *ngFor="let item of todayFood">
         <img src="{{item.image}}" alt="{{item.name}}.jpg">
         <h2>{{item.name}}</h2>
         <h3>{{item.quantity}}</h3>
