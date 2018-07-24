@@ -1,3 +1,41 @@
-<p>
-  food-list works!
-</p>
+<label for="search">Search</label>
+<input type="text" [(ngModel)]="pattern">
+
+<button (click)="toggleVisibility()">Add New Food</button>
+
+<div class="form">
+  <div [ngClass]="{invisible: invisible}">
+    <div>
+      <label for="contact-name">Name</label>
+      <input type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <label for="food-calories">Calories</label>
+      <input type="number" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="food-image">Image</label>
+      <input type="file" [(ngModel)]="newFood.image">
+    </div>
+
+    <button (click)="addFood(newFood.name, newFood.calories, newFood.image, newFood.quantity)" (click)="toggleVisibility()">Add</button>
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="food-card" *ngFor="let food of foods | filter:'name':pattern;">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <img src="{{food.image}}" alt="" [ngStyle]="{'width': '200px'}">
+    <button (click)="addToday(food)">+</button>
+    <input type="number" value="{{food.quantity}}">
+  </div>
+</div>
+
+<div class="today">
+  <h2>Today's Foods - {{totalcalories}} cal</h2>
+  <div *ngFor="let todays of todaysFood">
+    <p>{{todays.name}} - {{todays.calories}}kCal x {{todays.quantity}} items</p>
+  </div>
+</div>
