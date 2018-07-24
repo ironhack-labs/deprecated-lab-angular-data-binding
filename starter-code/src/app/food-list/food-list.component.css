@@ -1,0 +1,16 @@
+img {
+  width: 100%;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+li {
+  width: 33%;
+  text-align: center;
+  border: 1px black solid;
+}
