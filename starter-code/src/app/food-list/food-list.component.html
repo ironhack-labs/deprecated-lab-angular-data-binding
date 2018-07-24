@@ -22,14 +22,26 @@
   </div>
   <button type="submit" (click)="addNewFood(newFood)">Add new food</button>
 </div>
-
-<div class="food-card" *ngFor="let food of foods | filter:'name':search">
-  <img [src]="food.image" alt="imagen de {{food.name}}" [ngStyle]="{ 'width': '200px', 'margin-right': '40px' }">
+<div class="content">
   <div>
-    <p>
-      <b>{{food.name}}</b>
-    </p>
-    <p>{{food.calories}}</p>
-    <p>{{food.quantity}}</p>
+    <div class="food-card" *ngFor="let food of foods | filter:'name':search">
+      <img [src]="food.image" alt="imagen de {{food.name}}" [ngStyle]="{ 'width': '200px', 'margin-right': '40px' }">
+      <div>
+        <p>
+          <b>{{food.name}}</b>
+        </p>
+        <p>{{food.calories}}</p>
+        <p>{{food.quantity}}</p>
+        <button (click)="todayList(food, quantity.value)">+</button>
+        <input type="text" #quantity value="{{food.quantity}}">
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <h2>Today's food <small>{{totalCal}} total cals.</small></h2>
+    <ul *ngFor="let list of newList">
+      <li>{{list.name}} - {{list.calories}} cal <small>x {{list.quantity}}</small></li>
+    </ul>
   </div>
 </div>

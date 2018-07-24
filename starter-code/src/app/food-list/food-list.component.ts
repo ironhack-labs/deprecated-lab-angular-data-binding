@@ -10,8 +10,10 @@ export class FoodListComponent implements OnInit {
   
   foods: Array<Object> = foods;
   inputDisabled: boolean = false;
-
   newFood: Object = {};
+  
+  newList: Array<Object> = [];
+  totalCal: number = 0;
 
   constructor() { 
     //this.foods = foods;
@@ -23,12 +25,17 @@ export class FoodListComponent implements OnInit {
   addNewFood(add){
     if (this.inputDisabled){
       this.foods.push(add);
-      console.log(add);
-      console.log(foods);
-      
       this.newFood = {};
     } 
     
     this.inputDisabled = !this.inputDisabled;
+  }
+
+  todayList(food){
+    food.quantity += 1;
+    if (this.newList.indexOf(food) == -1) {
+      this.newList.push(food);
+    }
+    this.totalCal += food.calories;
   }
 }
