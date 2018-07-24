@@ -1,3 +1,16 @@
-<p>
-  food-list works!
-</p>
+<!DOCTYPE html>
+<input #searchInput type="text" >
+
+<button (click)="find(searchInput)">Search</button>
+
+<div class = "flexwrapper">
+  <div class="card" style = "width: 18rem;" *ngFor="let oneFood of foods">
+      <img class="card-img-top" [src] = "oneFood.image">  
+        <div class= "card-body">
+    <h5 class = "card-title"><i>{{oneFood.name}}</i></h5>
+      <p class = "card-text"><b>{{oneFood.calories}} Calories</b></p>
+     
+      
+        </div>
+  </div>
+</div>
