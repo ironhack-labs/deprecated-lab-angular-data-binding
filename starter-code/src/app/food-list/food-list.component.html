@@ -1,3 +1,32 @@
-<p>
-  food-list works!
-</p>
+<div id="container">
+    <div id="right">
+        <label for="">Search</label>
+        <input type="text" [(ngModel)]="query">
+        
+        <div id="addFood">
+          <h3>Add Food</h3>
+          <p>Name <input type="text" [(ngModel)]="newFood.name"></p>
+          <p>Calories <input type="number" [(ngModel)]="newFood.calories"></p>
+          <p>Image <input type="number" [(ngModel)]="newFood.image"></p>
+          <button (click)="addFood()">Add Food</button>
+        </div>
+        
+        <div *ngFor="let food of foodList | filter:query" class="foodItem">
+          <div><img src="{{food.image}}" alt="" width="200"></div>
+          <div>
+            <h3>{{food.name}} - {{food.calories}}</h3>
+            <p>
+              <input type="text" value="1" [(ngModel)]="food.quantity">
+              <button (click)="addDailyFood(food)">Add</button>
+            </p>
+          </div>
+        </div>
+    </div>
+
+    <div id="dailyFoods">
+      <h3>Daily Foods <span *ngIf="totalCalories">{{totalCalories}}</span></h3>
+      <ul>
+        <li *ngFor="let food of dailyFoods">{{food.name}} - {{food.calories}} x {{food.quantity}}</li>
+      </ul>
+    </div>
+</div>
