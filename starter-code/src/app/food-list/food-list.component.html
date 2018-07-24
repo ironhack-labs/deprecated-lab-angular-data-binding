@@ -1,3 +1,43 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  
+  <div class="data-box">
+    <input #text type="text" placeholder="Find..." [(ngModel)]="textSearch">
+    <button (click)="showForm()">Add New Food</button>
+    <div class="form-type" [ngStyle]="{display: formDisplay }">
+      <div id="name">
+        <label for="name">Name</label>
+        <input type="text" placeholder="Name of the food" [(ngModel)]="newFood.name">
+      </div>
+      <div id="calories">
+        <label for="calories">Calories</label>
+        <input type="text" placeholder="Calories" [(ngModel)]="newFood.calories">
+      </div>
+      <div id="image">
+        <label for="image">Image Url</label>
+        <input type="text" placeholder="Image URL" [(ngModel)]=newFood.image>
+      </div>
+      <button (click)="insertFood()">Add Food</button>
+    </div>
+  </div>
+  
+  <div class="food-wrap">
+    <div class="foods">
+      <div class="food" *ngFor="let food of foods |filter:'name':textSearch">
+        <img [src]="food.image">
+        <div class="text">
+          <h2>{{food.name}}</h2>
+          <h3>Calories: {{food.calories}}</h3>
+        </div>
+        <button (click)="addButton(food.name, food.calories)">Add</button>
+      </div>
+    </div>
+    
+    <div class="today-food">
+      <h2>Today's food</h2>
+      <ul *ngFor="let food of todaysFood">
+        <li>{{food.name}} <span *ngIf="food.quantity>1"> x{{food.quantity}} units</span>- {{food.quantity*food.calories}} calories</li>
+      </ul>
+      <h3>Today's calories: {{todaysCalories}}</h3>
+    </div>
+  </div>
+</div>
