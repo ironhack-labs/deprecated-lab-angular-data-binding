@@ -31,14 +31,10 @@ export class FoodListComponent implements OnInit {
     // }
     console.log("Add today has been called");
     food.quantity += Number(n.value);
-    let bus = this.todayFoods.filter(e => e.name ==food.name)
-    if( bus.length == 0){
+    if( this.todayFoods.indexOf(food)== -1){
       this.todayFoods.push(food);
-      this.calories += food.calories*food.quantity;
-    } else{
-      food.calories*n.value
-      this.calories += food.calories*food.quantity
     }
+    this.calories += food.calories*food.quantity
     
   }
   constructor() { }
