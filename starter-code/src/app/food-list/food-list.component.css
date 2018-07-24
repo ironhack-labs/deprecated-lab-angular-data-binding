@@ -1,0 +1,10 @@
+.infoBox {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.card{
+	width: 400px;
+	height: 400px;
+}

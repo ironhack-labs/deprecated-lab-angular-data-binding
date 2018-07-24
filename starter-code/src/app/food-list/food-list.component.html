@@ -1,3 +1,64 @@
-<p>
-  food-list works!
-</p>
+<h2> Search </h2>
+<div>
+	<input #searchBox type="text" [(ngModel)]="textValue" required>
+	<button (click) = "search(searchBox.value)"> Search </button>
+</div>
+
+<br><br>
+<h2> Today's Food </h2>
+<div class = "todaysBox">
+	<div *ngFor = "let food of todaysFood" class = "todayCard">
+		{{food.name}}
+
+		{{food.calories}}
+		<br>
+	</div>
+	<h4> Calories = {{calories}} </h4>
+</div>
+
+<br>
+
+<h2> Add Food </h2>
+<div>
+	<div>
+	  <label for="food-name"> Food Name: </label>
+	  <input type="text" [(ngModel)]="newFood.name">
+	</div>
+	<div>
+	  <label for="food-calories"> Calories: </label>
+	  <input type="text" [(ngModel)]="newFood.calories">
+	</div>
+	<div>
+	  <label for="food-quantity"> Quantity: </label>
+	  <input type="text" [(ngModel)]="newFood.quantity">
+	</div>
+	<div>
+	  <label for="food-image"> Image url: </label>
+	  <input type="text" [(ngModel)]="newFood.image">
+	</div>
+
+	<button (click)="addFood()">Submit New Food</button>
+</div>
+
+
+<br><br>
+
+<h2> Food Available </h2>
+<div class = "infoBox">
+	<div *ngFor = "let food of foods" class = "card">
+		{{food.name}}
+		<br>
+		{{food.calories}}
+		<br>
+		{{food.quantity}}
+		<br>
+		<img [src] = "food.image" width = "300px" height = "300px">
+		<br>
+		<button (click)="addFoodToDaily(food)">Submit New Food</button>
+		<br>
+		
+		<br><br>
+	</div>
+</div>
+
+
