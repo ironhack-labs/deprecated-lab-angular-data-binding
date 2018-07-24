@@ -5,7 +5,14 @@
     <input [(ngModel)]="pattern">
   </div><br><br>
 
-  
+  <div class="resumen">
+      <h4>Total de Calorias del dia: {{caloriesToday}}</h4>
+      <ul>
+          <li *ngFor="let todayFood of todayFoods, let i = index">
+              {{ todayFood.name }} x {{ todayFood.quantity }}
+          </li>
+      </ul>
+    </div>
 
   <div *ngIf="formEnable === true">
       <form action="" method="post" name="formaFood">
@@ -27,15 +34,16 @@
   <button (click)="addForm()">Add new food</button>
   
 
-
-
   <div class="row">
-    <div class="card" *ngFor="let food of foodsList | filter:'name':pattern">
+    <div class="card" *ngFor="let food of foodsList | filter:'name':pattern, let i = index">
       <img src="{{food.image}}" alt="">
       <div class="textFields">
         <h2>Nombre: {{food.name}}</h2>
         <h3>Calorias: {{food.calories}}</h3>
+        <input type="number" min="1" value="1" #quantity>
+        <button (click)="addFoodToday(food, quantity.value)"> Add Today Food</button>
       </div>
     </div>
   </div>
+
 </div>

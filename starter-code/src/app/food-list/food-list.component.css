@@ -23,3 +23,8 @@ img{
   width: 250px;*/
   margin: 20px;
 }
+.resumen {
+  position: fixed;
+  top: 100px;
+  right: 20em;
+}

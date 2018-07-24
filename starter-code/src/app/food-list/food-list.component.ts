@@ -8,6 +8,8 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foodsList: Array<Object>;
+  todayFoods: Array<Object> = [];
+  caloriesToday: number = 0;
   formEnable: Boolean = false;
   newFood: Object = {};
   constructor() { }
@@ -24,4 +26,11 @@ export class FoodListComponent implements OnInit {
   addForm(){
     this.formEnable=!this.formEnable;
   }
+  addFoodToday(food, q){
+    food.quantity = q;
+    this.todayFoods.push(food)
+    this.caloriesToday = this.caloriesToday + food.calories*q;
+    console.log(q)
+  }
 }
+
