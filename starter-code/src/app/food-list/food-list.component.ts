@@ -22,6 +22,12 @@ export class FoodListComponent implements OnInit {
     });
 
   }
+  showForm(){
+    document.getElementById('cooldiv').hidden = false;
+
+  }
+
+
     addFood(name, image, calories){
       console.log(name.value, image.value, calories.value);
       this.foods.push({
@@ -29,6 +35,8 @@ export class FoodListComponent implements OnInit {
         image: image.value, 
         calories: calories.value
       })
+      
+    document.getElementById('cooldiv').hidden = true;
     }
 
 
