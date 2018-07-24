@@ -1,3 +1,53 @@
-<p>
-  food-list works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <div [ngClass]="contenedor">
+
+      <h3>Search</h3>
+
+      <input class="form-group" [(ngModel)]="search">
+
+      <div class="boton">
+        <button class="btn btn-primary" (click)="toggleHidden()">Add New Food</button>
+      </div>
+
+      <form *ngIf="isHidden">
+        <div class="form-group">
+          <h3>Add a new Food</h3>
+          <label for="food-name">Name</label>
+          <input #textInputName class="form-control" type="text" placeholder="Food">
+        </div>
+        <div class="form-group">
+          <label for="food-calories">Calories</label>
+          <input #textInputCalories class="form-control" type="text" placeholder="Calorie Counts">
+        </div>
+
+        <div class="form-group">
+          <label for="food-image">Image</label>
+          <input #textInputImage class="form-control" type="text" placeholder="Image source">
+        </div>
+        <button class="btn btn-primary" (click)="addFood(textInputName, textInputCalories, textInputImage)">Submit New Food</button>
+      </form>
+
+      <h4>Food list</h4>
+      <div class="individual" *ngFor="let f of food  |  filter:'name':search">
+        <img class="col-12 col-md-8" src="{{f.image}}">
+        <span class="col-6 col-md-4 secondCol">{{f.name}} - {{f.calories}}</span>
+        <button class="btn btn-primary" (click)="addToList(f, textInputQuantity )">Add</button>
+        <input #textInputQuantity value="1">
+
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="todaysFood">
+        <h3>Today's foods - {{calories}} cal</h3>
+
+        <div *ngFor="let todays of todaysFood">
+            <p>{{todays.name}} - {{todays.calories}}kCal x {{todays.quantity}} items</p>
+    
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>

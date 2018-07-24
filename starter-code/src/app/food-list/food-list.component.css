@@ -1,0 +1,21 @@
+.individual{
+  border: 1px solid gray;
+  width: 600px;
+  padding: 20px;
+  
+}
+
+img{
+  width: 200px;
+  height: 150px;
+  border: 1px solid gray;
+  border-radius: 50%;
+}
+
+.secondCol{
+  margin-left: 60px;
+}
+
+.boton {
+  margin: 20px auto;
+}
