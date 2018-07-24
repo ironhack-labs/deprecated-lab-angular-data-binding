@@ -1,3 +1,37 @@
-<p>
-  food-list works!
-</p>
+<section>
+  <form [ngClass]="{ 'hide': hideForm }">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="newFood.name" name="name">
+    </div>
+    <div>
+      <label for="numberCal">Number of calories</label>
+      <input type="text" [(ngModel)]="newFood.calories" name="numberCal">
+    </div>
+    <div>
+      <label for="image">Image</label>
+      <input type="text" [(ngModel)]="newFood.image" name="image">
+    </div>
+    <button (click)="handleAddFood()">Add food</button>
+  </form>
+  
+  <div *ngFor="let item of foods">
+    <h2>Name : {{item.name}}</h2>
+    <p>Calories : {{item.calories}}</p>
+    <img src="{{item.image}}" alt="" width="400">
+
+    <form>
+      <button (click)="handleAddtoSpecialList(item.name, item.calories, item.image)">Add to today's list</button>
+    </form>
+    
+  </div>
+
+  <div *ngFor="let item of todayList">
+      <h2>Name : {{item.name}}</h2>
+      <p>Calories : {{item.calories}}</p>
+      <img src="{{item.image}}" alt="" width="250">
+    </div>
+    <hr>
+    <h1><strong>Calories Counter : {{counter}}</strong></h1>
+
+</section>
