@@ -1,15 +1,36 @@
-<h1>
-  FoodList
-</h1>
 
-<label>
-  <input [(ngModel)]="userInput" type="search" placeholder="Search food">
-</label>
 
-<ul>
-  <li *ngFor="let Food of foodList | filter:'name':userInput; let i = index">
-    <img height=100px [src]="Food.image">
-    <p> {{Food.name}} </p>
-    <p> {{Food.calories}} </p>
-  </li>
-</ul>
+<div class="estilo">
+<div class="card" style="width: 18rem;" *ngFor="let Food of foodList | filter:'name':userInput; let i = index">
+    <img class="card-img-top" [src]="Food.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{Food.name}}</h5>
+      <p class="card-text">Calorías: {{Food.calories}}</p>
+      <button (click)="daily(Food)" class="btn btn-primary"> Add today! </button>
+    </div>
+  </div>
+</div>
+
+<table>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Calories</th>
+      </tr>
+    </thead>
+    <tbody class="table" *ngFor = "let daily of dailyList">
+      <tr>
+        <td>{{daily.name}}</td>
+        <td>{{daily.calories}}</td>
+       
+      </tr>
+     
+    </tbody>
+    <tr>
+        <th>
+          <h3>Total Daily Calories: <span class="badge badge-secondary">{{totCalories}}</span></h3>
+        </th>
+      </tr>
+  </table>
+
+    

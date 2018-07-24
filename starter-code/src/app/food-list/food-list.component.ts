@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
+import { SummaryResolver } from '@angular/compiler';
 
 @Component({
   selector: 'app-food-list',
@@ -9,10 +10,17 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foodList: Array<any> = foods;
   userInput: string;
-
+  dailyList: Array<any> = [];
+  totCalories: Number = 0;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+daily(food){
+  this.dailyList.push(food);
+  console.log(this.dailyList);
+  this.totCalories += food.calories;
 
 }
+}
+
