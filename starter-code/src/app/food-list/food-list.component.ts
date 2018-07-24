@@ -7,32 +7,23 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods: Object[];
+  foods: Array<any>;
+  searchedFoods:any[];
+  listOfFoods:String="";
   newFood: Object = {};
-  value:string;
-  name:string;
-
-
-  searchFunction(value){
-    console.log(value);
-
-    if(!value){
-      return foods;
-    }
-
-    const myPattern = RegExp(value, 'i');
-    return Object.keys(this.foods)
-    .filter(key => this.foods[key].match(myPattern));
-  }
-
-
 
   constructor() { }
 
-
-
   ngOnInit() {
     this.foods = foods;
+    this.searchedFoods = foods;
   }
+
+  searchFunction(){
+    this.searchedFoods = this.foods.filter((foodsearch)=>{
+      return foodsearch.name.toLowerCase().includes(this.listOfFoods.toLowerCase());
+    })
+
+}
 
 }

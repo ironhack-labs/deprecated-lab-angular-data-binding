@@ -1,6 +1,6 @@
 <div class="mx-auto">
   <label for="searchBar">Search Bar:</label>
-  <input #searchBar [(ngModel)]="myPattern" (keyup)="searchFunction(searchBar.value)" type="text"/>
+  <input #searchBar [(ngModel)]="listOfFoods" (keyup)="searchFunction()" type="text"/>
 </div>
 
 <div class="container-fluid">
@@ -13,7 +13,7 @@
           <th>Food Image: </th>
           <th>Food Quantity: </th>
         </tr>
-        <tr *ngFor="let aFood of foods">
+        <tr *ngFor="let aFood of searchedFoods">
           <td>{{aFood.name}}</td>
           <td>{{aFood.calories}}</td>
           <td><img height="400px" width="400px" [src]="aFood.image" /></td>
