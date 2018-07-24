@@ -1,6 +1,11 @@
 <h1>Foods</h1>
 
-<div class="food-card" *ngFor="let food of foods">
+<div>
+  <label for="">Search</label>
+  <input type="text" placeholder="Search a food" [(ngModel)]="pattern">
+</div>
+
+<div class="food-card" *ngFor="let food of foods | filter:'name':pattern">
   <img [src]="food.image" alt="imagen de {{food.name}}" [ngStyle]="{ 'width': '200px' }">
   <div>
     <p><b>{{food.name}}</b></p>
