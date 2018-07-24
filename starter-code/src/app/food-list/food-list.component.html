@@ -21,3 +21,25 @@
     </div>
     </li>
   </ul>
+
+
+  <button (click)="formMethod()">Add New Food</button>
+  
+  <div *ngIf="show">
+      <div>
+          <div>
+              <label>Food:</label>
+              <input type="text" [(ngModel)]="newDish.name">
+          </div>
+          <div>
+              <label>Number of calories:</label>
+              <input type="text" [(ngModel)]="newDish.calories">
+          <div>
+              <label>Image:</label>
+              <input type="text" [(ngModel)]="newDish.image">
+          </div>
+      </div>
+    </div>
+    
+    <button (click)="addDish()">Submit New Food</button>
+        
