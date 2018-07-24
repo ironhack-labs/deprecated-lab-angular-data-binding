@@ -32,8 +32,8 @@
         </p>
         <p>{{food.calories}}</p>
         <p>{{food.quantity}}</p>
-        <button (click)="todayList(food, quantity.value)">+</button>
-        <input type="text" #quantity value="{{food.quantity}}">
+        <button (click)="todayList(food)">+</button>
+        <input type="number" value="{{food.quantity}}">
       </div>
     </div>
   </div>
