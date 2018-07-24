@@ -1,3 +1,16 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="search-container">
+    <label for="term">Search:</label>
+    <input type="text" [(ngModel)]="term">
+  </div>
+
+  <div class="add-container">
+    <div class="row">
+      <div class="foodItem" *ngFor="let item of foodList | filter:'name':term">
+        <img src="{{item.image}}" alt="{{item.name}}.jpg">
+        <h2>{{item.name}}</h2>
+        <h3>{{item.quantity}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
