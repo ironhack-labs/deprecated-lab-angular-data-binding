@@ -1,3 +1,12 @@
+.two-columns {
+  display: flex;
+}
+
+.two-columns > div:first-child {
+  width: calc(66.66% - 20px);
+  margin-right: 20px;
+}
+
 .foods {
   display: flex;
   flex-wrap: wrap;
@@ -8,7 +17,7 @@
   padding: 10px;
   margin: 10px;
   display: flex;
-  width: calc(33.33% - 20px);
+  width: calc(50% - 20px);
 }
 
 .food .img-wrp {
@@ -27,6 +36,7 @@
 
 .add-food-wrp {
   padding: 10px;
+  width: 50%;
 }
 
 .add-food-wrp > button {
@@ -39,6 +49,14 @@
   margin-bottom: 5px;
 }
 
+.add-food-wrp input {
+  width: 70%;
+}
+
 .add-food-wrp input.error {
   border: 1px solid #e04646;
+}
+
+h2 {
+  margin-top: 5px;
 }

@@ -9,9 +9,11 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 
   foods: Array<object>;
+  todayFoods: Array<object> = [];
   newFood: Object = {};
   showForm: boolean = false;
   fieldsError: boolean = false;
+  totalCal: number = 0;
 
   constructor() { }
 
@@ -33,6 +35,11 @@ export class FoodListComponent implements OnInit {
     } else {
       this.fieldsError = true;
     }
+  }
+
+  addToTodayMenu(f) {
+    this.todayFoods.push(f);
+    this.totalCal += f.calories;
   }
 
 }

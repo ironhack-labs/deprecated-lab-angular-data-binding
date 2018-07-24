@@ -1,35 +1,50 @@
-<div class="search-wrp">
-  <input type="search" placeholder="Search..." [(ngModel)]="search">
-</div>
-<div class="add-food-wrp">
-  <button (click)="toggleForm();">
-    <span *ngIf="!showForm">Show form</span>
-    <span *ngIf="showForm">Hide form</span>
-  </button>
-  <div [ngClass]="{ hidden: !showForm }">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" name="name" id="name" [(ngModel)]="newFood.name" [ngClass]="{ error: fieldsError }">
+<div class="two-columns">
+  <div>
+    <div class="search-wrp">
+      <input type="search" placeholder="Search..." [(ngModel)]="search">
     </div>
-    <div>
-      <label for="calories">Calories:</label>
-      <input type="number" name="calories" id="calories" [(ngModel)]="newFood.calories" [ngClass]="{ error: fieldsError }">
+    <div class="add-food-wrp">
+      <button (click)="toggleForm();">
+        <span *ngIf="!showForm">Show form</span>
+        <span *ngIf="showForm">Hide form</span>
+      </button>
+      <div [ngClass]="{ hidden: !showForm }">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" [(ngModel)]="newFood.name" [ngClass]="{ error: fieldsError }">
+        </div>
+        <div>
+          <label for="calories">Calories:</label>
+          <input type="number" name="calories" id="calories" [(ngModel)]="newFood.calories" [ngClass]="{ error: fieldsError }">
+        </div>
+        <div>
+          <label for="image">Image:</label>
+          <input type="text" name="image" id="image" [(ngModel)]="newFood.image" [ngClass]="{ error: fieldsError }">
+        </div>
+        <button (click)="addFood();">Add</button>
+      </div>
     </div>
-    <div>
-      <label for="image">Image:</label>
-      <input type="text" name="image" id="image" [(ngModel)]="newFood.image" [ngClass]="{ error: fieldsError }">
+    <div class="foods">
+      <div class="food" *ngFor="let f of foods | filter:'name':search">
+        <div class="img-wrp">
+          <img [src]="f.image" [alt]="f.name">
+        </div>
+        <div>
+          <h2>{{f.name}}</h2>
+          <small>{{f.calories}} cal</small>
+          <div>
+            <button (click)="addToTodayMenu(f);">+</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <button (click)="addFood();">Add</button>
   </div>
-</div>
-<div class="foods">
-  <div class="food" *ngFor="let f of foods | filter:'name':search">
-    <div class="img-wrp">
-      <img [src]="f.image" [alt]="f.name">
-    </div>
-    <div>
-      <h2>{{f.name}}</h2>
-      <small>{{f.calories}} kcal</small>
-    </div>
+  <div>
+    <h2>Today's food - {{totalCal}} cal</h2>
+    <ul>
+      <li *ngFor="let f of todayFoods">
+        {{f.name}} - {{f.calories}} cal
+      </li>
+    </ul>
   </div>
 </div>
