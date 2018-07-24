@@ -1,0 +1,22 @@
+img{
+    width: 200px;
+    float: left;
+    
+}
+.food{
+    border:1px solid black;
+    width: 100%;
+    margin:20px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.foods{
+    width: 40%;
+    display:inline-block
+}
+
+.today-foods{
+    width: 40%;
+    float: right;
+}
