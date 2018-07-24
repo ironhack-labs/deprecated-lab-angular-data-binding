@@ -1,0 +1,21 @@
+.element{
+     border: 1px solid grey;
+     
+}
+img{
+    margin: 10px;
+    height: 100px;
+    width: 150px ;
+   
+}
+.btnfood{
+    margin-botton:10px;
+}
+
+.search{
+    text-align: center;
+}
+
+.calories{
+    text-align: center;
+}
