@@ -8,7 +8,10 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   
-  foods: Array<Object>
+  foods: Array<Object>;
+  inputDisabled: boolean = false;
+
+  newFood: Object = {};
   //  = [
   // {
   //   name: String,
@@ -21,5 +24,14 @@ export class FoodListComponent implements OnInit {
   constructor() { }
   ngOnInit() {
     this.foods = foods;
+  }
+
+  addNewFood(add){
+
+    this.inputDisabled = !this.inputDisabled;
+
+    console.log(add);
+    this.foods.push(add);
+    this.newFood = {};
   }
 }

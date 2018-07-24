@@ -1,14 +1,35 @@
 <h1>Foods</h1>
 
-<div>
+<div class="search">
   <label for="">Search</label>
   <input type="text" placeholder="Search a food" [(ngModel)]="pattern">
 </div>
 
+
+<div class="form">
+  <div *ngIf="inputDisabled">
+    <div>
+      <label for="food-name">Food name</label>
+      <input type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <label for="food-calories">Food calories</label>
+      <input type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="food-image">Food image</label>
+      <input type="text" [(ngModel)]="newFood.image">
+    </div>
+  </div>
+  <button (click)="addNewFood(newFood)">Add new food</button>
+</div>
+
 <div class="food-card" *ngFor="let food of foods | filter:'name':pattern">
-  <img [src]="food.image" alt="imagen de {{food.name}}" [ngStyle]="{ 'width': '200px' }">
+  <img [src]="food.image" alt="imagen de {{food.name}}" [ngStyle]="{ 'width': '200px', 'margin-right': '40px' }">
   <div>
-    <p><b>{{food.name}}</b></p>
+    <p>
+      <b>{{food.name}}</b>
+    </p>
     <p>{{food.calories}}</p>
     <p>{{food.quantity}}</p>
   </div>
