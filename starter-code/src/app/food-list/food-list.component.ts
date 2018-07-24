@@ -20,6 +20,8 @@ export class FoodListComponent implements OnInit {
 
   searchTerm = '';
 
+  todaysFoods = [];
+
   constructor() {
     this.foods = foods;
   }
@@ -30,7 +32,10 @@ export class FoodListComponent implements OnInit {
     this.newFood.calories = 42;
     this.newFood.image = 'bar';
     this.showForm = false;
+  }
 
+  handleAddToTodayClick(item) {
+    this.todaysFoods.push(item);
   }
 
   ngOnInit() {

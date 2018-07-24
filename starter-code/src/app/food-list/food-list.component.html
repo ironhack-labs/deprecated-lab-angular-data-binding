@@ -1,3 +1,12 @@
+<div class="todays-foods">
+  Today's foods:
+  <ul>
+    <li *ngFor="let item of todaysFoods">
+      <h2>{{item.name}}</h2>
+    </li>
+  </ul>
+  <p>Total calories: {{todaysFoods | sumPipe}}</p>
+</div>
 <form>
   <label for="show-form">Show add item form</label>
   <input type="checkbox" name="show-form" id="show-form" [(ngModel)]="showForm">
@@ -21,5 +30,6 @@
     <p>Calories: {{item.calories}}</p>
     <p>Quantity: {{item.quantity}}</p>
     <img [src]="item.image " />
+    <button (click)="handleAddToTodayClick(item)">Add to today</button>
   </li>
 </ul>
