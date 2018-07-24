@@ -17,11 +17,20 @@ export class FoodListComponent implements OnInit {
 
   find(searchInput){
     console.log(searchInput.value);
-
-
     this.foods = foodList.filter(oneFood=>{
        return oneFood.name === searchInput.value
-    })
+    });
+
   }
+    addFood(name, image, calories){
+      console.log(name.value, image.value, calories.value);
+      this.foods.push({
+        name: name.value, 
+        image: image.value, 
+        calories: calories.value
+      })
+    }
+
 
 }
+
