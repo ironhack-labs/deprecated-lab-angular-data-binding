@@ -1,3 +1,16 @@
-<p>
-  food-list works!
-</p>
+<form action="submit">
+<label>Search</label>
+<br>
+<input name="what1" #searchItem (input)="filterFood(searchItem)" type="text" placeholder="enter search term here">
+</form>
+
+
+<div class="allFoods">
+  <div *ngFor="let oneItem of foods" class="oneItem">
+  <h3>{{oneItem.name}}</h3>
+  <h5>{{oneItem.calories}}</h5>
+  <img [src]="oneItem.image"/>
+  <p>{{oneItem.quantity}}</p>
+  
+  </div>
+</div>

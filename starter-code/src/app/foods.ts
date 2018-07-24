@@ -1,4 +1,4 @@
-const foods: Object[] = [
+const foods = [
   {
     name: "Pizza",
     calories: 400,
