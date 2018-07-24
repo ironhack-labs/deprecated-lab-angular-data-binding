@@ -1,4 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <ul *ngFor="let food of comida">
+    <li>
+      <img src={{food.image}} alt=""> 
+      {{food.name}} {{food.calories}}
+      <div>
+          <label for="food-quantity"></label>
+          <input #quantity type="number" value="1">
+        </div>
+      <button (click)="addToday(food, quantity.value)">Submit Today´s Food</button>
+    </li>
+  </ul>
+</div>
+<h4> Today´s list {{totalCalories}} Cal</h4>
+    <ul>
+      <li *ngFor="let today of todayFood">
+         {{ today.name }}-{{today.calories}}x{{today.quantity}}
+         
+      </li>
+    </ul>
 <app-food-list></app-food-list>
