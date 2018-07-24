@@ -36,11 +36,10 @@ export class FoodListComponent implements OnInit {
   }
 
   addToday(food) {
-    let {name, calories, quantity} = food;
-    quantity += 1;
-    let newDailyFood = {name, calories, quantity};
-
-    this.totalcalories += (calories * quantity);
-    this.todaysFood.push(newDailyFood);
+    food.quantity += 1;
+    if (this.todaysFood.indexOf(food) == -1) {
+      this.todaysFood.push(food);
+    }
+    this.totalcalories += food.calories;
   }
 }

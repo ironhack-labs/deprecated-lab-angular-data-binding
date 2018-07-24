@@ -3,39 +3,39 @@
 
 <button (click)="toggleVisibility()">Add New Food</button>
 
-<div [ngClass]="{invisible: invisible}">
-  <div>
-    <label for="contact-name">Name</label>
-    <input type="text" [(ngModel)]="newFood.name">
-  </div>
-  <div>
-    <label for="food-calories">Calories</label>
-    <input type="number" [(ngModel)]="newFood.calories">
-  </div>
-  <div>
-    <label for="food-image">Image</label>
-    <input type="file" [(ngModel)]="newFood.image">
-  </div>
-  <!-- <div>
-    <label for="food-quantity">Quantity</label>
-    <input type="number" [(ngModel)]="newFood.quantity">
-  </div> -->
+<div class="form">
+  <div [ngClass]="{invisible: invisible}">
+    <div>
+      <label for="contact-name">Name</label>
+      <input type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <label for="food-calories">Calories</label>
+      <input type="number" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="food-image">Image</label>
+      <input type="file" [(ngModel)]="newFood.image">
+    </div>
 
-  <button (click)="addFood(newFood.name, newFood.calories, newFood.image, newFood.quantity)" (click)="toggleVisibility()">Add</button>
+    <button (click)="addFood(newFood.name, newFood.calories, newFood.image, newFood.quantity)" (click)="toggleVisibility()">Add</button>
+  </div>
 </div>
 
-<div *ngFor="let food of foods | filter:'name':pattern;">
-  <p>{{food.name}}</p>
-  <p>{{food.calories}}</p>
-  <img src="{{food.image}}" alt="">
-  <button (click)="addToday(food)">+</button>
+
+<div class="content">
+  <div class="food-card" *ngFor="let food of foods | filter:'name':pattern;">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <img src="{{food.image}}" alt="" [ngStyle]="{'width': '200px'}">
+    <button (click)="addToday(food)">+</button>
+    <input type="number" value="{{food.quantity}}">
+  </div>
 </div>
 
-<div>
-  <h1>Today's Foods</h1> 
-  <span>{{totalcalories}}</span>
+<div class="today">
+  <h2>Today's Foods - {{totalcalories}} cal</h2>
   <div *ngFor="let todays of todaysFood">
     <p>{{todays.name}} - {{todays.calories}}kCal x {{todays.quantity}} items</p>
-
   </div>
 </div>
