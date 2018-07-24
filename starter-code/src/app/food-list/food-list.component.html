@@ -1,3 +1,49 @@
+<h1>Favourite foods</h1>
+<div class="favFoods">
+  <div *ngFor="let favFood of favFoods">
+    <ul>
+      <li>
+        <h3>Food: {{favFood.name}}</h3>
+        <p> Calories: {{favFood.calories}}</p>
+        <p>Quantity: {{favFood.quantity}}</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <p>
-  food-list works!
+  <input id="show-form" type="checkbox" [(ngModel)]="showForm">
+  <label for="show-form">Show form</label>
 </p>
+
+<form [hidden]="!showForm">
+  <div class="field">
+    <label for="name">Name</label>
+    <input id="name" type="text" [(ngModel)]="name" name="name">
+  </div>
+  <div class="field">
+    <label for="calories">Calories</label>
+    <input id="calories" type="text" [(ngModel)]="calories" name="calories">
+  </div>
+  <div class="field" hidden>
+    <label for="quantity">Quantity</label>
+    <input id="quantity" type="text" [(ngModel)]="quantity" name="quantity">
+  </div>
+  <div class="field">
+    <label for="image">Image</label>
+    <input id="image" type="text" [(ngModel)]="image" name="image">
+  </div>
+  <button (click)="handleAddClick()">Add food</button>
+</form>
+
+<div *ngFor="let food of foods">
+  <ul>
+    <li>
+      <img src={{food.image}}>
+      <h3>Food: {{food.name}}</h3>
+      <p> Calories: {{food.calories}}</p>
+      <p>Quantity: {{food.quantity}}</p>
+      <button (click)="handleAddFavoritesClick(food)">Add to favorites</button>
+    </li>
+  </ul>
+</div>
