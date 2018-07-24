@@ -6,6 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(items: any[], field: string, value: string): any {
+    if (!items) {
+      return [];
+    }
+
+    if (!value) {
+      return items;
+    }
+
     const mySearch = new RegExp(value, 'i');
     return items.filter(it => it[field].match(mySearch));
   }

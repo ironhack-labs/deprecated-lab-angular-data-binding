@@ -8,30 +8,27 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   
-  foods: Array<Object>;
+  foods: Array<Object> = foods;
   inputDisabled: boolean = false;
 
   newFood: Object = {};
-  //  = [
-  // {
-  //   name: String,
-  //   calories: Number,
-  //   image: String,
-  //   quantity: Number
-  // }
-  // ];
 
-  constructor() { }
+  constructor() { 
+    //this.foods = foods;
+  }
+  
   ngOnInit() {
-    this.foods = foods;
   }
 
   addNewFood(add){
-
+    if (this.inputDisabled){
+      this.foods.push(add);
+      console.log(add);
+      console.log(foods);
+      
+      this.newFood = {};
+    } 
+    
     this.inputDisabled = !this.inputDisabled;
-
-    console.log(add);
-    this.foods.push(add);
-    this.newFood = {};
   }
 }
