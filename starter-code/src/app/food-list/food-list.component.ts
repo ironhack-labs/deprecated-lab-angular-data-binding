@@ -8,6 +8,10 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  foods: Array<object> = foods;
+
+
+
   constructor() { }
 
   ngOnInit() {
@@ -16,3 +20,9 @@ export class FoodListComponent implements OnInit {
 }
 
 
+//  {
+//     name: "Pizza",
+//     calories: 400,
+//     image: "https://i.imgur.com/eTmWoAN.png",
+//     quantity: 0
+//   }
