@@ -3,17 +3,15 @@
 </h1>
 
 <label for="">Search</label>
-<input type="text">
+<input type="text" [(ngModel)]="pattern">
 
 
 
-<div *ngFor="let foods of foods">
+<div *ngFor="let foods of foods | filter:'name':pattern; let i = index">
   <p>{{foods.name}}</p>
   <p>{{foods.calories}}</p>
   <img src="{{foods.image}}" alt="">
 </div>
-
-
 
 
 <button (click)="addFood(name, calories, image, quantity)">Add</button>
