@@ -1,34 +1,46 @@
-<div class="form">
-  <label for="search">Search</label>
-  <input type="text" [(ngModel)]="search">
-</div>
+<div class="container">
+  <div class="form">
+    <label for="search">Search</label>
+    <input type="text" [(ngModel)]="search">
+  </div>
 
+  <div class="form">
+    <button (click)="showForm()">Add new Food</button>
+  </div>
 
-<div class="food">
-  <div *ngFor="let food of list | filter:'name':search">
-    <p>Name: {{food.name}}</p>
-    <p>Calories: {{food.calories}}</p>
-    <div class="imgWrapper">
-      <img [src]="food.image" alt="">
+  <div [ngClass]="classes()">
+    <div>
+      <label for="name">Name</label>
+      <input #name type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <label for="calories">Calories</label>
+      <input type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="image">Image</label>
+      <input type="text" [(ngModel)]="newFood.image">
+    </div>
+    <button (click)="addFood(newFood)">Submit new food</button>
+  </div>
+
+  <div class="food">
+    <div class="card" *ngFor="let food of list | filter:'name':search">
+      <p>Name: {{food.name}}</p>
+      <p>Calories: {{food.calories}}</p>
+      <div class="imgWrapper">
+        <img [src]="food.image" alt="">
+      </div>
+      <input type="number" [(ngModel)]="food.quantity" placeholder="{{defaultValue}}">
+      <button (click)="addToday(food, food.quantity)">Add to today's food</button>
     </div>
   </div>
-</div>
 
-
-<button (click)="showForm()">Add new Food</button>
-
-<div [ngClass]="classes()">
-  <div>
-    <label for="name">Name</label>
-    <input #name type="text" [(ngModel)]="newFood.name">
+  <div class="today card" *ngIf="todayFood.length > 0">
+    <h2>Today's food</h2>
+    <div *ngFor="let food of todayFood">
+      <p>Name: {{food.name}}</p>
+    </div>
+    <p>Calories: {{totalCalories}}</p>
   </div>
-  <div>
-    <label for="calories">Calories</label>
-    <input type="text" [(ngModel)]="newFood.calories">
-  </div>
-  <div>
-    <label for="image">Image</label>
-    <input type="text" [(ngModel)]="newFood.image">
-  </div>
-  <button (click)="addFood(newFood)">Submit new food</button>
 </div>
