@@ -24,3 +24,21 @@
   display: block;
   width: 100%;
 }
+
+.add-food-wrp {
+  padding: 10px;
+}
+
+.add-food-wrp > button {
+  margin-bottom: 5px;
+}
+
+.add-food-wrp label {
+  display: inline-block;
+  width: 25%;
+  margin-bottom: 5px;
+}
+
+.add-food-wrp input.error {
+  border: 1px solid #e04646;
+}
