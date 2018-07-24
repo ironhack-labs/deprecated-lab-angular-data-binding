@@ -18,6 +18,7 @@ export class FoodListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    foods.forEach(e => e["quantity"]++);
     this.foods = foods;
   }
 
@@ -39,7 +40,7 @@ export class FoodListComponent implements OnInit {
 
   addToTodayMenu(f) {
     this.todayFoods.push(f);
-    this.totalCal += f.calories;
+    this.totalCal += f.calories * f.quantity;
   }
 
 }
