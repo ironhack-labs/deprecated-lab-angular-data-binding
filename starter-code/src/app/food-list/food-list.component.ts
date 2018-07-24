@@ -27,10 +27,24 @@ export class FoodListComponent implements OnInit {
     this.formEnable=!this.formEnable;
   }
   addFoodToday(food, q){
-    food.quantity = q;
-    this.todayFoods.push(food)
+    function busca(e, arrayFood){
+      for (let i=0; i<arrayFood.length ; i++){
+        if (e == arrayFood[i].name){
+          return true;
+        }
+      }
+      return false;
+    }
+
+    if (busca(food.name, this.todayFoods)){
+      food.quantity = parseInt(food.quantity)+parseInt(q);
+      console.log(food.quantity);
+    } else {
+          food.quantity = q;
+          this.todayFoods.push(food);
+    }
     this.caloriesToday = this.caloriesToday + food.calories*q;
-    console.log(q)
+
   }
 }
 
