@@ -1,0 +1,23 @@
+img {
+    width: 300px 
+}
+
+.contenedor{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap
+}
+.ul{
+    width: 30%;
+    display: inline-block;
+    border: 3px solid rgb(8, 8, 8);
+    padding:10px;
+    border-radius: 10px;
+    margin: 10px;
+    list-style: none;
+    text-align: center;
+
+}
+.form {
+    display: none;
+}
