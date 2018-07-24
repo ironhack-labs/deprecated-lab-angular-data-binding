@@ -1,3 +1,19 @@
-<p>
-  food-list works!
-</p>
+<h1>
+  IronNutrition
+</h1>
+
+<label for="">Search</label>
+<input type="text">
+
+
+
+<div *ngFor="let foods of foods">
+  <p>{{foods.name}}</p>
+  <p>{{foods.calories}}</p>
+  <img src="{{foods.image}}" alt="">
+</div>
+
+
+
+
+<button (click)="addFood(name, calories, image, quantity)">Add</button>
