@@ -9,9 +9,9 @@ import { foodItem } from './food.interface';
 })
 
 export class FoodListComponent implements OnInit {
-  
+
   foodList: Array<Object> = [];
-  todayFood: Array<Object> = [];
+  todayFood: Array<foodItem> = [];
   foodItem: Object = {};
   toggleAddItem: boolean = false;
   caloriesConsumed: number = 0;
@@ -20,16 +20,20 @@ export class FoodListComponent implements OnInit {
     this.foodList = foods;
   }
 
-  toggleAdding(){
+  toggleAdding() {
     this.toggleAddItem = !this.toggleAddItem;
   }
 
-  addTodayFood(item: foodItem){
-    this.caloriesConsumed += item.quantity*item.calories;
-    this.todayFood.push(item);
+  addTodayFood(item: foodItem) {
+    if (this.todayFood.indexOf(item) != -1) {
+      this.todayFood[this.todayFood.indexOf(item)].quantity++;
+    } else {
+      this.caloriesConsumed += item.quantity * item.calories;
+      this.todayFood.push(item);
+    }
   }
 
-  addItem(){
+  addItem() {
     this.foodList.push(this.foodItem);
     this.foodItem = {}
     this.toggleAdding();
