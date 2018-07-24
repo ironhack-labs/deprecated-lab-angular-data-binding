@@ -7,7 +7,7 @@ import foodList from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foods: Object[];
+  foods: Array<any>;
   newFood: Object = {};
   constructor() { }
 
@@ -16,7 +16,12 @@ export class FoodListComponent implements OnInit {
   }
 
   find(searchInput){
-    console.log(searchInput.value)
+    console.log(searchInput.value);
+
+
+    this.foods = foodList.filter(oneFood=>{
+       return oneFood.name === searchInput.value
+    })
   }
 
 }
