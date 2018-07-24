@@ -2,7 +2,7 @@ export class Food {
   name: string;
   calories: number;
   image: string;
-
+  quantity: number = 0;
   }
 
 export const foods: Object[] = [

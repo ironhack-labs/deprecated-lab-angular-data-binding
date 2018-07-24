@@ -1,4 +1,7 @@
-
+    <div class="form-group">
+      <label for="formGroupExampleInput">What you wanna eat today??</label>
+      <input type="search" [(ngModel)]="userInput">
+    </div>
 
 <div class="estilo">
 <div class="card" style="width: 18rem;" *ngFor="let Food of foodList | filter:'name':userInput; let i = index">
@@ -6,7 +9,8 @@
     <div class="card-body">
       <h5 class="card-title">{{Food.name}}</h5>
       <p class="card-text">Calorías: {{Food.calories}}</p>
-      <button (click)="daily(Food)" class="btn btn-primary"> Add today! </button>
+      <span>Quantity</span><input #cantidad type="number" value=1>
+      <button (click)="daily(Food,cantidad)" class="btn btn-primary"> Add today! </button>
     </div>
   </div>
 </div>
@@ -20,8 +24,10 @@
     </thead>
     <tbody class="table" *ngFor = "let daily of dailyList">
       <tr>
+        <td>Quantity: {{daily.quantity}}</td>
         <td>{{daily.name}}</td>
         <td>{{daily.calories}}</td>
+        
        
       </tr>
      

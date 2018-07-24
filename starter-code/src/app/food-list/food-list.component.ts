@@ -11,15 +11,18 @@ export class FoodListComponent implements OnInit {
   foodList: Array<any> = foods;
   userInput: string;
   dailyList: Array<any> = [];
-  totCalories: Number = 0;
+  totCalories: number = 0;
+  quantity: Number = 1;
   constructor() { }
 
   ngOnInit() {}
 
-daily(food){
+daily(food, input){
   this.dailyList.push(food);
   console.log(this.dailyList);
-  this.totCalories += food.calories;
+  food.quantity += parseInt(input.value);
+
+  this.totCalories += (food.calories * input.value);
 
 }
 }
