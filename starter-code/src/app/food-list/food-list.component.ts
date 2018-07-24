@@ -28,9 +28,10 @@ export class FoodListComponent implements OnInit {
     if (this.todayFood.indexOf(item) != -1) {
       this.todayFood[this.todayFood.indexOf(item)].quantity++;
     } else {
-      this.caloriesConsumed += item.quantity * item.calories;
+      item.quantity=1;
       this.todayFood.push(item);
     }
+    this.caloriesConsumed += item.quantity * item.calories;
   }
 
   addItem() {
