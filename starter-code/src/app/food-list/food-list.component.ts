@@ -39,17 +39,14 @@ export class FoodListComponent implements OnInit {
     }
   }
 
-  addToTodayMenu(f) {
+  addToTodayMenu(f, quantity) {
     let pos = this.todayFoods.indexOf(f);
     if (pos !== -1) {
-      this.todayFoods[pos]["quantity"] += f.quantity;
-      this.totalCal = this.todayFoods.reduce((acc, current) => {
-        return acc + (current["calories"] * current["quantity"])
-      }, 0);
+      this.todayFoods[pos]["quantity"] += parseInt(quantity);
     } else {
       this.todayFoods.push(f);
-      this.totalCal += f.calories * f.quantity;
     }
+    this.totalCal += f.calories * quantity;
   }
 
 }

@@ -33,8 +33,8 @@
           <h2>{{f.name}}</h2>
           <small>{{f.calories}} cal</small>
           <div>
-            <input type="number" name="quantity" min="1" [(ngModel)]="f.quantity">
-            <button (click)="addToTodayMenu(f);">+</button>
+            <input type="number" #quantity name="quantity" min="1" value="1">
+            <button (click)="addToTodayMenu(f, quantity.value);">+</button>
           </div>
         </div>
       </div>
