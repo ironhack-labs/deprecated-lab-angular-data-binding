@@ -18,6 +18,7 @@ export class FoodListComponent implements OnInit {
 
   showForm = false;
 
+  searchTerm = '';
 
   constructor() {
     this.foods = foods;

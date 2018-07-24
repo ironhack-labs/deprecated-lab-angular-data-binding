@@ -14,8 +14,9 @@
   </div>
   <button (click)="handleSaveClick()">Save</button>
 </form>
+<input type="text" name="search-term" placeholder="Search..." [(ngModel)]="searchTerm">
 <ul>
-  <li *ngFor="let item of foods ">
+  <li *ngFor="let item of foods | filterPipe: searchTerm">
     <h2>{{item.name}}</h2>
     <p>Calories: {{item.calories}}</p>
     <p>Quantity: {{item.quantity}}</p>
