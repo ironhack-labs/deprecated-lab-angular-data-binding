@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
+import { access } from 'fs';
 
 @Component({
   selector: 'app-food-list',
@@ -39,8 +40,16 @@ export class FoodListComponent implements OnInit {
   }
 
   addToTodayMenu(f) {
-    this.todayFoods.push(f);
-    this.totalCal += f.calories * f.quantity;
+    let pos = this.todayFoods.indexOf(f);
+    if (pos !== -1) {
+      this.todayFoods[pos]["quantity"] += f.quantity;
+      this.totalCal = this.todayFoods.reduce((acc, current) => {
+        return acc + (current["calories"] * current["quantity"])
+      }, 0);
+    } else {
+      this.todayFoods.push(f);
+      this.totalCal += f.calories * f.quantity;
+    }
   }
 
 }
