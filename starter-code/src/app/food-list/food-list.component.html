@@ -1,3 +1,41 @@
-<p>
-  food-list works!
-</p>
+<div>
+  <button *ngIf="!showForm" (click) = "toggleForm()">Add new</button>
+  <br>
+  <br>
+  <form *ngIf="showForm" action="">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newFood.name">
+    <label for="calories">Calories</label>
+    <input type="number" id="calories" name="calories" [(ngModel)]="newFood.calories">
+    <label for="image">Image</label>
+    <input type="text" id="image" name="image" [(ngModel)]="newFood.image">
+    <button (click) = "addFood(newFood)">Create</button>
+  </form>
+  <br>
+  <br>
+</div>
+
+<div>
+  <label for="search"> Search</label>
+  <input id="search" type="text" [(ngModel)]="search">
+<div>
+
+<ul>
+  <li *ngFor = "let food of foods | filter:'name':search">
+    <p>{{food.name}}</p>
+    <p>{{food.calories}}</p>
+    <img [src]="food.image" >
+    <label for="quantity">Quantity</label>
+    <input type="number" [value]="food.quantity" [(ngModel)]="food.quantity">
+    <button (click) = "addTodaysFood(food, food.quantity)">Add to today's food</button>
+  </li>
+</ul>
+<h2>TODAY'S FOOD</h2>
+<ul>
+  <li *ngFor = "let todayDish of finalArr">
+    <p>{{todayDish.name}}</p>
+    <p>{{todayDish.calories}}</p>
+    <p>Quantity: {{todayDish.numberOf}}</p>
+    <img [src]="todayDish.image" >
+  </li>
+</ul>
