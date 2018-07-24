@@ -1,0 +1,20 @@
+* {
+    display: flex;
+}
+.foods-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+.food {
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5%;
+    margin: 15px;
+}
