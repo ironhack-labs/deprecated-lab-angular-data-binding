@@ -8,9 +8,34 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  foods:any
+  formstyle = {
+    display:"none"
   }
 
+  
+  constructor() { 
+    this.foods = foods
+  }
+
+  ngOnInit() {
+
+  }
+  showForm(){
+    if(this.formstyle.display=="none")
+    this.formstyle.display="block"
+    else
+    this.formstyle.display="none"
+  }
+  addFood(name,calories,image){
+    this.foods.push({
+      name,calories,image,quantity:1
+    })
+  }
+
+  addQuantity(food){
+    this.foods[this.foods.indexOf(food)].quantity++
+    //console.log(this.foods)
+  }
+//| filter : 'name' : search
 }
