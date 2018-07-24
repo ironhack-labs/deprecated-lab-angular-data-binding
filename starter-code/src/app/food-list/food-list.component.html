@@ -1,3 +1,25 @@
-<p>
-  food-list works!
-</p>
+<div class="mx-auto">
+  <label for="searchBar">Search Bar:</label>
+  <input #searchBar [(ngModel)]="myPattern" (keyup)="searchFunction(searchBar.value)" type="text"/>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <table class="table table-responsive table-hover">
+        <tr>
+          <th>Food Name:</th>
+          <th>Food Calories:</th>
+          <th>Food Image: </th>
+          <th>Food Quantity: </th>
+        </tr>
+        <tr *ngFor="let aFood of foods">
+          <td>{{aFood.name}}</td>
+          <td>{{aFood.calories}}</td>
+          <td><img height="400px" width="400px" [src]="aFood.image" /></td>
+          <td>{{aFood.quantity}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
