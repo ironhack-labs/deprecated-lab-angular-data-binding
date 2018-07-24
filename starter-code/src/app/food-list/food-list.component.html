@@ -1,5 +1,10 @@
+
+<div class="form-container">
+  <label for="food-form"> Search a food: </label>
+  <input id="food-form" placeholder="enter a food" type="text" [(ngModel)]="pattern">
+</div>
 <div class="food-list-container">
-  <div class="food-item" *ngFor="let f of foods">
+  <div class="food-item" *ngFor = "let f of foods | foodSearch:'name':pattern">
     <div class="food-img-container">
       <img [src]="f.image" alt="">
     </div>
