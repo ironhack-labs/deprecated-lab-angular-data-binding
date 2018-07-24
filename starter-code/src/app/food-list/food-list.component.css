@@ -1,0 +1,17 @@
+img{
+    width:300px;
+}
+.foodBox{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items:center;
+    width: 300px;
+    height: 300px;
+}
+.foodAll{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}

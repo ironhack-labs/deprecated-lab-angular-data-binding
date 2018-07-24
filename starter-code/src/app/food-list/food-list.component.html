@@ -1,3 +1,45 @@
 <p>
   food-list works!
 </p>
+<label for="search">Search for a Food</label>
+<input type="text" #searcher>
+<button (click)="findFood(searcher)"> Enter </button>
+<h3>Search Results</h3>
+<div class="foodAll">
+<div *ngFor="let thefood of foods2">
+  <div class="foodBox">
+<img [src]="thefood.image" alt="">
+<div>{{thefood.name}}</div>  
+<div>{{thefood.calories}}</div>   
+</div>
+</div>
+</div>
+<!-- <div>
+<div>
+  <label for=""></label>
+  <input type="text" name="" id="">
+</div>
+<div>
+  <label for=""></label>
+  <input type="text" name="" id="">
+  </div>
+<div>
+  <label for=""></label>
+  <input type="text" name="" id="">
+</div>
+<div>
+  <label for=""></label>
+  <input type="text" name="" id="">
+</div>
+</div> -->
+<hr>
+<h3>All The Food</h3>
+<div class="foodAll">
+<div *ngFor="let thefood of foods">
+  <div class="foodBox">
+<img [src]="thefood.image" alt="">
+<div>{{thefood.name}}</div>  
+<div>{{thefood.calories}}</div>   
+</div>
+</div>
+</div>
