@@ -1,0 +1,21 @@
+.individual{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid grey;
+  border-radius: 10%;
+  padding: 10px;
+}
+
+img{
+  margin: 5px auto;
+  object-fit: cover;
+  width: 75%;
+}
+
+h3{
+  text-align: center;
+}
+
+.q{
+  width: 80%;
+}

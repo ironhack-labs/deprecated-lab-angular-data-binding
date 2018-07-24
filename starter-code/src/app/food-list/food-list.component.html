@@ -1,3 +1,47 @@
-<p>
-  food-list works!
-</p>
+
+<div class="row">
+  <div class="col-6">
+    <h3>Food list</h3>
+    <div class="container list">
+      <span>Search food by name:</span>
+      <input  placeholder="food name"
+        type="text" [(ngModel)]="search">
+    
+        <div>
+          <button class="btn btn-primary" (click)="toggleHidden()">Add new food</button>
+          <div class="container" [hidden]="!isHidden">
+              <div class="form-group">
+                <h3>Add a new Food</h3>
+                <label for="food-name">Name</label>
+                <input #textInputName class="form-control" type="text" >
+              </div>
+              <div class="form-group">
+                <label for="food-calories">Calories</label>
+                <input #textInputCalories class="form-control" type="text">
+              </div>
+              
+              <div class="form-group">
+                <label for="food-image">Image</label>
+                <input #textInputImage class="form-control" type="text">
+              </div>
+              
+              <button class="btn btn-primary" (click)="addFood(textInputName, textInputCalories, textInputImage); toggleHidden()">Submit New Food</button></div>
+        </div>
+        <div class="row">
+          <div class="col-3 individual" *ngFor="let food of foods | filter:'name':search">
+            <p><b>Name</b>: {{food.name}}</p>
+            <p><b>Calories</b>: {{food.calories}}</p>
+            <input  #quantityInput type="number" class="q" value="1">
+            <button class="btn btn-success" (click)="addToday(food,quantityInput)">Add</button> 
+            <img src="{{food.image}}">
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-6">
+      <h3>Today's food list {{calories}} cal</h3>
+      <ul class="col-12" *ngFor="let food of todayFoods;">
+        <li>{{food.name}}-{{food.calories}}x{{food.quantity}}</li>
+      </ul>
+  </div>
+</div>
