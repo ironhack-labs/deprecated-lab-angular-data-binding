@@ -1,3 +1,53 @@
 <p>
-  food-list works!
+  A Nutrition App
 </p>
+
+<div>
+  <input type="text" [(ngModel)]="pattern" placeholder="Search">
+</div>
+
+<br>
+
+<div>
+  <button (click)="toggleHidden()">Show Form</button>
+</div>
+
+<br>
+
+<div *ngIf="isHidden">
+  <div>
+    <label>Name: </label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <br>
+  <div>
+    <label>Calories: </label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <br>
+  <div>
+    <label>Image: </label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  <br>
+  <button (click)="addFood(newFood)">Add New Food</button>
+</div>
+
+<div *ngFor="let food of foodsList | filter : 'name' : pattern">
+  <p>{{food.name}}</p>
+  <p>{{food.calories}}</p>
+  <img src="{{food.image}}" width="200">
+  <input type="number" min="1" value="1" #quantity>
+  <button (click)="addTodaysFoods(food, quantity.value)">Add To Today's Foods</button>
+</div>
+
+<div>
+  <h2>Today's Foods</h2>
+  <div *ngFor="let f of todaysFoods">
+    <p>Name: {{f.name}}</p>
+    <p>Quantity: {{f.quantity}}</p>
+    <p>Calories: {{f.calories}}</p>
+  </div>
+</div>
+
+<p>Total Calories: {{foodCalories}}</p>
