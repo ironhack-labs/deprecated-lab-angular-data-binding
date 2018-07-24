@@ -9,10 +9,25 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
  
   food: Object[];
+  isHidden:Boolean=false;
+
+  toggleHidden(e){
+    this.isHidden=!this.isHidden;
+  }
+
   constructor() { }
 
   ngOnInit() {
     this.food=foods;
   }
 
+
+  addFood(fName, fImage, fCalorie){
+
+ let newFood={name: fName.value,image:fImage.value,calories:fCalorie.value}
+  this.food.push(newFood);
+  fName.value="";
+  fImage.value=""; 
+  fCalorie.value="";
+}
 }
