@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  max-width: 400px;
+}
+
+
+.foodWrapper {
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 10px;
+  max-width: 220px;
+  text-align: center;
+}
+
+.calsSpan {
+  font-size: 16px;
+  color: red;
+}
+
+img {
+  width: 200px;
+  object-fit: contain;
+}
+
+
+.body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
