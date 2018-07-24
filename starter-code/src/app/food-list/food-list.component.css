@@ -1,6 +1,5 @@
 .foods {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -15,4 +14,13 @@
 .food .img-wrp {
   width: 200px;
   margin-right: 10px;
+}
+
+.search-wrp {
+  padding: 10px;
+}
+
+.search-wrp input {
+  display: block;
+  width: 100%;
 }

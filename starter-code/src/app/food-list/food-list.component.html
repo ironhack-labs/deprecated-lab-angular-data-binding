@@ -1,5 +1,8 @@
+<div class="search-wrp">
+  <input type="search" placeholder="Search..." [(ngModel)]="search">
+</div>
 <div class="foods">
-  <div class="food" *ngFor="let f of foods">
+  <div class="food" *ngFor="let f of foods | filter:'name':search">
     <div class="img-wrp">
       <img [src]="f.image" [alt]="f.name">
     </div>
