@@ -1,17 +1,31 @@
-<h1>
-  IronNutrition
-</h1>
-
-<label for="">Search</label>
+<label for="search">Search</label>
 <input type="text" [(ngModel)]="pattern">
 
+<button (click)="toggleVisibility()">Add New Food</button>
 
+<div [ngClass]="{invisible: invisible}">  
+  <div>
+    <label for="contact-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div>
+    <label for="food-calories">Calories</label>
+    <input type="number" [(ngModel)]="newFood.calories">
+  </div>
+  <div>
+    <label for="food-image">Image</label>
+    <input type="file" [(ngModel)]="newFood.image">
+  </div>
+  <!-- <div>
+    <label for="food-quantity">Quantity</label>
+    <input type="number" [(ngModel)]="newFood.quantity">
+  </div> -->
 
-<div *ngFor="let foods of foods | filter:'name':pattern; let i = index">
-  <p>{{foods.name}}</p>
-  <p>{{foods.calories}}</p>
-  <img src="{{foods.image}}" alt="">
+  <button (click)="addFood(newFood.name, newFood.calories, newFood.image, newFood.quantity)"(click)="toggleVisibility()">Add</button>
 </div>
 
-
-<button (click)="addFood(name, calories, image, quantity)">Add</button>
+<div *ngFor="let food of foods | filter:'name':pattern;">
+  <p>{{food.name}}</p>
+  <p>{{food.calories}}</p>
+  <img src="{{food.image}}" alt="">
+</div>

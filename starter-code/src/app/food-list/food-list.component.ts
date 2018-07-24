@@ -6,20 +6,36 @@ import foods from '../foods';
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
+
 export class FoodListComponent implements OnInit {
   foods : Object [];
-  name: string;
-  calories: number;
-  image: string;
-  quantity: number
+  pattern: string;
+  newFood: any = {};
+  invisible: boolean = true;
 
-  constructor() { }
+  constructor() {
+    this.foods = foods;
+   }
 
   ngOnInit() {
-    this.foods = foods;
+    
   }
 
-  addFood (name, calories, image, quantity) {}
+  addFood ( name, calories, image, quantity) {
+    this.newFood.name = name;
+    this.newFood.calories = calories;
+    this.newFood.image = image;
+    this.newFood.quantity = quantity;
+
+    this.foods.push(this.newFood)
+    this.newFood = {}
+   
+  }
+
+  toggleVisibility() {
+    this.invisible = !this.invisible;
+  }
+
 
 }
 
