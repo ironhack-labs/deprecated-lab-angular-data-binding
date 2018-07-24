@@ -1,0 +1,12 @@
+.global {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.foods {
+  width: 25%;
+}
+.foods img {
+  max-width: 100%;
+}
