@@ -7,6 +7,8 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  foodList: Array<any> = foods;
+  userInput: string;
 
   constructor() { }
 
