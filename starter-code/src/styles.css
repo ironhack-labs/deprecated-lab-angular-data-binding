@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+img{
+    height: 100px;
+    display: block;
+}
+
+.flex{
+    display:flex;
+    justify-content: space-between;
+}
+
+.eachItem{
+    display: flex;
+}
+
+#listItem{
+    border: 1px solid red;
+}
