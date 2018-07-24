@@ -1,17 +1,44 @@
-img{
-    width:300px;
-}
 .foodBox{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items:center;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
 }
 .foodAll{
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
+}
+.foodAll img{
+    width:200px;
+}
+.foodBoxSearch{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items:center;
+    width: 150px;
+    height: 150px;
+}
+.foodAllSearch{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.foodBoxSearch img{
+    width:150px;
+}
+
+.formRow{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.searchForm{
+    display:flex;
+    flex-direction:column;
 }
