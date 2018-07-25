@@ -33,8 +33,11 @@ export class FoodListComponent implements OnInit {
     };
 
     Object.assign(copyObj, item);
-    if (this.todayFood.indexOf(copyObj) != -1) {
-      this.todayFood[this.todayFood.indexOf(copyObj)].quantity++;
+    let index = this.todayFood.findIndex(e=>e.name==copyObj.name)
+
+    if (index != -1) {
+      console.log('entra')
+      this.todayFood[index].quantity+= item.quantity;
     } else {
       if(copyObj.quantity<=1){
         copyObj.quantity = 1
