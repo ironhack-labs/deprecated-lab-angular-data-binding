@@ -6,11 +6,13 @@ import foods from '../foods';
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
+
 export class FoodListComponent implements OnInit {
   foods: Object[];
-   newFood: Object = {};
-   todaysFoods = [];
-   showForm = false;
+  newFood: Object = {};
+  todaysFood = [];
+  counter = 0;
+  showForm = false;
   constructor() { }
 
   ngOnInit() {
@@ -24,7 +26,16 @@ export class FoodListComponent implements OnInit {
   }
 
   handleFavoriteClick(food) {
-    this.todaysFoods.push(food);
+    this.addToTodaysFood(food);
+    this.calcCalories();
   }
 
+  private addToTodaysFood(food) {
+    this.todaysFood.push(food);
+  }
+
+  private calcCalories() {
+    const total = this.todaysFood.reduce((acc: number, food: any ) => acc + food.calories, 0);
+    this.counter = total;
+  }
 }
