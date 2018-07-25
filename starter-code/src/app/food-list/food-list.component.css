@@ -1,0 +1,56 @@
+.all-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.food-container {
+  width: 45%;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+}
+
+.food-container input {
+  padding: 10px;
+  border: 1px solid green;
+}
+
+.food-container input:focus{
+  outline: none;
+  border: 1px solid blue;
+}
+
+.food {
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.food-image {
+  width: 30%;
+}
+
+.food-image img {
+  width: 100%;
+}
+
+.food-text {
+  width: 70%;
+  text-align: center;
+}
+
+.listContainer {
+  width: 45%;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+}
+
+.listContainer ul {
+  text-align: left;
+}
+

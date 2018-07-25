@@ -1,3 +1,49 @@
-<p>
-  food-list works!
-</p>
+<div class="all-content">
+  <div class="food-container">
+    <h2>Search</h2>
+    <p>
+      <input [(ngModel)]="busqueda" type="text" placeholder="Pizza">
+    </p>
+    <p>
+      <button type="button" (click)="this.showForm=true">Add Food</button>
+    </p>
+    <div class="add-food" *ngIf='showForm'>
+      <p>
+        <input [(ngModel)]='foodName' type="text" placeholder="Food Name">
+      </p>
+      <p>
+        <input [(ngModel)]='calories' type="text" placeholder="Calories">
+      </p>
+      <p>
+        <input [(ngModel)]='image' type="text" placeholder="Image Url">
+      </p>
+      <p>
+        <button type="button" (click)="addFood(foodName, calories, image)">Add</button>
+      </p>
+    </div>
+    <div *ngFor="let comida of foods | findFood:'name':busqueda" class="food">
+      <div class="food-image">
+          <img  src="{{comida.image}}" alt="{{comida.name}}">
+      </div>
+      <div class="food-text">
+        <h3>{{comida.name}}</h3>
+        <p>Calories: {{comida.calories}}</p>
+        <p>
+          <input #myFood type="number" placeholder="Quantity" (change)="comida.quantity = myFood.value"> | <button type="button" (click)='foodCount(comida)'>+</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="listContainer" *ngIf="showList">
+    <h2>Lista de Alimentos</h2>
+    <h4>Calorias totales: {{totalCal}}</h4>
+    <ul>
+      <li *ngFor="let li of todayFoods" [ngSwitch]="li.quantity">
+        <span *ngSwitchCase="1">{{li.name}}</span>
+        <span *ngSwitchDefault>{{li.name}} x {{li.quantity}}</span>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
