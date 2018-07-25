@@ -1,3 +1,47 @@
-<p>
-  food-list works!
-</p>
+<div>
+  <label for="things_name"> Search thing: </label>
+  <input id="things_name" placeholder="thing name"
+          type="text" [(ngModel)]="pattern">
+</div>
+
+<div [ngClass]="myclasses">
+
+  <div>
+    <label for="food-name"></label>
+    <input type="text" [(ngModel)]="newFood.name" placeholder="name">
+  </div>
+  <div>
+    <label for="food-calories"></label>
+    <input type="text" [(ngModel)]="newFood.calories" placeholder="calories">
+  </div>
+  <div>
+    <label for="quantity"></label>
+    <input type="text" [(ngModel)]="newFood.quantity" placeholder="quantity">
+  </div>
+  <div>
+    <label for="food-image"></label>
+    <input type="text" [(ngModel)]="newFood.image" placeholder="image">
+  </div>
+  
+</div>
+<button (click)="addFood()">Submit New Food</button> 
+
+<div class="contenedor">
+  <ul *ngFor="let product of products | filter: 'name':pattern" class="ul">
+    <li>Name:{{product.name}}</li>
+    <li>calories:{{product.calories}}</li>
+    <li>quantity:{{product.quantity}}</li>
+    <img [src]="product.image" alt="">
+    <label for="quantity"></label>
+    <input type="number" #quantity min="1" value="1">
+    <button (click)="addToList(product, quantity.value)">Add</button>
+  </ul>
+</div>
+<h1>Food of the day</h1>
+    <ul *ngFor="let product of list">
+      <li>{{product.quantity}}x{{product.name}}</li>
+      <li>Calories {{product.calories}}</li>
+    </ul>
+    <p>Total calories: {{totalCalories}}</p>
+  
+    
