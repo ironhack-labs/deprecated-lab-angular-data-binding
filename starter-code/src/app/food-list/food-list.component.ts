@@ -17,6 +17,7 @@ export class FoodListComponent implements OnInit {
 
   handleAddClick() {
     this.foods.push({
+      // ITS BETTER TO HAVE AN OBJECT AND THEN U WOULD ONLY PASS TODAYFOODS
       name: this.name,
       calories: this.calories,
       quantity: this.quantity,

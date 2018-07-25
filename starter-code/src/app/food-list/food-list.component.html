@@ -17,7 +17,7 @@
   <label for="show-form">Show form</label>
 </p>
 
-<form [hidden]="!showForm">
+<form *ngIf="!showForm">
   <div class="field">
     <label for="name">Name</label>
     <input id="name" type="text" [(ngModel)]="name" name="name">
