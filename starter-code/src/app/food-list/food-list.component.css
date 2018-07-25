@@ -44,7 +44,12 @@
 
 .todays-foods-container {
     border: 1px solid purple;
+    padding: 20px;
     margin: 10px 0;
+}
+
+.todays-foods-container h3 {
+    display: inline-block;
 }
 
 .btn-field {

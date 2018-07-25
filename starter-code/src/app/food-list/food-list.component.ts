@@ -7,8 +7,9 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foodsList: Array<any>;
-  todaysFoodsList: Array<any>;
+  foodsList:Array<any>;
+  todaysFoodsList:Array<any>;
+  totalCalories:number = 0;
 
   constructor() {
   }
@@ -36,7 +37,7 @@ export class FoodListComponent implements OnInit {
       image: newImage.value,
       quantity: 0
     });
-
+    
     newName.value = '';
     newCalories.value = '';
     newImage.value = '';
@@ -44,5 +45,6 @@ export class FoodListComponent implements OnInit {
 
   addFoodOfDay(dayFood) {
     this.todaysFoodsList.push(dayFood);
+    this.totalCalories += Number(dayFood.calories);
   }
 }
