@@ -1,3 +1,41 @@
-<p>
-  food-list works!
-</p>
+<h1>Foods</h1>
+<section>
+<h2>Today Foods</h2>
+<h4>Total Calories {{sumCalories}}</h4>
+<ul>
+  <li *ngFor="let today of todayFoods">{{today.name}} - {{today.calories}}</li>
+</ul>
+</section>
+<section class="container">
+  <p>
+    Search:
+    <input [(ngModel)]="search" type="text">
+  </p>
+</section>
+<div class="container">
+  <button (click)="newFoodForm(formContainer, newFoodDiv)">Add new food</button>
+  <div #formContainer class="container" style="display: none">
+    <label>Nombre:</label>
+    <input #newName type="text" [(ngModel)]="newFood.name">
+    <label>Calorias:</label>
+    <input #newCalories type="number" [(ngModel)]="newFood.calories">
+    <label>Image URL</label>
+    <input #newImage type="text" [(ngModel)]="newFood.image">
+    <button (click)="submitForm(formContainer, newFoodDiv, newName, newCalories, newImage)">Add Food</button>
+  </div>
+</div>
+
+<section class="container">
+    <div #newFoodDiv class="card" style="display: none">
+        <img [src]="newFood.image" alt="">
+        <h2>{{newFood.name}}</h2>
+        <h4>{{newFood.calories}}</h4>
+      </div>
+  <div class="card" *ngFor="let food of foods | filter: 'name': search">
+    <img [src]="food.image" alt="">
+    <h2>{{food.name}}</h2> <br>
+    <h4>Calories: {{food.calories}}</h4>
+    <input type="number" [(ngModel)]="food.quantity">
+    <button (click)="sumcalories(food.name, food.calories, food.quantity)">Add to Today Food</button>
+  </div>
+</section>
