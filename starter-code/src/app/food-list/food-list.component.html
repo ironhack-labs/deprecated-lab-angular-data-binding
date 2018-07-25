@@ -1,3 +1,41 @@
-<p>
-  food-list works!
-</p>
+
+<div class="search">
+  <h2>
+    food-list works!
+  </h2>
+  <input [(ngModel)]="search" placeholder="search" type="text">
+  <button (click)="toggle()">Add New Food</button>
+  <div class="formulary" *ngIf="show">
+    <label for="name:">Name</label>
+    <input [(ngModel)]="form.name" placeholder="Name of the food" type="text">
+    <br>
+    <label for="calories">Calories</label>
+    <input [(ngModel)]="form.calories" placeholder="Number of Calories" type="number">
+    <br>
+    <label for="image">Image</label>
+    <input [(ngModel)]="form.image" placeholder="Paste the URL of your image" type="text">
+    <br>
+    <button (click)="addNewFood();toggle()">Add it!</button>
+  </div>
+</div>
+<div class="container">
+  <div *ngFor="let food of foodlist | filter:'name':search" class="product">
+    <img width="200" height="200" src="{{food.image}}">
+    <div class="inside">
+      <h4>Name: </h4>
+      <p>{{food.name}}</p>
+      <label for="calories">Calories: </label>
+      <p>{{food.calories}}</p>
+      <button (click)="todaysFoods(food)">+</button>
+      <input type="number" value="1" [(ngModel)]=food.quantity min="1">
+    </div>
+  </div>
+</div>
+<div class="titleFoods">
+  <h2>Today's Foods: {{totalCalories}}</h2>
+  <ul *ngFor="let food of myFoods">
+    <li>
+      {{food.name}} QTY: {{food.quantity}} Calories: {{food.quantity * food.calories}}
+    </li>
+  </ul>
+</div>
