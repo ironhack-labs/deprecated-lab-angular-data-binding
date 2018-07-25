@@ -32,11 +32,7 @@ export class FoodListComponent implements OnInit {
     this.newFood = ""
   }
   addToday(food){
-    
-    console.log(food);
-    console.log(this.todaysFoods);
-    this.todaysFoods.push(food)
-    console.log(this.todaysFoods);
+    this.todaysFoods.push(food);
   }
 
 }
