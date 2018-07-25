@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StringyPipe implements PipeTransform {
   arrayOnes = ['','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 
-  arrayTens = ['','ten','twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'sevety', 'eighty', 'ninety']
+  arrayTens = ['','ten','twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
   
   arrayHudreds = ['one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred']
   
@@ -21,7 +21,7 @@ twoChar(anumber){
     let numArray=numstring.split("")
     let firstChar = numArray[0]
     let secondChar = numArray[1]
-    return(this.arrayTens[firstChar] + this.arrayOnes[secondChar])
+    return(this.arrayTens[firstChar] + " " + this.arrayOnes[secondChar])
   }
 
 threeChar(anumber){
