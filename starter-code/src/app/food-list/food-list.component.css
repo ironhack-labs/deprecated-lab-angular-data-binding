@@ -1,0 +1,30 @@
+.container{
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.row{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: left;
+}
+
+img{
+  max-width: 50%;
+  max-height: 50%;  
+  object-fit: contain;
+  display: inline-flex;
+}
+
+.card{
+ /* background-color: lightgray;
+  height: 275px;
+  width: 250px;*/
+  margin: 20px;
+}
+.resumen {
+  position: fixed;
+  top: 100px;
+  right: 20em;
+}
