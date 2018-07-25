@@ -8,6 +8,7 @@ import foodList from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foods: Array<any>;
+  theSearchTerm:string;
   todayFoods: Array<any> = []
   todayFoodsCalories: Array<number> = [];
   totalCalories:number = 0; 
@@ -18,13 +19,33 @@ export class FoodListComponent implements OnInit {
     this.foods = foodList;
   }
 
-  find(searchInput){
-    console.log(searchInput.value);
-    this.foods = foodList.filter(oneFood=>{
-       return oneFood.name === searchInput.value
-    });
 
-  }
+
+// this.theSearchTerm =
+
+searchFoods(){
+  this.foods = foodList.filter((oneFood)=>{
+    new RegExp(oneFood,'i');
+    return oneFood.name.toLowerCase().match(this.theSearchTerm.toLowerCase());
+    // fancy regexp solution
+
+    
+
+    // return oneFood.name === this.theSearchTerm
+
+  });
+}
+
+
+
+
+//   find(searchInput){
+//     console.log(searchInput.value);
+//     this.foods = foodList.filter(oneFood=>{
+//        return oneFood.name === searchInput.value
+//     });
+
+//   }
   showForm(){
     document.getElementById('cooldiv').hidden = false;
 

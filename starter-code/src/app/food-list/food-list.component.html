@@ -1,23 +1,13 @@
 <!DOCTYPE html>
-
-<div class = "foodForToday">
-    <h3>Today's Foods</h3>
-
-    <h4 *ngFor="let oneFood of todayFoods">
-      <p>{{oneFood.name}}</p>
-      <p>{{oneFood.calories}}</p>
-    </h4>
+<div class = "fixMe"> <h3> Total Calories: {{totalCalories|stringifier}}</h3> </div>
 
 
 
-    <h3>Total Calories: {{totalCalories}}</h3>
-</div>
 
 
+<input (keyup)="searchFoods()" [(ngModel)]="theSearchTerm" type="text" >
 
-<input #searchInput type="text" >
-
-<button (click)="find(searchInput)">Search</button>
+<!-- <button >Search</button> -->
 
 <div class = "flexwrapper">
   <div class="card" style = "width: 18rem;" *ngFor="let oneFood of foods">
@@ -51,4 +41,23 @@
     <input #calories class="form-control" type="number" min = "0" >
   </div>
   <button (click)="addFood(name, image, calories)">Add New Food</button>  
+</div>
+
+
+
+
+<div class = "foodForToday">
+    <h3>Today's Foods</h3>
+    <h3>Total Calories: {{totalCalories|stringifier}}</h3>
+
+
+
+    <h4 *ngFor="let oneFood of todayFoods">
+      <p>{{oneFood.name}}</p>
+      <p>{{oneFood.calories}}</p>
+    </h4>
+
+
+
+  
 </div>

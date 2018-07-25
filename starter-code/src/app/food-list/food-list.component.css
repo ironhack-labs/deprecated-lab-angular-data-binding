@@ -12,3 +12,10 @@ img {
 .foodForToday {
   border: 2px solid green;
 }
+
+.fixMe {
+  position: fixed;
+  top: 0vh;
+  right: 10vh;
+  border: 2px solid red;
+}
