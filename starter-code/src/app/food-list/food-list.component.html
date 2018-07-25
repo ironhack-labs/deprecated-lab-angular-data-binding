@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+
+<div class = "foodForToday">
+    <h3>Today's Foods</h3>
+
+    <h4 *ngFor="let oneFood of todayFoods">
+      <p>{{oneFood.name}}</p>
+      <p>{{oneFood.calories}}</p>
+    </h4>
+
+
+
+    <h3>Total Calories: {{totalCalories}}</h3>
+</div>
+
+
+
 <input #searchInput type="text" >
 
 <button (click)="find(searchInput)">Search</button>
@@ -8,7 +24,12 @@
       <img class="card-img-top" [src] = "oneFood.image">  
         <div class= "card-body">
     <h5 class = "card-title"><i>{{oneFood.name}}</i></h5>
+    <input #foodname type="hidden" value = "{{oneFood.name}}">
+
       <p class = "card-text"><b>{{oneFood.calories}} Calories</b></p>
+      <input #foodcalories type="hidden" value = "{{oneFood.calories}}">
+
+      <button class="btn btn-info" (click)="addToTodayList(foodname, foodcalories)">Add to today's list</button>
       
         </div>
   </div>

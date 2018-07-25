@@ -8,3 +8,7 @@ img {
   justify-content: space-around;
  
 }
+
+.foodForToday {
+  border: 2px solid green;
+}
