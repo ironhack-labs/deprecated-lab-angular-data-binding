@@ -15,6 +15,8 @@ newFood:any = {};
 
   constructor() { }
 
+formShowing:boolean =false;
+
   ngOnInit() {
 this.foods = foods;
 this.todaysfoods = []
@@ -26,6 +28,10 @@ return afood.name.toLowerCase().includes(searchInput.value.toLowerCase());
   })
   }
 
+toggleForm(){
+  console.log(this.formShowing)
+  this.formShowing=!this.formShowing
+}
   addFood(){
     console.log(this.newFood);
     this.foods.unshift(this.newFood);
@@ -33,8 +39,7 @@ return afood.name.toLowerCase().includes(searchInput.value.toLowerCase());
   }
 
 addToday(afood){
-this.todaysfoods.unshift(afood)  ;
-console.log(this.todaysfoods)
+this.todaysfoods.unshift(afood);
 }
 
 }

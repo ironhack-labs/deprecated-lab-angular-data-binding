@@ -15,16 +15,20 @@
       <div class="foodBoxSearch">
         <img [src]="thefood.image" alt="">
         <div>{{thefood.name}}</div>  
-          <div>{{thefood.calories}}</div>  
+          <div>{{thefood.calories |stringy}}</div>  
           <button (click)="addToday(thefood)">add to Today's foods</button> 
+
           </div>
         </div>
       </div>
 
   </div>
-  <div class="newFood">
-    <h2>Add a new food</h2>
-    <div class="formInput">
+  <div>
+  <h2>Add a new food</h2>
+  <button (click)="toggleForm()" *ngIf="!formShowing">Add a new Food</button>
+  <div class="newFood" *ngIf="formShowing">
+
+    <div class="formInput" >
       <label for="">Name:</label>
       <input type="text" name="" id="" [(ngModel)]="newFood.name">
     </div>
@@ -40,21 +44,23 @@
         <label for="">Quantity:</label>
         <input type="text" name="" id="" [(ngModel)]="newFood.quantity">
       </div>     
-      <button (click)="addFood()">Submit new food</button>
+      <button (click)="addFood()" (click)="toggleForm()">Submit new food</button>
   </div>
+</div>
   <div class="todayFoodBig">
-    <h2>Todays Foods</h2>
+    <h2>Today's Foods</h2>
     <div class="todaysFood">
     <div *ngFor="let thefood of todaysfoods">
         <div class="todaysFoodBox">
       <img [src]="thefood.image" alt="">
       <div>{{thefood.name}}</div>  
-      <div>{{thefood.calories}}</div>   
+      <div>{{thefood.calories | stringy}}</div>   
       </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <hr>
 <h3>All The Food</h3>
@@ -63,7 +69,7 @@
   <div class="foodBox">
 <img [src]="thefood.image" alt="">
 <div>{{thefood.name}}</div>  
-<div>{{thefood.calories}}</div>   
+<div>{{thefood.calories | stringy}}</div>   
 <button (click)="addToday(thefood)">add to Today's foods</button>
 </div>
 </div>
