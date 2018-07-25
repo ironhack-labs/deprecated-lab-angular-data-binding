@@ -10,12 +10,7 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   showAdd = false;
   pattern: string;
-  list: [
-    {
-      name: String,
-      calories: number
-    }
-  ];
+  todayList = [];
 
   constructor() { }
 
@@ -35,12 +30,10 @@ export class FoodListComponent implements OnInit {
     this.showAdd = false;
   }
 
-  addList(name, calories) {
-    console.log(name);
-    console.log(calories);
-    this.list.push({
-      name: name,
-      calories: calories
+  addTodayList(food) {
+    this.todayList.push({
+      name: food.name,
+      calories: food.calories
     });
   }
 

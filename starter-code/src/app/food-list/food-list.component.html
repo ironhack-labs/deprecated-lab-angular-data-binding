@@ -27,11 +27,11 @@
       <li *ngFor="let food of foods | filter:'name':pattern; let i = index">
         <div class="container">
           <img src="{{food.image}}" alt="{{food.name}}">
-          <button (click)="addList(name, calories)">+</button>
+          <button (click)="addTodayList(food)">+</button>
           <input type="number" step="1" min="0" #valor>
           <div class="description">
             <h3>{{food.name}}</h3>
-            <p #calories>{{food.calories}} Calories</p>
+            <p>{{food.calories}} Calories</p>
           </div>
         </div>
       </li>
@@ -41,8 +41,11 @@
   <div>
     <h3>Today's Food {{totalCalories}} cal</h3>
     <ul>
-      <li *ngFor="let item of list">
-        <h3>{{list.name}}</h3>
+      <li *ngFor="let item of todayList">
+        <div class="main">
+          <h3>{{item.name}}</h3>
+          <p>{{item.calories}}</p>
+        </div>
       </li>
     </ul>
   </div>
