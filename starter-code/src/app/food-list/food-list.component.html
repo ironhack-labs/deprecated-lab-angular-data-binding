@@ -1,15 +1,17 @@
 
-<div class="Search">
-    <label for="things_name"> Search fooood!: </label>
-    <input id="things_name" placeholder="food here"
-            type="text" [(ngModel)]="pattern">
-  <div>
 
-
-<ul class="dish">
+<div class="container"><div class="Search">
+      <label for="things_name"> Search fooood!: </label>
+      <input id="things_name" placeholder="food here"
+              type="text" [(ngModel)]="pattern">
+    <div></div>
+   
+<ul class="dish"> 
     <li *ngFor="let food of foods | filter:'name':pattern">
       <div class="container">
         <div class="items">
+          <input type="number" min="1" value="1" #quantity>
+            <button (click)="addFood(food, quantity.value)">Add to the Food List!</button>
       <h3> {{food.name}} </h3>
       <p>
         <small> Calories: {{food.calories}}cal</small>
@@ -24,7 +26,6 @@
 
 
   <button (click)="formMethod()">Add New Food</button>
-  
   <div *ngIf="show">
       <div>
           <div>
@@ -40,6 +41,7 @@
           </div>
       </div>
     </div>
+
     
     <button (click)="addDish()">Submit New Food</button>
         
