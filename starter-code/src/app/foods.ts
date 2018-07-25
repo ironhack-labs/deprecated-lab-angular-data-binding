@@ -1,4 +1,4 @@
-const foods = [
+const foods:Array<any> = [
   {
     name: "Pizza",
     calories: 400,

@@ -3,7 +3,39 @@
 <br>
 <input name="what1" #searchItem (input)="filterFood(searchItem)" type="text" placeholder="enter search term here">
 </form>
+<br>
+<div id="dynDisplay">
+<div class="newInput">
+  <form action="submit" id="newItemForm">
+      <div class="eachLine">
+        <label for="food-name">Name:</label>
+        <input id="food-name" name="f-name" type="text" #nameInput [(ngModel)]="newFood.name">
+      </div>
+      <div class="eachLine">
+        <label for="food-cal">Calories:</label>
+        <input id="food-cal" name="f-cals" type="text" #calInput [(ngModel)]="newFood.calories">
+      </div>
+      <div class="eachLine">
+        <label for="food-image">Photo:</label>
+        <input id="food-image" name="f-img" type="text" #imageInput [(ngModel)]="newFood.image">
+      </div>
+      <div class="eachLine">
+        <label for="food-quantity">Quantity:</label>
+        <input id="food-quantity" name="f-qty" type="text" #qtyInput [(ngModel)]="newFood.quantity">
+      </div>
+      
+    <button (click)="addNewFood(nameInput, calInput, imageInput, qtyInput)">Submit New Food Item</button>
+  </form>
+</div>
 
+<div id="todaysFoods">
+  <h3>Today You've Eaten:</h3>
+  <ul *ngFor="let foodItem of allFoodToday">
+    <li>{{foodItem.name}}</li>
+  </ul>
+  <p>All Calories Today: {{totalCal}}</p>
+</div>
+</div>
 
 <div class="allFoods">
   <div *ngFor="let oneItem of foods" class="oneItem">
@@ -11,6 +43,7 @@
   <h5>{{oneItem.calories}}</h5>
   <img [src]="oneItem.image"/>
   <p>{{oneItem.quantity}}</p>
+  <button (click)="todaysFood(oneItem)" type="submit" name="smth1">Add to Today's Foods</button>
   
   </div>
 </div>
