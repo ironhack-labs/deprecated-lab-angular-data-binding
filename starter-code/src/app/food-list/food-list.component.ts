@@ -11,6 +11,7 @@ export class FoodListComponent implements OnInit {
   showAdd = false;
   pattern: string;
   todayList = [];
+  totalCalories = 0;
 
   constructor() { }
 
@@ -30,10 +31,18 @@ export class FoodListComponent implements OnInit {
     this.showAdd = false;
   }
 
-  addTodayList(food) {
+  addTodayList(food, valor) {
     this.todayList.push({
       name: food.name,
       calories: food.calories
+    });
+    this.sumCalories(valor);
+  }
+  
+
+  sumCalories(valor) {
+    this.todayList.forEach(element => {
+      this.totalCalories += element.calories * valor;
     });
   }
 
