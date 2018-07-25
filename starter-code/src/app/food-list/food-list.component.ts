@@ -9,14 +9,10 @@ import foodList from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   todayList = [];
-  todayFood: Object = {};
   newFood: Object = {};
-
-  caloriesArray = [];
   counter: 0;
-
-
   hideForm = false;
+
   ngOnInit() {
     this.foods = foodList;
   }
@@ -27,20 +23,20 @@ export class FoodListComponent implements OnInit {
     this.hideForm = true;
   }
 
-  handleAddtoSpecialList(itemName, itemCalories, itemImage) {
+  handleAddtoSpecialList(item) {
     console.log('ok');
-    const objectToPush = {
-      name: itemName,
-      calories: itemCalories,
-      image: itemImage,
-    };
 
-      this.caloriesArray.push(itemCalories);
-      const total = this.caloriesArray.reduce((a: number, b: number) => a + b, 0);
-      this.counter = total;
+    this.addToTodayList(item);
+    this.calcCalories();
+  }
 
+  private addToTodayList (item) {
+    this.todayList.push(item);
+  }
 
-    this.todayList.push(objectToPush);
+  private calcCalories () {
+    const total = this.todayList.reduce((acc: number, food: any) => acc + food.calories, 0);
+    this.counter = total;
   }
 
 }

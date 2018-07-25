@@ -1,5 +1,6 @@
 <section>
-  <form [ngClass]="{ 'hide': hideForm }">
+    {{newFood | json}}
+  <form *ngIf ="!hideForm">
     <div>
       <label for="name">Name</label>
       <input type="text" [(ngModel)]="newFood.name" name="name">
@@ -21,7 +22,7 @@
     <img src="{{item.image}}" alt="" width="400">
 
     <form>
-      <button (click)="handleAddtoSpecialList(item.name, item.calories, item.image)">Add to today's list</button>
+      <button (click)="handleAddtoSpecialList(item)">Add to today's list</button>
     </form>
     
   </div>
@@ -31,7 +32,7 @@
       <p>Calories : {{item.calories}}</p>
       <img src="{{item.image}}" alt="" width="250">
     </div>
-    <hr>
+ 
     <h1><strong>Calories Counter : {{counter}}</strong></h1>
 
 </section>
