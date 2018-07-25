@@ -1,3 +1,26 @@
-<p>
-  food-list works!
-</p>
+<span>Show Form</span>
+<input type="checkbox" [(ngModel)]="showForm">
+
+<form action="" [hidden]="!showForm">
+  <div>
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="newFood.name" name="name" id="name">
+  </div>
+  <div>
+      <label for="numCalories">Number of Calories</label>
+      <input type="number" [(ngModel)]="newFood.calories" name="numCalories" id="numCalories">
+  </div>
+  <div>
+      <label for="image">Image</label>
+      <input type="text" [(ngModel)]="newFood.image" name="image" id="image">
+  </div>
+  <button (click)=handleAddClick()>Add Food</button>
+</form>
+
+<ul>
+  <li *ngFor="let food of foods">
+    <h3>{{food.name}}</h3>
+    <p>Calories: {{food.calories}}</p>
+    <img src={{food.image}} alt="" width=250 height=150>
+  </li>
+</ul>
