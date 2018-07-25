@@ -1,3 +1,39 @@
-<p>
-  food-list works!
-</p>
+
+
+<button (click)="toggle()">Add new food</button>
+<div *ngIf="show">
+  <span>Create Food Item</span>
+  <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+  <input type="number" [(ngModel)]="newFood.calories" placeholder="Calories">
+  <input type="number" [(ngModel)]="newFood.quantity" placeholder="Quantity">
+  <input type="text" [(ngModel)]="newFood.image" placeholder="Image">
+  <button (click)="addFood()">Submit New Food Item</button>
+</div>
+
+<div>
+  <span>Search for Food Items</span>
+  <input [(ngModel)]="search" placeholder="Buscar" type="text">
+</div>
+
+<section>
+  <div class="foodsSect">
+    <h2> All Food Items</h2>
+    <div class="foodsId" *ngFor="let food of foods | filter:'name':search"> 
+      <span>Name: {{food.name}}  </span><br>
+      <span>Calories: {{food.calories}}</span><br>
+      <span>Quantity: {{food.quantity}}</span><br>
+      <img [src]="food.image" alt="{{food.image}}" style="width:200px">
+      <button (click)="addToday(food)">Add to today's Foods</button>
+    </div>
+  </div>
+  <div class="foodsSect">
+    <h2> Today's food items</h2>
+    <div class="foodsId" *ngFor="let food of todaysFoods | filter:'name':search"> 
+        <span> Name: {{food.name}} </span><br>
+        <span> Calories: {{food.calories}}</span><br>
+        <span> Quantity: {{food.quantity}}</span><br>
+        <img [src]="food.image" alt="{{food.image}}" style="width:200px">
+        <button>Remove to today's Foods</button>
+    </div>
+  </div>
+</section>
