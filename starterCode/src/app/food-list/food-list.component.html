@@ -1,0 +1,46 @@
+<input type="text" [(ngModel)]="search">
+<button type="submit">Search</button>
+
+
+    <div class="border" *ngFor="let newFood of foods | filter:'name':search">
+      <h4> {{newFood.name}}</h4>
+      <p>Calories: {{newFood.calories}}</p>
+      <img src="{{newFood.image}}">
+      <p>Quantity: {{newFood.quantity}}</p>
+      <button (click)="today(newFood)">Add to today's list</button>  
+    </div>
+
+    <button (click)="access()">Submit New Diet</button>  
+
+
+
+
+
+    <section *ngIf="show"> 
+      <div>
+        <label for="foods-name">Food name: </label>
+        <input type="text" [(ngModel)]="newFood.name">
+      </div>
+      <div>
+        <label for="foods-calories">Calories: </label>
+        <input type="text" [(ngModel)]="newFood.calories">
+      </div>
+      <div>
+        <label for="foods-image">Image: </label>
+        <input type="text" [(ngModel)]="newFood.image">
+      </div>
+      <div>
+        <label for="foods-quantity">Quantity: </label>
+        <input type="text" [(ngModel)]="newFood.quantity">
+      </div>
+      
+      <button (click)="addFood()">Submit</button>  
+    </section> 
+
+    <div *ngFor="let newFood of todayFood">
+      <h3>Today's list</h3>
+      <h4> {{newObj.name}}</h4>
+      <p>Calories: {{newObj.calories}}</p>
+      <!-- <img src="{{newFood.image}}">
+      <p>Quantity: {{newFood.quantity}}</p> -->
+    </div>
