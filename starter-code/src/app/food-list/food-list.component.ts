@@ -10,7 +10,7 @@ export class FoodListComponent implements OnInit {
   foods: Array<any>;
   todayFoods: Array<any> = []
   todayFoodsCalories: Array<number> = [];
-  counter 
+  totalCalories:number = 0; 
   newFood: Object = {};
   constructor() { }
 
@@ -57,8 +57,8 @@ addToTodayList(name, calories){
     that.todayFoodsCalories.push(Number(eachFood.calories));
   });
 
-  const totalCalories = this.todayFoodsCalories.reduce((total, amount) => total + amount); 
-  console.log(totalCalories);
+   this.totalCalories = this.todayFoodsCalories.reduce((total, amount) => total + amount); 
+  console.log(this.totalCalories);
   // Try making an array from the calories values
   //forEach(We will now do an EACH loop to add ALL the calories for every object in the this.todayFoods array. This will be total calories.)
   //total calories will be displayed on the screen, and it should change for every food added to the list.
