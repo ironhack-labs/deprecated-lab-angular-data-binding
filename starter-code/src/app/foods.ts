@@ -97,4 +97,10 @@ const foods: Object[] = [
   }
 ]
 
-export default foods;
+const listFood: Object[] = [
+  {
+    name:""
+  }
+]
+
+export default foods; listFood;

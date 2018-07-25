@@ -1,3 +1,45 @@
-<p>
-  food-list works!
-</p>
+<h1>Food list</h1>
+
+<section>
+  <h2>Today's Foods List</h2>
+  <ul>
+    <div *ngFor="let f of listFood">
+      <li>
+        {{f.name}}
+      </li>
+    </div>
+  </ul>
+</section>
+<br>
+
+<button (click)="openForm()">Add new food</button>
+
+<section>
+  <div>
+    <label for="contact-name"></label>
+    <input type="text" [(ngModel)]="newFood.name" placeholder="Name" [value]="name">
+  </div>
+  <div>
+    <label for="contact-email"></label>
+    <input type="number" [(ngModel)]="newFood.calories" placeholder="Calories" [value]="email">
+  </div>
+  <div>
+    <label for="contact-image"></label>
+    <input type="text" [(ngModel)]="newFood.image" placeholder="Food Image" [value]="image">
+  </div>
+  <button (click)="addFood(newFood)">Submit New Food</button>
+</section>
+
+
+<ul>
+  <input [(ngModel)]="search" type="text" placeholder="Food search">
+  <li>
+    <div *ngFor="let food of foods | filter:'name':search">
+      <button (click)="addFoodList(f.name)">Add Food to List</button>
+      {{food.name}}
+      {{food.calories}}
+      {{food.quantity}}
+      <img src="{{food.image}}">
+    </div>
+  </li>
+</ul>
