@@ -3,23 +3,19 @@
   <input #searchBar [(ngModel)]="listOfFoods" (keyup)="searchFunction()" type="text"/>
 </div>
 
-<div class="container-fluid">
+<button #addFood>Add New Food!</button>
+
+<div class="container">
   <div class="row">
-    <div class="col-lg-6 mx-auto">
-      <table class="table table-responsive table-hover">
-        <tr>
-          <th>Food Name:</th>
-          <th>Food Calories:</th>
-          <th>Food Image: </th>
-          <th>Food Quantity: </th>
-        </tr>
-        <tr *ngFor="let aFood of searchedFoods">
-          <td>{{aFood.name}}</td>
-          <td>{{aFood.calories}}</td>
-          <td><img height="400px" width="400px" [src]="aFood.image" /></td>
-          <td>{{aFood.quantity}}</td>
-        </tr>
-      </table>
+    <div *ngFor="let aFood of searchedFoods" class="card-deck">
+      <div class="card" style="width: 20rem">
+        <img class="card-img-top image-fix" [src]="aFood.image" />
+        <div class="card-body">
+          <h5 class="card-title">Food Name: {{aFood.name}}</h5>
+          <p class="card-text">Calories: {{aFood.calories}}</p>
+          <p class="card-text">Quantity: {{aFood.quantity}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

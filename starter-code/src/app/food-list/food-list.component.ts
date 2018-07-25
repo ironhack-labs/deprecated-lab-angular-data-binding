@@ -9,7 +9,7 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Array<any>;
   searchedFoods:any[];
-  listOfFoods:String="";
+  listOfFoods:string="";
   newFood: Object = {};
 
   constructor() { }
