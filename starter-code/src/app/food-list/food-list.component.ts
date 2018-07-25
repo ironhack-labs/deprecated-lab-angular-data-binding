@@ -24,4 +24,9 @@ return afood.name.toLowerCase().includes(searchInput.value.toLowerCase());
   })
   }
 
+  addFood(){
+    console.log(this.newFood);
+    this.foods.unshift(this.newFood);
+  }
+
 }

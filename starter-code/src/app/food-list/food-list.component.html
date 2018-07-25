@@ -18,22 +18,24 @@
   </div>
   </div>
   <div class="newFood">
+    <h2>Add a new food</h2>
     <div class="formInput">
       <label for="">Name:</label>
-      <input type="text" name="" id="">
+      <input type="text" name="" id="" [(ngModel)]="newFood.name">
     </div>
     <div class="formInput">
         <label for="">Calories:</label>
-        <input type="text" name="" id="">
+        <input type="text" name="" id="" [(ngModel)]="newFood.calories">
       </div>
     <div class="formInput">
-        <label for="">Image:</label>
-        <input type="text" name="" id="">
+        <label for="">Image URL:</label>
+        <input type="text" name="" id="" [(ngModel)]="newFood.image">
       </div>     
     <div class="formInput">
         <label for="">Quantity:</label>
-        <input type="text" name="" id="">
+        <input type="text" name="" id="" [(ngModel)]="newFood.quantity">
       </div>     
+      <button (click)="addFood()">Submit new food</button>
   </div>
 </div>
 <!-- <div>
