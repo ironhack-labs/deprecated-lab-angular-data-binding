@@ -25,13 +25,23 @@ export class FoodListComponent implements OnInit {
   }
 
   addTodayFood(item: foodItem) {
-    if (this.todayFood.indexOf(item) != -1) {
-      this.todayFood[this.todayFood.indexOf(item)].quantity++;
+    let copyObj: foodItem = {
+      name: '',
+      quantity: 0,
+      image: '',
+      calories: 0
+    };
+
+    Object.assign(copyObj, item);
+    if (this.todayFood.indexOf(copyObj) != -1) {
+      this.todayFood[this.todayFood.indexOf(copyObj)].quantity++;
     } else {
-      item.quantity=1;
-      this.todayFood.push(item);
+      if(copyObj.quantity<=1){
+        copyObj.quantity = 1
+      }
+      this.todayFood.push(copyObj);
     }
-    this.caloriesConsumed += item.quantity * item.calories;
+    this.caloriesConsumed += copyObj.quantity * copyObj.calories;
   }
 
   addItem() {
