@@ -1,21 +1,26 @@
 <p>
-  food-list works!
+  The Epic Food List
 </p>
 <div class="formRow">
+  <div class="searchDiv">
+<h2>Search for a food</h2>
 <div class="searchForm">
-<label for="search">Search for a Food</label>
+<label for="search">Search</label>
 <input type="text" #searcher>
 <button (click)="findFood(searcher)"> Enter </button>
+</div>
 <h3>Search Results</h3>
 <div class="foodAllSearch">
   <div *ngFor="let thefood of foods2">
       <div class="foodBoxSearch">
         <img [src]="thefood.image" alt="">
         <div>{{thefood.name}}</div>  
-          <div>{{thefood.calories}}</div>   
+          <div>{{thefood.calories}}</div>  
+          <button (click)="addToday(thefood)">add to Today's foods</button> 
           </div>
         </div>
-  </div>
+      </div>
+
   </div>
   <div class="newFood">
     <h2>Add a new food</h2>
@@ -37,25 +42,20 @@
       </div>     
       <button (click)="addFood()">Submit new food</button>
   </div>
-</div>
-<!-- <div>
-<div>
-  <label for=""></label>
-  <input type="text" name="" id="">
-</div>
-<div>
-  <label for=""></label>
-  <input type="text" name="" id="">
+  <div class="todayFoodBig">
+    <h2>Todays Foods</h2>
+    <div class="todaysFood">
+    <div *ngFor="let thefood of todaysfoods">
+        <div class="todaysFoodBox">
+      <img [src]="thefood.image" alt="">
+      <div>{{thefood.name}}</div>  
+      <div>{{thefood.calories}}</div>   
+      </div>
+      </div>
+    </div>
   </div>
-<div>
-  <label for=""></label>
-  <input type="text" name="" id="">
 </div>
-<div>
-  <label for=""></label>
-  <input type="text" name="" id="">
-</div>
-</div> -->
+
 <hr>
 <h3>All The Food</h3>
 <div class="foodAll">
@@ -64,6 +64,7 @@
 <img [src]="thefood.image" alt="">
 <div>{{thefood.name}}</div>  
 <div>{{thefood.calories}}</div>   
+<button (click)="addToday(thefood)">add to Today's foods</button>
 </div>
 </div>
 </div>

@@ -10,12 +10,14 @@ import { AbstractFormGroupDirective } from '../../../node_modules/@angular/forms
 export class FoodListComponent implements OnInit {
 foods: Array<any>;
 foods2: Array<any>;
+todaysfoods: Array<any>;
 newFood:any = {};
 
   constructor() { }
 
   ngOnInit() {
 this.foods = foods;
+this.todaysfoods = []
   }
 
   findFood(searchInput){
@@ -28,5 +30,10 @@ return afood.name.toLowerCase().includes(searchInput.value.toLowerCase());
     console.log(this.newFood);
     this.foods.unshift(this.newFood);
   }
+
+addToday(afood){
+this.todaysfoods.unshift(afood)  ;
+console.log(this.todaysfoods)
+}
 
 }

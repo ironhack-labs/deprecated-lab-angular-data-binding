@@ -13,7 +13,8 @@
     flex-wrap:wrap;
 }
 .foodAll img{
-    width:200px;
+    max-height:100px;
+    max-width: 200px;
 }
 .foodBoxSearch{
     display:flex;
@@ -30,7 +31,8 @@
     flex-wrap:wrap;
 }
 .foodBoxSearch img{
-    width:150px;
+    max-width:100px;
+    max-height: 50px;
 }
 
 .formRow{
@@ -40,5 +42,28 @@
 
 .searchForm{
     display:flex;
+    flex-direction:row;
+}
+.todayFoodBig{
+    display:flex;
     flex-direction:column;
+    align-content:center;
+}
+.todaysFood{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    width: 30vw;
+}
+.todaysFood img{
+    max-width: 100px;
+    max-height: 50px;
+}
+
+.todaysFoodBox {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: 80px;
+    height:100px;
 }
