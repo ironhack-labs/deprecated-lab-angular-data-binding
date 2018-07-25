@@ -9,13 +9,19 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
-  todaysFoods: Object[]
+  todaysFoods: Object[];
   todayItem: Object = {};
+  show: boolean;
 
+  toggle(){
+    this.show = !this.show
+  }
 
   constructor() { }
   ngOnInit() {
     this.foods = foods;
+    this.todaysFoods = [];
+
   }
 
   addFood(){
@@ -25,8 +31,12 @@ export class FoodListComponent implements OnInit {
     // clear inputs
     this.newFood = ""
   }
-  addToday(){
-    this.todaysFoods.push(this.todayItem)
+  addToday(food){
+    
+    console.log(food);
+    console.log(this.todaysFoods);
+    this.todaysFoods.push(food)
+    console.log(this.todaysFoods);
   }
 
 }

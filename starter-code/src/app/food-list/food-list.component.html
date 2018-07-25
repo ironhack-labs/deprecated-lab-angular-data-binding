@@ -1,6 +1,7 @@
 
 
-<div>
+<button (click)="toggle()">Add new food</button>
+<div *ngIf="show">
   <span>Create Food Item</span>
   <!-- <input #newL (keydown.enter) = "foods.push({name:newL.value})" placeholder="Agrega el Nombre Comida" type="text"> -->
   <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
@@ -22,7 +23,7 @@
   <span>Calories: {{food.calories}}</span><br>
   <span>Quantity: {{food.quantity}}</span><br>
   <img [src]="food.image" alt="{{food.image}}" style="width:200px">
-  <button (click)="addToday()">Add to today's Foods</button>
+  <button (click)="addToday(food)">Add to today's Foods</button>
 </div>
 
 <h2> Today's food items</h2>
