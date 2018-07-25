@@ -11,7 +11,7 @@ export class FoodListComponent implements OnInit {
   newFood: Object = {};
   allFoodToday: Array<any> =[];
   totalCal: number = 0;
-  
+  formShowing:boolean = false;
 
   constructor() { }
 
@@ -20,11 +20,16 @@ export class FoodListComponent implements OnInit {
     
   }
 
+
 filterFood(sItem) {
   console.log(sItem.value);
   const mySearch = new RegExp(sItem.value, 'i');
   this.foods = foods.filter(it => it.name.match(mySearch));
  
+}
+
+toggleForm() {
+  this.formShowing = !this.formShowing;
 }
 
 todaysFood(foodItem) {
@@ -50,6 +55,8 @@ addNewFood(name, calories, photo, quantity){
     image: photo.value,
     quantity: quantity.value
   })
+this.toggleForm();
+
  }
 
 
