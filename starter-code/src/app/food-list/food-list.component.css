@@ -1,0 +1,31 @@
+* {
+    display: flex;
+}
+.foods-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+.food {
+    flex-direction: column;
+    border: 1px solid black;
+    line-height: 1.5;
+    border-radius: 5%;
+    padding: 5px;
+    margin: 15px;
+}
+.search, .addFood{
+    margin: 30px;
+}
+
+.food button {
+    text-align: center;
+    margin: auto;
+}
