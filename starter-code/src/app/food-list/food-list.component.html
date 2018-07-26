@@ -1,20 +1,14 @@
-<!-- Main section -->
+<!-- Search form -->
+<div class="container-fluid search-form-container">
+  <form class="search-form">
+    <h3>Find Food:</h3>
+    <input #searchBox (keyup)=filter(searchBox.value) class="form-control" type="search" aria-label="Search">
+  </form>
+</div>
+
 <div class="row">
-
-  <!-- Search form -->
-  <div class="container">
-    <div class="container search-form-container">
-      <h3>Find Food:</h3>
-      <div class="search-form">
-        <form class="form-inline">
-          <input #searchBox (keyup)=filter(searchBox.value) class="form-control mr-sm-2" type="search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="container col col-md-12 col-lg-6 col-xl-4" *ngFor="let eachFood of foodService.foodsList">
+  <!-- Food tags -->
+  <div class=" col col-md-12 col-lg-6 col-xl-4" *ngFor="let eachFood of foodService.foodsList">
     <div class="food-tag">
       <img class="food-tag-image" [src]=eachFood.image [alt]=eachFood.name>
       <div class="food-tag-content">

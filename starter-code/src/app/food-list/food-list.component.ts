@@ -15,7 +15,9 @@ export class FoodListComponent implements OnInit {
     this.foodService.searchFood(value);
   }
 
-  
+  addFoodOfDay(food) {
+    this.foodService.addFoodOfDay(food);
+  }
 }
 
 

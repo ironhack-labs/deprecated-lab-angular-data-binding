@@ -7,13 +7,13 @@ import { FoodService } from '../food.service';
   styleUrls: ['./food-of-day.component.css']
 })
 export class FoodOfDayComponent implements OnInit {
-  constructor(private foodService: FoodService) {}
+  constructor(private foodService: FoodService) { }
 
   ngOnInit() {
   }
 
   addFood(name, calories, image) {
-    this.foodService.addFood({name: name.value, calories: calories.value, image: image.value});
+    this.foodService.addFood({ name: name.value, calories: calories.value, image: image.value });
     name.value = '';
     calories.value = '';
     image.value = '';
