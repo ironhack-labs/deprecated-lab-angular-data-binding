@@ -4,30 +4,32 @@ import foods from './foods';
 
 @Injectable()
 export class FoodService {
-  foodsList:Array<any>;
+  foodsListAll:Array<any>;
+  foodsListVisible:Array<any>;
   todaysFoodsList:Array<any> = [];
   totalCalories:number = 0;
 
-  constructor() { this.foodsList = foods; }
+  constructor() { this.foodsListAll = foods; this.foodsListVisible = this.foodsListAll; }
 
   addFood(food) {
-    this.foodsList.push({
+    this.foodsListAll.push({
       name: food.name,
       calories: food.calories,
       image: food.image,
       quantity: 0
     });
+    this.foodsListVisible = this.foodsListAll;
   }
 
   searchFood(value) {
-    this.foodsList = foods;
+    this.foodsListVisible = this.foodsListAll;
     let tempArray = [];
-    this.foodsList.forEach(food => {
+    this.foodsListVisible.forEach(food => {
       if (food.name.toLowerCase().includes(value.toLowerCase())) {
         tempArray.push(food);
       }
     });
-    this.foodsList = tempArray;
+    this.foodsListVisible = tempArray;
   }
 
   addFoodOfDay(dayFood) {

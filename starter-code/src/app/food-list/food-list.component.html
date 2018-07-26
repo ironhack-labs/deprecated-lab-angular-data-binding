@@ -8,7 +8,7 @@
 
 <div class="row">
   <!-- Food tags -->
-  <div class=" col col-md-12 col-lg-6 col-xl-4" *ngFor="let eachFood of foodService.foodsList">
+  <div class=" col col-md-12 col-lg-6 col-xl-4" *ngFor="let eachFood of foodService.foodsListVisible">
     <div class="food-tag">
       <img class="food-tag-image" [src]=eachFood.image [alt]=eachFood.name>
       <div class="food-tag-content">
