@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import foodList from '../foods';
-
+// import foodList from '../foods'; DELETED THIS. Getting it from the service
+import {FoodService} from '../services/food.service'
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
@@ -13,10 +13,10 @@ export class FoodListComponent implements OnInit {
   todayFoodsCalories: Array<number> = [];
   totalCalories:number = 0; 
   newFood: Object = {};
-  constructor() { }
+  constructor(public myService: FoodService) { }
 
   ngOnInit() {
-    this.foods = foodList;
+    this.foods = this.myService.serviceFoodList;
   }
 
 
@@ -24,7 +24,7 @@ export class FoodListComponent implements OnInit {
 // this.theSearchTerm =
 
 searchFoods(){
-  this.foods = foodList.filter((oneFood)=>{
+  this.foods = this.myService.serviceFoodList.filter((oneFood)=>{
     new RegExp(oneFood,'i');
     return oneFood.name.toLowerCase().match(this.theSearchTerm.toLowerCase());
     // fancy regexp solution
@@ -52,16 +52,7 @@ searchFoods(){
   }
 
 
-    addFood(name, image, calories){
-      console.log(name.value, image.value, calories.value);
-      this.foods.push({
-        name: name.value, 
-        image: image.value, 
-        calories: calories.value
-      })
-      
-    document.getElementById('cooldiv').hidden = true;
-    }
+
 
 addToTodayList(name, calories){
   this.todayFoodsCalories = [];
