@@ -1,3 +1,76 @@
 <p>
-  food-list works!
+  The Epic Food List
 </p>
+<div class="formRow">
+  <div class="searchDiv">
+<h2>Search for a food</h2>
+<div class="searchForm">
+<label for="search">Search</label>
+<input type="text" #searcher>
+<button (click)="findFood(searcher)"> Enter </button>
+</div>
+<h3>Search Results</h3>
+<div class="foodAllSearch">
+  <div *ngFor="let thefood of foods2">
+      <div class="foodBoxSearch">
+        <img [src]="thefood.image" alt="">
+        <div>{{thefood.name}}</div>  
+          <div>{{thefood.calories |stringy}}</div>  
+          <button (click)="addToday(thefood)">add to Today's foods</button> 
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <div>
+  <h2>Add a new food</h2>
+  <button (click)="toggleForm()" *ngIf="!formShowing">Add a new Food</button>
+  <div class="newFood" *ngIf="formShowing">
+
+    <div class="formInput" >
+      <label for="">Name:</label>
+      <input type="text" name="" id="" [(ngModel)]="newFood.name">
+    </div>
+    <div class="formInput">
+        <label for="">Calories:</label>
+        <input type="text" name="" id="" [(ngModel)]="newFood.calories">
+      </div>
+    <div class="formInput">
+        <label for="">Image URL:</label>
+        <input type="text" name="" id="" [(ngModel)]="newFood.image">
+      </div>     
+    <div class="formInput">
+        <label for="">Quantity:</label>
+        <input type="text" name="" id="" [(ngModel)]="newFood.quantity">
+      </div>     
+      <button (click)="addFood()" (click)="toggleForm()">Submit new food</button>
+  </div>
+</div>
+  <div class="todayFoodBig">
+    <h2>Today's Foods</h2>
+    <div class="todaysFood">
+    <div *ngFor="let thefood of todaysfoods">
+        <div class="todaysFoodBox">
+      <img [src]="thefood.image" alt="">
+      <div>{{thefood.name}}</div>  
+      <div>{{thefood.calories | stringy}}</div>   
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+<h3>All The Food</h3>
+<div class="foodAll">
+<div *ngFor="let thefood of foods">
+  <div class="foodBox">
+<img [src]="thefood.image" alt="">
+<div>{{thefood.name}}</div>  
+<div>{{thefood.calories | stringy}}</div>   
+<button (click)="addToday(thefood)">add to Today's foods</button>
+</div>
+</div>
+</div>

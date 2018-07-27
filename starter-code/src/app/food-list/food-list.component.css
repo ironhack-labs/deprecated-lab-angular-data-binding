@@ -1,0 +1,69 @@
+.foodBox{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items:center;
+    width: 200px;
+    height: 200px;
+}
+.foodAll{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.foodAll img{
+    max-height:100px;
+    max-width: 200px;
+}
+.foodBoxSearch{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items:center;
+    width: 150px;
+    height: 150px;
+}
+.foodAllSearch{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.foodBoxSearch img{
+    max-width:100px;
+    max-height: 50px;
+}
+
+.formRow{
+    display:flex;
+    justify-content: space-between;
+    padding-left: 100px;
+}
+
+.searchForm{
+    display:flex;
+    flex-direction:row;
+}
+.todayFoodBig{
+    display:flex;
+    flex-direction:column;
+    align-content:center;
+}
+.todaysFood{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    width: 30vw;
+}
+.todaysFood img{
+    max-width: 100px;
+    max-height: 50px;
+}
+
+.todaysFoodBox {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    height:100px;
+}
