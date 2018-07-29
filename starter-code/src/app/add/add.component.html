@@ -1,0 +1,17 @@
+<button (click)="showForm()">Wanna add a food?</button>
+<div [hidden]="true" id="cooldiv" class="megaform">
+
+<div class ="form-group">
+    <label for="contact-email">Food Name</label>
+    <input #name class="form-control" type="text">
+  </div>
+  <div class ="form-group">
+    <label for="contact-phone">Food Image URL</label>
+    <input #image class="form-control" type="text">
+  </div>
+  <div class ="form-group">
+    <label for="contact-image">Food Calories</label>
+    <input #calories class="form-control" type="number" min = "0" >
+  </div>
+  <button (click)="addFood(name, image, calories)">Add New Food</button>  
+</div>
