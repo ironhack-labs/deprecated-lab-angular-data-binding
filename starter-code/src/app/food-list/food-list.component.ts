@@ -35,8 +35,14 @@ export class FoodListComponent implements OnInit {
 
   addTodayFood(food, form){
     for (let i=1; i<=form.value.quantity; i++){
-      this.todaysFoods.push(food);
-      this.todaysCalories += food.calories
+      food.quantity++
+      if (this.todaysFoods.indexOf(food)>=0){
+        this.todaysCalories += food.calories;
+        console.log(this.todaysFoods[this.todaysFoods.indexOf(food)])
+      } else{
+        this.todaysFoods.push(food);
+        this.todaysCalories += food.calories;
+      }
     }
   }
 
