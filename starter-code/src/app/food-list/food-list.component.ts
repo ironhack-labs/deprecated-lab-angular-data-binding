@@ -55,6 +55,7 @@ export class FoodListComponent implements OnInit {
     if (FoodInList) {
       FoodInList.quantity += +qty;
     } else {
+      food.quantity = +qty;
       this.todayList.push(food);
     }
 
