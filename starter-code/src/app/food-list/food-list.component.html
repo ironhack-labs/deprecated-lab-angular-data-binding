@@ -20,7 +20,7 @@
   <div class="item" *ngFor="let food of foodList | filter:'name':search ">
     <div class="image"><img src="{{food.image}}"/></div>
     <div>
-      <p>{{food.name}} <span>{{food.calories}}</span></p>
+      <p>{{food.name}} <span style="color:red;font-size: 10px;">{{food.calories}} cals</span></p>
       <p>
         <button (click)="addTodayFoodFn(food, foodQuantity.value)">+</button><input #foodQuantity type="number" value="1">
       </p>
