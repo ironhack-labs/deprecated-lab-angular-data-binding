@@ -1,0 +1,66 @@
+.addForm {
+    width: 400px;
+  }
+  
+  .addForm input {
+    height: 50px;
+    font-size: 20px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid;
+    outline: 0;
+  }
+  
+  .addForm label {
+    display: block;
+    margin: 10px 0 0;
+    width: 100%;
+  }
+  
+  .addForm button {
+    display: block;
+    margin: 10px 0 0;
+    width: 100%;
+    font-size: 17px;
+    padding: 10px;
+    border: 0;
+    background: #ddd;
+    border-radius: 5px;
+  cursor: pointer;
+  outline:0;
+  }
+
+  ul.todayList {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 10px 40px;
+    background: #ddd;
+}
+
+.foodList .item {
+    width: 260px;
+    display: flex;
+    border: 1px solid;
+    box-sizing: border-box;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.foodList {
+    margin-top:30px;
+    width: 85%;
+    justify-items: baseline;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.foodList .item>.image {
+    width: 60px;
+}
+
+.foodList .item>.image img {
+    width: 60px;
+}
