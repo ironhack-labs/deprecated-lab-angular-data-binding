@@ -1,0 +1,70 @@
+<p> IronNutrition </p>
+
+<div class="formRow">
+  <div>
+    <h2>Search food</h2>
+    <div class="searchForm">
+      <label for="search">Search</label>
+      <input type="text" #searcher>
+      <button (click)="findFood()"> Enter </button>
+    </div>
+    <h3>Results</h3>
+    <div class="foodAllSearch">
+      <div *ngFor="let food of foods2">
+        <div class="foodBoxSearch">
+          <img [src]="food.image" alt="">
+          <p>{{food.name}}</p>
+          <p>Calories: {{food.calories}}</p>
+          <button (click)="addToday(food)">add food</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2>Add a new food</h2>
+    <button *ngIf="!formShowing">Add new: </button>
+    <div class="newFood" *ngIf="formShowing">
+      <div class="formInput">
+        <label for="">Name:</label>
+        <input type="text" [(ngModel)]="newFood.name" >
+      </div>
+      <div class="formInput">
+        <label for="">Calories:</label>
+        <input type="text" name="" id="" [(ngModel)]="newFood.calories">
+      </div>
+      <div class="formInput">
+        <label for="">Image URL:</label>
+        <input type="text" name="" id="" [(ngModel)]="newFood.image">
+      </div>
+      <div class="formInput">
+        <label for="">Quantity:</label>
+        <input type="text" name="" id="" [(ngModel)]="newFood.quantity">
+      </div>
+      <button (click)="addFood()">Submit new food</button>
+    </div>
+  </div>
+  <div class="todayFoodBig">
+    <h2>List of added foods: </h2>
+    <div class="todaysFood">
+      <div *ngFor="let food of todaysfoods">
+        <div class="todaysFoodBox">
+          <img [src]="food.image" alt="">
+          <div>{{food.name}}</div>
+          <div>{{food.calories}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h3>All The Food</h3>
+<div class="foodAll">
+  <div *ngFor="let food of foods">
+    <div class="foodBox">
+      <img [src]="food.image" alt="">
+      <div>{{food.name}}</div>
+      <div>{{food.calories}}</div>
+      <button (click)="addToday(food)">add to list</button>
+    </div>
+  </div>
+</div>
