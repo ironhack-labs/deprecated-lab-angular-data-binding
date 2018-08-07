@@ -34,15 +34,31 @@ export class FoodListComponent implements OnInit {
 
   addTodayFoods(index, quantity) {
     let lastItem = 0;
+    let itemFound = -1;
 
     this.newFood.name = this.foodList[index].name;
     this.newFood.calories = this.foodList[index].calories;
     this.newFood.image = this.foodList[index].image;
     this.newFood.quantity = this.foodList[index].quantity;
 
-    lastItem = this.todayFoods.push(this.newFood);
-    this.todayFoods[lastItem - 1].quantity = quantity;
-    this.todayFoodsCalories += this.newFood.calories * quantity;
+    itemFound = this.todayFoods.findIndex(food => food.name === this.newFood.name);
+    if (itemFound === -1 && quantity > 0) {
+        lastItem = this.todayFoods.push(this.newFood) - 1;
+    } else if (itemFound > -1) {
+      if (this.todayFoods[itemFound].quantity > 0) {
+        lastItem = itemFound;
+      } else {
+        this.todayFoods.splice(itemFound, 1);
+        lastItem = -1;
+      }
+    } else {
+      lastItem = -1;
+    }
+
+    if (lastItem > -1) {
+      this.todayFoods[lastItem].quantity +=  parseInt(quantity, 10);
+      this.todayFoodsCalories += this.newFood.calories * quantity;
+    }
 
     this.clearNewFood();
   }
