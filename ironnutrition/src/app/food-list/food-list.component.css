@@ -1,0 +1,17 @@
+img {
+  max-width: 200px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.box {
+  margin: 10px;
+  background-color: gray;
+  border: 1px solid black;  
+  list-style-type: none;
+}
