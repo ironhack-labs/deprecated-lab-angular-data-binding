@@ -14,7 +14,6 @@ export class FoodListComponent implements OnInit {
       name: '',
       calories: '',
       image: '',
-      quantity: ''
   };
 
   visibleForm = false;
@@ -27,9 +26,20 @@ export class FoodListComponent implements OnInit {
     this.foods = foodList;
   }
 
-  addToList(i){
-    this.myFoodList.push(this.foods[i]);
-    this.cal += this.foods[i].calories;
+  addToList(index,quant){
+    let position = this.myFoodList.indexOf(this.foods[index]);
+    let quantNum = Number(quant.value);
+    
+    if(position >= 0) {
+      this.myFoodList[position].quantity += quantNum;
+      this.cal += Number(this.foods[index].calories) * quantNum;
+    }
+    else{
+      this.foods[index].quantity = quantNum;
+      this.myFoodList.push(this.foods[index]);
+      this.cal += Number(this.foods[index].calories) * quantNum;
+    }
+    
   }
 
   toggleForm(){
@@ -42,7 +52,6 @@ export class FoodListComponent implements OnInit {
       name: '',
       calories: '',
       image: '',
-      quantity: ''
     }
     this.toggleForm();
   }

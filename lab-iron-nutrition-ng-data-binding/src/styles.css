@@ -21,10 +21,7 @@ ul{
   margin:0 auto;
   padding: 40px 15px;
 }
-.food-page-container{
-  display: flex;
-  justify-content: space-between;
-}
+
 .add-food-form{
   width: 300px;
   border: 1px solid #ececee;
@@ -53,7 +50,7 @@ button:hover{
   opacity: .7;
 }
 .foods{
-  height: 70vh;
+  height: 50vh;
   overflow: scroll;
   margin-top: 20px;
 }
@@ -78,15 +75,9 @@ button:hover{
   display: flex;
   align-items: center;
 }
-.foods li figure{
-  width: 100px;
-  height:100px;
-  border-radius: 50%;
-  border: 2px solid #ececee;
-  overflow: hidden;
-}
+
 .foods li figure img{
-  width: 140px
+  width: 100px;
 }
 .food-info{
   width: 70%;
@@ -102,6 +93,7 @@ button:hover{
   margin-right: 0;
 }
 .my-food-list{
+  width: 100%;
   padding: 15px;
   border: 1px solid #ececee;
 }
@@ -114,7 +106,8 @@ button:hover{
 .my-food-list ul li{
   margin-bottom: 10px;
 }
-@media (min-width:768px){
+
+@media (min-width:500px){
   .food-and-form-wrapper{
     width: 55%;
     margin-right: 5%;
@@ -125,5 +118,12 @@ button:hover{
   }
   .my-food-list{
     width: 40%;
+  }
+  .food-page-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .foods{
+    height: 70vh;
   }
 }

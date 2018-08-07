@@ -9,9 +9,6 @@
         <input placeholder="Calories" type="text" [(ngModel)]="newFood.calories">
     </div>
     <div class="form-row">
-        <input placeholder="Quantity" type="text" [(ngModel)]="newFood.quantity">
-    </div>
-    <div class="form-row">
         <input placeholder="Image" type="text" [(ngModel)]="newFood.image">
     </div>
       
@@ -28,7 +25,7 @@
             </figure>
             <div class="food-info">
                 <p>{{food.name}}</p>
-                <p><button (click)="addToList(ix)">+</button><input type="number" value="{{food.quantity}}"></p>
+                <p><button (click)="addToList(ix,quantity)">+</button><input type="number" value="1" #quantity></p>
                 <p>{{food.calories}}</p>
             </div>
         </li>
@@ -37,10 +34,10 @@
   </div>
 
   <div class="my-food-list">
-    <h2>Todays food <span>{{cal}}</span> Cal</h2>
+    <h2>Todays food <span>{{cal|number:'1.2-2'}}</span> Cal</h2>
     <ul>
       <li *ngFor="let myfood of myFoodList">
-        <div class="name">{{myfood.name}} (cal: {{myfood.calories}})</div>
+        <div class="name">{{myfood.name}} (cal: {{myfood.calories}}) : <span class="quantity">x {{myfood.quantity}}</span></div>
       </li>
     </ul>
   </div>
