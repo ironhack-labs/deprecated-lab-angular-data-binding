@@ -1,12 +1,14 @@
-<div>
+<div class="foods">
     <ul>
         <li *ngFor="let food of foods, let ix = index">
-            <p>{{food.name}}</p>
-            <p>{{food.calories}} Kcal</p>
             <figure>
                 <img [src]="food.image">
             </figure>
-            <button (click)="addTodaysFoods(ix)">Add to Today's Foods!</button>
+            <div class="food-info">
+                <p>{{food.name}}</p>
+                <p>{{food.calories}} Kcal</p>
+                <button (click)="addTodaysFoods(ix)">Add to Today's Foods!</button>
+            </div>
         </li>
     </ul>
 </div>
@@ -31,14 +33,17 @@
     <button (click)="addFood()">Submit New Food</button>
 </div>
 
-<div *ngIf="!listOn">
+<div class="foods" *ngIf="!listOn">
     <ul>
         <li *ngFor="let todayFood of todayFoods, let ix = index">
-            <p>{{todayFood.name}}</p>
-            <p>{{todayFood.calories}} Kcal</p>
             <figure>
                 <img [src]="todayFood.image">
             </figure>
+            <div class="food-info">
+                <p>{{todayFood.name}}</p>
+                <p>{{todayFood.calories}} Kcal</p>
+                
+            </div>
         </li>
     </ul>
     <p>Total kcal: {{totalCalories}}</p>
