@@ -1,0 +1,55 @@
+.name {
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+  height: 200px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+li {
+  width: 28%;
+  margin: 10px;
+  padding: 10px;
+  list-style-type: none;
+  background-color: #e0e0e0
+}
+
+button {
+  display: block;
+  margin: 30px auto;
+  padding: 10px;
+} 
+
+.new-food {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.new-food h2 {
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.quantity button {
+  margin: 0;
+  margin: 10px 0;
+}

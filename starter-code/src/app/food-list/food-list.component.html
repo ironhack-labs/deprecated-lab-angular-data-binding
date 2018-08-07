@@ -1,0 +1,54 @@
+<div>
+  <ul>
+    <li *ngFor="let item of foodList, let ix = index">
+        <p class="name">{{item.name}}</p>
+        <p>{{item.calories}} KCal</p>
+        <img [src]="item.image" alt="item.name">
+        <div class="quantity">
+          <p>Quantity: {{item.quantity}}</p>
+          <button (click)="addTodayFoods(ix)">Add Todays Foods</button>
+        </div>
+    </li>
+  </ul>
+</div>
+<hr>
+<h1>Today Foods</h1>
+<div>
+    <ul>
+      <li *ngFor="let item of todayFoods">
+          <p class="name">{{item.name}}</p>
+          <p>{{item.calories}} KCal</p>
+          <img [src]="item.image" alt="item.name">
+          <div class="quantity">
+            <p>Quantity: {{item.quantity}}</p>
+          </div>
+      </li>
+    </ul>
+    <h3>Total Calories: {{todayFoodsCalories}} KCal</h3>
+  </div>
+<hr>
+<div>
+  <button (click)="showNewFoodForm = true">Add Food</button>
+</div>
+<hr>
+<div class="new-food" *ngIf="showNewFoodForm">
+  <h2>New Food</h2>
+  <div class="field">
+    <label for="food-name">Name</label>
+    <input type="text" [(ngModel)]="newFood.name">
+  </div>
+  <div class="field">
+    <label for="food-calories">Calories</label>
+    <input type="text" [(ngModel)]="newFood.calories">
+  </div>
+  <div class="field">
+    <label for="food-quantity">Quantity</label>
+    <input type="text" [(ngModel)]="newFood.quantity">
+  </div>
+  <div class="field">
+    <label for="food-image">Image</label>
+    <input type="text" [(ngModel)]="newFood.image">
+  </div>
+  
+  <button (click)="addFood()">Submit New Food</button>
+</div>
