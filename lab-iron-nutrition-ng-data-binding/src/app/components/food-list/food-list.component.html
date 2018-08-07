@@ -37,7 +37,7 @@
     <h2>Todays food <span>{{cal|number:'1.2-2'}}</span> Cal</h2>
     <ul>
       <li *ngFor="let myfood of myFoodList">
-        <div class="name">{{myfood.name}} (cal: {{myfood.calories}}) : <span class="quantity">x {{myfood.quantity}}</span></div>
+        <div class="name">{{myfood.name}} (cal: {{myfood.calories}}) <span *ngIf="myfood.quantity > 1" class="quantity">: x {{myfood.quantity}}</span></div>
       </li>
     </ul>
   </div>
