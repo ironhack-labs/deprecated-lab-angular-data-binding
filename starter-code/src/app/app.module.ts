@@ -13,7 +13,7 @@ import { FoodListComponent } from './food-list/food-list.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule, //need to import this for forms functionality, ngModel
     HttpModule
   ],
   providers: [],

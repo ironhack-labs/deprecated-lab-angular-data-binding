@@ -1,3 +1,42 @@
-<p>
-  food-list works!
-</p>
+<div class="mx-auto">
+  <label for="searchBar">Search Bar:</label>
+  <input #searchBar [(ngModel)]="theSearchTerm" (keyup)="searchFunction()" type="text"/>
+</div>
+
+<button (click)="toggleForm()">Add New Food</button>
+<form (submit)="addNewFood()" *ngIf="formShowing">
+  <h3>Add a new Food Item</h3>
+  <label>Name: </label>
+  <br />
+  <input name="foodname" [(ngModel)]="newFoodItem.name" type="text" />
+  <br />
+  <label>Calories: </label>
+  <br />
+  <input name="caloriesname" [(ngModel)]="newFoodItem.calories" type="number" />
+  <br />
+  <label>Image: </label>
+  <br />
+  <input name="imagename" [(ngModel)]="newFoodItem.image" type="text" />
+  <br />
+  <label>Quantity </label>
+  <br />
+  <input name="quantityname" [(ngModel)]="newFoodItem.quantity" type="number" />
+  <br />
+  <button #addFood>submit</button>
+</form>
+
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let aFood of searchedFoods" class="card-deck foodbox">
+      <div class="card" style="width: 20rem">
+        <img class="card-img-top image-fix" [src]="aFood.image" alt="picture of food"/>
+        <div class="card-body">
+          <h5 class="card-title">Food Name: {{aFood.name}}</h5>
+          <p class="card-text">Calories: {{aFood.calories}}</p>
+          <p class="card-text">Quantity: {{aFood.quantity}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
