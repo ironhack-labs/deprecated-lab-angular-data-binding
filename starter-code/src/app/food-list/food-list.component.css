@@ -43,13 +43,20 @@ button {
   margin-bottom: 10px;
 }
 
-.quantity {
+.quantity-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.quantity button {
+.quantity-card input {
+  height: 30px;
+  margin: 10px 10px;
+  font-size: 1em;
+  width: 50px;
+}
+
+.quantity-card button, label {
   margin: 0;
   margin: 10px 0;
 }

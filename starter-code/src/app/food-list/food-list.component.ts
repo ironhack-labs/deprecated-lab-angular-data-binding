@@ -8,14 +8,14 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
   foodList: any[];
-  newFood: Object = {
+  newFood: any = {
     name: '',
     calories: 0,
     image: '',
     quantity: 0
   };
   showNewFoodForm = false;
-  todayFoods: Object[];
+  todayFoods: any[];
   todayFoodsCalories: 0;
 
   constructor() { }
@@ -28,17 +28,31 @@ export class FoodListComponent implements OnInit {
 
   addFood() {
     this.foodList.push(this.newFood);
+    this.clearNewFood();
+    this.showNewFoodForm = false;
+  }
+
+  addTodayFoods(index, quantity) {
+    let lastItem = 0;
+
+    this.newFood.name = this.foodList[index].name;
+    this.newFood.calories = this.foodList[index].calories;
+    this.newFood.image = this.foodList[index].image;
+    this.newFood.quantity = this.foodList[index].quantity;
+
+    lastItem = this.todayFoods.push(this.newFood);
+    this.todayFoods[lastItem - 1].quantity = quantity;
+    this.todayFoodsCalories += this.newFood.calories * quantity;
+
+    this.clearNewFood();
+  }
+
+  clearNewFood() {
     this.newFood = {
       name: '',
       calories: 0,
       image: '',
       quantity: 0
     };
-    this.showNewFoodForm = false;
-  }
-
-  addTodayFoods(index) {
-    this.todayFoods.push(this.foodList[index]);
-    this.todayFoodsCalories += this.foodList[index].calories;
   }
 }

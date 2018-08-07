@@ -4,9 +4,12 @@
         <p class="name">{{item.name}}</p>
         <p>{{item.calories}} KCal</p>
         <img [src]="item.image" alt="item.name">
-        <div class="quantity">
-          <p>Quantity: {{item.quantity}}</p>
-          <button (click)="addTodayFoods(ix)">Add Todays Foods</button>
+        <div class="quantity-card">
+          <div>
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" value="1" #qty>
+          </div>
+          <button (click)="addTodayFoods(ix, qty.value)">Add Todays Foods</button>
         </div>
     </li>
   </ul>
