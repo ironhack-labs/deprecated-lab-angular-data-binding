@@ -1,0 +1,45 @@
+<div class="food-page-container">
+
+  <div class="food-and-form-wrapper">
+  <div  *ngIf="visibleForm" class="add-food-form">
+    <div class="form-row">
+        <input placeholder="Name" type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div class="form-row">
+        <input placeholder="Calories" type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div class="form-row">
+        <input placeholder="Image" type="text" [(ngModel)]="newFood.image">
+    </div>
+      
+    <button (click)="addFood()">Add New Food</button>
+  </div>
+
+  <button *ngIf="!visibleForm" (click)=toggleForm()>Add Food</button>
+
+  <div class="foods">
+    <ul>
+        <li *ngFor="let food of foods, let ix=index">
+            <figure>
+                <img [src]="food.image" alt="{{food.name}}">
+            </figure>
+            <div class="food-info">
+                <p>{{food.name}}</p>
+                <p><button (click)="addToList(ix,quantity)">+</button><input type="number" value="1" #quantity></p>
+                <p>{{food.calories}}</p>
+            </div>
+        </li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="my-food-list">
+    <h2>Todays food <span>{{cal|number:'1.2-2'}}</span> Cal</h2>
+    <ul>
+      <li *ngFor="let myfood of myFoodList">
+        <div class="name">{{myfood.name}} (cal: {{myfood.calories}}) <span *ngIf="myfood.quantity > 1" class="quantity">: x {{myfood.quantity}}</span></div>
+      </li>
+    </ul>
+  </div>
+
+</div>
