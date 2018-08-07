@@ -1,0 +1,45 @@
+<div>
+    <ul>
+        <li *ngFor="let food of foods, let ix = index">
+            <p>{{food.name}}</p>
+            <p>{{food.calories}} Kcal</p>
+            <figure>
+                <img [src]="food.image">
+            </figure>
+            <button (click)="addTodaysFoods(ix)">Add to Today's Foods!</button>
+        </li>
+    </ul>
+</div>
+
+<button (click)="showAddForm()">Add a food</button>
+<button (click)="showTodaysFoodsList()">Show Today's Foods list</button>
+
+<div class="add-form" *ngIf="!formOn">
+    <div class="form-row">
+        <label for="contact-name">Name: </label>
+        <input type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div class="form-row">
+        <label for="contact-email">Calories</label>
+        <input type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div class="form-row">
+        <label for="contact-phone">Image: </label>
+        <input type="text" [(ngModel)]="newFood.image">
+    </div>
+      
+    <button (click)="addFood()">Submit New Food</button>
+</div>
+
+<div *ngIf="!listOn">
+    <ul>
+        <li *ngFor="let todayFood of todayFoods, let ix = index">
+            <p>{{todayFood.name}}</p>
+            <p>{{todayFood.calories}} Kcal</p>
+            <figure>
+                <img [src]="todayFood.image">
+            </figure>
+        </li>
+    </ul>
+    <p>Total kcal: {{totalCalories}}</p>
+</div>
