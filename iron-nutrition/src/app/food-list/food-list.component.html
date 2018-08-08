@@ -1,0 +1,14 @@
+<p>
+  food-list works!
+</p>
+
+<h2>IT 1 | Display foods</h2>
+<ul>
+  <li *ngFor = "let food of foods">
+    <img src="{{food.image}}">
+    <p>name:{{food.name}}</p>
+    <p>calories:{{food.calories}}</p>
+  </li>
+</ul>
+
+<button (click)="addFood()">Submit New Food</button>
