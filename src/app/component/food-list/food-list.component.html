@@ -1,0 +1,36 @@
+<div class="container">
+
+    <button class="add-food-button" (click)="showForm()">Add New Food</button>
+
+    <h1>Iteration 2: Add food form</h1>
+
+    <div  *ngIf="visibleForm" class="food-form">
+      <h3>Add your food!</h3>
+      <label for="food-image"></label>
+      <input placeholder="Image" type="text" [(ngModel)]="newFood.image">
+    
+      <label for="food-name"></label>
+      <input  placeholder="Name" type="text" [(ngModel)]="newFood.name">
+  
+      <label for="food-calories"></label>
+      <input placeholder="Calories" type="text" [(ngModel)]="newFood.calories">
+  
+      <button class="add-food-button" (click)="addFood()">Add New Food</button>
+    </div>
+
+    <h3>Iteration 3: Today's foods</h3>
+
+  
+  <h1>Iteration 1: List all foods</h1>
+
+  <div class="cards-container">
+    
+    <div class="card" *ngFor="let item of foods">
+      <img [src]="item.image" class="card-image">
+      <h3>{{item.name}}</h3>
+      <p>{{item.calories}}</p>
+    </div>
+
+  </div>
+
+</div>

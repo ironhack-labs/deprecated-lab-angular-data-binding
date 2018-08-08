@@ -1,86 +1,27 @@
-![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
+# LabAngularDataBinding
 
-# Angular | IronNutrition
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
-## Introduction
+## Development server
 
-At this point in the course, some of us may be reminiscing about times before the course, when we used to work out and we were fit and in shape.  Surprising as it may be, spending many hours each day sitting in front of the computer is not an effective way to attain, and maintain, a rock-hard physique.  
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Our solution: A nutrition app. 
+## Code scaffolding
 
-And it's your job to build it. 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_0e106e84e22155f1d2775e37cd4aa865.gif)
+## Build
 
-## Requirements
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-- [Fork this repo](https://guides.github.com/activities/forking/)
-- Clone this repo into your `~/code/labs`
-- You must use at least 1 of each of the following:
-  - `component`
-  - `pipe`
-  - `ngFor`
-  - `ngIf`
-  - `ngModel`
+## Running unit tests
 
-In the starter code, we've provided a list of foods in the form of a TypeScript array of objects. This has already been imported into the foods-list component provided to you.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Submission
+## Running end-to-end tests
 
-Upon completion, run the following commands
-```
-$ git add .
-$ git commit -m "done"
-$ git push origin master
-```
-Navigate to your repo and create a pull request from your master branch to the original repository master branch.
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-In the pull request name, add your name and last names separated by a dash "-"
+## Further help
 
-## Instructions
-
-### Iteration 1 | Display Foods
-
-In the `app-food-list` component, display a list of the foods. This should include the food's image, its name, and its calorie count.
-
-Notice, we've already imported an array of objects containing food into the component.
-
-**Make sure the image's src property is properly bound** so that any time the value is changed in the TypeScript class, the change is reflected in the DOM.  
-
-### Iteration 2 | Search Foods
-
-Create an input box to search through the foods by name.
-
-You're going to need to generate a custom *pipe* to do this. Reference the example from the lesson on pipes, as it will be very similar.
-
-### Iteration 3 | Add New Foods
-
-Create a button to add new foods.
-
-When a user clicks the button, a form will appear with fields for a name, number of calories, and an image.
-
-When the user clicks submit, the food will be added to the list.
-
-The form should disappear when the user clicks the submit button.  
-
-### Iteration 4 | Today's Foods List
-
-Create a button next to each item. When a user clicks the button, the corresponding food should be added to a special list of foods which are "today's foods".
-
-Somewhere on the page, display a list of today's foods, with a total calorie count.
-
-### Bonus | Quantities
-
-In addition to the "Add to today's list" button, create an input for quantity. Whenever a user enters a number into the input, you should add that many of the item to their list.
-
-The default quanitity should be 1.
-
-**Super Bonus**
-
-If the user has added more than one item of the same type to their list, don't display it twice. Instead, display the item's name, and the number of times it has been added.
-
-For instance:
-
-- `Banana x2`
-- `Salmon x5`
-- `Cake`
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
