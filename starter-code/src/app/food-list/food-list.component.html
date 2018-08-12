@@ -29,17 +29,34 @@
   </div>
 </div>
 
-<div *ngFor="let food of foodsList | filter:'name':pattern; let i = index">
+<div class="main_container">
+  <div class="allFoods_container">
+    <div class="foodItem_container" *ngFor="let food of foodsList | filter:'name':pattern; let i = index">
+      <div class="food_image">
+        <img src="{{food.image}}">
+      </div>
+
+      <div class="foodInfo_container">
+        <span>
+          <h3>{{food.name}}</h3>
+        </span>
+        <span>
+          <p>{{food.calories}}</p>
+        </span>
+        <div>
+          <button>+</button>
+          <input type="number" value="1">
+        </div>
+      </div>
+    </div>
+  </div>
   <div>
-    <img src="{{food.image}}">
+    <span>
+      <h2>Today Food's</h2>
+    </span>
+    <span>
+      <h3>0 cal</h3>
+    </span>
   </div>
 
-  <div>
-    <span>
-      <h3>{{food.name}}</h3>
-    </span>
-    <span>
-      <p>{{food.calories}}</p>
-    </span>
-  </div>
 </div>
