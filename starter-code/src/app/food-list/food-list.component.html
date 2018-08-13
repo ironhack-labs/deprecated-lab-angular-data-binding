@@ -1,3 +1,73 @@
-<p>
-  food-list works!
-</p>
+<div class="search_container">
+  <label for="food_name"> Search </label>
+  <input id="food_name" placeholder="food name" type="text" [(ngModel)]="pattern">
+</div>
+
+<div class="newFood_button_container">
+  <div>
+    <button (click)="addNewFoodForm()">Add New Food</button>
+  </div>
+</div>
+
+<div class="addFood_container" *ngIf="display === 'true'">
+  <div>
+    <label for="food_name"> Food Name </label>
+    <input placeholder="food name" type="text" #foodName>
+  </div>
+  <div>
+    <label for="food_calories"> Calories </label>
+    <input placeholder="calories" type="text" #foodCalories>
+  </div>
+  <div>
+    <label for="food_image"> Image </label>
+    <input placeholder="image url" type="text" #foodImage>
+  </div>
+  <div>
+    <button (click)="addFoodItem(foodName.value, foodCalories.value, foodImage.value); foodName.value=''; foodCalories.value=''; foodImage.value=''">
+      Add Food
+    </button>
+  </div>
+</div>
+
+<div class="main_container">
+  <div class="allFoods_container">
+    <div class="foodItem_container" *ngFor="let food of foodsList | filter:'name':pattern; let i = index">
+      <div class="food_image">
+        <img src="{{food.image}}">
+      </div>
+
+      <div class="foodInfo_container">
+        <div class="foodDetails_container">
+          <span>
+            <h3>{{food.name}}</h3>
+          </span>
+          <span>
+            <p>{{food.calories}}</p>
+          </span>
+        </div>
+        <div>
+          <button (click)="addToList(food.name, food.calories, foodQuantity.value); foodQuantity.value=1">+</button>
+          <input type="number" value="1" #foodQuantity>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <span>
+      <h2>Today's Foods</h2>
+    </span>
+    <span>
+      <h3> {{totalCalories}} cal</h3>
+    </span>
+    <div *ngFor="let item of foodsList">
+      <ul>
+        <li *ngIf="item.quantity == 1">{{item.name}} {{item.calories}}</li>
+        <li *ngIf="item.quantity > 1">{{item.name}} {{item.calories}} x{{item.quantity}}</li>
+        <!-- <li *ngIf="item.quantity > 1" > x{{item.quantity}}</li> -->
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- *ngIf="todayDisplay === 'true'" -->
