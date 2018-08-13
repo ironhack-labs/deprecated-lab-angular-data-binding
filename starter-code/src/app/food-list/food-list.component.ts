@@ -7,10 +7,12 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foodsList: Object[];
+  foodsList: any;
   pattern: string;
   display: string;
-
+  // objIndex: number;
+  // newQuantity: number;
+  totalCalories: number = 0;
   constructor() { }
 
   ngOnInit() {
@@ -24,5 +26,14 @@ export class FoodListComponent implements OnInit {
   addFoodItem(name, calories, image) {
     this.foodsList.push({name: name, calories: calories, image: image});
     this.display = 'false';
+  }
+
+  addToList(name, calories, quantity){
+    let objIndex = this.foodsList.findIndex((obj => obj.name == name));
+    let newQuantity = Number(this.foodsList[objIndex].quantity) + Number(quantity);
+    this.foodsList[objIndex].quantity = newQuantity;
+    
+    let cals = newQuantity * Number(this.foodsList[objIndex].calories);
+    this.totalCalories += cals
   }
 }
