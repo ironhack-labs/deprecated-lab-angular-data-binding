@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import foods, {foodInterface} from '../foods';
+import foods, { foodInterface } from '../foods';
 
 @Component({
   selector: 'app-food-list',
@@ -11,6 +11,8 @@ export class FoodListComponent implements OnInit {
   pattern: string;
   form: Boolean;
   newFood: foodInterface;
+  menu: foodInterface[];
+  totalCal: Number;
 
   constructor() { }
 
@@ -18,7 +20,9 @@ export class FoodListComponent implements OnInit {
     this.foodArr = foods;
     this.pattern = '';
     this.form = false;
-    this.newFood = { name: '', calories: 0, image: '', quantity: 0 }
+    this.newFood = { name: '', calories: 0, image: '', quantity: 0 };
+    this.menu = [];
+    this.totalCal = 0;
   }
 
   toogleForm() {
@@ -32,5 +36,10 @@ export class FoodListComponent implements OnInit {
       this.toogleForm();
       this.newFood = { name: '', calories: 0, image: '', quantity: 0 };
     }
+  }
+
+  addToMenu(foodItem) {
+    this.menu.push(foodItem);
+    this.totalCal += foodItem.calories;
   }
 }

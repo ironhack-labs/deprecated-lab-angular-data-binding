@@ -23,12 +23,19 @@
     </div>
     <button (click)="addFoodItem()">Add Food</button>
   </div>
+
+  <div class="top-section">
+    <h3>Menu's Calories : {{totalCal}}</h3>
+    <ul *ngFor="let food of menu">
+      <li>{{food.name}}</li>
+    </ul>
+  </div>
 </section>
 
 <div>
   <div class="food" *ngFor="let food of foodArr | filter:'name':pattern;">
     <img src="{{food.image}}" alt="{{food.name}} picture">
-    <h3>{{food.name}}</h3>
+    <h3>{{food.name}} <button (click)="addToMenu(food)">Eat</button></h3>
     <p>{{food.calories}} cal</p>
   </div>
 </div>
