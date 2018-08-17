@@ -6,4 +6,10 @@ img {
 .food {
   display: inline-block;
   margin: 0.2%;
+  text-align: center;
+}
+
+.top-section {
+  display: inline-block;
+  margin: 5%;
 }
