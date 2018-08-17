@@ -1,3 +1,41 @@
-<p>
-  food-list works!
-</p>
+<section>
+  <div class="top-section">
+    <label for="food_name"> Search: </label>
+    <input type="text" [(ngModel)]="pattern" placeholder="Food Name">
+  </div>
+  
+  <div class="top-section">
+    <button *ngIf="!form"(click)="toogleForm()">Add New Food</button><br><br>
+  </div>
+  
+  <div class="top-section" *ngIf="form">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="newFood.name">
+    </div>
+    <div>
+      <label for="calories">Calories</label>
+      <input type="text" [(ngModel)]="newFood.calories">
+    </div>
+    <div>
+      <label for="image">Image</label>
+      <input type="text" [(ngModel)]="newFood.image">
+    </div>
+    <button (click)="addFoodItem()">Add Food</button>
+  </div>
+
+  <div class="top-section">
+    <h3>Menu's Calories : {{totalCal}}</h3>
+    <ul *ngFor="let food of menu">
+      <li>{{food.name}}</li>
+    </ul>
+  </div>
+</section>
+
+<div>
+  <div class="food" *ngFor="let food of foodArr | filter:'name':pattern;">
+    <img src="{{food.image}}" alt="{{food.name}} picture">
+    <h3>{{food.name}} <button (click)="addToMenu(food)">Eat</button></h3>
+    <p>{{food.calories}} cal</p>
+  </div>
+</div>

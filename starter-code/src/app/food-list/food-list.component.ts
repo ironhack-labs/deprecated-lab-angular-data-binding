@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import foods from '../foods';
+import foods, { foodInterface } from '../foods';
 
 @Component({
   selector: 'app-food-list',
@@ -7,10 +7,39 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  foodArr: foodInterface[];
+  pattern: string;
+  form: Boolean;
+  newFood: foodInterface;
+  menu: foodInterface[];
+  totalCal: Number;
 
   constructor() { }
 
   ngOnInit() {
+    this.foodArr = foods;
+    this.pattern = '';
+    this.form = false;
+    this.newFood = { name: '', calories: 0, image: '', quantity: 0 };
+    this.menu = [];
+    this.totalCal = 0;
   }
 
+  toogleForm() {
+    return (this.form ? this.form = false: this.form = true);
+  }
+
+  addFoodItem() {
+    const { name, calories, image, quantity } = this.newFood;
+    if(name !== '' && image !== '') {
+      this.foodArr.push(this.newFood);
+      this.toogleForm();
+      this.newFood = { name: '', calories: 0, image: '', quantity: 0 };
+    }
+  }
+
+  addToMenu(foodItem) {
+    this.menu.push(foodItem);
+    this.totalCal += foodItem.calories;
+  }
 }
