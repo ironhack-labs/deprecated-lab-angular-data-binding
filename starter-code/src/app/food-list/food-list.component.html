@@ -1,3 +1,19 @@
 <p>
-  food-list works!
+  IronNutrition 
 </p>
+
+<div class="form-container">
+    <label for="food-form"> Search a food: </label>
+    <input id="food-form" placeholder="enter a food" type="text">
+  </div>
+  
+
+<div class="food-list">
+    <div class="food-item" *ngFor="let f of foods  | foodSearch:'name':pattern">
+      <div class="food-img">
+        <img [src]="f.image" alt="" height="300px" width="300px">
+      </div>
+      <h3>{{f.name}}</h3>
+      <h4>Calorie count: {{f.calories}}</h4>
+    </div>
+  </div>
