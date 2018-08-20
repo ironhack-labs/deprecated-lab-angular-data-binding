@@ -1,3 +1,45 @@
-<p>
-  food-list works!
-</p>
+<div class="form-container" *ngIf="showForm">
+    <label for="foodName"> Food Name: </label>
+    <input placeholder="Enter the food name" type="text" [(ngModel)]="newFood.name">
+    <br>
+    <label for="foodCalories"> Calorie Count: </label>
+    <input placeholder="Enter the calorie count" type="text" [(ngModel)]="newFood.calories">
+    <br>
+    <label for="foodImg"> Image: </label>
+    <input placeholder="Enter the image" type="text" [(ngModel)]="newFood.image">
+    <br>
+    <button (click)="submitFood()">Submit New Food</button>
+  </div>
+  
+  <div class="addFood-button-container" *ngIf="!showForm">
+    <button (click)="addFood()">Add food</button>
+  </div>
+  
+  <div class="form-container">
+    <label for="food-form"> Search a food: </label>
+    <input id="food-form" placeholder="enter a food" type="text" [(ngModel)]="pattern">
+  </div>
+  <div class="todays-food-list-container" *ngIf="showTodaysFoods">
+    <div class="total-calorie-count-container">
+      <h4>Total Calorie Count: {{todaysFCalorieCount}}</h4>
+    </div>
+    <div class="todays-food-list-item" *ngFor="let tf of todaysFoods">
+      <div class="food-img-container">
+        <img [src]="tf.image" alt="">
+      </div>
+      <h2>{{tf.name}}</h2>
+      <h4>Calorie count: {{tf.calories}}</h4>
+    </div>
+  </div>
+  <div class="food-list-container">
+    <div class="food-item" *ngFor="let f of foods | foodSearch:'name':pattern, let i = index">
+      <div class="food-img-container">
+        <img [src]="f.image" alt="">
+      </div>
+      <h2>{{f.name}}</h2>
+      <h4>Calorie count: {{f.calories}}</h4>
+      <button (click)="addToTodaysList(f, quantity.value)">Add to Today's list</button>
+      <label for="quantity"> Quantity: </label>
+      <input placeholder="1" #quantity type="number" value="1">
+    </div>
+  </div>
