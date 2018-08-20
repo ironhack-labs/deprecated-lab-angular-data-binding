@@ -13,6 +13,6 @@ export class SearchFood implements PipeTransform {
       return items;
     }
     const myPattern = new RegExp(value, 'i');
-    return items.filter(it => it[field].match(myPattern));
+    return items.filter(item => item[field].match(myPattern));
   }
 }
