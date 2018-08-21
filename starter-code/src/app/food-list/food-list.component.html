@@ -48,7 +48,7 @@
   <div *ngIf="todayList.length >= 1">
       <h2>Today's Food</h2>
 
-      <ul >
+      <ul>
         <li *ngFor="let food of todayList">
           <h4>{{food.name | uppercase}}</h4>
           <div>Calories: {{food.calories}}</div>
