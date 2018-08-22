@@ -1,3 +1,93 @@
-<p>
-  food-list works!
-</p>
+<!DOCTYPE html>
+<div id="ironFoods">
+    
+    <!-- THIS SHOW A SEARCH INPUT WITH A BUTTON -->
+    <div id="srchForm">
+        <label for="srch">Search:&nbsp;&nbsp;</label>
+        <!-- INPUT TO SEARCH -->
+            <input 
+              class="inputS" 
+              type="search" 
+              id="srch" 
+              name="srch"
+              (keyup)="recordAllTheKeyStrokes($event)" 
+              [disabled]="isInputDisabled"
+              [ngClass]="{ bordered: color }"
+              [(ngModel)]="pattern"
+            >  <!-- // 'bordered' is a css class and 'color' is a variable. --><!-- // name="srch" => THIS IS REQUIRED IN THE INPUT WHEN I NEED TO USE THE 'ngModel' -->
+            <label class="key" for="srch">&nbsp;[&nbsp;{{key}}&nbsp;]&nbsp;</label> <!-- -->
+            <!-- [(ngModel)]="sechWrd" <label class="word" for="" style="margin-left: 80px;">{{sechWrd}}</label> -->
+            <br/>
+            <!-- BUTTON TO SEARCH -->
+          <button 
+          type="" 
+          [ngClass]="{ bordered: color }"
+          (click)="toggleInput(); changeBorder()" 
+          [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
+          >{{add}}</button>
+    </div>
+<!-- baja -->
+        <!-- FORM TO ADD -->
+          <div *ngIf="!isActive" id="add">
+              <label for="">Name</label>
+              <input class="inputS" type="text" name="name" [(ngModel)]="newFood.name"  ><br>
+              <label for="">Number of Calories</label>
+              <input class="inputS" type="number" name="calories" [(ngModel)]="newFood.calories" ><br>
+              <label> Quantity </label>
+              <input class="inputS" type="number" name="quantity" [(ngModel)]="newFood.quantity"> <br>
+              <label for="">Image</label>
+              <input class="inputS" type="text"><br>
+        <!-- BUTTON TO ADD -->
+              <button 
+                type="submit" 
+                [ngClass]="{ bordered: color }"
+                (click)="toggleInput(); changeBorder(); addItem()"
+                [style.backgroundColor]="isActive ? 'rgb(202, 199, 199)' : 'rgb(88, 180, 241)'"
+              >Add</button>
+            
+          </div>
+
+    
+
+    <!-- THIS SHOW A LIST OF FOODS -->
+    <div id="listFoods">
+      <h4>List of Foods:</h4>
+          <ul>
+            <li *ngFor="let i of foodsArr | search:'name':pattern; let j = index">
+              <p>{{i.name}}</p>
+              <span>Calories: {{i.calories}}</span><br/>
+              <label for="">Quantity:</label>
+              <input 
+                name=""
+                type="number"   
+                value="{{i.quantity}}"
+                #qty
+                />
+              <img [src]="i.image" alt="{{i.name}}"><br>
+              <!-- BUTTON TO ADD -->
+              <button 
+                [ngClass]="{ bordered: color }"
+                (click)="addItemToList(i, qty.value)"
+                [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
+              >Add</button>
+            </li>
+          </ul>
+      </div>
+
+      <!-- THIS SHOW A LIST OF TODAY-FOOD -->
+      <div id="todayFoods">
+          <h4>Today Foods:</h4>
+          <span id="tC">Total Calories: [ {{tCal}} ]</span>
+          <ul>
+            <li *ngFor="let i of todayFoods">
+              <p>{{i.name}}</p>
+              <span>Calories: {{i.calories}}</span><br/>
+              <label for="">Quantity: {{i.quantity}}</label>
+              <img [src]="i.image" alt="{{i.name}}"><br>
+              
+              
+            </li>
+          </ul>
+      </div>
+</div>
+<!--  -->
