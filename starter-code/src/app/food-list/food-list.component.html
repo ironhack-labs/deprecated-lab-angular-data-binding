@@ -1,3 +1,61 @@
-<p>
-  food-list works!
-</p>
+<!DOCTYPE html>
+
+<div class="inputContainer">
+  <label for="things_name"> Search: </label>
+  <input id="things_name" type="text" [(ngModel)]="pattern">
+</div>
+
+<div>
+    <ul>
+      <li *ngFor="let food of foodArray | filter:'name':pattern; let i = index">
+        <h4>{{food.name | uppercase}}</h4>
+        <div>Calories: {{food.calories}}</div>
+        <img [src]="food.image"/>
+        <div>Quantity: {{food.quantity}}</div>
+        <button (click)="addFoodToList(food, QuantityInput.value)">Add to today's food</button> <br/>
+        <label>Quantity</label> <br/>
+        <input type="number" value="1" #QuantityInput>
+      </li>
+    </ul>
+</div>
+
+<button (click)="toggleForm()" class="Addbtn"> Add new food </button>
+
+<div  *ngIf="status === true" class="container">
+    <div>
+    <label> Name </label>
+    <input type="text" [(ngModel)]="newThing.name">
+    </div>
+  
+    <div>
+      <label> Calories </label>
+      <input type="number" [(ngModel)]="newThing.calories">
+    </div>
+  
+    <div>
+      <label> Image Link </label>
+      <input type="text" [(ngModel)]="newThing.image">
+    </div>
+  
+    <div>
+      <label> Quantity </label>
+      <input type="number" [(ngModel)]="newThing.quantity">
+    </div>
+  
+    <button (click)="addItem(); toggleForm()"> add  </button>
+  </div>
+
+  <div *ngIf="todayList.length >= 1">
+      <h2>Today's Food</h2>
+
+      <ul>
+        <li *ngFor="let food of todayList">
+          <h4>{{food.name | uppercase}}</h4>
+          <div>Calories: {{food.calories}}</div>
+          <img [src]="food.image"/>
+          <div>Quantity: {{food.quantity}}</div>
+        </li>
+      </ul>
+
+      <h4>Total calories: {{todayCalories}}</h4>
+  </div>
