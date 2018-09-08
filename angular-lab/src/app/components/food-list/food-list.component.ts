@@ -3,9 +3,8 @@ import foods from '../../shared/data/foods.data';
 
 @Component({
   selector: 'app-food-list',
-  templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css']
+  templateUrl: './food-list.component.html'
 })
 export class FoodListComponent {
-
+  foods = foods;
 }

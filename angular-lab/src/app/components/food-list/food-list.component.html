@@ -1,0 +1,21 @@
+<main class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"><i class="far fa-search"></i>
+      </span>
+    </div>
+    <input type="text" class="form-control" placeholder="Search food">
+  </div>
+  
+  
+  <section class="row mt-5">
+    <article class="card col-4" *ngFor="let food of foods">
+      <img class="card-img-top" [src]="food.image" [alt]="food.name">
+      <div class="card-body">
+        <h3 class="card-title">{{food.name}}</h3>
+        <p class="card-text">Quantity: {{ food.quantity }}</p>
+        <p class="card-text">Calories: {{ food.calories }}</p>
+      </div>
+    </article>
+  </section>
+</main>
