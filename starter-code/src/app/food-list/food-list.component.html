@@ -1,3 +1,12 @@
-<p>
-  food-list works!
-</p>
+<h1>My food list </h1>
+<h3> Date: {{ today | date:'dd/MM/yyyy' }} </h3>
+
+<input placeholder="Search by food name" type="text" name="searchPattern" [(ngModel)]="searchPattern">
+
+<div *ngFor="let food of foods | finderPipe:searchPattern">
+  <div class="food">
+      <img [src]="food.image">
+      <p>{{ food.name | uppercase }}</p>
+      <p>{{ food.calories }} calories</p>
+  </div>
+</div>
