@@ -23,11 +23,12 @@
         </ul>
         <p>Total intake: {{ todaysFoodIntake }}</p>
     </div>
-
+<hr>
     
     <div class="foodsLists">
         <div *ngFor="let food of foods | finderPipe:name">
             <div class="food">
+                <p>Food list:</p>
                 <img [src]="food.image">
                 <p>{{ food.name | uppercase }}</p>
                 <p>{{ food.calories }} calories</p>
