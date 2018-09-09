@@ -11,11 +11,15 @@ export class FoodListComponent{
   today = new Date();
   newFood = {
     name: '',
-    calories: 0,
+    calories: '',
     image: '',
   }
-
+  onClickShowForm = false;
+  
+  
   onClickCreateFood(): void {
-    this.foods.push(this.newFood)
+    this.foods.push(this.newFood);
+    this.onClickShowForm = false;
   }
+
 }

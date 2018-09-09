@@ -2,10 +2,13 @@
 <h3> Date: {{ today | date:'dd/MM/yyyy' }} </h3>
 
 <input placeholder="Search by food name" type="text" name="name" [(ngModel)]="name">
-<button>Add new food</button>
-<form class="form">
+<button (click)="onClickShowForm = true">Add new food</button>
+<form class="form" *ngIf="onClickShowForm">
+  <p>Image</p>
   <input type="text" placeholder="Food Image Url" name="image" [(ngModel)]="newFood.image">
+  <p>Name</p>
   <input type="text" placeholder="Food name" name="name" [(ngModel)]="newFood.name">
+  <span>Calories</span>
   <input type="text" placeholder="Amount of calories"  name="calories" [(ngModel)]="newFood.calories">
   <button (click)="onClickCreateFood()">Add new food</button>
 </form>
