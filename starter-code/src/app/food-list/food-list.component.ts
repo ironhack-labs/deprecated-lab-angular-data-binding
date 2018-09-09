@@ -15,11 +15,17 @@ export class FoodListComponent{
     image: '',
   }
   onClickShowForm = false;
+
+  todaysFood = [];
   
   
   onClickCreateFood(): void {
     this.foods.push(this.newFood);
     this.onClickShowForm = false;
+  }
+
+  onClickAddFood(food) {
+    this.todaysFood.push(food);
   }
 
 }
