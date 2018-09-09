@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import foods from '../foods';
 
 @Component({
@@ -6,11 +6,28 @@ import foods from '../foods';
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
-export class FoodListComponent implements OnInit {
+export class FoodListComponent{
+  foods: Object[] = foods;
+  today = new Date();
+  newFood = {
+    name: '',
+    calories: '',
+    image: '',
+  }
+  onClickShowForm = false;
 
-  constructor() { }
+  todaysFood = [];
+  todaysFoodIntake: number = 0;
+  
+  
+  onClickCreateFood(): void {
+    this.foods.push(this.newFood);
+    this.onClickShowForm = false;
+  }
 
-  ngOnInit() {
+  onClickAddFood(food) {
+    this.todaysFood.push(food);
+    this.todaysFoodIntake = this.todaysFoodIntake + food.calories;
   }
 
 }

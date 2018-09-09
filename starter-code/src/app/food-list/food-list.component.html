@@ -1,3 +1,43 @@
-<p>
-  food-list works!
-</p>
+<h1>My food list </h1>
+<h3> Date: {{ today | date:'dd/MM/yyyy' }} </h3>
+
+<div class="container">
+    <div class="forms">
+        <input placeholder="Search by food name" type="text" name="name" [(ngModel)]="name">
+        <button (click)="onClickShowForm = true">Add new food</button>
+        <form class="form" *ngIf="onClickShowForm">
+          <p>Image</p>
+          <input type="text" placeholder="Food Image Url" name="image" [(ngModel)]="newFood.image">
+          <p>Name</p>
+          <input type="text" placeholder="Food name" name="name" [(ngModel)]="newFood.name">
+          <span>Calories</span>
+          <input type="text" placeholder="Amount of calories"  name="calories" [(ngModel)]="newFood.calories">
+          <button (click)="onClickCreateFood()">Add new food</button>
+        </form>
+    </div>
+
+    <div class="foodIntake">
+        <p>Today's foods:</p>
+        <ul *ngFor="let food of todaysFood">
+          <li>{{food.name}}, {{food.calories}} calories</li>
+        </ul>
+        <p>Total intake: {{ todaysFoodIntake }}</p>
+    </div>
+<hr>
+    
+    <div class="foodsLists">
+        <div *ngFor="let food of foods | finderPipe:name">
+            <div class="food">
+                <p>Food list:</p>
+                <img [src]="food.image">
+                <p>{{ food.name | uppercase }}</p>
+                <p>{{ food.calories }} calories</p>
+                <button (click)="onClickAddFood(food)">Add</button>
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+
