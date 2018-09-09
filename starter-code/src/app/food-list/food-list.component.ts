@@ -9,4 +9,13 @@ import foods from '../foods';
 export class FoodListComponent{
   foods: Object[] = foods;
   today = new Date();
+  newFood = {
+    name: '',
+    calories: 0,
+    image: '',
+  }
+
+  onClickCreateFood(): void {
+    this.foods.push(this.newFood)
+  }
 }

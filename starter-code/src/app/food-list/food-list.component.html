@@ -1,12 +1,21 @@
 <h1>My food list </h1>
 <h3> Date: {{ today | date:'dd/MM/yyyy' }} </h3>
 
-<input placeholder="Search by food name" type="text" name="searchPattern" [(ngModel)]="searchPattern">
+<input placeholder="Search by food name" type="text" name="name" [(ngModel)]="name">
+<button>Add new food</button>
+<form class="form">
+  <input type="text" placeholder="Food Image Url" name="image" [(ngModel)]="newFood.image">
+  <input type="text" placeholder="Food name" name="name" [(ngModel)]="newFood.name">
+  <input type="text" placeholder="Amount of calories"  name="calories" [(ngModel)]="newFood.calories">
+  <button (click)="onClickCreateFood()">Add new food</button>
+</form>
 
-<div *ngFor="let food of foods | finderPipe:searchPattern">
+<div *ngFor="let food of foods | finderPipe:name">
   <div class="food">
       <img [src]="food.image">
       <p>{{ food.name | uppercase }}</p>
       <p>{{ food.calories }} calories</p>
   </div>
 </div>
+
+
