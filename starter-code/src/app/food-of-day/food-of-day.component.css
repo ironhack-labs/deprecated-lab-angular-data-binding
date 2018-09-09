@@ -1,0 +1,43 @@
+.food-tag {
+    height: 250px;
+    margin: 5px auto;
+    border: 3px dotted gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.food-tag > * {
+    padding: 15px;
+}
+
+.food-tag-image {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.add-food-form-container {
+    border: 1px solid purple;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.add-food-form-label {
+    font-size: 1.2em;
+    margin: 3px;
+}
+
+.todays-foods-container {
+    border: 1px solid purple;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.btn-field {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.btn-custom {
+    margin-top: 10px;
+}

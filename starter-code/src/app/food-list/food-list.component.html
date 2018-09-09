@@ -1,3 +1,21 @@
-<p>
-  food-list works!
-</p>
+<!-- Search form -->
+<div class="container-fluid search-form-container">
+  <form class="search-form">
+    <h3>Find Food:</h3>
+    <input #searchBox (keyup)=filter(searchBox.value) class="form-control" type="search" aria-label="Search">
+  </form>
+</div>
+
+<div class="row">
+  <!-- Food tags -->
+  <div class=" col col-md-12 col-lg-6 col-xl-4" *ngFor="let eachFood of foodService.foodsListVisible">
+    <div class="food-tag">
+      <img class="food-tag-image" [src]=eachFood.image [alt]=eachFood.name>
+      <div class="food-tag-content">
+        <h3>{{eachFood.name}}</h3>
+        <p>Calories count: {{eachFood.calories}}</p>
+        <button (click)="addFoodOfDay(eachFood)" class="btn btn-outline-success">Add to list</button>
+      </div>
+    </div>
+  </div>
+</div>

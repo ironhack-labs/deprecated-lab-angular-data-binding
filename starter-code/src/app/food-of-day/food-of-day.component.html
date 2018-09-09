@@ -1,0 +1,42 @@
+<div class="container">
+
+  <!-- Add Food Form -->
+  <div class="container">
+    <div class="container add-food-form-container">
+      <h3>Add New Food:</h3>
+      <div class="input-field">
+        <label class="add-food-form-label" for="food-name">Name:</label>
+        <input class="form-control mr-sm-2" type="text" #newName>
+      </div>
+      <div class="input-field">
+        <label class="add-food-form-label" for="food-calories">Number of Calories:</label>
+        <input class="form-control mr-sm-2" type="number" #newCalories>
+      </div>
+      <div class="input-field">
+        <label class="add-food-form-label" for="food-image">Image URL:</label>
+        <input class="form-control mr-sm-2" type="text" #newImage>
+      </div>
+      <div class="btn-field">
+        <button class="btn btn-outline-success btn-custom" (click)="addFood(newName, newCalories, newImage)">Create New Food</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Today's foods list -->
+  <div class="container">
+    <div class="container todays-foods-container">
+      <h3>Today's Foods:</h3>
+      <span>(Total Calories: {{foodService.totalCalories | stringifier}})</span>
+      <div class="row">
+        <div class="food-tag" *ngFor="let eachFood of foodService.todaysFoodsList">
+          <img class="food-tag-image" [src]=eachFood.image [alt]=eachFood.name>
+          <div class="food-tag-content">
+            <h3>{{eachFood.name}}</h3>
+            <p>Calories count: {{eachFood.calories}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
