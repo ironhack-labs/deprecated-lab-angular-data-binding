@@ -1,3 +1,15 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
+    </div>
+    <input type="text" class="form-control" placeholder="Search by title..." name="searchPattern" [(ngModel)]="searchPattern">
+  </div>
+  <div class="row">
+    <div *ngFor="let food of foods | foodFinder:searchPattern" class="col-4">
+      <img [src]="food.image" alt="">
+      <h4>{{food.name}}</h4>
+      <p>Calories: {{food.calories}}</p>
+    </div>
+  </div>
+</div>

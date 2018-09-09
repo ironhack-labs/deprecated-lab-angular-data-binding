@@ -1,16 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Food } from '../shared/models/food.model'
 import foods from '../foods';
 
 @Component({
   selector: 'app-food-list',
-  templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css']
+  templateUrl: './food-list.component.html'
 })
-export class FoodListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class FoodListComponent {
+  foods: Array<Food> = foods;
 }

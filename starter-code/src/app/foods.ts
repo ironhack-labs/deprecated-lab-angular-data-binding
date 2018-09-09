@@ -1,4 +1,6 @@
-const foods: Object[] = [
+import { Food } from './shared/models/food.model'
+
+const foods: Array<Food> = [
   {
     name: "Pizza",
     calories: 400,
