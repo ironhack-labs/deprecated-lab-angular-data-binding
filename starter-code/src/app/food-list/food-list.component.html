@@ -12,7 +12,7 @@
           <img [src]="food.image" alt="">
           <h4>{{food.name}}</h4>
           <p>Calories: {{food.calories}}</p>
-          <input type="number" placeholder="quantity" [(ngModel)]="food.quantity">
+          <input type="number"  [(ngModel)]="food.quantity">
           <button (click)="onClickAddFood(food)">Add</button>
         </div>
       </div>
@@ -20,13 +20,13 @@
     <div class="col-4">
       <div class="row">
         <h4>Food for today:</h4>
-        <div>
+        <div class="d-block">
           <ul *ngFor="let selectedFood of selectedFoods">
-            <li>&nbsp;{{selectedFood.name}} x{{selectedFood.quantity}}</li>
+            <li>{{selectedFood.name}} x{{selectedFood.quantity}}</li>
           </ul>
         </div>
         <div>
-          <p>total calories:</p>
+          <h4>total calories: {{totalCalories}}</h4>
         </div>
       </div>
     </div>

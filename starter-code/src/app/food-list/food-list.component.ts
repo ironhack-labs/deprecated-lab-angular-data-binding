@@ -11,7 +11,6 @@ export class FoodListComponent {
   foodToCreate: Food = new Food();
   selectedFoods: Array<Food> = [];
   totalCalories: number = 0;
-
   
   onClickCreateFood(): void {
     this.foods.push(this.foodToCreate);
@@ -20,6 +19,10 @@ export class FoodListComponent {
 
   onClickAddFood(foodItem): void {
     this.selectedFoods.push(foodItem);
+    if (foodItem.quantity == 0) {
+      foodItem.quantity++;
+    }
+    this.totalCalories += (foodItem.calories * foodItem.quantity);
   }
 
 

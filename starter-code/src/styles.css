@@ -3,6 +3,6 @@ img {
     max-width: 100%;
 }
 
-h4 {
+h4, .d-block {
     width: 100%;
 }
