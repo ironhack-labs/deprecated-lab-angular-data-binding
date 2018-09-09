@@ -17,6 +17,7 @@ export class FoodListComponent{
   onClickShowForm = false;
 
   todaysFood = [];
+  todaysFoodIntake: number = 0;
   
   
   onClickCreateFood(): void {
@@ -26,6 +27,7 @@ export class FoodListComponent{
 
   onClickAddFood(food) {
     this.todaysFood.push(food);
+    this.todaysFoodIntake = this.todaysFoodIntake + food.calories;
   }
 
 }
