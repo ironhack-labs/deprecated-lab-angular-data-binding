@@ -1,3 +1,61 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
+    </div>
+    <input type="text" class="form-control" placeholder="Search by title..." name="searchPattern" [(ngModel)]="searchPattern">
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div *ngFor="let food of foods | foodFinder:searchPattern" class="col-6">
+          <img [src]="food.image" alt="">
+          <h4>{{food.name}}</h4>
+          <p>Calories: {{food.calories}}</p>
+          <input type="number"  [(ngModel)]="food.quantity">
+          <button (click)="onClickAddFood(food)">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <h4>Food for today:</h4>
+        <div class="d-block">
+          <ul *ngFor="let selectedFood of selectedFoods">
+            <li>{{selectedFood.name}} x{{selectedFood.quantity}}</li>
+          </ul>
+        </div>
+        <div>
+          <h4>total calories: {{totalCalories}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <form class="col-4">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-tag"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Food name" name="title" [(ngModel)]="foodToCreate.name">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-tag"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Calories" name="summary" [(ngModel)]="foodToCreate.calories"/>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-picture-o"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Poster" name="poster" [(ngModel)]="foodToCreate.image">
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-primary btn-block" (click)="onClickCreateFood()">Add food</button>
+      </div>
+    </form>
+  </div>
+
+</div>
