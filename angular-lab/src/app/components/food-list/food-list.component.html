@@ -4,11 +4,11 @@
       <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>
       </span>
     </div>
-    <input type="text" class="form-control" placeholder="Search food">
+    <input type="text" class="form-control" placeholder="Search food" name="searchFood" [(ngModel)]="searchFood">
   </div>
   
   <section class="row mt-5">
-    <article class="card col-4 mb-4" *ngFor="let food of foods">
+    <article class="card col-4 mb-4" *ngFor="let food of foods | searcher:searchFood">
       <img class="card-img-top" [src]="food.image" [alt]="food.name">
       <div class="card-body">
         <h3 class="card-title">{{food.name}}</h3>
