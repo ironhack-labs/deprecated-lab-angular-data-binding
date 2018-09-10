@@ -8,13 +8,42 @@
   </div>
   
   <section class="row mt-5">
-    <article class="card col-4 mb-4" *ngFor="let food of foods | searcher:searchFood">
-      <img class="card-img-top" [src]="food.image" [alt]="food.name">
-      <div class="card-body">
-        <h3 class="card-title">{{food.name}}</h3>
-        <p class="card-text">Quantity: {{ food.quantity }}</p>
-        <p class="card-text">Calories: {{ food.calories }}</p>
+
+    <div class="col-8">
+      <div class="row">
+        <article class="card col-6 mb-4" *ngFor="let food of foods | searcher:searchFood">
+          <img class="card-img-top" [src]="food.image" [alt]="food.name">
+          <div class="card-body">
+            <h3 class="card-title">{{food.name}}</h3>
+            <p class="card-text">Quantity: {{ food.quantity }}</p>
+            <p class="card-text">Calories: {{ food.calories }}</p>
+          </div>
+        </article>
       </div>
-    </article>
+    </div>
+
+    <div class="col-4">
+      <button class="btn btn-success" (click)="onClickShowForm()">Add new food</button>
+
+      <form *ngIf="showForm" class="mt-3">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Name" name="name" #name>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Calories</label>
+          <input type="text" class="form-control" id="" placeholder="Calories" name="calories" #calories>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Image url</label>
+          <input type="text" class="form-control" id="" placeholder="Image url" name="image" #image>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" (click)="onClickAddFood(name.value, calories.value, image.value)">Add food :)</button>
+      </form>
+      
+
+    </div>
+    
   </section>
 </main>

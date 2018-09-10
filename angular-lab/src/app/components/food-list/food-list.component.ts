@@ -7,4 +7,14 @@ import foods from '../../shared/data/foods.data';
 })
 export class FoodListComponent {
   foods = foods;
+  showForm: boolean = false;
+
+  onClickShowForm(): void {
+    this.showForm = true;
+  }
+
+  onClickAddFood(name, calories, image): void {
+    //Create new Food
+
+  }
 }
