@@ -14,9 +14,11 @@
         <article class="card col-6 mb-4" *ngFor="let food of foods | searcher:searchFood">
           <img class="card-img-top" [src]="food.image" [alt]="food.name">
           <div class="card-body">
-            <h3 class="card-title">{{food.name}}</h3>
-            <p class="card-text">Quantity: {{ food.quantity }}</p>
-            <p class="card-text">Calories: {{ food.calories }}</p>
+            <h3 class="card-title" #name>{{food.name}}</h3>
+            <p class="card-text">Quantity: <span #quantity>{{ food.quantity }}</span></p>
+            <p class="card-text">Calories: <span #calories>{{ food.calories }}</span></p>
+            <a href="#" class="btn btn-primary" (click)="onClickAddToList(name.innerHTML, quantity.innerHTML, calories.innerHTML)"><i class="fa fa-plus"></i>
+            </a>
           </div>
         </article>
       </div>
@@ -39,9 +41,18 @@
           <input type="text" class="form-control" id="" placeholder="Image url" name="image" [(ngModel)]="newFood.image">
         </div>
         
-        <button type="submit" class="btn btn-primary" (click)="onClickAddFood()">Add food <strong>:)</strong></button>
+        <button type="submit" class="btn btn-primary" (click)="onClickAddNew()">Add food <strong>:)</strong></button>
       </form>
+
+
+    <!-- Today's Food List -->
+    <div class="mt-4" *ngIf="showList">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of foodList"> {{ item }}</li>
+      </ul>
+      <p class="mt-2">Total calories: <span>{{ calCounter }}</span></p> 
     </div>
 
+    </div>
   </section>
 </main>
