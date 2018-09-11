@@ -10,10 +10,19 @@ import {Food} from '../shared/food.model'
 export class FoodListComponent implements OnInit {
 
   foods : Array<Food> = foodList;
+  foodToCreate : Food = new Food();
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  onClickCreateFood(): void {
+    this.foods.push(this.foodToCreate)
+    this.foodToCreate = new Food()
+    this.onClickShowForm = false;
+  }
+
+  onClickShowForm = false;
 
 }
