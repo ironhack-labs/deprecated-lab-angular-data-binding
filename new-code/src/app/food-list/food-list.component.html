@@ -1,0 +1,48 @@
+<p>
+  food-list works!
+</p>
+
+<div>
+  <input type="text"  placeholder="Search..." name="searchPattern" [(ngModel)]="searchPattern">
+</div>
+
+<div>
+    <button type="button"  (click)="onClickDisplayForm = true">Add food</button>
+</div>
+
+<div>
+    <form *ngIf='onClickDisplayForm'>
+      <div>
+        <input type="text" placeholder="Name" name="name" [(ngModel)]="foodToCreate.name">
+      </div>
+      <div>
+        <input type="text" placeholder="Calories" name="calories" [(ngModel)]="foodToCreate.calories">
+      </div>
+      <div>
+        <input type="text" placeholder="Image" name="image" [(ngModel)]="foodToCreate.image">
+      </div>
+      <div class="form-actions">
+        <button type="button"  (click)="onClickCreateFood()">Submit</button>
+      </div>
+    </form>
+  </div>
+
+<div *ngFor='let food of foods | foodFinder:searchPattern:searchField'>
+  <img [src]='food.image'>
+  <h3>{{food.name}}</h3>
+  <h4>calories: {{food.calories}}</h4>
+  <form>
+    <input type='number' name='quantity' [(ngModel)]='food.quantity'>
+    <button type='button' (click)='onClickAddTodayList(food)'>Add to today's list</button>
+  </form> 
+</div>
+
+<div>
+  <h1>Today's Food</h1>
+  <h4>Today's calories: {{ todayListCalories }}</h4>
+  <div *ngFor='let food of todayList'>
+    <h3>{{food.name}} x {{food.quantity}} ({{food.calories}} calories x {{food.quantity}} items)</h3>
+  </div>
+</div>
+
+
