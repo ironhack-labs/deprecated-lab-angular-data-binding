@@ -11,7 +11,9 @@ export class FoodListComponent implements OnInit {
 
   foods : Array<Food> = foodList;
   foodToCreate : Food = new Food();
-
+  onClickDisplayForm : boolean = false;
+  todayList : Food[] = []
+  todayListCalories : number = 0;
   constructor() { }
 
   ngOnInit() {
@@ -20,9 +22,12 @@ export class FoodListComponent implements OnInit {
   onClickCreateFood(): void {
     this.foods.push(this.foodToCreate)
     this.foodToCreate = new Food()
-    this.onClickShowForm = false;
+    this.onClickDisplayForm = false;
   }
 
-  onClickShowForm = false;
+  onClickAddTodayList(item: Food): void{
+    this.todayList.push(item)
+    this.todayListCalories += item.calories; 
+  }
 
 }
