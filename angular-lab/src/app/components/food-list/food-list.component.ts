@@ -12,7 +12,7 @@ export class FoodListComponent {
   showForm: boolean = false;
   showList: boolean = false;
   foodList: Array<string> = [];
-  calCounter: number;
+  calCounter: number = 0;
 
   onClickShowForm(): void {
     this.showForm = true;
@@ -32,10 +32,6 @@ export class FoodListComponent {
   onClickAddToList(name: string, quantity: string, calories: string){
     this.showList = true; 
     this.foodList.push(name);
-    this.calCounter = Number(calories);
-
-    for(let i = 0; ){
-
-    }
+    this.calCounter += Number(calories);
   }
 }
