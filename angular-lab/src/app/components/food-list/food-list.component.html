@@ -15,9 +15,11 @@
           <img class="card-img-top" [src]="food.image" [alt]="food.name">
           <div class="card-body">
             <h3 class="card-title" #name>{{food.name}}</h3>
-            <p class="card-text">Quantity: <span #quantity>{{ food.quantity }}</span></p>
-            <p class="card-text">Calories: <span #calories>{{ food.calories }}</span></p>
-            <a href="#" class="btn btn-primary" (click)="onClickAddToList(name.innerHTML, quantity.innerHTML, calories.innerHTML)"><i class="fa fa-plus"></i>
+            <strong class="card-text">Quantity: </strong>
+            <input type="text" class="mb-2" name="foodQuantity" [(ngModel)]="foodQuantity" #quantity>
+            <strong class="card-text">Calories: </strong>
+            <p #calories>{{ food.calories }}</p>
+            <a href="#" class="btn btn-primary" (click)="onClickAddToList(name.innerHTML, quantity.value, calories.innerHTML)"><i class="fa fa-plus"></i>
             </a>
           </div>
         </article>
@@ -48,7 +50,7 @@
     <!-- Today's Food List -->
     <div class="mt-4" *ngIf="showList">
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of foodList"> {{ item }}</li>
+        <li class="list-group-item" *ngFor="let item of foodList"> {{ item[0] }} * {{ item[1] }}  </li>
       </ul>
       <p class="mt-2">Total calories: <span>{{ calCounter }}</span></p> 
     </div>

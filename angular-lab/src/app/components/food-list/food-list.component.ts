@@ -11,8 +11,10 @@ export class FoodListComponent {
   newFood: Meals = new Meals();
   showForm: boolean = false;
   showList: boolean = false;
-  foodList: Array<string> = [];
+  foodList: Array<Array> = [];
   calCounter: number = 0;
+  foodQuantity: number = 1;
+  quantityCounter: number = 0;
 
   onClickShowForm(): void {
     this.showForm = true;
@@ -30,8 +32,9 @@ export class FoodListComponent {
   }
 
   onClickAddToList(name: string, quantity: string, calories: string){
-    this.showList = true; 
-    this.foodList.push(name);
-    this.calCounter += Number(calories);
+    this.showList = true;
+    this.foodQuantity = Number(quantity); 
+    this.foodList.push([name, quantity]);
+    this.calCounter += (Number(calories) * this.foodQuantity);
   }
 }
