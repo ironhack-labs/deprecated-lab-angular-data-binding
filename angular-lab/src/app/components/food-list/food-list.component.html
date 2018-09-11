@@ -1,0 +1,60 @@
+<main class="container">
+  <div class="input-group mb-3 mt-5">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>
+      </span>
+    </div>
+    <input type="text" class="form-control" placeholder="Search food" name="searchFood" [(ngModel)]="searchFood">
+  </div>
+  
+  <section class="row mt-5">
+
+    <div class="col-8">
+      <div class="row">
+        <article class="card col-6 mb-4" *ngFor="let food of foods | searcher:searchFood">
+          <img class="card-img-top" [src]="food.image" [alt]="food.name">
+          <div class="card-body">
+            <h3 class="card-title" #name>{{food.name}}</h3>
+            <strong class="card-text">Quantity: </strong>
+            <input type="text" class="mb-2" name="foodQuantity" [(ngModel)]="foodQuantity" #quantity>
+            <strong class="card-text">Calories: </strong>
+            <p #calories>{{ food.calories }}</p>
+            <a href="#" class="btn btn-primary" (click)="onClickAddToList(name.innerHTML, quantity.value, calories.innerHTML)"><i class="fa fa-plus"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <button class="btn btn-success" (click)="onClickShowForm()">Add new food</button>
+      <!-- New food form -->
+      <form *ngIf="showForm" class="mt-3">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Name" name="name" [(ngModel)]="newFood.name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Calories</label>
+          <input type="text" class="form-control" id="" placeholder="Calories" name="calories" [(ngModel)]="newFood.calories">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Image url</label>
+          <input type="text" class="form-control" id="" placeholder="Image url" name="image" [(ngModel)]="newFood.image">
+        </div>
+        
+        <button type="submit" class="btn btn-primary" (click)="onClickAddNew()">Add food <strong>:)</strong></button>
+      </form>
+
+
+    <!-- Today's Food List -->
+    <div class="mt-4" *ngIf="showList">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of foodList"> {{ item[0] }} * {{ item[1] }}  </li>
+      </ul>
+      <p class="mt-2">Total calories: <span>{{ calCounter }}</span></p> 
+    </div>
+
+    </div>
+  </section>
+</main>
