@@ -1,0 +1,96 @@
+<main class="container-fluid">
+  <div class="input-group mb-3 mt-5">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div>
+    <input type="text" class="form-control" placeholder="Search food" name="searchFood" [(ngModel)]="pattern">
+  </div>
+  
+  <select [(ngModel)]="searchField">
+    <option value="name">name</option>
+    <option value="description">description</option>
+  </select>
+  
+  <p style="color:red;">Static directive - {{searchField}} - <span>{{pattern}}</span></p>
+  <p style="color:red;">Attribute directive - {{searchField}} -  <span [innerHTML]="pattern"></span></p>
+  
+  <div class="mt-4" *ngIf="showList">
+    <span>Total CALORIES: {{totalCalories}}</span>
+    <ul>
+      <li *ngFor="let item of foodOfTheDayArray">{{item.name}} - {{item.calories}} x {{item.quantity}}: {{item.totalCaloriesPerFood}}      
+        <button class="btn btn-danger btn-sm" (click)="deleteItem(item.name)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  
+  <section class="row mt-5">
+    <div class="col-8">
+      <div class="row">
+        <article class="card col-3 mb-4" *ngFor="let food of foods | searcher:pattern:searchField">
+          <img class="card-img-top" [src]="food.image" [alt]="food.name">
+          <div class="card-body">
+            <h4 class="card-title" #name [innerHTML]="food.name"></h4>
+            <p>{{food.description}}</p>
+            <input type="text" name="quantity" #quantity [(ngModel)]="food.quantity">
+            <p style="display:inline;">Calories:</p> <strong #calories> {{food.calories}}</strong>
+            <a href="#" class="btn btn-primary" (click)="onClickAddToList(food)">+</a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-success btn-block" (click)="onClickShowForm()" *ngIf="!showForm;else myElseContent">Add food</button>
+      <ng-template #myElseContent><button class="btn btn-success btn-block" (click)="onClickShowForm()">Hide form</button></ng-template>
+      
+      <div class="wrapper" *ngIf="showForm">
+        <form>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="newFood.name">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Description</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="newFood.description">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Calories</label>
+            <input type="text" class="form-control" name="calories" [(ngModel)]="newFood.calories">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">prueba Image no ngModel(change)</label>
+            <input type="text" class="form-control" #preview (change)="onChangePreviewImage(preview.value)">
+            
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">prueba Image ngmodel</label>
+            <input type="text" class="form-control" name="image" [(ngModel)]="imagePreviewNg">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Image</label>
+            <input type="text" class="form-control" name="image" [(ngModel)]="newFood.image">
+          </div>
+          <button class="btn btn-primary btn-block" (click)="onClickAddFood()">Add food</button>
+        </form>
+        
+        
+        <!-- METODO CHANGE =>  VA AL COMPONENTE Y VUELVE -->
+        <small style="color:red;">VA Y VUELVE DEL COMPONENTE</small>
+        <img [src]="previewImage" alt="" style="width:80px; display:block;">
+        <small [innerHTML]="previewImage" style="display:block;"></small>
+        
+        <!-- CON NGMODEL EN DOS DIRECCIONES -->
+        <small style="color:red;">NG DOS DIRECCIONES(COJE EL VALUE DIRECTAMENTE)</small>
+        <img [src]="imagePreviewNg" alt="" style="width:80px; display:block;">
+        <small [innerHTML]="imagePreviewNg"></small>
+        
+        <!-- SIN NG Y SIN METODO -->
+        <small style="color:red;">SIN NGMODEL Y SIN METODO()</small>
+        <img [src]="newFood.image" alt="" style="width:80px; display:block;">
+        <small [innerHTML]="newFood.image" style="display:block;"></small>
+        
+      </div>
+      
+      
+    </div>
+  </section>
+</main>
