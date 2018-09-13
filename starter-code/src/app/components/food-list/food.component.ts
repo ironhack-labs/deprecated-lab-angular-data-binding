@@ -14,19 +14,13 @@ export class FoodComponent{
   previewImage: string = '';
   showForm: boolean = false;
   
-  foodOfTheDayArray: Object[] = [];
-  foodToAdd: Object = {};
+  todayList: Food[] = [];
   
   showList:boolean= true;
-  caloriesPerFood:number = 0;
-  totalCalories:number = 0;
+  todayListCalories:number = 0;
   
   onChangePreviewImage(image:string):void{
     this.previewImage = image;    
-  }
-  
-  onClickShowForm():void{
-    this.showForm = !this.showForm;
   }
   
   onClickAddFood(): void {
@@ -41,20 +35,24 @@ export class FoodComponent{
     }
   }
   
-  onClickAddToList(food:Object):void{
-    this.foodOfTheDayArray.push(food);
-    this.totalCalories = this.foodOfTheDayArray.reduce((acc:any, curr:any)=>{
-      return (curr.calories * curr.quantity) + acc;
-    }, 0)
-    food = {};
+  onClickDeleteItem(item:Food):void{
+    this.foods.splice(this.foods.indexOf(item), 1);
   }
   
-  deleteItem(name:string):void{
-    this.foodOfTheDayArray = this.foodOfTheDayArray.filter((f)=>{    
-      if (f.name === name) {
-        this.totalCalories-=(f.calories * f.quantity);
-      }
-      return f.name !== name;
-    });
+  onClickAddToList(item:Food):void{
+    this.todayList.push(item);
+    this.todayListCalories += item.calories*item.quantity;
+    item = new Food();
+    
+    // this.todayListCalories = this.todayListCalories.reduce((acc, curr)=>{
+    //   return (curr.calories * curr.quantity) + acc;
+    //   // console.log((curr.calories * curr.quantity) + acc);
+      
+    // }, 0)
+  }
+  
+  deleteItemList(item:Food):void{
+    this.todayList.splice(this.todayList.indexOf(item),1);
+    this.todayListCalories-=(item.calories*item.quantity);
   }
 }

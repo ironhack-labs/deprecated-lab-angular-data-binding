@@ -15,10 +15,10 @@
   <p style="color:red;">Attribute directive - {{searchField}} -  <span [innerHTML]="pattern"></span></p>
   
   <div class="mt-4" *ngIf="showList">
-    <span>Total CALORIES: {{totalCalories}}</span>
+    <span>Total CALORIES: {{todayListCalories}}</span>
     <ul>
-      <li *ngFor="let item of foodOfTheDayArray">{{item.name}} - {{item.calories}} x {{item.quantity}}: {{item.totalCaloriesPerFood}}      
-        <button class="btn btn-danger btn-sm" (click)="deleteItem(item.name)">Delete</button>
+      <li *ngFor="let item of todayList">{{item.name}} - {{item.calories}} x {{item.quantity}}: {{item.totalCaloriesPerFood}}      
+        <button class="btn btn-danger btn-sm" (click)="deleteItemList(item)">Delete</button>
       </li>
     </ul>
   </div>
@@ -29,18 +29,18 @@
         <article class="card col-3 mb-4" *ngFor="let food of foods | searcher:pattern:searchField">
           <img class="card-img-top" [src]="food.image" [alt]="food.name">
           <div class="card-body">
-            <h4 class="card-title" #name [innerHTML]="food.name"></h4>
+            <h4 class="card-title" [innerHTML]="food.name"></h4> <a href="#" style="color:red" (click)="onClickDeleteItem(food)">Delete</a>
             <p>{{food.description}}</p>
-            <input type="text" name="quantity" #quantity [(ngModel)]="food.quantity">
-            <p style="display:inline;">Calories:</p> <strong #calories> {{food.calories}}</strong>
+            <input type="number" name="quantity" [(ngModel)]="food.quantity">
+            <p style="display:inline;">Calories:</p> <strong> {{food.calories}}</strong>
             <a href="#" class="btn btn-primary" (click)="onClickAddToList(food)">+</a>
           </div>
         </article>
       </div>
     </div>
-    <div class="col-4">
-      <button class="btn btn-success btn-block" (click)="onClickShowForm()" *ngIf="!showForm;else myElseContent">Add food</button>
-      <ng-template #myElseContent><button class="btn btn-success btn-block" (click)="onClickShowForm()">Hide form</button></ng-template>
+    <div class="col-4"> 
+      <button class="btn btn-success btn-block" (click)="showForm = !showForm" *ngIf="!showForm;else myElseContent">Add food</button>
+      <ng-template #myElseContent><button class="btn btn-success btn-block" (click)="showForm = !showForm">Hide form</button></ng-template>
       
       <div class="wrapper" *ngIf="showForm">
         <form>
