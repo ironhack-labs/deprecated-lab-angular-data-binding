@@ -9,4 +9,20 @@ import { Food } from '../../models/food.model'
 })
 export class FoodListComponent {
   foodList: Array<Food> = foods;
+  newFood: Food = {
+    name: '',
+    calories: 0,
+    image: '',
+    quantity: 0
+  }
+  newFoodVisible: Boolean = false;
+
+  addNewFoodPressed(): void {
+    this.newFoodVisible = !this.newFoodVisible;
+  }
+
+  addNewFood() {
+    this.foodList.push(this.newFood);
+    
+  }
 }

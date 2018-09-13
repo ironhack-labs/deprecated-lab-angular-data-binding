@@ -1,0 +1,33 @@
+<div class="search-wrapper">
+  <label for="search-field">Search food</label><br>
+  <hr>
+  <input id="search-field" type="text" placeholder="Search">
+</div>
+
+
+<a href="javascript: void(0);" (click)="addNewFoodPressed()" id="add-new-food-a">Add new food</a><br>
+<hr>
+
+<div *ngIf="newFoodVisible" class="search-wrapper">
+  <input id="food-name" type="text" placeholder="Name" [(ngModel)]="newFood.name"><br>
+  <input id="food-calories" type="text" placeholder="Calories" [(ngModel)]="newFood.calories"><br>
+  <input id="food-img" type="text" placeholder="Image URL" [(ngModel)]="newFood.image"><br>  
+  <button (click)="addNewFood()">Add food</button>
+</div>
+
+  <ul class="foods">
+    <li *ngFor="let food of foodList" class="food">
+      <div class="data">
+        <img src="{{food.image}}">
+        <h4>{{food.name}} <small>{{food.calories}}</small></h4>
+        <button (click)="addQuantity(food)">+</button><input type="number" [(ngModel)]="food.quantity">
+      </div>
+    </li>
+  </ul>
+
+  <!-- <div>
+    <p>{{newFood.name}}</p>
+    <p>{{newFood.calories}}</p>
+    <img src="{{newFood.image}}">
+    <p>{{newFood.quantity}}</p>
+  </div> -->
