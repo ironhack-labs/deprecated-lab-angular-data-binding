@@ -1,9 +1,15 @@
 
-.container{
+.container-page{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-h2,h3,h4{
+.content{
+    flex-grow: 2;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+h2,h3,h4,list-food-today{
     display: flex;
     justify-content: center;
 }
@@ -15,11 +21,29 @@ h2,h3,h4{
 }
 img{
     height: 200px;
+    width: 400px;
     padding-right: 20px;
     border-radius: 10%;
 }
 
-.search-container{
+.container-add{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.container-add-inputs{
+    padding-top: 20px;
+}
+.button-add{
+    margin-top: 20px;
+    display: flex;
+    
+}
+
+.list-food{
+    padding-top: 60px;
+}
+
+.list-calories{
     display: flex;
     justify-content: space-around;
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-page">
   <div>
     <div class="container-food" *ngFor="let food of listFood | searchFood : filterWord">
       <img src="{{food.image}}">
@@ -9,28 +9,45 @@
         </div>
         <div>
           <div class="input-group mb-3">
-            <input type="text" [(ngModel)]="food.quantity" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"aria-describedby="button-addon2">
+            <input type="number" [(ngModel)]="food.quantity" class="form-control" placeholder="Quantity" aria-label="Recipient's username"
+              aria-describedby="button-addon2">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add to List</button>
+              <button (click)="addTolist(food)" class="btn btn-outline-secondary" type="button" id="button-addon2">Add
+                to List</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div>
-    <div class="search-container">
-      <div >
-        <h2>Search</h2>
-        <input type="text" [(ngModel)]="filterWord" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-          aria-describedby="button-addon2">
+  <div class="content">
+    <h2>Search</h2>
+    <input type="text" [(ngModel)]="filterWord" class="form-control" placeholder="Search food" aria-label="Recipient's username"
+      aria-describedby="button-addon2">
+
+    <div class="container-add">
+      <button type="button" (click)="mustShowAddFood()" class="btn btn-secondary">Add New Food</button>
+      <div class="container-add-inputs" *ngIf="mustAddFood">
+        <h5>Name</h5>
+        <input type="text" [(ngModel)]="addFood.name" class="form-control" placeholder="Recipient's username"
+          aria-label="Recipient's username" aria-describedby="button-addon2">
+        <h5>Calories</h5>
+        <input type="number" [(ngModel)]="addFood.calories" class="form-control" placeholder="Recipient's username"
+          aria-label="Recipient's username" aria-describedby="button-addon2">
+        <h5>Image</h5>
+        <input type="text" [(ngModel)]="addFood.image" class="form-control" placeholder="Recipient's username"
+          aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button type="button" (click)="newFood()" class="btn float-right button-add btn-success">Add food</button>
       </div>
-      <button type="button" class="btn btn-secondary">Add new Food</button>  
     </div>
-    <div>
-        
+    <div class="list-food">
+      <div class="list-calories">
+        <h2>List Food</h2>
+        <h2>Calories: {{totalCalories}}</h2>
+      </div>
+      <div class="list-food-today" *ngFor="let foodAdded of listFoodAdded">
+        <h4>{{$index}}{{foodAdded}}</h4>
+      </div>
     </div>
-    
-    
   </div>
 </div>
