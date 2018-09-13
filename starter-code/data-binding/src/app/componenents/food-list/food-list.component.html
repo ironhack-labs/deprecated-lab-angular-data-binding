@@ -1,0 +1,9 @@
+<div class="food-container" *ngFor="let food of foods">
+  <p>{{ food.name }}</p>
+  <p>{{ food.calories }}</p>
+  <div class="imgContainer">
+    <img [src]="food.image" alt="">
+  </div>
+  <p>{{ food.quantity }}</p>
+  <hr />
+</div>
