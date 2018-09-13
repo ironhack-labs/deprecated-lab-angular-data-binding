@@ -1,3 +1,26 @@
-<p>
-  food-list works!
-</p>
+
+  <div>
+    <input type="text" [(ngModel)]="newFood.image" placeholder="Image">
+    <input type="text" [(ngModel)]="newFood.name" placeholder="Name">
+    <input type="text" [(ngModel)]="newFood.calories" placeholder="Calories">
+    <input type="text" [(ngModel)]="newFood.quantity" placeholder="Quantity">
+    <button type="button" (click)="addFood()">Add Food</button>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Search..." [(ngModel)]="searchPattern">
+    <select name="" id="" [(ngModel)]="searchField">
+      <option value="name">Name</option>
+      <!-- <option value="calories">Calories</option>
+      <option value="quantity">Quantity</option> -->
+    </select>
+  </div>
+
+  <div *ngFor="let food of foods | foodFinder:searchPattern:searchField">
+      <img class="card-img-top" [src]="food.image" alt="">
+      <div class="card-body">
+        <h2 class="card-title">Name: {{food.name}}</h2>
+        <h2 class="card-title">Calories: {{food.calories}}</h2>
+        <h2 class="card-title">Quantity: {{food.quantity}}</h2>
+      </div>
+  </div>
