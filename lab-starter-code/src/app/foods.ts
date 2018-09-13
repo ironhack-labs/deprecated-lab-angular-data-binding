@@ -1,4 +1,5 @@
-const foods: Object[] = [
+import {FoodModel} from './models/food.model'
+export const foods: Array<FoodModel> = [
     {
       name: "Pizza",
       calories: 400,
@@ -95,6 +96,4 @@ const foods: Object[] = [
       image: "https://i.imgur.com/URhdrAm.png",
       quantity: 0
     }
-  ]
-  
-  export default foods;
+  ];

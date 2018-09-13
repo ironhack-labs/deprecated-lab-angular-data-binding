@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './components/food-list/food-list.component';
-
+import { FormsModule } from '@angular/forms';
+import { SearchFoodPipe } from './pipes/search-food.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    FoodListComponent
+    FoodListComponent,
+    SearchFoodPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
