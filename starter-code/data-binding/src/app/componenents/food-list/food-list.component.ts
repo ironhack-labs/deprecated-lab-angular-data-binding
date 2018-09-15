@@ -9,4 +9,16 @@ import foodData from './../../shared/data/foods.data';
 })
 export class FoodListComponent{
 foods: Array<Food> = foodData;
+createForm: boolean = false;
+newFood: Food = new Food();
+
+onClickCreateForm():void {
+this.createForm = !this.createForm;
+}
+
+onClickCreateFood():void {
+this.foods.push(this.newFood);
+this.newFood = new Food();
+}
+
 }

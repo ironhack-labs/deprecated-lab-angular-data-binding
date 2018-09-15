@@ -5,11 +5,33 @@
 </nav>
 
 <div class="food-container" *ngFor="let food of foods | foodFinder: searchPattern">
-  <p>{{ food.name }}</p>
-  <p>{{ food.calories }}</p>
-  <div class="imgContainer">
-    <img [src]="food.image" alt="">
-  </div>
-  <p>{{ food.quantity }}</p>
-  <hr />
+    <p>{{ food.name }}</p>
+    <p>{{ food.calories }}</p>
+    <div class="imgContainer">
+      <img [src]="food.image" alt="">
+    </div>
+    <p>{{ food.quantity }}</p>
+    <hr />
+</div>
+
+
+<div class="form-actions">
+    <button type="button" class="btn btn-primary btn-block" (click)="onClickCreateForm()">Add new foods to the list</button>
+</div>
+
+<div class="row mt-4" *ngIf="createForm">
+  <form class="col-4" #form>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="newFood.name">
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Calories" name="calories"[(ngModel)]="newFood.calories">
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Image" name="image"[(ngModel)]="newFood.image">
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn btn-primary btn-block" (click)="onClickCreateFood()">Add food</button>
+    </div>
+  </form>
 </div>
