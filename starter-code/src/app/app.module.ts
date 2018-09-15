@@ -1,20 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FoodListComponent } from './food-list/food-list.component';
+import { FoodComponent } from './components/food-list/food.component';
+import { FoodPipe } from './shared/pipes/food.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FoodListComponent,
+    FoodComponent,
+    FoodPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
