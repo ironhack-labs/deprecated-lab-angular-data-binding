@@ -8,4 +8,6 @@ import foods from '../foods';
 })
 export class FoodListComponent  {
   foods: Array<Object> = foods;
+  searchFood: string;
 }
+

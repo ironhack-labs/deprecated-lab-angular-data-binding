@@ -1,7 +1,11 @@
-<div *ngFor="let food of foods" class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{food.image}}" alt="food">
-  <div class="card-body">
-    <h5 class="card-title">{{food.name}}</h5>
-    <p class="card-text">{{food.calories}} Calories</p>
+<div class="container">
+  <input type="text" class="form-control" placeholder="Search food..." name="searchFood" [(ngModel)]="searchFood" style="width:500px">
+
+  <div *ngFor="let food of foods | foodFinder: searchFood" class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{food.image}}" alt="food">
+    <div class="card-body">
+      <h5 class="card-title" name="name">{{food.name}}</h5>
+      <p class="card-text">{{food.calories}} Calories</p>
+    </div>
   </div>
 </div>
