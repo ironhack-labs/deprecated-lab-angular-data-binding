@@ -1,6 +1,8 @@
 <div class="container">
+  <h1>Search food</h1>
   <input type="text" class="form-control" placeholder="Search food..." name="searchFood" [(ngModel)]="searchFood" style="width:500px">
-
+  <br>
+  <h1>Food list</h1>
   <div *ngFor="let food of foods | foodFinder: searchFood" class="card" style="width: 18rem;">
     <img class="card-img-top" src="{{food.image}}" alt="food">
     <div class="card-body">
@@ -8,4 +10,31 @@
       <p class="card-text">{{food.calories}} Calories</p>
     </div>
   </div>
+  <br>
+  <button type="button" (click)="showForm()" class="btn btn-secondary">Add Food</button>
 </div>
+<br>
+<form class="container" *ngIf="showAddForm">
+  <div class="form-group">
+    <label for="foodName">Food Name</label>
+    <input type="text" class="form-control col-md-6" name="name" [(ngModel)]="newFood.name" placeholder="Food name"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="calories">Calories</label>
+    <input type="number" class="form-control col-md-6" name="calories" [(ngModel)]="newFood.calories" placeholder="Calores"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="text" class="form-control col-md-6" name="image" [(ngModel)]="newFood.image" placeholder="Image"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input type="number" class="form-control col-md-6" name="quantity" [(ngModel)]="newFood.quantity" placeholder="Quantity"
+      required>
+  </div>
+
+  <button type="button" (click)="addFood()" class="btn btn-primary">Save</button>
+</form>
