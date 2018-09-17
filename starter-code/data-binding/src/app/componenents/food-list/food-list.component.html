@@ -4,18 +4,37 @@
   </form>
 </nav>
 
-<div class="food-container" *ngFor="let food of foods | foodFinder: searchPattern">
-    <p>{{ food.name }}</p>
-    <p>{{ food.calories }}</p>
-    <div class="imgContainer">
-      <img [src]="food.image" alt="">
+<div class="row">
+  <div class="card col-6" style="width: 18rem;" *ngFor="let food of foods | foodFinder: searchPattern">
+    <img class="card-img-top" [src]="food.image"  alt="food-image">
+    <div class="card-body">
+      <h5 class="card-title">{{ food.name }}</h5>
+      <p class="card-text">{{ food.calories }} {{ food.quantity }}</p>
+      <div class="form-actions">
+          <button type="button" class="btn btn-primary btn-block" (click)="onClickAddTodayFood(food)">Today Food</button>
+      </div>
     </div>
-    <p>{{ food.quantity }}</p>
-    <hr />
+  </div>
 </div>
 
+<hr>
 
-<div class="form-actions">
+<div>
+  <h3>Today's food</h3>
+  <div class="row">
+      <div class="card col-6" style="width: 18rem;" *ngFor="let food of foods | foodFinder: searchPattern">
+        <img class="card-img-top" [src]="food.image"  alt="food-image">
+        <div class="card-body">
+          <h5 class="card-title">{{ food.name }}</h5>
+          <p class="card-text">{{ food.calories }} {{ food.quantity }}</p>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+<div class="form-actions col-4">
     <button type="button" class="btn btn-primary btn-block" (click)="onClickCreateForm()">Add new foods to the list</button>
 </div>
 

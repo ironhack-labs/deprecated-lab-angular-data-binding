@@ -1,6 +1,12 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 img{
     width:100%;
 }
 .imgContainer{
-    width:400px;
+    height:100px;
+}
+h3{
+    margin: 50px;
+    text-align: center;
 }
