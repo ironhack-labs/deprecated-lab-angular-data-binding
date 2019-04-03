@@ -1,0 +1,17 @@
+.food-item-container {
+  width: 100%;
+  margin: 30px;
+}
+
+.food-item-container img {
+  float: left;
+}
+
+span {
+  padding-left: 20px;
+}
+
+span:first-child {
+  font-weight: bold;
+}
+
