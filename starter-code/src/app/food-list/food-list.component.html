@@ -1,5 +1,10 @@
+
+<div class="search-food-container">
+  <label>Search</label>
+  <input type="text" [(ngModel)]="search">
+</div>
 <div class="food-list-container">
-  <div *ngFor="let foodItem of foodList">
+  <div *ngFor="let foodItem of foodList | filter:'name':search">
     <app-food-item
       [foodItem]="foodItem"
       [imagesPath]="imagesPath"></app-food-item>

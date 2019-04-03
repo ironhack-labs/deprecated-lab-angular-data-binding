@@ -11,6 +11,7 @@ export class FoodListComponent implements OnInit {
 
   foodList: Array<FoodItem>;
   imagesPath = '/assets/images/';
+  search: string;
 
   constructor() { }
 
