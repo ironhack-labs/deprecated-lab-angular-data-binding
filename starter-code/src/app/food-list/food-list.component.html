@@ -1,3 +1,7 @@
-<p>
-  food-list works!
-</p>
+<div class="food-list-container">
+  <div *ngFor="let foodItem of foodList">
+    <app-food-item
+      [foodItem]="foodItem"
+      [imagesPath]="imagesPath"></app-food-item>
+  </div>
+</div>
