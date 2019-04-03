@@ -7,10 +7,20 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  listFood: Array<object>
+  image: string;
+  name: string;
+  calories: number;
+  search: string;
 
-  constructor() { }
+  constructor() { 
+    this.listFood = foods;
+    this.search = "";
+  }
+    
 
   ngOnInit() {
+    
   }
 
 }
