@@ -1,9 +1,20 @@
-<h1>
-  Esto es la lista de comida
-</h1>
-<div *ngFor="let food of foods" >
-<h3>Food name:{{food.name}}</h3>
-<img [src]="food.image" height='40px' />
-<p>Calories: {{food.calories}}</p>
-<p>Quantity: {{food.quantity}} </p>
+<h2>
+  Usa nuestra lista de comida
+</h2>
+
+<!-- <input type="text" placeholder="Buscar" > -->
+
+<div>
+  <label for="things_name"> Busqueda de comida </label>
+  <input id="food_name" placeholder="food data" type="text" [(ngModel)]="pattern">
+  <div>
+
+<h3> Comida encontrada </h3>
+
+
+<div *ngFor="let food of foods| filter:'name':pattern">
+  <h3>Food name:{{food.name}}</h3>
+  <img [src]="food.image" height='40px' />
+  <p>Calories: {{food.calories}}</p>
+  <p>Quantity: {{food.quantity}} </p>
 </div>
