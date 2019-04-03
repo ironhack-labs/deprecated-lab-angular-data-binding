@@ -1,3 +1,9 @@
-<p>
-  food-list works!
-</p>
+<input type="text" [(ngModel)]="search"/>
+<div *ngFor="let food of listFood| filter:'name':search">
+  <div>
+    {{food.name}}
+    {{food.calories}}
+    <img [src]="food.image"/>
+  </div>
+</div>
+<button (click)="showForm()">create</button>
