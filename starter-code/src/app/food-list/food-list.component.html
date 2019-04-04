@@ -1,9 +1,24 @@
+<h1>Today Food List</h1>
+<p>Calorias: {{sumCal}}</p>
+<div *ngFor="let food of showFood">
+  <div>
+    {{food.name}}
+    {{food.cal}}
+  </div>
+</div>
 <input type="text" [(ngModel)]="search"/>
 <div *ngFor="let food of listFood| filter:'name':search">
   <div>
     {{food.name}}
     {{food.calories}}
     <img [src]="food.image"/>
+    <button (click)="addList(food)">Añadir a la lista</button>
   </div>
 </div>
 <button (click)="showForm()">create</button>
+<div *ngIf="activeForm">
+  <input type="text" [(ngModel)]='newFood.name' placeholder='name'>
+  <input type="text" [(ngModel)]='newFood.calories' placeholder='calories'>
+  <input type="text" [(ngModel)]='newFood.image' placeholder='url image'>
+  <button (click)="addFood()">Submit your food</button>
+</div>
