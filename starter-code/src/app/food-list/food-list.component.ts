@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
+import { AppFoodComponent } from 'app/app-food/app-food.component';
 
 @Component({
   selector: 'app-food-list',
@@ -7,20 +8,29 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  listFood: Array<object>
+  listFood: Array<object> = foods;
+  search: string = "";
   image: string;
   name: string;
   calories: number;
-  search: string;
+  quantity: number;
+  todaysFoodArray: Array<object> = [];
+  todayFood: object = new AppFoodComponent;
+  sumCal:number;
 
   constructor() { 
-    this.listFood = foods;
-    this.search = "";
+    this.sumCal = 0;
   }
     
 
   ngOnInit() {
-    
   }
+
+  addTodaysFood(food){
+    this.todaysFoodArray.push({name:food.name, cal:food.calories  });
+    this.sumCal += food.calories
+  }
+
+
 
 }

@@ -1,3 +1,11 @@
 img {
     height: 150px;
 }
+
+.leftPosition {
+    max-width: 600px;
+}
+
+.sumClass {
+    display: flex;
+}

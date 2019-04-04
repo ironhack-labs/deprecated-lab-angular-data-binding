@@ -1,9 +1,19 @@
-<input type="text" [(ngModel)]='search'>
+<h2>Your todays food list</h2>
+<h3>Calorías: {{sumCal}}</h3>
 
-<div *ngFor="let food of listFood | filter:'name':search" >
-  <div>
-    <img [src]='food.image'>
-    <h3>{{food.name}}</h3>
-    <h4>{{food.calories}} calories</h4>
-  </div>
+<div *ngFor='let todayFood of todaysFoodArray'>
+  <p>{{todayFood.name}} {{todayFood.cal}} calories</p>
 </div>
+
+<input type="text" [(ngModel)]='search' placeholder='search'>
+
+<div class="leftPosition" *ngFor="let food of listFood | filter:'name':search" >
+    <img [src]='food.image'>
+    <div class="sumClass">
+      <h3>{{food.name}}</h3>
+      <button (click)='addTodaysFood(food)'>+</button>
+    </div>
+    <h4>{{food.calories}} calories</h4>
+</div>
+
+  

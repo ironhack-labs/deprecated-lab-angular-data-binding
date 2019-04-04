@@ -1,0 +1,9 @@
+<button (click)="switchDisplay()">Add Food</button>
+
+
+<div *ngIf='display'>
+  <input type="text" [(ngModel)]='newFood.name' placeholder='name'>
+  <input type="text" [(ngModel)]='newFood.calories' placeholder='calories'>
+  <input type="text" [(ngModel)]='newFood.image' placeholder='url image'>
+  <button (click)="addFood()">Submit your food</button>
+</div>
