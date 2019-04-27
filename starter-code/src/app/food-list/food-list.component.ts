@@ -7,10 +7,37 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  foods: Object[];
+  food: Object = {};
+  foodsToday: Array<Object> = [];
+  visible: boolean;
+  totalCal: number;
 
   constructor() { }
 
   ngOnInit() {
+    this.foods = foods;
+    this.totalCal = 0;
+  }
+
+  showForm(): void {
+    this.visible = true;
+  }
+
+  addFood(): void {
+    if (Object.keys(this.food).length !== 0) {
+      this.foods.push(Object.assign({}, this.food));
+      this.food = {};
+    }
+    this.visible = false;
+  }
+
+  addItem(food): void {
+    if (food.quantity > 0) {
+      this.foodsToday.push(Object.assign({}, food));
+      this.totalCal += (food.calories * food.quantity);
+    }
+    console.log(this.foodsToday);
   }
 
 }
