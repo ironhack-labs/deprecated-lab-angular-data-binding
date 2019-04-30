@@ -1,3 +1,46 @@
-<p>
-  food-list works!
-</p>
+<h1 class="ml-4">List of foods</h1>
+
+<!-- Search bar for foods -->
+<div class="m-4 p-2 form-group">
+  <label for="food_name"> Search foods in database </label>
+  <input id="food_name" placeholder="Search foods" class="form-control" type="text" [(ngModel)]="pattern">
+</div>
+
+<!-- Add foods div -->
+<div class="m-4 p-2">
+  <button name="button" class="btn btn-primary" (click)="showDiv()">Add foods</button>
+
+  <form [ngClass]="{ hidden: isHidden }" class="mt-4 p-1 border rounded" #addFoodsForm>
+    <label for="foodName">Name food</label>
+    <input type="text" name="foodName" value="" class="form-control" #foodName>
+    <label for="foodCalories">Calories food</label>
+    <input type="text" name="foodCalories" value="" class="form-control" #foodCalories>
+    <label for="foodImage">Image URL</label>
+    <input type="text" name="foodImage" value="" class="form-control" #foodImage>
+    <br>
+    <button class="btn btn-success" type="submit" (click)="addFood(foodName.value, foodCalories.value, foodImage.value); addFoodsForm.reset(addFoodsForm.value)">Save food</button>
+  </form>
+</div>
+
+<!-- Display list of foods -->
+<div class="d-flex flex-row justify-content-start m-4 p-2 border rounded" *ngFor="let food of foods | filter:'name':pattern; let i = index">
+    <div class="food-image rounded-circle">
+      <img [src]="food.image" alt="image" class="food-img-size">
+    </div>
+    <div class="ml-4">
+      <h4>{{ food.name }}</h4>
+      <p>Calorie amount: {{ food.calories }}</p>
+      <button class="btn btn-light" (click)="addToDailyList(food)">Add food to daily intake</button>
+    </div>
+</div>
+
+<!-- Display list of daily foods -->
+<h1 class="ml-4">List of daily food intake</h1>
+<div class="ml-4" >
+    <ul>
+      <li *ngFor="let dailyFood of dailyFoods">
+        {{ dailyFood.name }}, {{ dailyFood.calories }}
+      </li>
+    </ul>
+    <p>Daily calories intake:  {{ dailyCaloryIntake }}</p>
+</div>

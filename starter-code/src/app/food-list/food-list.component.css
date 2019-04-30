@@ -1,0 +1,17 @@
+.food-image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+
+}
+
+.food-img-size {
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 100px;
+    width: 100px;
+}
+
+.hidden {
+  display: none;
+}
