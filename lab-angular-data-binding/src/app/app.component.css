@@ -1,0 +1,7 @@
+.container {
+  width: 100vw;
+}
+
+.left-col, .right-col {
+  width: 50vw;
+}
