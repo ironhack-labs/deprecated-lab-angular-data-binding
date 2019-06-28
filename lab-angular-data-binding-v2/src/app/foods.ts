@@ -1,4 +1,6 @@
-const foods: Object[] = [
+import { FoodInterface } from "./food";
+
+const foods: FoodInterface[] = [
   {
     name: "Pizza",
     calories: 400,

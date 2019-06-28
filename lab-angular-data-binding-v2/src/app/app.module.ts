@@ -6,9 +6,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { FoodListComponent } from "./food-list/food-list.component";
 import { FilterPipe } from './filter.pipe';
+import { FoodCardComponent } from './food-card/food-card.component';
 
 @NgModule({
-  declarations: [AppComponent, FoodListComponent, FilterPipe],
+  declarations: [AppComponent, FoodListComponent, FilterPipe, FoodCardComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]

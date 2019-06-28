@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component} from "@angular/core";
 import foods from "../foods";
 import { FoodInterface } from "../food";
 
@@ -16,12 +16,11 @@ class Food implements FoodInterface {
   templateUrl: "./food-list.component.html",
   styleUrls: ["./food-list.component.css"]
 })
-export class FoodListComponent implements OnInit {
-  foodList: array<Food> = foods;
+export class FoodListComponent {
+  foods: Object[];
+  foodList: Array<FoodInterface> = foods.map(el => new Food(el.name, el.calories, el.image))
   showAddForm: boolean = false;
-  newFood: Food = new Food;
-
-  ngOnInit() {}
+  newFood: FoodInterface = new Food("", 0, "")
 
   toggleForm() {
     this.showAddForm = !this.showAddForm;
@@ -29,8 +28,7 @@ export class FoodListComponent implements OnInit {
 
   addFood() {    
     this.foodList = [...this.foodList, this.newFood];
-    this.newFood = {}
-    console.log(this.foodList)
+    this.newFood = new Food("", 0, "")
     this.toggleForm();
   }
 }
