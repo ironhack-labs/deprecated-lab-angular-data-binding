@@ -1,3 +1,50 @@
-<p>
-  food-list works!
-</p>
+<div class="container">
+  <div class="section">
+    <div class="search-bar">
+      <input name="search-input" type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+      <button class="btn" (click)="toggleDisplayForm()">+ Add new food</button>
+    </div>
+
+    <div *ngIf="formVisible" class="new-food-form">
+      <div class="form-field">
+        <label for="new-food-name">Name:</label>
+        <input [(ngModel)]="newFood.name" name="new-food-name" type="text">
+      </div>
+      <div class="form-field">
+        <label for="new-food-calories">Calories:</label>
+        <input [(ngModel)]="newFood.calories" name="new-food-calories" type="number" min="0">
+      </div>
+      <div class="form-field">
+        <label for="new-food-image">Image:</label>
+        <input [(ngModel)]="newFood.image" name="new-food-image" type="text">
+      </div>
+      <div class="form-field">
+        <button (click)="addNewFood()">Add to list</button>
+      </div>
+    </div>
+
+    <ul class="food-list">
+      <li class="food-item" *ngFor="let food of foods | searchFilter : searchTerm">
+        <div class="food-item-image">
+          <img [src]="food.image" [alt]="food.name">
+        </div>
+        <div class="food-item-data">
+          <h3>{{food.name}} <span>{{food.calories}} kcal</span></h3>
+          <div class="add-to-cart">
+            <button class="btn" (click)="addFoodToCart(food)">+</button>
+            <input type="number" [(ngModel)]="food.quantity">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Today's Foods {{foodCart | caloriesSum}} kcal</h2>
+    <ul class="shop-cart-list">
+      <li *ngFor="let food of foodCart">
+        {{food.name}} x{{food.quantity}}
+      </li>
+    </ul>
+  </div>
+</div>
