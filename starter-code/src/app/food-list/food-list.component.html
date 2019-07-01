@@ -1,3 +1,46 @@
-<p>
-  food-list works!
-</p>
+
+<p><input type="checkbox" [(ngModel)]="showForm">Add new food</p> 
+
+<!-- <form *ngif="!showForm"></form> --> 
+
+  <form [hidden]="!showForm"> 
+    <div class="field">
+      <label for="name">Name</label>
+      <input id="name" type="text" [(ngModel)]="newFood.name" name="name">
+    </div>
+    <div class="field">
+      <label for="calories">Calories</label>
+      <input id="calories" [(ngModel)]="newFood.calories" name="calories">    
+    </div>
+    <div class="field">
+      <label for="image">Image</label>
+      <input id="image" [(ngModel)]="newFood.image" name="image">    
+    </div>
+    <button (click)="handleAddClick()">Submit</button>
+  </form>
+
+<ul>
+  <li *ngFor = "let food of foods">
+    <h2>{{food.name}}</h2>
+    <label for="quantity">Quantity</label>
+    <select id="quantity" [(ngModel)]="food.quantity" name="quantity">
+      <option value="">- select one - </option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    
+    <img src = "{{food.image}}" width="300px">
+    <button (click)="handleFavoriteClick(food)">Add to favorite foods</button>
+  </li>
+</ul>
+
+<h1>Todays favorite food</h1>
+<p>Total calories: {{counter}}</p>
+<ul>
+    <li *ngFor = "let food of todaysFood">
+      <h2>{{food.name}}</h2>
+      <p>{{food.calories}}</p>
+      <img src = "{{food.image}}" width="300px">
+    </li>
+  </ul>
