@@ -1,0 +1,26 @@
+<div class="searchBar">
+  <input [(ngModel)]="pattern" type="text">
+  <button class="add" (click)="toggleForm()">Add a Food</button>
+</div>
+
+<div class="addForm" *ngIf="showAddForm">
+  <form>
+    <input [(ngModel)]="newFood.name" name="name" type="text">
+    <input [(ngModel)]="newFood.calories" name="calories" type="number">
+    <input [(ngModel)]="newFood.image" name="image" type="text">
+    <button (click)="addFood()">Submit</button>
+  </form>
+</div>
+
+<div>
+  <ul>
+    <li class="card" *ngFor="let p of foodList | filter : 'name' : pattern">
+      <div class="card-img"><img [src]="p.image" alt=""></div>
+      <div class="info">
+        <h3>{{p.name}}</h3>
+        <p>{{p.calories}} Cal.</p>
+      </div>
+      <input type="number" class="qty" [value]="p.quantity">
+    </li>
+  </ul>
+</div>

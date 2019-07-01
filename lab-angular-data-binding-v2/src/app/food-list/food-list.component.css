@@ -1,0 +1,31 @@
+.card {
+  width: 45vw;
+  height: auto;
+  border: 1px solid #222;
+  margin-top: 3vh;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card>.card-img {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.card>.card-img>img {
+  height: 100px;
+}
+
+.card>.info {
+  margin: 0 3rem;
+}
+
+.card>.qty {
+  align-self: flex-end;
+  margin-left: auto;
+  padding: 0 1rem;
+  width: 2.5rem;
+}
+
