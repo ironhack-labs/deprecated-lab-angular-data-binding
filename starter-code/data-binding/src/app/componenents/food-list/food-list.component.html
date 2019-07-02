@@ -1,0 +1,56 @@
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  name="searchPattern" [(ngModel)]="searchPattern">
+  </form>
+</nav>
+
+<div class="row">
+  <div class="card col-6" style="width: 18rem;" *ngFor="let food of foods | foodFinder: searchPattern">
+    <img class="card-img-top" [src]="food.image"  alt="food-image">
+    <div class="card-body">
+      <h5 class="card-title">{{ food.name }}</h5>
+      <p class="card-text">{{ food.calories }} {{ food.quantity }}</p>
+      <div class="form-actions">
+          <button type="button" class="btn btn-primary btn-block" (click)="onClickAddTodayFood(food)">Today Food</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <h3>Today's food</h3>
+  <div class="row">
+      <div class="card col-6" style="width: 18rem;" *ngFor="let food of foods | foodFinder: searchPattern">
+        <img class="card-img-top" [src]="food.image"  alt="food-image">
+        <div class="card-body">
+          <h5 class="card-title">{{ food.name }}</h5>
+          <p class="card-text">{{ food.calories }} {{ food.quantity }}</p>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+<div class="form-actions col-4">
+    <button type="button" class="btn btn-primary btn-block" (click)="onClickCreateForm()">Add new foods to the list</button>
+</div>
+
+<div class="row mt-4" *ngIf="createForm">
+  <form class="col-4" #form>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="newFood.name">
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Calories" name="calories"[(ngModel)]="newFood.calories">
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Image" name="image"[(ngModel)]="newFood.image">
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn btn-primary btn-block" (click)="onClickCreateFood()">Add food</button>
+    </div>
+  </form>
+</div>
