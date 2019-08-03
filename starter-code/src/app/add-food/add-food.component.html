@@ -1,0 +1,23 @@
+<h2> Add a food Item </h2>
+
+<div class="add-food-item">
+  <label for="name-input"> Food Item Name</label>
+  <input id="name-input" type="text" placeholder="e.g Chicken"
+   [(ngModel)]="newFoodName" />
+  <br>
+
+  <label for="calorie-input"> Calories </label>
+  <input id="calorie-input" type="number" placeholder="e.g 400"
+   [(ngModel)]="newFoodCal" />
+  <br>
+
+  <label for="url-input"> Image URL </label>
+  <input id="url-input" type="text" placeholder="e.g some URL"
+   [(ngModel)]="newFoodURL" />
+  <br>
+
+  <label for="qty-input"> Quantity </label>
+  <input id="qty-input" type="number" placeholder="e.g 3"
+   [(ngModel)]="newFoodQty" />
+  <br>
+</div>
